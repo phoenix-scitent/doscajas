@@ -2,9 +2,9 @@ Meteor.subscribe('boks');
 
 Template.bok.helpers({
   bok: function(){
-    var bok_root = _.select(this.fetch(), function(node){ return node.ancestors.length === 0 })[0];
-    console.log(bok_root);
-    return bok_root;
+    var root = _.select(this.fetch(), function(node){ return node.ancestors.length === 0 })[0];
+
+    return root;
   },
   bok_choy: function() {
     var bokData = this.fetch(); /* return of the data function from the router: [ { ... bokNode ... }, { ... bokNode ...}, ...  ] */
@@ -24,13 +24,16 @@ Template.bok.helpers({
         // function to recursively build the tree
         var findChildren = function (parent) {
           if (hashed_children[parent.children._id]) {
+            parent._id = parent.children._id;
             parent.name = parent.children.name;
-            parent.hashed_children = hashed_children[parent.children._id];
-            _.times(parent.hashed_children.length, function (n) {
-              findChildren(parent.hashed_children[n]);
+            parent.children = hashed_children[parent.children._id];
+            _.times(parent.children.length, function (n) {
+              findChildren(parent.children[n]);
             });
           } else {
+            parent._id = parent.children._id;
             parent.name = parent.children.name;
+            parent.children = [];
           }
         };
 
@@ -40,13 +43,13 @@ Template.bok.helpers({
         });
       }
 
-      return roots;
+      return roots[0].children;
     };
-
-    console.log(bokData);
 
     // May want to set a session variable for use elsewhere?
     // Session.set('currentBok', this)
+
+    console.log(_childrenFormat(bokData))
 
     return _childrenFormat(bokData);
   }

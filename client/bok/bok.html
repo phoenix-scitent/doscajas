@@ -1,9 +1,21 @@
+<template name="choy">
+  <ol class="dd-list">
+    {{# each nodes}}
+      <li class="dd-item" data-id="{{ _id }}" data-name="{{ name }}">
+        <div class="dd-handle">
+          <span class="label label-primary pull-right">{{measure_count}}</span>
+          <span class="label label-info pull-right">{{resource_count}}</span>
+          <span class="label label-info"><i class="fa fa-users"></i></span> {{name}}
+        </div>
+        {{> choy nodes=children }}
+      </li>
+    {{/each}}
+  </ol>
+</template>
+
 <template name="bok">
     <div class="sidebard-panel">
         <div>
-            {{#each bok_choy}}
-              {{name}}
-            {{/each}}
             <h4>Today's Activity <span class="badge badge-info pull-right">245</span></h4>
             <div class="feed-element">
                 <a href="#" class="pull-left">
@@ -96,107 +108,7 @@
                         </p>
 
                         <div class="dd" id="nestable2">
-                            <ol class="dd-list">
-                                <li class="dd-item" data-id="1">
-                                    <div class="dd-handle">
-                                        <span class="label label-info"><i class="fa fa-users"></i></span> Algebra
-                                    </div>
-                                    <ol class="dd-list">
-                                        <li class="dd-item" data-id="2">
-                                            <div class="dd-handle">
-                                                <span class="label label-primary pull-right">15</span>
-                                                <span class="label label-info pull-right">9</span>
-                                                <span class="label label-info"><i class="fa fa-users"></i></span> Single Variable
-                                            </div>
-                                        </li>
-                                        <li class="dd-item" data-id="3">
-                                            <div class="dd-handle">
-                                                <span class="label label-primary pull-right">18</span>
-                                                <span class="label label-info pull-right">4</span>
-                                                <span class="label label-info"><i class="fa fa-users"></i></span> Double Variable
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li class="dd-item" data-id="1">
-                                    <div class="dd-handle">
-                                        <span class="label label-info"><i class="fa fa-users"></i></span> Geometry
-                                    </div>
-                                    <ol class="dd-list">
-                                        <li class="dd-item" data-id="2">
-                                            <div class="dd-handle">
-                                                <span class="label label-primary pull-right">15</span>
-                                                <span class="label label-info pull-right">9</span>
-                                                <span class="label label-info"><i class="fa fa-users"></i></span> Area
-                                            </div>
-                                        </li>
-                                        <li class="dd-item" data-id="3">
-                                            <div class="dd-handle">
-                                                <span class="label label-primary pull-right">18</span>
-                                                <span class="label label-info pull-right">4</span>
-                                                <span class="label label-info"><i class="fa fa-users"></i></span> Circumference
-                                            </div>
-                                        </li>
-                                        <li class="dd-item" data-id="3">
-                                            <div class="dd-handle">
-                                                <span class="label label-primary pull-right">34</span>
-                                                <span class="label label-info pull-right">22</span>
-                                                <span class="label label-info"><i class="fa fa-users"></i></span> Graph Plotting
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li class="dd-item" data-id="1">
-                                    <div class="dd-handle">
-                                        <span class="label label-info"><i class="fa fa-users"></i></span> Calculus
-                                    </div>
-                                    <ol class="dd-list">
-                                        <li class="dd-item" data-id="2">
-                                            <div class="dd-handle">
-                                                <span class="label label-primary pull-right">15</span>
-                                                <span class="label label-info pull-right">9</span>
-                                                <span class="label label-info"><i class="fa fa-users"></i></span> Pre-Calc
-                                            </div>
-                                        </li>
-                                        <li class="dd-item" data-id="3">
-                                            <div class="dd-handle">
-                                                <span class="label label-primary pull-right">18</span>
-                                                <span class="label label-info pull-right">4</span>
-                                                <span class="label label-info"><i class="fa fa-users"></i></span> Limits
-                                            </div>
-                                        </li>
-                                        <li class="dd-item" data-id="3">
-                                            <div class="dd-handle">
-                                                <span class="label label-primary pull-right">34</span>
-                                                <span class="label label-info pull-right">22</span>
-                                                <span class="label label-info"><i class="fa fa-users"></i></span> Differential
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li class="dd-item" data-id="5">
-                                    <div class="dd-handle">
-                                        <span class="label label-warning"><i class="fa fa-chain-broken"></i></span> Overview Course
-                                    </div>
-                                    <ol class="dd-list">
-                                        <li class="dd-item" data-id="6">
-                                            <div class="dd-handle">
-                                                <span class="label label-warning"><i class="fa fa-chain-broken"></i></span> Introductory Pool
-                                            </div>
-                                        </li>
-                                        <li class="dd-item" data-id="7">
-                                            <div class="dd-handle">
-                                                <span class="label label-warning"><i class="fa fa-chain-broken"></i></span> Intermediate Pool
-                                            </div>
-                                        </li>
-                                        <li class="dd-item" data-id="8">
-                                            <div class="dd-handle">
-                                                <span class="label label-warning"><i class="fa fa-chain-broken"></i></span> Advanced Pool
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ol>
+                          {{> choy nodes=bok_choy }}
                         </div>
                         <div class="m-t-md">
                             <h5>Serialised Output</h5>
