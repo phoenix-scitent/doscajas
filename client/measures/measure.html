@@ -1,0 +1,181 @@
+<template name="measure">
+
+
+    <!-- Page heading -->
+    {{> pageHeading title='Create a Measure' category='BOK' }}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="jumbotron">
+                    <h1>Create a Measure</h1>
+                    <p>Add a new measure to the Body of Knowledge.</p>
+                    <p><a href="http://www.jquery-steps.com/GettingStarted" target="_blank" class="btn btn-primary btn-lg" role="button">Learn more</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Measure Creation Wizard</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h2>
+                            Create a new Measure in the Body of Knowledge
+                        </h2>
+
+                        <form id="form" action="#" class="wizard-big">
+                            <h1>Question Setup</h1>
+                            <fieldset>
+                                <h2>Question Setup</h2>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="form-group">
+                                            <label>Question *</label>
+                                            <input id="question_text" name="question_text" type="text" class="form-control required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea id="description" name="description" type="text" class="form-control" rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="text-center">
+                                            <div style="margin-top: 20px">
+                                                <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                            <h1>Resources</h1>
+                            <fieldset>
+                                <h2>Resources &amp; Relationships</h2>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Supporting Resource</label> (choose one)
+                                            <div class="input-group">
+                                                <select data-placeholder="Embed a Resource in the Measure..." class="chosen-select" tabindex="2">
+                                                    <option value="">Select</option>
+                                                    <option value="123">Map of the World</option>
+                                                    <option value="1234">History of Media</option>
+                                                    <option value="125235">Alphabets in Greek</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Linked Resources</label> (any number)
+                                            <div class="input-group">
+                                                <select data-placeholder="Link to a Resource..." class="chosen-select" multiple tabindex="4">
+                                                    <option value="">Select</option>
+                                                    <option value="123" selected>Map of the World</option>
+                                                    <option value="1234">History of Media</option>
+                                                    <option value="125235">Alphabets in Greek</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Tags</label>
+                                            <div class="input-group">
+                                                <select data-placeholder="Add tags in the Body of Knowledge..." multiple class="chosen-select" tabindex="4">
+                                                    <option value="">Select</option>
+                                                    <option value="123" selected>Math</option>
+                                                    <option value="1234" selected>Geometry</option>
+                                                    <option value="125235" selected>Algebra</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <h1>Answers</h1>
+                            <fieldset>
+                                <h2>Answer Choices</h2>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Answer #1</label>
+                                            <textarea id="answer_1" name="answer_1" type="text" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Answer #1 Feedback</label>
+                                            <textarea id="answer_1_feedback" name="answer_1_feedback" type="text" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Answer Points</label>
+                                            <input id="answer_1_points" name="answer_1_points" type="text" class="form-control" value='1'>
+                                        </div>                                        
+                                        <div class="form-group">
+                                            <label>Correct</label>
+                                            <input id="answer_1_correct" name="answer_1_correct" type="checkbox" class="js-switch">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <h1>Options</h1>
+                            <fieldset>
+                                <h2>Options and Meta Info</h2>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Current Owner</label> (choose one)
+                                            <div class="input-group">
+                                                <select data-placeholder="Choose the current owner..." class="chosen-select" style="width:95%" tabindex="2">
+                                                    <option value="">Select</option>
+                                                    <option value="123">Timothy Johnson</option>
+                                                    <option value="1234">Eric Glassman</option>
+                                                    <option value="125235" selected>Will Davis</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Author</label> (any number)
+                                            <div class="input-group">
+                                                <select data-placeholder="Choose the Author..." class="chosen-select" style="width:95%" tabindex="4">
+                                                    <option value="">Select</option>
+                                                    <option value="123">Timothy Johnson</option>
+                                                    <option value="1234">Eric Glassman</option>
+                                                    <option value="125235" selected>Will Davis</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Question Weighting</label>
+                                            <input id="weighting" name="weighting" type="text" class="form-control" value='1'>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Question Difficulty</label>
+                                            <input id="difficulty" name="difficulty" type="text" class="form-control" value='1'>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Question Moderator</label>
+                                            <input id="moderator_email" name="moderator_email" type="text" class="form-control" placeholder='moderator@school.edu'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</template>

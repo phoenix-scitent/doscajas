@@ -1,0 +1,396 @@
+<template name="bok">
+    <div class="sidebard-panel">
+        <div>
+            {{#each bok_choy}}
+              {{name}}
+            {{/each}}
+            <h4>Today's Activity <span class="badge badge-info pull-right">245</span></h4>
+            <div class="feed-element">
+                <a href="#" class="pull-left">
+                    <img alt="image" class="img-circle" src="img/a1.jpg">
+                </a>
+                <div class="media-body">
+                    Completed the Adaptive Quiz with <strong>100%</strong>
+                    <br>
+                    <small class="text-muted">Today 4:21 pm</small>
+                </div>
+            </div>
+            <div class="feed-element">
+                <a href="#" class="pull-left">
+                    <img alt="image" class="img-circle" src="img/a2.jpg">
+                </a>
+                <div class="media-body">
+                    Enrolled in the <strong>Math</strong> course.
+                    <br>
+                    <small class="text-muted">Today 2:45 pm</small>
+                </div>
+            </div>
+            <div class="feed-element">
+                <a href="#" class="pull-left">
+                    <img alt="image" class="img-circle" src="img/a3.jpg">
+                </a>
+                <div class="media-body">
+                    Completed the <strong>Introductory Lesson</strong>.
+                    <br>
+                    <small class="text-muted">Today 1:10 pm</small>
+                </div>
+            </div>
+            <div class="feed-element">
+                <a href="#" class="pull-left">
+                    <img alt="image" class="img-circle" src="img/a4.jpg">
+                </a>
+                <div class="media-body">
+                    Enrolled in the <strong>Math</strong> course.
+                    <br>
+                    <small class="text-muted">Today 8:37 am</small>
+                </div>
+            </div>
+        </div>
+        <div class="m-t-md">
+            <h4>Weekly Statistics</h4>
+            <p>
+                This past week's activity at a glance.
+            </p>
+            <div class="row m-t-sm">
+                <div class="col-md-6">
+                    <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
+                    <h5><strong>169</strong> Enrollments</h5>
+                </div>
+                <div class="col-md-6">
+                    <span class="line">5,3,9,6,5,9,7,3,5,2</span>
+                    <h5><strong>28</strong> Completions</h5>
+                </div>
+            </div>
+        </div>
+        <div class="m-t-md">
+            <h4>BoK objects</h4>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="badge badge-primary">236</span>
+                        Measures
+                    </li>
+                    <li class="list-group-item ">
+                        <span class="badge badge-info">145</span>
+                        Resources
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge badge-warning">1678</span>
+                        Learners
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <h5>Body of Knowledge Graph for: <strong>{{ bok.name }}</strong></h5>
+                    </div>
+                    <div class="ibox-content">
+
+                        <p class="m-b-lg">
+                            Each list you can customize by standard css styles. Each element is responsive so you can add to it any other element to improve functionality of list.
+                        </p>
+
+                        <div class="dd" id="nestable2">
+                            <ol class="dd-list">
+                                <li class="dd-item" data-id="1">
+                                    <div class="dd-handle">
+                                        <span class="label label-info"><i class="fa fa-users"></i></span> Algebra
+                                    </div>
+                                    <ol class="dd-list">
+                                        <li class="dd-item" data-id="2">
+                                            <div class="dd-handle">
+                                                <span class="label label-primary pull-right">15</span>
+                                                <span class="label label-info pull-right">9</span>
+                                                <span class="label label-info"><i class="fa fa-users"></i></span> Single Variable
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="3">
+                                            <div class="dd-handle">
+                                                <span class="label label-primary pull-right">18</span>
+                                                <span class="label label-info pull-right">4</span>
+                                                <span class="label label-info"><i class="fa fa-users"></i></span> Double Variable
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="dd-item" data-id="1">
+                                    <div class="dd-handle">
+                                        <span class="label label-info"><i class="fa fa-users"></i></span> Geometry
+                                    </div>
+                                    <ol class="dd-list">
+                                        <li class="dd-item" data-id="2">
+                                            <div class="dd-handle">
+                                                <span class="label label-primary pull-right">15</span>
+                                                <span class="label label-info pull-right">9</span>
+                                                <span class="label label-info"><i class="fa fa-users"></i></span> Area
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="3">
+                                            <div class="dd-handle">
+                                                <span class="label label-primary pull-right">18</span>
+                                                <span class="label label-info pull-right">4</span>
+                                                <span class="label label-info"><i class="fa fa-users"></i></span> Circumference
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="3">
+                                            <div class="dd-handle">
+                                                <span class="label label-primary pull-right">34</span>
+                                                <span class="label label-info pull-right">22</span>
+                                                <span class="label label-info"><i class="fa fa-users"></i></span> Graph Plotting
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="dd-item" data-id="1">
+                                    <div class="dd-handle">
+                                        <span class="label label-info"><i class="fa fa-users"></i></span> Calculus
+                                    </div>
+                                    <ol class="dd-list">
+                                        <li class="dd-item" data-id="2">
+                                            <div class="dd-handle">
+                                                <span class="label label-primary pull-right">15</span>
+                                                <span class="label label-info pull-right">9</span>
+                                                <span class="label label-info"><i class="fa fa-users"></i></span> Pre-Calc
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="3">
+                                            <div class="dd-handle">
+                                                <span class="label label-primary pull-right">18</span>
+                                                <span class="label label-info pull-right">4</span>
+                                                <span class="label label-info"><i class="fa fa-users"></i></span> Limits
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="3">
+                                            <div class="dd-handle">
+                                                <span class="label label-primary pull-right">34</span>
+                                                <span class="label label-info pull-right">22</span>
+                                                <span class="label label-info"><i class="fa fa-users"></i></span> Differential
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="dd-item" data-id="5">
+                                    <div class="dd-handle">
+                                        <span class="label label-warning"><i class="fa fa-chain-broken"></i></span> Overview Course
+                                    </div>
+                                    <ol class="dd-list">
+                                        <li class="dd-item" data-id="6">
+                                            <div class="dd-handle">
+                                                <span class="label label-warning"><i class="fa fa-chain-broken"></i></span> Introductory Pool
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="7">
+                                            <div class="dd-handle">
+                                                <span class="label label-warning"><i class="fa fa-chain-broken"></i></span> Intermediate Pool
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="8">
+                                            <div class="dd-handle">
+                                                <span class="label label-warning"><i class="fa fa-chain-broken"></i></span> Advanced Pool
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="m-t-md">
+                            <h5>Serialised Output</h5>
+                        </div>
+                        <textarea id="nestable2-output" class="form-control"></textarea>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div>
+                                        <span class="pull-right text-right">
+                                        <i class="fa fa-pied-piper-alt"> </i>
+                                        </span>
+
+                            <h1 class="m-b-xs"><i class="fa fa-users"> </i> 1678</h1>
+
+                            <h3 class="font-bold no-margins">
+                                Active users
+                            </h3>
+                        </div>
+
+                        <div>
+                            <canvas id="lineChart" height="70"></canvas>
+                        </div>
+
+                        <div class="m-t-md">
+                            <small class="pull-right">
+                                <i class="fa fa-clock-o"> </i>
+                                Update on 2015-07-15
+                            </small>
+                            <small>
+                                <strong>Grey:</strong> The creation of learning objects over time. 
+                                <br /><strong>Green:</strong> User engagement over time.
+                            </small>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Social Interaction</h5>
+                        {{>iboxTools}}
+                    </div>
+                    <div class="ibox-content ibox-heading">
+                        <h3><i class="fa fa-envelope-o"></i> New comments</h3>
+                        <small><i class="fa fa-tim"></i> You have 22 new comments and 16 user-submitted edits.
+                        </small>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="feed-activity-list">
+
+                            <div class="feed-element">
+                                <div>
+                                    <small class="pull-right text-navy">1m ago</small>
+                                    <strong>Monica Smith</strong>
+
+                                    <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum
+                                    </div>
+                                    <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
+                                </div>
+                            </div>
+
+                            <div class="feed-element">
+                                <div>
+                                    <small class="pull-right">2m ago</small>
+                                    <strong>Jogn Angel</strong>
+
+                                    <div>There are many variations of passages of Lorem Ipsum available</div>
+                                    <small class="text-muted">Today 2:23 pm - 11.06.2014</small>
+                                </div>
+                            </div>
+
+                            <div class="feed-element">
+                                <div>
+                                    <small class="pull-right">5m ago</small>
+                                    <strong>Jesica Ocean</strong>
+
+                                    <div>Contrary to popular belief, Lorem Ipsum</div>
+                                    <small class="text-muted">Today 1:00 pm - 08.06.2014</small>
+                                </div>
+                            </div>
+
+                            <div class="feed-element">
+                                <div>
+                                    <small class="pull-right">5m ago</small>
+                                    <strong>Monica Jackson</strong>
+
+                                    <div>The generated Lorem Ipsum is therefore</div>
+                                    <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+
+
+                            <div class="feed-element">
+                                <div>
+                                    <small class="pull-right">5m ago</small>
+                                    <strong>Anna Legend</strong>
+
+                                    <div>All the Lorem Ipsum generators on the Internet tend to repeat</div>
+                                    <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+                            <div class="feed-element">
+                                <div>
+                                    <small class="pull-right">5m ago</small>
+                                    <strong>Damian Nowak</strong>
+
+                                    <div>The standard chunk of Lorem Ipsum used</div>
+                                    <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+                            <div class="feed-element">
+                                <div>
+                                    <small class="pull-right">5m ago</small>
+                                    <strong>Gary Smith</strong>
+
+                                    <div>200 Latin words, combined with a handful</div>
+                                    <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-down"></i> Show All Interactions</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-primary pull-right">Today</span>
+                        <h5>Enrollments</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">22</h1>
+
+                        <div class="stat-percent font-bold text-navy">20% <i class="fa fa-level-up"></i></div>
+                        <small>New Users</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">Monthly</span>
+                        <h5>Enrollments</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">356</h1>
+
+                        <div class="stat-percent font-bold text-info">40% <i class="fa fa-level-up"></i></div>
+                        <small>New Users</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-warning pull-right">Today</span>
+                        <h5>Completions</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">2</h1>
+
+                        <div class="stat-percent font-bold text-danger">67% <i class="fa fa-level-down"></i></div>
+                        <small>Finished Courses</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-warning pull-right">Monthly</span>
+                        <h5>Completions</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">18</h1>
+
+                        <div class="stat-percent font-bold text-danger">16% <i class="fa fa-level-down"></i></div>
+                        <small>Finished Courses</small>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+    </div>
+
+</template>

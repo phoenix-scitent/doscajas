@@ -1,0 +1,99 @@
+<template name="boks">
+    {{> pageHeading title='Welcome Timothy' }}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="jumbotron">
+                    <h1>Choose a Body of Knowledge</h1>
+                    <p>Select one of the BoKs that you belong to, to begin expanding the knowledge graph.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                  {{#each boks}}
+                    <div class="col-lg-6">
+                        <div class="widget yellow-bg no-padding">
+                            <div class="p-m">
+                                <h1 class="m-xs">{{name}}</h1>
+
+                                <h3 class="font-bold no-margins">
+                                    Body of Knowledge
+                                </h3>
+                                <small>You are an Author</small>
+                            </div>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-chart2" style="padding: 0px; position: relative;"><canvas class="flot-base" width="327" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 327px; height: 100px;"></canvas><canvas class="flot-overlay" width="327" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 327px; height: 100px;"></canvas></div>
+                            </div>
+                            <a class="btn btn-warning btn-block btn-outline" href="/bok/{{ _id }}"><i class="fa fa-arrow-right"></i> Edit {{name}}</a>
+                        </div>
+                    </div>
+                  {{/each}}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-primary pull-right">This Week</span>
+                        <h5>Bodies of Knowledge Created</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">459</h1>
+
+                        <div class="stat-percent font-bold text-navy">20% <i class="fa fa-level-up"></i></div>
+                        <small>New BoKs</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">This Week</span>
+                        <h5>Authors</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">356</h1>
+
+                        <div class="stat-percent font-bold text-info">10% <i class="fa fa-level-up"></i></div>
+                        <small>New Authors Joined</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-warning pull-right">This Week</span>
+                        <h5>Learner Enrollments</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">2450</h1>
+
+                        <div class="stat-percent font-bold text-danger">2% <i class="fa fa-level-down"></i></div>
+                        <small>Enrollments across the site</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-danger pull-right">This Week</span>
+                        <h5>Completions</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">142</h1>
+
+                        <div class="stat-percent font-bold text-info">16% <i class="fa fa-level-up"></i></div>
+                        <small>Courses completed</small>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+    </div>
+
+</template>

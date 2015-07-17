@@ -1,0 +1,30 @@
+{
+  "name": "meteor-spike",
+  "version": "0.0.1",
+  "dependencies": {
+    "lodash": "~3.10.0",
+    "moment": "~2.10.3",
+    "bacon": "~0.7.70"
+  },
+  "overrides": {
+    "lodash": {
+      "arch": [
+        "client",
+        "server"
+      ]
+    },
+    "moment": {
+      "arch": [
+        "client",
+        "server"
+      ]
+    },
+    "bacon": {
+      "arch": [
+        "client",
+        "server"
+      ]
+    }
+  },
+  "private": true
+}

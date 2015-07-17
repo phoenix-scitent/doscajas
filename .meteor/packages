@@ -1,0 +1,17 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+less
+twbs:bootstrap
+fortawesome:fontawesome
+jquery
+dbarrett:dropzonejs
+
+mquandalle:bower
+iron:router
+zimme:iron-router-active
+okgrow:iron-router-autoscroll
