@@ -2,7 +2,8 @@ Meteor.subscribe('boks');
 
 Template.boks.helpers({
   boks: function() {
-    //TODO: this.fetch(); ... this is not found?
+    //TODO: this.fetch(); ... this is not found when trying to use what the router passes in?
+    //TODO: scope this to only those owned by current user
 
     return Boks.find({ancestors: []});
   }

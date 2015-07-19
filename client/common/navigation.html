@@ -31,7 +31,9 @@
                 <li class="{{isActiveRoute regex='bok'}}">
                     <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Bodies of Knowledge</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level {{isActiveRoute regex='bok' className='in'}}">
-                        <li class="{{isActiveRoute regex='bok'}}"><a href="{{pathFor route='bok'}}">Math</a></li>
+                      {{#each boks}}
+                        <li class="{{isActiveRoute regex='bok'}}"><a href="/bok/{{ _id }}">{{ name }}</a></li>
+                      {{/each}}
                     </ul>
                 </li>
                 <li class="{{isActiveRoute regex='sequences|sequence|intro_lesson|adaptive_quiz|final_quiz'}}">

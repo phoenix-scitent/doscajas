@@ -49,8 +49,6 @@ Template.bok.helpers({
     // May want to set a session variable for use elsewhere?
     // Session.set('currentBok', this)
 
-    console.log(_childrenFormat(bokData))
-
     return _childrenFormat(bokData);
   }
 });
