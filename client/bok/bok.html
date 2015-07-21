@@ -1,18 +1,3 @@
-<template name="choy">
-  <ol class="dd-list">
-    {{# each nodes}}
-      <li class="dd-item" data-id="{{ _id }}" data-name="{{ name }}">
-        <div class="dd-handle">
-          <span class="label label-primary pull-right">{{measure_count}}</span>
-          <span class="label label-info pull-right">{{resource_count}}</span>
-          <span class="label label-info"><i class="fa fa-users"></i></span> {{name}}
-        </div>
-        {{> choy nodes=children }}
-      </li>
-    {{/each}}
-  </ol>
-</template>
-
 <template name="bok">
     <div class="sidebard-panel">
         <div>
@@ -99,22 +84,15 @@
             <div class="col-lg-6">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>Body of Knowledge Graph for: <strong>{{ bok.name }}</strong></h5>
+                        <h5>Body of Knowledge Graph for: <strong>{{ bokRoot.name }}</strong></h5>
                     </div>
                     <div class="ibox-content">
 
                         <p class="m-b-lg">
-                            Each list you can customize by standard css styles. Each element is responsive so you can add to it any other element to improve functionality of list.
+                            {{> bokAddNode }}
                         </p>
 
-                        <div class="dd" id="nestable2">
-                          {{> choy nodes=bok_choy }}
-                        </div>
-                        <div class="m-t-md">
-                            <h5>Serialised Output</h5>
-                        </div>
-                        <textarea id="nestable2-output" class="form-control"></textarea>
-
+                      {{> bokTree nodes=bokNodes }}
 
                     </div>
 

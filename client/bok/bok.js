@@ -1,12 +1,14 @@
 Meteor.subscribe('boks');
 
 Template.bok.helpers({
-  bok: function(){
+  bokRoot: function(){
     var root = _.select(this.fetch(), function(node){ return node.ancestors.length === 0 })[0];
+
+    Session.set('bokRoot', root);
 
     return root;
   },
-  bok_choy: function() {
+  bokNodes: function() {
     var bokData = this.fetch(); /* return of the data function from the router: [ { ... bokNode ... }, { ... bokNode ...}, ...  ] */
     var _childrenFormat = function(bok){
       var roots = [], hashed_children = {};
@@ -24,15 +26,20 @@ Template.bok.helpers({
         // function to recursively build the tree
         var findChildren = function (parent) {
           if (hashed_children[parent.children._id]) {
-            parent._id = parent.children._id;
-            parent.name = parent.children.name;
+            parent.id = parent.children._id;
+            parent.text = parent.children.name;
+            parent.type = parent.children.public ? 'public' : 'private';
             parent.children = hashed_children[parent.children._id];
-            _.times(parent.children.length, function (n) {
-              findChildren(parent.children[n]);
+            _.forEach(parent.children, function(node){
+              findChildren(node)
             });
+            //_.times(parent.children.length, function (n) {
+            //  findChildren(parent.children[n]);
+            //});
           } else {
-            parent._id = parent.children._id;
-            parent.name = parent.children.name;
+            parent.id = parent.children._id;
+            parent.text = parent.children.name;
+            parent.type = parent.children.public ? 'public' : 'private';
             parent.children = [];
           }
         };
@@ -46,14 +53,16 @@ Template.bok.helpers({
       return roots[0].children;
     };
 
-    // May want to set a session variable for use elsewhere?
-    // Session.set('currentBok', this)
+    Session.set('bokNodes', _childrenFormat(bokData).reverse());
 
-    return _childrenFormat(bokData);
+    return Session.get('bokNodes');
   }
 });
 
 Template.bok.rendered = function(){
+
+  this.autorun(function(){
+    Template.currentData(); // autorun reactivity source
 
     // Set white background color for top navbar
     $('body').addClass('light-navbar');
@@ -65,25 +74,6 @@ Template.bok.rendered = function(){
     // Set the full height of right sidebar
     var heightWithoutNavbar = $("body > #wrapper").height() - 61;
     $(".sidebard-panel").css("min-height", heightWithoutNavbar + "px");
-
-    // Log for nestable list
-    var updateOutput = function (e) {
-        var list = e.length ? e : $(e.target),
-            output = list.data('output');
-        if (window.JSON) {
-            output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
-        } else {
-            output.val('JSON browser support required for this demo.');
-        }
-    };
-
-    // Activate Nestable for list 2
-    $('#nestable2').nestable({
-        group: 1
-    }).on('change', updateOutput);
-
-    // output initial serialised data
-    updateOutput($('#nestable2').data('output', $('#nestable2-output')));
 
     // Set deta and options ofr main chart
     var lineData = {
@@ -149,28 +139,13 @@ Template.bok.rendered = function(){
         width:100
     })
 
-
+  });
 };
 
 Template.bok.destroyed = function(){
-
     // Remove extra view class
     $('body').removeClass('light-navbar');
     $('#page-wrapper').removeClass('sidebar-content');
 };
 
-Template.bok.events({
-
-    // Handle for expand and collapse buttons
-    'click #nestable-menu' : function(e){
-        var target = $(e.target),
-            action = target.data('action');
-        if (action === 'expand-all') {
-            $('.dd').nestable('expandAll');
-        }
-        if (action === 'collapse-all') {
-            $('.dd').nestable('collapseAll');
-        }
-    }
-
-});
+Template.bok.events({});

@@ -32,7 +32,7 @@
                     <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Bodies of Knowledge</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level {{isActiveRoute regex='bok' className='in'}}">
                       {{#each boks}}
-                        <li class="{{isActiveRoute regex='bok'}}"><a href="/bok/{{ _id }}">{{ name }}</a></li>
+                        <li class="{{isActiveRoute regex='bok'}}"><a href="{{pathFor 'bok' _id=this._id }}">{{ name }}</a></li>
                       {{/each}}
                     </ul>
                 </li>

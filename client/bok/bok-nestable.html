@@ -1,0 +1,24 @@
+<template name="bokNestable">
+  <div class="dd" id="nestable2">
+    {{> bokNestableChildren nodes=nodes }}
+  </div>
+  <div class="m-t-md">
+    <h5>Serialised Output</h5>
+  </div>
+  <textarea id="nestable2-output" class="form-control"></textarea>
+</template>
+
+<template name="bokNestableChildren">
+  <ol class="dd-list">
+    {{# each nodes}}
+      <li class="dd-item" data-_id="{{ _id }}" data-name="{{ name }}">
+        <div class="dd-handle">
+          <span class="label label-primary pull-right">{{ measure_count }}</span>
+          <span class="label label-info pull-right">{{ resource_count }}</span>
+          <span class="label label-info"><i class="fa fa-users"></i></span> {{ name }}
+        </div>
+        {{> bokNestableChildren nodes=children }}
+      </li>
+    {{/each}}
+  </ol>
+</template>

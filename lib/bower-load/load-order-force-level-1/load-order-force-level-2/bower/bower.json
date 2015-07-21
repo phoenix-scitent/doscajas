@@ -4,7 +4,8 @@
   "dependencies": {
     "lodash": "~3.10.0",
     "moment": "~2.10.3",
-    "bacon": "~0.7.70"
+    "bacon": "~0.7.70",
+    "jstree": "~3.1.1"
   },
   "overrides": {
     "lodash": {
