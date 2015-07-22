@@ -19,7 +19,8 @@ var createBok = function(json, rootName, ownerId){
         "publishers" : [],
         "editors" : [],
         "authors" : []
-      }
+      },
+      "date_created": Date.now()
     });
 
     var createNode = function(node, parent){
@@ -29,7 +30,8 @@ var createBok = function(json, rootName, ownerId){
       var childId = Boks.insert({
         "name" : node.name,
         "ancestors" : parent.ancestors.concat([parent._id]),
-        "public": true
+        "public": true,
+        "date_created": Date.now()
       });
 
       return childId;
