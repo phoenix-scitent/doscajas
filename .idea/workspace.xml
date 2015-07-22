@@ -24,11 +24,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="bok.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/bok/bok.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+              <caret line="138" column="5" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
+              <folding>
+                <element signature="e#71#225#0" expanded="false" />
+                <element signature="e#250#2001#0" expanded="false" />
+                <element signature="e#2496#3460#0" expanded="false" />
+                <element signature="e#3485#3896#0" expanded="false" />
+                <element signature="e#4101#4158#0" expanded="false" />
+                <element signature="e#4189#4233#0" expanded="false" />
+                <element signature="e#4274#4337#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="boks.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/boks/boks.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="1560">
-              <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+            <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="1560">
+              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -44,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navigation.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/common/navigation.html">
+      <file leaf-file-name="bok.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/bok/bok.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.875" vertical-offset="39" max-vertical-offset="1770">
-              <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+            <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="4425">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -61,6 +79,18 @@
               <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
               <folding>
                 <element signature="e#229#295#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigation.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/common/navigation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.1724138" vertical-offset="0" max-vertical-offset="1770">
+              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#1;n#li#0;n#ul#0;n#div#0;n#nav#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,14 +154,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bok-create.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/boks/bok-create.html">
+      <file leaf-file-name="sequence.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/sequences/sequence.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28735632" vertical-offset="0" max-vertical-offset="1044">
-              <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="2340">
+              <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,26 +169,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
               <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/router/router.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7785">
-              <caret line="503" column="10" selection-start-line="503" selection-start-column="10" selection-end-line="503" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="accounts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/accounts/accounts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
-              <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -199,8 +207,6 @@
         <option value="$PROJECT_DIR$/server/collections/boks.js" />
         <option value="$PROJECT_DIR$/client/bok/bok-nestable.js" />
         <option value="$PROJECT_DIR$/client/bok/bok-tree.html" />
-        <option value="$PROJECT_DIR$/client/bok/bok.html" />
-        <option value="$PROJECT_DIR$/client/bok/bok.js" />
         <option value="$PROJECT_DIR$/client/bok/bok-tree.js" />
         <option value="$PROJECT_DIR$/client/bok/create-bok.html" />
         <option value="$PROJECT_DIR$/client/bok/boks.html" />
@@ -214,12 +220,14 @@
         <option value="$PROJECT_DIR$/client/common/top-navbar.html" />
         <option value="$PROJECT_DIR$/client/common/top-navbar.js" />
         <option value="$PROJECT_DIR$/client/common/navigation.js" />
-        <option value="$PROJECT_DIR$/client/common/navigation.html" />
         <option value="$PROJECT_DIR$/client/common/page-heading.html" />
         <option value="$PROJECT_DIR$/lib/accounts/accounts.js" />
         <option value="$PROJECT_DIR$/lib/router/router.js" />
         <option value="$PROJECT_DIR$/client/boks/boks.html" />
         <option value="$PROJECT_DIR$/client/boks/bok-create.html" />
+        <option value="$PROJECT_DIR$/client/bok/bok.html" />
+        <option value="$PROJECT_DIR$/client/bok/bok.js" />
+        <option value="$PROJECT_DIR$/client/common/navigation.html" />
       </list>
     </option>
   </component>
@@ -384,29 +392,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Meteor_Spike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doscajas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="otherpages" />
+              <option name="myItemId" value="sequences" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -600,14 +586,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/bok/bok-add-node.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="195">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="6" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/bok/bok.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="360">
@@ -615,12 +593,12 @@
           <folding>
             <element signature="e#71#225#0" expanded="false" />
             <element signature="e#250#2001#0" expanded="false" />
-            <element signature="e#2069#4433#0" expanded="false" />
-            <element signature="e#2586#3550#0" expanded="false" />
-            <element signature="e#3575#3986#0" expanded="false" />
-            <element signature="e#4191#4248#0" expanded="false" />
-            <element signature="e#4279#4323#0" expanded="false" />
-            <element signature="e#4364#4427#0" expanded="false" />
+            <element signature="e#2069#4343#0" expanded="false" />
+            <element signature="e#2496#3460#0" expanded="false" />
+            <element signature="e#3485#3896#0" expanded="false" />
+            <element signature="e#4101#4158#0" expanded="false" />
+            <element signature="e#4189#4233#0" expanded="false" />
+            <element signature="e#4274#4337#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -843,14 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/bok/bok.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="4365">
-          <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/fixtures/bok.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1387604" vertical-offset="0" max-vertical-offset="1081">
@@ -866,23 +836,6 @@
             <element signature="e#64#113#0" expanded="false" />
             <element signature="e#1650#1690#0" expanded="false" />
             <element signature="e#2274#2305#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/bok/bok.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding>
-            <element signature="e#71#225#0" expanded="false" />
-            <element signature="e#250#2001#0" expanded="false" />
-            <element signature="e#2069#4433#0" expanded="false" />
-            <element signature="e#2586#3550#0" expanded="false" />
-            <element signature="e#3575#3986#0" expanded="false" />
-            <element signature="e#4191#4248#0" expanded="false" />
-            <element signature="e#4279#4323#0" expanded="false" />
-            <element signature="e#4364#4427#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -933,40 +886,6 @@
           <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="48" selection-end-column="25" />
           <folding>
             <element signature="e#378#1289#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/common/top-navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="465">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/common/navigation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.875" vertical-offset="39" max-vertical-offset="1770">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/common/page-heading.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="330">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/common/navigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="e#229#295#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1033,14 +952,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/boks/boks.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="1560">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/boks/bok-create.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
@@ -1055,6 +966,82 @@
           <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/sequences/sequence.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="2340">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/boks/boks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="1560">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/common/top-navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="465">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/bok/bok.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="4425">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/bok/bok.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+          <caret line="138" column="5" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
+          <folding>
+            <element signature="e#71#225#0" expanded="false" />
+            <element signature="e#250#2001#0" expanded="false" />
+            <element signature="e#2496#3460#0" expanded="false" />
+            <element signature="e#3485#3896#0" expanded="false" />
+            <element signature="e#4101#4158#0" expanded="false" />
+            <element signature="e#4189#4233#0" expanded="false" />
+            <element signature="e#4274#4337#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/common/page-heading.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="330">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/common/navigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+          <folding>
+            <element signature="e#229#295#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/common/navigation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1724138" vertical-offset="0" max-vertical-offset="1770">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#1;n#li#0;n#ul#0;n#div#0;n#nav#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

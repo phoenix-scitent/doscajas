@@ -64,9 +64,6 @@ Template.bok.rendered = function(){
   this.autorun(function(){
     Template.currentData(); // autorun reactivity source
 
-    // Set white background color for top navbar
-    $('body').addClass('light-navbar');
-
     // Set special clsss to wraper to add  margin for right sidebar
     $('#page-wrapper').addClass('sidebar-content');
 
@@ -144,7 +141,6 @@ Template.bok.rendered = function(){
 
 Template.bok.destroyed = function(){
     // Remove extra view class
-    $('body').removeClass('light-navbar');
     $('#page-wrapper').removeClass('sidebar-content');
 };
 
