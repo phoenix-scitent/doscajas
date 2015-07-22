@@ -41,5 +41,11 @@ Template.topNavbar.events({
     // Toggle right sidebar
     'click .right-sidebar-toggle': function(){
         $('#right-sidebar').toggleClass('sidebar-open');
+    },
+
+    // Logout
+    'click #logout-button': function(){
+      Meteor.logout();
+      Router.go('login');
     }
 });

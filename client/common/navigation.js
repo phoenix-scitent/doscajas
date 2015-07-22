@@ -17,8 +17,12 @@ Template.navigation.rendered = function(){
 // Used only on OffCanvas layout
 Template.navigation.events({
 
-    'click .close-canvas-menu' : function(){
+    'click .close-canvas-menu': function(){
         $('body').toggleClass("mini-navbar");
+    },
+    'click #navigation-logout-button': function(){
+      Meteor.logout();
+      Router.go('login');
     }
 
 });

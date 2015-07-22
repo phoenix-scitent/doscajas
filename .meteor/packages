@@ -15,3 +15,5 @@ mquandalle:bower
 iron:router
 zimme:iron-router-active
 okgrow:iron-router-autoscroll
+accounts-google
+accounts-ui
