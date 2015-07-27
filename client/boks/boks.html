@@ -5,13 +5,16 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="jumbotron">
-                    <h1>Choose a Body of Knowledge</h1>
+                    <h1>Welcome!</h1>
+                    <div class="videowrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/N3L0OeoKAuk" frameborder="0" allowfullscreen></iframe>
+                    </div>
                     <p>Select one of the BoKs that you belong to, to begin expanding the knowledge graph.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="row">
-                  {{> bokCreate }}
+                    {{> bokCreate }}
                   {{#each boks}}
                     <div class="col-lg-6">
                         <div class="widget yellow-bg no-padding">
