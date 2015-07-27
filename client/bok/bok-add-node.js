@@ -95,17 +95,23 @@ Template.bokAddNode.events({
     //
     //};
 
-    //TODO: VALIDATION
-
     // addTagToDOM( buildTagMarkup(newTag) );
 
-    Boks.insert({
-      "name" : newTag,
-      "ancestors" : [ bokRoot._id ],
-      "public": true,
-      "date_created": Date.now()
-    }, function(){
-      $( document).trigger('addNode');
+    boks.addNode({
+      data: {
+        "name" : newTag,
+        "ancestors" : [ bokRoot._id ],
+        "public": true,
+        "date_created": Date.now()
+      },
+      onSuccess: function(){
+        $( document).trigger('addNode');
+      },
+      onError: function(errors){
+        _.forEach(errors, function(error){
+          alert(error.message);
+        })
+      }
     });
 
     $newTagInput.val('');
