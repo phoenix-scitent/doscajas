@@ -27,8 +27,14 @@
                                             <textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea id="description" name="description" type="text" class="form-control" rows="4"></textarea>
+                                            <label>Question Type</label> 
+                                            <div class="input-group">
+                                                <select data-placeholder="choose the type..." class="chosen-select" style="width:95%" tabindex="4">
+                                                    <option value="" selected>Multiple Choice</option>
+                                                    <option value="123">Text Input</option>
+                                                    <option value="1234">Upload</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -127,6 +133,78 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Answer #2</label>
+                                            <textarea id="answer_2" name="answer_2" type="text" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Answer #2 Feedback</label>
+                                            <textarea id="answer_2_feedback" name="answer_2_feedback" type="text" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Answer Points</label>
+                                            <input id="answer_2_points" name="answer_2_points" type="text" class="form-control" value='1'>
+                                        </div>                                        
+                                        <div class="form-group">
+                                            <label>Correct</label>
+                                            <input id="answer_2_correct" name="answer_2_correct" type="checkbox" class="js-switch">
+                                        </div>
+                                    </div>
+                                </div>
+                                                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Answer #3 </label>
+                                            <textarea id="answer_3" name="answer_3" type="text" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Answer #3 Feedback</label>
+                                            <textarea id="answer_3_feedback" name="answer_3_feedback" type="text" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Answer Points</label>
+                                            <input id="answer_3_points" name="answer_3_points" type="text" class="form-control" value='1'>
+                                        </div>                                        
+                                        <div class="form-group">
+                                            <label>Correct</label>
+                                            <input id="answer_3_correct" name="answer_3_correct" type="checkbox" class="js-switch">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Answer #4</label>
+                                            <textarea id="answer_4" name="answer_4" type="text" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Answer #4 Feedback</label>
+                                            <textarea id="answer_4_feedback" name="answer_4_feedback" type="text" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Answer Points</label>
+                                            <input id="answer_4_points" name="answer_4_points" type="text" class="form-control" value='1'>
+                                        </div>                                        
+                                        <div class="form-group">
+                                            <label>Correct</label>
+                                            <input id="answer_4_correct" name="answer_4_correct" type="checkbox" class="js-switch">
+                                        </div>
+                                    </div>
+                                </div>
                             </fieldset>
 
                             <h1>Options</h1>
@@ -138,17 +216,6 @@
                                             <label>Current Owner</label> (choose one)
                                             <div class="input-group">
                                                 <select data-placeholder="Choose the current owner..." class="chosen-select" style="width:95%" tabindex="2">
-                                                    <option value="">Select</option>
-                                                    <option value="123">Timothy Johnson</option>
-                                                    <option value="1234">Eric Glassman</option>
-                                                    <option value="125235" selected>Will Davis</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Author</label> (any number)
-                                            <div class="input-group">
-                                                <select data-placeholder="Choose the Author..." class="chosen-select" style="width:95%" tabindex="4">
                                                     <option value="">Select</option>
                                                     <option value="123">Timothy Johnson</option>
                                                     <option value="1234">Eric Glassman</option>
