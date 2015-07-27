@@ -1,21 +1,24 @@
 <template name="bokCreate">
   <div class="col-lg-6">
-    <div class="widget navy-bg no-padding">
+    <div class="widget white-bg no-padding">
       <div class="p-m">
         <h1 class="m-xs">
-          <div class="input-group" style="padding: 10px 0px 0px 0px">
-            <input type="text" id="bok-create-input" placeholder="Enter new name..." class="form-control" style="color: black; background-image: none; background-position: 0% 0%; background-repeat: repeat;">
-          </div>
+          Create a new Body of Knowledge
         </h1>
 
-        <h3 class="font-bold no-margins">
-          Create a new Body of Knowledge
-        </h3>
+        <div class="input-group" style="margin-top: 2em;">
+          <input type="text" id="bok-create-input" placeholder="Enter new name..." class="form-control">
+          <span class="input-group-btn">
+            <a id="bok-create-button" class="btn btn-primary">
+              <i class="fa fa-plus"></i> Add 
+            </a>
+          </span>
+        </div>
+
       </div>
       <div class="flot-chart">
         <div class="flot-chart-content" id="flot-chart2" style="padding: 0px; position: relative;"><canvas class="flot-base" width="327" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 327px; height: 100px;"></canvas><canvas class="flot-overlay" width="327" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 327px; height: 100px;"></canvas></div>
       </div>
-      <a id="bok-create-button" class="btn btn-success btn-block btn-outline"><i class="fa fa-plus"></i> Create </a>
     </div>
   </div>
 </template>
