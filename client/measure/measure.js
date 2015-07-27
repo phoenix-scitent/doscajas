@@ -1,3 +1,5 @@
+Meteor.subscribe('measures');
+
 Template.measure.rendered = function(){
 
     // Initialize steps plugin

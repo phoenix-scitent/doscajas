@@ -10,6 +10,7 @@ var ownerId = new Meteor.Collection.ObjectID("34b3e681ae08b1da6ee665d2");
 
 var createBok = function(json, rootName, ownerId){
     var rootId = Boks.insert({
+      '__testdata': true,
       "name" : rootName,
       "ancestors" : [],
       "roles" : {
@@ -25,9 +26,8 @@ var createBok = function(json, rootName, ownerId){
 
     var createNode = function(node, parent){
 
-      console.log(parent.ancestors);
-
       var childId = Boks.insert({
+        '__testdata': true,
         "name" : node.name,
         "ancestors" : parent.ancestors.concat([parent._id]),
         "public": true,

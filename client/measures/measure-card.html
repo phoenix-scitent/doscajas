@@ -1,0 +1,36 @@
+<template name="measureCard">
+  <div class="ibox">
+    <div class="ibox-content">
+      <a href="/measure/{{ _id }}/edit" class="btn-link">
+        <h2>
+          {{ question_text }}
+        </h2>
+      </a>
+      <div class="small m-b-xs">
+        <strong> {{ creator_data.profile.name }} </strong> <span class="text-muted"><i class="fa fa-clock-o"></i> {{ formatted_date_created }}</span>
+      </div>
+      <p>
+        {{ correct_answer.text }}
+      </p>
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Tags:</h5>
+          {{#each tag_data}}
+            <button class="btn btn-white btn-xs" type="button">{{ name }}</button>
+          {{/each}}
+        </div>
+        <div class="col-md-6">
+          <div class="small text-right">
+            <h5>Social Activity:</h5>
+            <div>
+              {{#if hasComments}} <i class="fa fa-comments-o"> </i> {{ comments_count }} {{/if}}
+            </div>
+            <div>
+              {{#if hasImprovements}} <i class="fa fa-exchange"> </i> {{ improvements_count }} {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
