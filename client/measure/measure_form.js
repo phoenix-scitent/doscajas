@@ -2,6 +2,9 @@ Meteor.subscribe('measures');
 
 Template.measure_form.helpers({
   c_or_e: function(){
+
+    Session.set('currentMeasure', this);
+
     if (this._id){
       return "Editing: " + this.question_text;
     } else {
@@ -12,18 +15,14 @@ Template.measure_form.helpers({
 
 Template.measure_form.rendered = function(){
 
-    // Initialize steps plugin
-    $("#wizard").steps();
-
-    $('.summernote').summernote();
-
     var config = {
         '.chosen-select'           : {},
         '.chosen-select-deselect'  : {allow_single_deselect:true},
         '.chosen-select-no-single' : {disable_search_threshold:10},
         '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
         '.chosen-select-width'     : {width:"95%"}
-    }
+    };
+
     for (var selector in config) {
         $(selector).chosen(config[selector]);
     }
@@ -31,6 +30,7 @@ Template.measure_form.rendered = function(){
     var elem = document.querySelector('.js-switch');
     var switchery = new Switchery(elem, { color: '#1AB394' });
 
+    $('#question-wrapper').prepend('<label>Question *</label><textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4">'+ Session.get('currentMeasure').question_text +'</textarea>');
 
     $("#form").steps({
         bodyTag: "fieldset",
