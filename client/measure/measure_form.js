@@ -36,7 +36,7 @@ Template.measure_form.rendered = function(){
     var elem = document.querySelector('.js-switch');
     var switchery = new Switchery(elem, { color: '#1AB394' });
 
-    $('#question-wrapper').prepend('<label>Question *</label><textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4">'+ this.data.question_text +'</textarea>');
+    $('#question-wrapper').prepend('<label>Question *</label><textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4">'+ ((this.data && this.data.question_text) || '') +'</textarea>');
 
     $("#form").steps({
         bodyTag: "fieldset",
@@ -109,20 +109,6 @@ Template.measure_form.rendered = function(){
       labelField: 'name',
       valueField: 'name',
       searchField: 'name',
-      options: [
-        { name: 'Multiple Choice' },
-        { name: 'Text Input' },
-        { name: 'Upload' }
-      ]
+      options: MEASURE_TYPES
     });
-
-
-
-
-  //choose the type...
-  //
-  //<option value="multiple_choice">Multiple Choice</option>
-  //<option value="text_input">Text Input</option>
-  //<option value="file_upload">Upload</option>
-
 };
