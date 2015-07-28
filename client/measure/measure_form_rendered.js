@@ -58,7 +58,7 @@ Template.measure_form.rendered = function(){
         '</div>'
       };
 
-      $('#answers-wrapper').prepend( answerHtml(answer, index) );
+      $('#answers-wrapper').append( answerHtml(answer, index) );
     });
 
     $("#form").steps({
