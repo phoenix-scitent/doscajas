@@ -3,7 +3,7 @@
 
     <!-- Page heading -->
     {{# page_head_wrapper }}
-      <h2>{{ c_or_e }} a Measure</h2>
+      <h2>{{ c_or_e }}</h2>
       <ol class="breadcrumb">
           <li>
               <a href="{{pathFor route='home'}}">Home</a>
@@ -27,12 +27,6 @@
                         <h5>Measure Creation Wizard</h5>
                     </div>
                     <div class="ibox-content">
-                        <h2>
-                            {{ trace c_or_e }}
-                            {{ trace _id }}
-                            {{ c_or_e }} a Measure in the Body of Knowledge
-                        </h2>
-
                         <form id="form" action="#" class="wizard-big">
                             <h1>Question Setup</h1>
                             <fieldset>

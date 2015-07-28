@@ -3,9 +3,9 @@ Meteor.subscribe('measures');
 Template.measure_form.helpers({
   c_or_e: function(){
     if (this._id){
-      return "Edit";
+      return "Editing: " + this.question_text;
     } else {
-      return "Create";
+      return "Create a new Measure";
     }
   }
 });
