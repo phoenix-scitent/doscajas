@@ -2,9 +2,6 @@ Meteor.subscribe('measures');
 
 Template.measure_form.helpers({
   title: function(){
-
-    Session.set('currentMeasure', this);
-
     if (this._id){
       return "Editing: "+ this.question_text;
     } else {
@@ -22,6 +19,8 @@ Template.measure_form.helpers({
 
 Template.measure_form.rendered = function(){
 
+    console.log(this)
+
     var config = {
         '.chosen-select'           : {},
         '.chosen-select-deselect'  : {allow_single_deselect:true},
@@ -37,7 +36,7 @@ Template.measure_form.rendered = function(){
     var elem = document.querySelector('.js-switch');
     var switchery = new Switchery(elem, { color: '#1AB394' });
 
-    $('#question-wrapper').prepend('<label>Question *</label><textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4">'+ Session.get('currentMeasure').question_text +'</textarea>');
+    $('#question-wrapper').prepend('<label>Question *</label><textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4">'+ this.data.question_text +'</textarea>');
 
     $("#form").steps({
         bodyTag: "fieldset",
@@ -102,5 +101,28 @@ Template.measure_form.rendered = function(){
             }
         }
     });
+
+    $("#question-type").selectize({
+      placeholder: "choose the type...",
+      create: false,
+      maxItems: 1,
+      labelField: 'name',
+      valueField: 'name',
+      searchField: 'name',
+      options: [
+        { name: 'Multiple Choice' },
+        { name: 'Text Input' },
+        { name: 'Upload' }
+      ]
+    });
+
+
+
+
+  //choose the type...
+  //
+  //<option value="multiple_choice">Multiple Choice</option>
+  //<option value="text_input">Text Input</option>
+  //<option value="file_upload">Upload</option>
 
 };
