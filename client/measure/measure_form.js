@@ -47,6 +47,11 @@ Template.measure_form.rendered = function(){
             {
                 return false;
             }
+            if (newIndex === 3) {
+              $(".wizard-big.wizard > .content").addClass("deep");
+            } else {
+              $(".wizard-big.wizard > .content").removeClass("deep");              
+            }
 
             var form = $(this);
 
