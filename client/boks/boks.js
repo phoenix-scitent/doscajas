@@ -6,6 +6,9 @@ Template.boks.helpers({
     //TODO: scope this to only those owned by current user
 
     return Boks.find({ancestors: []}, {sort: {date_created : -1} });
+  },
+  bok_count: function() {
+    return this.boks.count();
   }
 });
 
