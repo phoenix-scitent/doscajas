@@ -6,9 +6,14 @@
                 <li>
                     <a href="{{pathFor route='home'}}">Home</a>
                 </li>
+                {{#if dat_bok}}
+                <li>
+                    <a href="{{ dat_bok_url }}" class="btn btn-sm btn-white">{{ dat_bok_name }}</a>
+                </li>
+                {{/if}}
                 {{#if category}}
                 <li>
-                    <a>{{category}}</a>
+                    <a href="{{ category_url }}">{{ category }}</a>
                 </li>
                 {{/if}}
                 {{#if title}}

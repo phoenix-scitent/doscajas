@@ -1,14 +1,21 @@
 Meteor.subscribe('measures');
 
 Template.measure_form.helpers({
-  c_or_e: function(){
+  title: function(){
 
     Session.set('currentMeasure', this);
 
     if (this._id){
-      return "Editing: " + this.question_text;
+      return "Editing: "+ this.question_text;
     } else {
       return "Create a new Measure";
+    }
+  },
+  category: function(){
+    if (this._id) {
+      return "Measures";
+    } else {
+      return null;
     }
   }
 });
@@ -42,12 +49,6 @@ Template.measure_form.rendered = function(){
                 return true;
             }
 
-            // Forbid suppressing "Warning" step if the user is to young
-            if (newIndex === 3 && Number($("#age").val()) < 18)
-            {
-                return false;
-            }
-
             var form = $(this);
 
             // Clean up if user went backward before
@@ -66,16 +67,10 @@ Template.measure_form.rendered = function(){
         },
         onStepChanged: function (event, currentIndex, priorIndex)
         {
-            // Suppress (skip) "Warning" step if the user is old enough.
-            if (currentIndex === 2 && Number($("#age").val()) >= 18)
-            {
-                $(this).steps("next");
-            }
-
-            // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
-            if (currentIndex === 2 && priorIndex === 3)
-            {
-                $(this).steps("previous");
+            if (currentIndex === 3) {
+              $(".wizard-big.wizard > .content").addClass("deep");
+            } else {
+              $(".wizard-big.wizard > .content").removeClass("deep");              
             }
         },
         onFinishing: function (event, currentIndex)
