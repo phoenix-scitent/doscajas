@@ -2,22 +2,8 @@
 
 
     <!-- Page heading -->
-    {{# page_head_wrapper }}
-      <h2>{{ c_or_e }}</h2>
-      <ol class="breadcrumb">
-          <li>
-              <a href="{{pathFor route='home'}}">Home</a>
-          </li>
-          <li>
-              <a>BOK</a>
-          </li>
-          
-          <li>
-              <a><b>{{#if _id}}{{ question_text }}{{else}}Create a new Measure{{/if}}</b></a>
-          </li>
-          
-      </ol>
-    {{/page_head_wrapper}}
+    {{> pageHeading title=title category=category category_url="/measures" }}
+
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">

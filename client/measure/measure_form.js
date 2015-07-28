@@ -1,11 +1,18 @@
 Meteor.subscribe('measures');
 
 Template.measure_form.helpers({
-  c_or_e: function(){
+  title: function(){
     if (this._id){
-      return "Editing: " + this.question_text;
+      return "Editing: "+ this.question_text;
     } else {
       return "Create a new Measure";
+    }
+  },
+  category: function(){
+    if (this._id) {
+      return "Measures";
+    } else {
+      return null;
     }
   }
 });
@@ -13,9 +20,7 @@ Template.measure_form.helpers({
 Template.measure_form.rendered = function(){
 
     // Initialize steps plugin
-    $("#wizard").steps();
-
-    $('.summernote').summernote();
+    // $("#wizard").steps();
 
     var config = {
         '.chosen-select'           : {},
@@ -28,9 +33,6 @@ Template.measure_form.rendered = function(){
         $(selector).chosen(config[selector]);
     }
 
-    var elem = document.querySelector('.js-switch');
-    var switchery = new Switchery(elem, { color: '#1AB394' });
-
 
     $("#form").steps({
         bodyTag: "fieldset",
@@ -41,13 +43,6 @@ Template.measure_form.rendered = function(){
             {
                 return true;
             }
-
-            // Forbid suppressing "Warning" step if the user is to young
-            if (newIndex === 3 && Number($("#age").val()) < 18)
-            {
-                return false;
-            }
-
 
             var form = $(this);
 
@@ -67,18 +62,6 @@ Template.measure_form.rendered = function(){
         },
         onStepChanged: function (event, currentIndex, priorIndex)
         {
-            // Suppress (skip) "Warning" step if the user is old enough.
-            if (currentIndex === 2 && Number($("#age").val()) >= 18)
-            {
-                $(this).steps("next");
-            }
-
-            // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
-            if (currentIndex === 2 && priorIndex === 3)
-            {
-                $(this).steps("previous");
-            }
-            
             if (currentIndex === 3) {
               $(".wizard-big.wizard > .content").addClass("deep");
             } else {
