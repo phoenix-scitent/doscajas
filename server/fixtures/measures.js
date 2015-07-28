@@ -9,7 +9,7 @@
 if (Measures.find().count() === 0) {
 
   ///* CREATE DEPENDENCIES */
-  var create_embedded_resource = function(){
+  var create_resource = function(){
     return Resources.insert({
       '__testdata': true,
       name: 'sdfasdf'
@@ -65,8 +65,11 @@ if (Measures.find().count() === 0) {
       question_text: 'Which one is the Instructional Designer?',
       description: 'In order to know what to call you, we need a name.',
       type: 'multiplechoice',
-      embedded_resource: create_embedded_resource(),
+      embedded_resource: create_resource(),
+      linked_resources: [ create_resource(), create_resource(), create_resource() ],
       weight: 2,
+      difficulty: 5,
+      moderator: 'moderator@test.com',
       status: 'published',
       owner: create_user(),
       send_upload_to: null,
@@ -75,28 +78,28 @@ if (Measures.find().count() === 0) {
           text: 'Brian',
           feedback: 'He is the Visual Designer',
           correct: false,
-          linked_resource: create_embedded_resource(),
+          linked_resource: create_resource(),
           points: 0
         },
         {
           text: 'Will',
           feedback: 'He is the Instructional Designer',
           correct: true,
-          linked_resource: create_embedded_resource(),
+          linked_resource: create_resource(),
           points: 0
         },
         {
           text: 'Tim',
           feedback: 'He is the Architect',
           correct: false,
-          linked_resource: create_embedded_resource(),
+          linked_resource: create_resource(),
           points: 0
         },
         {
           text: 'Eric',
           feedback: 'He is the Developer',
           correct: false,
-          linked_resource: create_embedded_resource(),
+          linked_resource: create_resource(),
           points: 0
         }
       ],

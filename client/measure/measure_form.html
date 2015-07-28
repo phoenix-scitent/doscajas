@@ -47,13 +47,8 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Supporting Resource</label> (choose one)
-                                            <div class="input-group">
-                                                <select data-placeholder="Embed a Resource in the Measure..." class="chosen-select" tabindex="2">
-                                                    <option value="">Select</option>
-                                                    <option value="123">Map of the World</option>
-                                                    <option value="1234">History of Media</option>
-                                                    <option value="125235">Alphabets in Greek</option>
-                                                </select>
+                                            <div class="input-group" style="width:100%">
+                                              <select id="supporting-resource" style="width:95%" tabindex="2"></select>
                                             </div>
                                         </div>
                                     </div>
@@ -66,28 +61,18 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Linked Resources</label> (any number)
-                                            <div class="input-group">
-                                                <select data-placeholder="Link to a Resource..." class="chosen-select" multiple tabindex="4">
-                                                    <option value="">Select</option>
-                                                    <option value="123" selected>Map of the World</option>
-                                                    <option value="1234">History of Media</option>
-                                                    <option value="125235">Alphabets in Greek</option>
-                                                </select>
-                                            </div>
+                                          <label>Linked Resources</label> (any number)
+                                          <div class="input-group" style="width:100%">
+                                            <select id="linked-resources" style="width:95%" tabindex="4"></select>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Tags</label>
-                                            <div class="input-group">
-                                                <select data-placeholder="Add tags in the Body of Knowledge..." multiple class="chosen-select" tabindex="4">
-                                                    <option value="">Select</option>
-                                                    <option value="123" selected>Math</option>
-                                                    <option value="1234" selected>Geometry</option>
-                                                    <option value="125235" selected>Algebra</option>
-                                                </select>
-                                            </div>
+                                          <label>Tags</label>
+                                          <div class="input-group" style="width:100%">
+                                            <select id="tags" style="width:95%" tabindex="4"></select>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -96,9 +81,7 @@
                             <h1>Answers</h1>
                             <fieldset>
                                 <h2>Answer Choices</h2>
-                                {{#each addIndex answers}}
-                                  {{> measure_answer  }}
-                                {{/each}}
+                                <div id="answers-wrapper"></div>
                             </fieldset>
 
                             <h1>Options</h1>
@@ -107,29 +90,24 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Current Owner</label> (choose one)
-                                            <div class="input-group">
-                                                <select data-placeholder="Choose the current owner..." class="chosen-select" style="width:95%" tabindex="2">
-                                                    <option value="">Select</option>
-                                                    <option value="123">Timothy Johnson</option>
-                                                    <option value="1234">Eric Glassman</option>
-                                                    <option value="125235" selected>Will Davis</option>
-                                                </select>
-                                            </div>
+                                          <label>Current Owner</label> (choose one)
+                                          <div class="input-group" style="width:100%">
+                                            <select id="current-owner" style="width:95%" tabindex="2"></select>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Question Weighting</label>
-                                            <input id="weighting" name="weighting" type="text" class="form-control" value='1'>
+                                            <div id="weighting-wrapper"></div>
                                         </div>
                                         <div class="form-group">
                                             <label>Question Difficulty</label>
-                                            <input id="difficulty" name="difficulty" type="text" class="form-control" value='1'>
+                                            <div id="difficulty-wrapper"></div>
                                         </div>
                                         <div class="form-group">
                                             <label>Question Moderator</label>
-                                            <input id="moderator_email" name="moderator_email" type="text" class="form-control" placeholder='moderator@school.edu'>
+                                            <div id="moderator-email-wrapper"></div>
                                         </div>
                                     </div>
                                 </div>

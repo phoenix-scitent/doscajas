@@ -9,13 +9,13 @@ UI.registerHelper('addIndex', function (all) {
   });
 });
 UI.registerHelper('dat_bok', function(){
-  return Boks.findOne(Meteor.user().profile.last_bok);
+  return BOK.current();
 });
 
 UI.registerHelper('dat_bok_name', function(){
-  return Boks.findOne(Meteor.user().profile.last_bok).name;
+  return BOK.current().name;
 });
 
 UI.registerHelper('dat_bok_url', function(){
-  return "/bok/" + Meteor.user().profile.last_bok;
+  return "/bok/" + BOK.current();
 });
