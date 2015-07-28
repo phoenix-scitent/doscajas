@@ -1,35 +1,25 @@
 <template name="boks">
-    {{> pageHeading }}
-
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="jumbotron">
-                    <h1>Welcome!</h1>
-                    <div class="videowrapper">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/N3L0OeoKAuk" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <p>Select one of the BoKs that you belong to, to begin expanding the knowledge graph.</p>
-                </div>
-            </div>
+            {{> home_page_onboarding count=bok_count }}
             <div class="col-lg-6">
                 <div class="row">
-                    {{> bokCreate }}
+                  {{> bokCreate }}
                   {{#each boks}}
                     <div class="col-lg-6">
-                        <div class="widget yellow-bg no-padding">
+                        <div class="widget lazur-bg no-padding">
                             <div class="p-m">
                                 <h1 class="m-xs">{{name}}</h1>
 
                                 <h3 class="font-bold no-margins">
                                     Body of Knowledge
                                 </h3>
-                                <small>You are an Author</small>
+                                <small>You are an Admin</small>
                             </div>
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-chart2" style="padding: 0px; position: relative;"><canvas class="flot-base" width="327" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 327px; height: 100px;"></canvas><canvas class="flot-overlay" width="327" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 327px; height: 100px;"></canvas></div>
                             </div>
-                            <a class="btn btn-warning btn-block btn-outline" href="{{pathFor 'bok' _id=this._id }}"><i class="fa fa-arrow-right"></i> Edit {{name}}</a>
+                            <a class="btn btn-white btn-block" href="{{pathFor 'bok' _id=this._id }}"><i class="fa fa-arrow-right"></i> Edit {{name}}</a>
                         </div>
                     </div>
                   {{/each}}
