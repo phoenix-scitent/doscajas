@@ -75,25 +75,29 @@ if (Measures.find().count() === 0) {
           text: 'Brian',
           feedback: 'He is the Visual Designer',
           correct: false,
-          linked_resource: create_embedded_resource()
+          linked_resource: create_embedded_resource(),
+          points: 0
         },
         {
           text: 'Will',
           feedback: 'He is the Instructional Designer',
           correct: true,
-          linked_resource: create_embedded_resource()
+          linked_resource: create_embedded_resource(),
+          points: 0
         },
         {
           text: 'Tim',
           feedback: 'He is the Architect',
           correct: false,
-          linked_resource: create_embedded_resource()
+          linked_resource: create_embedded_resource(),
+          points: 0
         },
         {
           text: 'Eric',
           feedback: 'He is the Developer',
           correct: false,
-          linked_resource: create_embedded_resource()
+          linked_resource: create_embedded_resource(),
+          points: 0
         }
       ],
       tags: [ create_tag(), create_tag() ],

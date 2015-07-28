@@ -2,9 +2,9 @@
 Meteor.startup(function () {
 
   MEASURE_TYPES = [
-    { name: 'Multiple Choice' },
-    { name: 'Text Input' },
-    { name: 'Upload' }
+    { name: 'Multiple Choice', slug: 'multiplechoice' },
+    { name: 'Text Input', slug: 'textinput' },
+    { name: 'Upload', slug: 'upload' }
   ]
 
 });

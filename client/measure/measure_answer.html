@@ -1,0 +1,30 @@
+<template name="measure_answer">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="form-group">
+        <label>Answer #{{ index }}</label>
+        <textarea id="answer_{{ index }}" name="answer_{{ index }}" type="text" class="form-control" rows="2"></textarea>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label>Answer #{{ index }} Feedback</label>
+        <textarea id="answer_{{ index }}_feedback" name="answer_{{ index }}_feedback" type="text" class="form-control" rows="2">{{ value.feedback }}</textarea>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="form-group">
+        <label>Answer Points</label>
+         <input  type="text" class="form-control" value=';jlkj' />
+      </div>
+      <div class="form-group">
+        {{#if value.correct}}
+          <input id="answer_{{ index }}_correct" name="answer_{{ index }}_correct" type="checkbox" class="checkbox checkbox-success" checked />
+        {{else}}
+          <input id="answer_{{ index }}_correct" name="answer_{{ index }}_correct" type="checkbox" class="checkbox checkbox-success" />
+        {{/if}}
+        <label>Correct</label>
+      </div>
+    </div>
+  </div>
+</template>

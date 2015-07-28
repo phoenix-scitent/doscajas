@@ -19,8 +19,7 @@
                                 <h2>Question Setup</h2>
                                 <div class="row">
                                     <div class="col-lg-8">
-                                        <div id ='question-wrapper' class="form-group">
-                                        </div>
+                                        <div id='question-wrapper' class="form-group"></div>
                                         <div class="form-group">
                                             <label>Question Type</label> 
                                             <div class="input-group" style="width:100%">
@@ -43,10 +42,7 @@
                                 <h2>Description &amp; Resource</h2>
                                 <div class="row">
                                     <div class="col-lg-8">
-                                        <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea id="description" name="description" type="text" class="form-control" rows="4"></textarea>
-                                        </div>
+                                        <div id="description-wrapper" class="form-group"></div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
@@ -100,102 +96,9 @@
                             <h1>Answers</h1>
                             <fieldset>
                                 <h2>Answer Choices</h2>
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Answer #1</label>
-                                            <textarea id="answer_1" name="answer_1" type="text" class="form-control" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Answer #1 Feedback</label>
-                                            <textarea id="answer_1_feedback" name="answer_1_feedback" type="text" class="form-control" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Answer Points</label>
-                                            <input id="answer_1_points" name="answer_1_points" type="text" class="form-control" value='1'>
-                                        </div>                                        
-                                        <div class="form-group">
-                                            <input id="answer_1_correct" name="answer_1_correct" type="checkbox" class="checkbox checkbox-success">
-                                            <label>Correct</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Answer #2</label>
-                                            <textarea id="answer_2" name="answer_2" type="text" class="form-control" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Answer #2 Feedback</label>
-                                            <textarea id="answer_2_feedback" name="answer_2_feedback" type="text" class="form-control" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Answer Points</label>
-                                            <input id="answer_2_points" name="answer_2_points" type="text" class="form-control" value='1'>
-                                        </div>                                        
-                                        <div class="form-group">
-                                            <input id="answer_2_correct" name="answer_2_correct" type="checkbox" class="checkbox checkbox-success">
-                                            <label>Correct</label>
-                                       </div>
-                                    </div>
-                                </div>
-                                                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Answer #3 </label>
-                                            <textarea id="answer_3" name="answer_3" type="text" class="form-control" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Answer #3 Feedback</label>
-                                            <textarea id="answer_3_feedback" name="answer_3_feedback" type="text" class="form-control" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Answer Points</label>
-                                            <input id="answer_3_points" name="answer_3_points" type="text" class="form-control" value='1'>
-                                        </div>                                        
-                                        <div class="form-group">
-                                            <input id="answer_3_correct" name="answer_3_correct" type="checkbox" class="checkbox checkbox-success">
-                                            <label>Correct</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Answer #4</label>
-                                            <textarea id="answer_4" name="answer_4" type="text" class="form-control" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Answer #4 Feedback</label>
-                                            <textarea id="answer_4_feedback" name="answer_4_feedback" type="text" class="form-control" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Answer Points</label>
-                                            <input id="answer_4_points" name="answer_4_points" type="text" class="form-control" value='1'>
-                                        </div>                                        
-                                        <div class="form-group">
-                                            <input id="answer_4_correct" name="answer_4_correct" type="checkbox" class="checkbox checkbox-success">
-                                            <label>Correct</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{#each addIndex answers}}
+                                  {{> measure_answer  }}
+                                {{/each}}
                             </fieldset>
 
                             <h1>Options</h1>

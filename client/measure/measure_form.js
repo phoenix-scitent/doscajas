@@ -36,7 +36,11 @@ Template.measure_form.rendered = function(){
     var elem = document.querySelector('.js-switch');
     var switchery = new Switchery(elem, { color: '#1AB394' });
 
-    $('#question-wrapper').prepend('<label>Question *</label><textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4">'+ ((this.data && this.data.question_text) || '') +'</textarea>');
+    $('#question-wrapper').prepend('<label>Question *</label><textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4">'+ ((this.data && this.data.question_text) || '') + '</textarea>');
+
+    $('#description-wrapper').prepend('<label>Description</label><textarea id="description" name="description" type="text" class="form-control" rows="4">'+ ((this.data && this.data.description) || '') +'</textarea>');
+
+
 
     $("#form").steps({
         bodyTag: "fieldset",
@@ -107,8 +111,11 @@ Template.measure_form.rendered = function(){
       create: false,
       maxItems: 1,
       labelField: 'name',
-      valueField: 'name',
+      valueField: 'slug',
       searchField: 'name',
-      options: MEASURE_TYPES
+      options: MEASURE_TYPES,
+      items: [ (this.data && this.data.type) ]
     });
+
+
 };

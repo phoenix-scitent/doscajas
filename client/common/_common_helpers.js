@@ -3,6 +3,11 @@ UI.registerHelper('trace', function(context, options) {
     console.log(context);
 });
 
+UI.registerHelper('addIndex', function (all) {
+  return _.map(all, function(val, index) {
+    return {index: index + 1, value: val};
+  });
+});
 UI.registerHelper('dat_bok', function(){
   return Boks.findOne(Meteor.user().profile.last_bok);
 });
