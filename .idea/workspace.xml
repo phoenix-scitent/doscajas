@@ -34,22 +34,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="measure_form.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="measure_form.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/measure/measure_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="3765">
-              <caret line="21" column="87" selection-start-line="21" selection-start-column="87" selection-end-line="21" selection-end-column="87" />
-              <folding />
+            <state vertical-scroll-proportion="0.5960265" vertical-offset="0" max-vertical-offset="3705">
+              <caret line="42" column="67" selection-start-line="42" selection-start-column="67" selection-end-line="42" selection-end-column="67" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="measure_form.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="measure_form.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/measure/measure_form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26685393" vertical-offset="0" max-vertical-offset="1665">
-              <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+              <caret line="116" column="7" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="7" />
+              <folding>
+                <element signature="e#1161#2979#0" expanded="false" />
+                <element signature="e#2990#3204#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,7 +104,6 @@
         <option value="$PROJECT_DIR$/server/fixtures/bok.js" />
         <option value="$PROJECT_DIR$/server/collections/comments.js" />
         <option value="$PROJECT_DIR$/server/collections/resources.js" />
-        <option value="$PROJECT_DIR$/lib/bower-load/load-order-force-level-1/load-order-force-level-2/bower/bower.json" />
         <option value="$PROJECT_DIR$/lib/models/comments.js" />
         <option value="$PROJECT_DIR$/lib/models/resources.js" />
         <option value="$PROJECT_DIR$/server/startup/default.js" />
@@ -108,8 +115,9 @@
         <option value="$PROJECT_DIR$/client/measures/measures.js" />
         <option value="$PROJECT_DIR$/client/measures/measure-card.html" />
         <option value="$PROJECT_DIR$/lib/models/boks.js" />
-        <option value="$PROJECT_DIR$/client/measure/measure_form.html" />
+        <option value="$PROJECT_DIR$/lib/bower-load/load-order-force-level-1/load-order-force-level-2/bower/bower.json" />
         <option value="$PROJECT_DIR$/client/measure/measure_form.js" />
+        <option value="$PROJECT_DIR$/client/measure/measure_form.html" />
       </list>
     </option>
   </component>
@@ -831,14 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/bower-load/load-order-force-level-1/load-order-force-level-2/bower/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53926206" vertical-offset="0" max-vertical-offset="1057">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/models/measures.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1081">
@@ -1021,10 +1021,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/measure/measure_form.html">
+    <entry file="file://$PROJECT_DIR$/lib/bower-load/load-order-force-level-1/load-order-force-level-2/bower/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="3765">
-          <caret line="21" column="87" selection-start-line="21" selection-start-column="87" selection-end-line="21" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.6244087" vertical-offset="0" max-vertical-offset="1057">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1039,9 +1039,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/measure/measure_form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26685393" vertical-offset="0" max-vertical-offset="1665">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+          <caret line="116" column="7" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="7" />
+          <folding>
+            <element signature="e#1161#2979#0" expanded="false" />
+            <element signature="e#2990#3204#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/measure/measure_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5960265" vertical-offset="0" max-vertical-offset="3705">
+          <caret line="42" column="67" selection-start-line="42" selection-start-column="67" selection-end-line="42" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
