@@ -1,6 +1,16 @@
 Meteor.subscribe('measures');
 
-Template.measure.rendered = function(){
+Template.measure_form.helpers({
+  c_or_e: function(){
+    if (this._id){
+      return "Edit";
+    } else {
+      return "Create";
+    }
+  }
+});
+
+Template.measure_form.rendered = function(){
 
     // Initialize steps plugin
     $("#wizard").steps();

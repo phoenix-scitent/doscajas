@@ -1,8 +1,23 @@
-<template name="measure">
+<template name="measure_form">
 
 
     <!-- Page heading -->
-    {{> pageHeading title='Create a Measure' category='BOK' }}
+    {{# page_head_wrapper }}
+      <h2>{{ c_or_e }} a Measure</h2>
+      <ol class="breadcrumb">
+          <li>
+              <a href="{{pathFor route='home'}}">Home</a>
+          </li>
+          <li>
+              <a>BOK</a>
+          </li>
+          
+          <li>
+              <a><b>{{#if _id}}{{ question_text }}{{else}}Create a new Measure{{/if}}</b></a>
+          </li>
+          
+      </ol>
+    {{/page_head_wrapper}}
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
@@ -13,7 +28,9 @@
                     </div>
                     <div class="ibox-content">
                         <h2>
-                            Create a new Measure in the Body of Knowledge
+                            {{ trace c_or_e }}
+                            {{ trace _id }}
+                            {{ c_or_e }} a Measure in the Body of Knowledge
                         </h2>
 
                         <form id="form" action="#" class="wizard-big">
@@ -24,15 +41,15 @@
                                     <div class="col-lg-8">
                                         <div class="form-group">
                                             <label>Question *</label>
-                                            <textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4"></textarea>
+                                            <textarea id="question_text" name="question_text" type="text" class="form-control required" rows="4">{{ question_text }}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Question Type</label> 
                                             <div class="input-group">
                                                 <select data-placeholder="choose the type..." class="chosen-select" style="width:95%" tabindex="4">
-                                                    <option value="" selected>Multiple Choice</option>
-                                                    <option value="123">Text Input</option>
-                                                    <option value="1234">Upload</option>
+                                                    <option value="multiple_choice">Multiple Choice</option>
+                                                    <option value="text_input">Text Input</option>
+                                                    <option value="file_upload">Upload</option>
                                                 </select>
                                             </div>
                                         </div>

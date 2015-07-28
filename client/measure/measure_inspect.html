@@ -1,7 +1,23 @@
-<template name="measureInspect">
+<template name="measure_inspect">
+
 
     <!-- Page heading -->
-    {{> pageHeading category='All Measures' }}
+    {{# page_head_wrapper }}
+      <h2>{{ question_text }}</h2>
+      <ol class="breadcrumb">
+          <li>
+              <a href="{{pathFor route='home'}}">Home</a>
+          </li>
+          <li>
+              <a>BOK</a>
+          </li>
+          
+          <li>
+              <a><b>{{ question_text }}</b></a>
+          </li>
+          
+      </ol>
+    {{/page_head_wrapper}}
 
     <div class="row">
         <div class="col-lg-9">

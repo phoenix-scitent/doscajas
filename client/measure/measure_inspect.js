@@ -1,7 +1,7 @@
 Meteor.subscribe('measures');
 Meteor.subscribe('users');
 
-Template.measureInspect.helpers({
+Template.measure_inspect.helpers({
   measure: function() {
     return this;
   },
@@ -16,6 +16,6 @@ Template.measureInspect.helpers({
   }
 });
 
-Template.measureInspect.rendered = function(){
+Template.measure_inspect.rendered = function(){
 
 };
