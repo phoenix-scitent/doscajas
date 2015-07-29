@@ -1,5 +1,7 @@
 Template.measure_form.rendered = function(){
 
+    var templateData = this.data;
+
     var config = {
         '.chosen-select'           : {},
         '.chosen-select-deselect'  : {allow_single_deselect:true},
@@ -26,9 +28,9 @@ Template.measure_form.rendered = function(){
         var index = index + 1,
             isCorrect = function(correct){
               if(correct){
-                return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" checked />'
+                return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' checked />'
               } else {
-                return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" />'
+                return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' />'
               }
             };
 
@@ -36,19 +38,19 @@ Template.measure_form.rendered = function(){
           '<div class="col-lg-3">' +
             '<div class="form-group">' +
               '<label>Answer #'+ index +'</label>' +
-              '<textarea id="answer_'+ index +'" name="answer_'+ index +'" type="text" class="form-control" rows="2">'+ answer.text +'</textarea>' +
+              '<textarea id="answer_'+ index +'" name="answer_'+ index +'" type="text" class="form-control" rows="2" data-answer-part="text" data-answer-index='+ index +'>'+ answer.text +'</textarea>' +
             '</div>' +
           '</div>' +
           '<div class="col-lg-6">' +
             '<div class="form-group">' +
               '<label>Answer #'+ index +' Feedback</label>' +
-              '<textarea id="answer_'+ index +'_feedback" name="answer_'+ index +'_feedback" type="text" class="form-control" rows="2">'+ answer.feedback +'</textarea>' +
+              '<textarea id="answer_'+ index +'_feedback" name="answer_'+ index +'_feedback" type="text" class="form-control" rows="2" data-answer-part="feedback" data-answer-index='+ index +'>'+ answer.feedback +'</textarea>' +
             '</div>' +
           '</div>' +
           '<div class="col-lg-3">' +
             '<div class="form-group">' +
               '<label>Answer Points</label>' +
-              '<input type="text" class="form-control" value="'+ (answer.points || '') +'" />' +
+              '<input type="text" class="form-control" data-answer-part="points" data-answer-index='+ index +' value="'+ (answer.points || '') +'" />' +
             '</div>' +
             '<div class="form-group">' +
               isCorrect(answer.correct) +
@@ -98,21 +100,124 @@ Template.measure_form.rendered = function(){
         },
         onFinishing: function (event, currentIndex)
         {
-            var form = $(this);
 
-            // Disable validation on fields that are disabled.
-            // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
-            form.validate().settings.ignore = ":disabled";
+          //////////////////
+          // persist data //
+          //////////////////
 
-            // Start validation; Prevent form submission if false
-            return form.valid();
+          var question = $('#question_text').val();
+          var questionTypeSelectize = $('#question-type')[0].selectize;
+          var questionType = questionTypeSelectize.getValue();
+          var description = $('#description').val();
+          var supportingResourceSelectize = $('#supporting-resource')[0].selectize;
+          var supportingResource = supportingResourceSelectize.getValue();
+          var linkedResourcesSelectize = $('#linked-resources')[0].selectize;
+          var linkedResources = linkedResourcesSelectize.getValue();
+          var tagsSelectize = $('#tags')[0].selectize;
+          var tags = tagsSelectize.getValue();
+
+          var rawAnswers = [];
+          var answers = [];
+
+          $('#answers-wrapper').children().each(function(){
+            $(this).children().each(function(){
+              $(this).children().each(function(){
+                $(this).children().not('label').each(function(){
+                    rawAnswers.push({
+                      index: $(this).data('answer-index'),
+                      value: ($(this).data('answer-part') === 'correct' ? $(this).prop('checked') : $(this).val()),
+                      part: $(this).data('answer-part')
+                    });
+                  })
+                })
+              })
+            });
+
+          _.forEach(_.uniq(rawAnswers, 'index'), function(uniq){
+            var answerParts = _.filter(rawAnswers, function(answer){
+              return answer.index === uniq.index;
+            });
+
+            var singleAnswer = {};
+
+            _.forEach(answerParts, function(p){
+              singleAnswer[p.part] = p.value;
+            });
+
+            answers.push(singleAnswer)
+          });
+
+          var currentOwnerSelectize = $('#current-owner')[0].selectize;
+          var currentOwner = currentOwnerSelectize.getItem(currentOwnerSelectize.getValue());
+
+          var weighting = $('#weighting').val();
+          var difficulty = $('#difficulty').val();
+          var moderatorEmail = $('#moderator-email').val();
+
+          if(templateData._id){
+            Measures.update(templateData._id, {
+              $set: {
+                question_text: question,
+                description: description,
+                type: questionType,
+                embedded_resource: supportingResource,
+                linked_resources: linkedResources,
+                weight: weighting,
+                difficulty: difficulty,
+                moderator: moderatorEmail,
+                status: 'published', //TODO: implement this
+                owner: currentOwner,
+                send_upload_to: null, //TODO: implement this
+                answers: answers,
+                tags: tags,
+                additions: [ ], //TODO: implement this
+                comments: [ ]  //TODO: implement this
+                //date_created: Date.now()
+              }
+            });
+          } else {
+            Measures.insert({
+              question_text: question,
+              description: description,
+              type: questionType,
+              embedded_resource: supportingResource,
+              linked_resources: linkedResources,
+              weight: weighting,
+              difficulty: difficulty,
+              moderator: moderatorEmail,
+              status: 'published', //TODO: implement this
+              owner: currentOwner,
+              send_upload_to: null, //TODO: implement this
+              answers: answers,
+              tags: tags,
+              additions: [ ], //TODO: implement this
+              comments: [ ], //TODO: implement this
+              date_created: Date.now()
+            })
+          }
+
+          //console.log(question, questionType, description, supportingResource, linkedResources, tags, answers, currentOwner, weighting, moderatorEmail);
+
+          ////////////////////
+          // deal with form //
+          ////////////////////
+
+          var form = $(this);
+          //
+          //// Disable validation on fields that are disabled.
+          //// At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+          form.validate().settings.ignore = ":disabled";
+          //
+          //// Start validation; Prevent form submission if false
+          return form.valid();
+
         },
         onFinished: function (event, currentIndex)
         {
             var form = $(this);
 
             // Submit form input
-            form.submit();
+            // form.submit();
         }
     }).validate({
         errorPlacement: function (error, element)
@@ -130,12 +235,12 @@ Template.measure_form.rendered = function(){
     var tags = Boks.find({ ancestors: BOK.current()._id }).fetch();
     var resources = Resources.find().fetch();
     var fetchEmbeddedResource = Resources.findOne({ _id: (this.data && this.data.embedded_resource) });
-    var currentEmbeddedResource = fetchEmbeddedResource && fetchEmbeddedResource.name;
+    var currentEmbeddedResource = fetchEmbeddedResource && fetchEmbeddedResource._id;
     var currentLinkedResources = _.map(Resources.find({ _id: { $in: ((this.data && this.data.linked_resources) || []) } }).fetch(), function(resource){
-      return resource.name
+      return resource._id
     });
     var currentTags = _.map(Boks.find({ _id: { $in: ((this.data && this.data.tags) || []) } }).fetch(), function(tag){
-      return tag.name
+      return tag._id
     });
 
     $("#question-type").selectize({
@@ -156,7 +261,7 @@ Template.measure_form.rendered = function(){
       create: false,
       maxItems: 1,
       labelField: 'name',
-      valueField: 'name',
+      valueField: '_id',
       searchField: 'name',
       options: resources,
       items: [ currentEmbeddedResource ]
@@ -168,7 +273,7 @@ Template.measure_form.rendered = function(){
       create: false,
       maxItems: null,
       labelField: 'name',
-      valueField: 'name',
+      valueField: '_id',
       searchField: 'name',
       options: resources,
       items: currentLinkedResources
@@ -180,7 +285,7 @@ Template.measure_form.rendered = function(){
       create: false,
       maxItems: null,
       labelField: 'name',
-      valueField: 'name',
+      valueField: '_id',
       searchField: 'name',
       options: tags,
       items: currentTags
