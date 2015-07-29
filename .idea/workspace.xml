@@ -46,8 +46,8 @@
       <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/router/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="8040">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8040">
+              <caret line="10" column="115" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="115" />
               <folding />
             </state>
           </provider>
@@ -73,23 +73,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="measure_form_rendered.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="measure_form_rendered.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/measure/measure_form_rendered.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1692" max-vertical-offset="4380">
-              <caret line="177" column="18" selection-start-line="177" selection-start-column="18" selection-end-line="177" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.6488764" vertical-offset="3507" max-vertical-offset="4575">
+              <caret line="319" column="58" selection-start-line="319" selection-start-column="58" selection-end-line="319" selection-end-column="58" />
               <folding>
                 <element signature="e#5345#5873#0" expanded="false" />
                 <element signature="e#5940#6275#0" expanded="false" />
+                <element signature="e#9522#9907#0" expanded="false" />
+                <element signature="e#12180#12432#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="measures.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="measures.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/collections/measures.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18038853" vertical-offset="0" max-vertical-offset="1081">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
               <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
               <folding />
             </state>
@@ -190,8 +192,8 @@
         <option value="$PROJECT_DIR$/client/measure/measure_form.html" />
         <option value="$PROJECT_DIR$/server/fixtures/measures.js" />
         <option value="$PROJECT_DIR$/client/measure/measure_form.js" />
-        <option value="$PROJECT_DIR$/client/measure/measure_form_rendered.js" />
         <option value="$PROJECT_DIR$/server/collections/measures.js" />
+        <option value="$PROJECT_DIR$/client/measure/measure_form_rendered.js" />
       </list>
     </option>
   </component>
@@ -380,6 +382,7 @@
     <property name="js.meteor.library.was.enabled" value="true" />
     <property name="editorconfig.notification" value="Applied .editorconfig settings" />
     <property name="ignore_missing_gitignore" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/ericglassman/projects/spikes/doscajas/client/measure/measure_form.js" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -610,6 +613,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
           <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding>
+            <element signature="e#229#295#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -774,14 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/router/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="8040">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/bok/bok.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
@@ -807,14 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/measure/measure_form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/fixtures/measures.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="674" max-vertical-offset="1755">
@@ -823,22 +813,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/measure/measure_form_rendered.js">
+    <entry file="file://$PROJECT_DIR$/server/collections/measures.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1692" max-vertical-offset="4380">
-          <caret line="177" column="18" selection-start-line="177" selection-start-column="18" selection-end-line="177" selection-end-column="18" />
-          <folding>
-            <element signature="e#5345#5873#0" expanded="false" />
-            <element signature="e#5940#6275#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/collections/measures.js">
+    <entry file="file://$PROJECT_DIR$/lib/router/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18038853" vertical-offset="0" max-vertical-offset="1081">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8040">
+          <caret line="10" column="115" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="115" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/measure/measure_form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/measure/measure_form_rendered.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6488764" vertical-offset="3507" max-vertical-offset="4575">
+          <caret line="319" column="58" selection-start-line="319" selection-start-column="58" selection-end-line="319" selection-end-column="58" />
+          <folding>
+            <element signature="e#5345#5873#0" expanded="false" />
+            <element signature="e#5940#6275#0" expanded="false" />
+            <element signature="e#9522#9907#0" expanded="false" />
+            <element signature="e#12180#12432#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

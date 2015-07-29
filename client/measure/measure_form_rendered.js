@@ -232,7 +232,23 @@ Template.measure_form.rendered = function(){
     });
 
     //TODO: scope these to this user, pull data source out of here and into router?
-    var tags = Boks.find({ ancestors: BOK.current()._id }).fetch();
+    var tags = Boks.find({ $or: [{ _id: BOK.current()._id }, { $and: [{ancestors: BOK.current()._id}, {public: true}] }] }).fetch();
+    var formattedTags = _.map(tags, function(tag){
+      var getTagName = function(tagId){
+        return _.filter(tags, function(tag){ return tag._id === tagId })[0].name
+      };
+      var formatAncestors = _.map(tag.ancestors, function(ancestor){
+        var path = [];
+
+        path.push(getTagName(ancestor) + ' > ');
+
+        return path.join('')
+      }).join('');
+
+      tag['path'] = formatAncestors;
+
+      return tag;
+    });
     var resources = Resources.find().fetch();
     var fetchEmbeddedResource = Resources.findOne({ _id: (this.data && this.data.embedded_resource) });
     var currentEmbeddedResource = fetchEmbeddedResource && fetchEmbeddedResource._id;
@@ -287,8 +303,26 @@ Template.measure_form.rendered = function(){
       labelField: 'name',
       valueField: '_id',
       searchField: 'name',
-      options: tags,
+      render: {
+        option: function(data, escape) {
+          return '<div class="option"><span class="type">' + escape(data.path) + '<strong>' + escape(data.name) + '</strong></span></div>';
+        },
+        item: function(data, escape) {
+          return '<div class="item">' + escape(data.name) + '</div>';
+        }
+      },
+      options: formattedTags,
       items: currentTags
+    });
+
+    var tagsSelectizeAPI = $('#tags')[0].selectize;
+
+    tagsSelectizeAPI.on("item_add", function(value, $item){
+      var _id = value,
+          tag = Boks.findOne({ _id: value });
+      _.each(tag.ancestors, function(item){
+        tagsSelectizeAPI.addItem(item, function(){return true} /* no change event will be fired on the original input */)
+      });
     });
 
     $("#current-owner").selectize({
