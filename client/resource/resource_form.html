@@ -1,0 +1,124 @@
+<template name="resource_form">
+
+
+    <!-- Page heading -->
+    {{> pageHeading title=title category=category category_url="/resources" }}
+
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Resource Creation Wizard</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form id="form" action="#" class="wizard-big">
+                            <h1>Question Setup</h1>
+                            <fieldset>
+                                <h2>Question Setup</h2>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div id='question-wrapper' class="form-group"></div>
+                                        <div class="form-group">
+                                            <label>Question Type</label> 
+                                            <div class="input-group" style="width:100%">
+                                                <select id="question-type" style="width:95%" tabindex="4"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="text-center">
+                                            <div style="margin-top: 20px">
+                                                <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                            <h1>Description</h1>
+                            <fieldset>
+                                <h2>Description &amp; Resource</h2>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div id="description-wrapper" class="form-group"></div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Supporting Resource</label> (choose one)
+                                            <div class="input-group" style="width:100%">
+                                              <select id="supporting-resource" style="width:95%" tabindex="2"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                            <h1>Resources</h1>
+                            <fieldset>
+                                <h2>Resources &amp; Relationships</h2>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label>Linked Resources</label> (any number)
+                                          <div class="input-group" style="width:100%">
+                                            <select id="linked-resources" style="width:95%" tabindex="4"></select>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label>Tags</label>
+                                          <div class="input-group" style="width:100%">
+                                            <select id="tags" style="width:95%" tabindex="4"></select>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <h1>Answers</h1>
+                            <fieldset>
+                                <h2>Answer Choices</h2>
+                                <div id="answers-wrapper"></div>
+                                <div id="answers-add-wrapper"></div>
+                            </fieldset>
+
+                            <h1>Options</h1>
+                            <fieldset>
+                                <h2>Options and Meta Info</h2>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                          <label>Current Owner</label> (choose one)
+                                          <div class="input-group" style="width:100%">
+                                            <select id="current-owner" style="width:95%" tabindex="2"></select>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Question Weighting</label>
+                                            <div id="weighting-wrapper"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Question Difficulty</label>
+                                            <div id="difficulty-wrapper"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Question Moderator</label>
+                                            <div id="moderator-email-wrapper"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</template>
