@@ -23,45 +23,47 @@ Template.measure_form.rendered = function(){
 
     var answers = this.data && this.data.answers;
 
-    _.forEach(answers, function(answer, index){
-      var answerHtml = function(answer, index){
-        var index = index + 1,
-            isCorrect = function(correct){
-              if(correct){
-                return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' checked />'
-              } else {
-                return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' />'
-              }
-            };
+    var answerHtml = function(answer, index){
+      var index = index + 1,
+          isCorrect = function(correct){
+            if(correct){
+              return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' checked />'
+            } else {
+              return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' />'
+            }
+          };
 
-        return '<div class="row">' +
+      return '<div class="row">' +
           '<div class="col-lg-3">' +
-            '<div class="form-group">' +
-              '<label>Answer #'+ index +'</label>' +
-              '<textarea id="answer_'+ index +'" name="answer_'+ index +'" type="text" class="form-control" rows="2" data-answer-part="text" data-answer-index='+ index +'>'+ answer.text +'</textarea>' +
-            '</div>' +
+          '<div class="form-group">' +
+          '<label>Answer #'+ index +'</label>' +
+          '<textarea id="answer_'+ index +'" name="answer_'+ index +'" type="text" class="form-control" rows="2" data-answer-part="text" data-answer-index='+ index +'>'+ answer.text +'</textarea>' +
+          '</div>' +
           '</div>' +
           '<div class="col-lg-6">' +
-            '<div class="form-group">' +
-              '<label>Answer #'+ index +' Feedback</label>' +
-              '<textarea id="answer_'+ index +'_feedback" name="answer_'+ index +'_feedback" type="text" class="form-control" rows="2" data-answer-part="feedback" data-answer-index='+ index +'>'+ answer.feedback +'</textarea>' +
-            '</div>' +
+          '<div class="form-group">' +
+          '<label>Answer #'+ index +' Feedback</label>' +
+          '<textarea id="answer_'+ index +'_feedback" name="answer_'+ index +'_feedback" type="text" class="form-control" rows="2" data-answer-part="feedback" data-answer-index='+ index +'>'+ answer.feedback +'</textarea>' +
+          '</div>' +
           '</div>' +
           '<div class="col-lg-3">' +
-            '<div class="form-group">' +
-              '<label>Answer Points</label>' +
-              '<input type="text" class="form-control" data-answer-part="points" data-answer-index='+ index +' value="'+ (answer.points || '') +'" />' +
-            '</div>' +
-            '<div class="form-group">' +
-              isCorrect(answer.correct) +
-              '<label>Correct</label>' +
-            '</div>' +
+          '<div class="form-group">' +
+          '<label>Answer Points</label>' +
+          '<input type="text" class="form-control" data-answer-part="points" data-answer-index='+ index +' value="'+ (answer.points || '') +'" />' +
+          '</div>' +
+          '<div class="form-group">' +
+          isCorrect(answer.correct) +
+          '<label>Correct</label>' +
+          '</div>' +
           '</div>'+
-        '</div>'
-      };
+          '</div>'
+    };
 
+    _.forEach(answers, function(answer, index){
       $('#answers-wrapper').append( answerHtml(answer, index) );
     });
+
+    $('#answers-add-wrapper').append('<span class="input-group-btn"><button id="add-answer" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Add Answer</button></span>');
 
     $("#form").steps({
         bodyTag: "fieldset",
@@ -154,7 +156,7 @@ Template.measure_form.rendered = function(){
           var difficulty = $('#difficulty').val();
           var moderatorEmail = $('#moderator-email').val();
 
-          if(templateData._id){
+          if(templateData && templateData._id){
             Measures.update(templateData._id, {
               $set: {
                 question_text: question,
@@ -174,6 +176,8 @@ Template.measure_form.rendered = function(){
                 comments: [ ]  //TODO: implement this
                 //date_created: Date.now()
               }
+            }, function(error, docId){
+              Router.go('/measure/'+ templateData._id +'/inspect')
             });
           } else {
             Measures.insert({
@@ -193,6 +197,8 @@ Template.measure_form.rendered = function(){
               additions: [ ], //TODO: implement this
               comments: [ ], //TODO: implement this
               date_created: Date.now()
+            }, function(error, docId){
+              Router.go('/measure/'+ docId +'/inspect')
             })
           }
 
@@ -218,6 +224,7 @@ Template.measure_form.rendered = function(){
 
             // Submit form input
             // form.submit();
+
         }
     }).validate({
         errorPlacement: function (error, element)
