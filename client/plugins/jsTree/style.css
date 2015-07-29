@@ -61,6 +61,7 @@
 }
 .jstree-anchor > .jstree-themeicon {
   margin-right: 2px;
+  color: #bbb;
 }
 .jstree-no-icons .jstree-themeicon,
 .jstree-anchor > .jstree-themeicon-hidden {
@@ -366,21 +367,33 @@
   border-radius: 0;
 }
 .jstree-default .jstree-wholerow {
+  display: block;
+  /*margin: 5px 0;*/
+  padding: 5px 10px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #e7eaec;
+  background: #f5f5f5;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+
 }
 .jstree-default .jstree-wholerow-hovered {
-  background: #e7f4f9;
+  background: #f0f0f0;
+  cursor: pointer;
+  font-weight: bold;
 }
 .jstree-default .jstree-wholerow-clicked {
-  background: #beebff;
-  background: -moz-linear-gradient(top, #beebff 0%, #a8e4ff 100%);
+  background: #fff;
+/*  background: -moz-linear-gradient(top, #beebff 0%, #a8e4ff 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #beebff), color-stop(100%, #a8e4ff));
   background: -webkit-linear-gradient(top, #beebff 0%, #a8e4ff 100%);
   background: -o-linear-gradient(top, #beebff 0%, #a8e4ff 100%);
   background: -ms-linear-gradient(top, #beebff 0%, #a8e4ff 100%);
-  background: linear-gradient(to bottom, #beebff 0%, #a8e4ff 100%);
+  background: linear-gradient(to bottom, #beebff 0%, #a8e4ff 100%);*/
   /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color1', endColorstr='@color2',GradientType=0 );*/
 }
 .jstree-default .jstree-node {
@@ -411,6 +424,7 @@
 }
 .jstree-default .jstree-node,
 .jstree-default .jstree-icon {
+  content: '+';
   background-image: url("32px.png");
 }
 .jstree-default .jstree-node {
@@ -727,7 +741,7 @@
   line-height: 32px;
 }
 .jstree-default-large .jstree-icon:empty {
-  width: 32px;
+  /*width: 32px;*/
   height: 32px;
   line-height: 32px;
 }
@@ -1047,4 +1061,10 @@
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+.jstree-default-large .jstree-themeicon-custom.fa-cirle {
+  display: inline-block;
+  padding: 3px 8px;
+  background-color: #5bc0de;
 }

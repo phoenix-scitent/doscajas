@@ -1,5 +1,8 @@
 Template.bok_tree.rendered = function(){
 
+  $('.modal').appendTo("body");
+
+
   this.autorun(function(){
     Template.currentData(); // autorun reactivity source
 
@@ -38,20 +41,29 @@ Template.bok_tree.rendered = function(){
         updateNode( nodeId, formatAncestors(nodeParents) )
       }
 
+    }).on('changed.jstree', function (e, data) {
+      var i, j, r = [];
+      for(i = 0, j = data.selected.length; i < j; i++) {
+        r.push(data.instance.get_node(data.selected[i]).id);
+      }
+      $('#edit_bok_modal').modal('show');
     }).jstree({
       'core' : {
         'check_callback' : true,
-        'data' : Session.get('bokNodes')
+        'data' : Session.get('bokNodes'),
+        "themes" : {
+          "variant" : "large"
+        }
       },
       'types' : {
         "public" : {
-          "icon" : "glyphicon glyphicon-tag"
+          "icon" : "fa fa-globe"
         },
         "private" : {
-          "icon" : "glyphicon glyphicon-lock"
+          "icon" : "fa fa-lock"
         }
       },
-      'plugins' : ["dnd", "types"]
+      'plugins' : ["dnd", "types", "wholerow"]
     });
 
     $( document).off('addNode');
