@@ -1,4 +1,4 @@
-Template.bokNestable.rendered = function(){
+Template.bok_nestable.rendered = function(){
 
   var $nestable = $('#nestable2');
 
@@ -27,18 +27,9 @@ Template.bokNestable.rendered = function(){
       }
     };
 
-    //console.log('rendered');
-    //$( document ).ready(function(){
-    //  console.log('doc ready!');
-    //  $('#nestable2').nestable('init');
-    //});
-
-    //// output initial serialised data
-    //updateOutput($('#nestable2').data('output', $('#nestable2-output')));
-
   });
 };
 
-Template.bokNestable.events({
+Template.bok_nestable.events({
 
 });

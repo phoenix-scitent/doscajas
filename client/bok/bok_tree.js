@@ -1,4 +1,4 @@
-Template.bokTree.rendered = function(){
+Template.bok_tree.rendered = function(){
 
   this.autorun(function(){
     Template.currentData(); // autorun reactivity source
@@ -65,6 +65,6 @@ Template.bokTree.rendered = function(){
   });
 };
 
-Template.bokTree.events({
+Template.bok_tree.events({
 
 });

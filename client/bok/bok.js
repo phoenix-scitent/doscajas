@@ -69,8 +69,9 @@ Template.bok.rendered = function(){
 
 
     // Set the full height of right sidebar
-    var heightWithoutNavbar = $("body > #wrapper").height() - 61;
+    var heightWithoutNavbar = $("body > #wrapper").height() - 61 - 86;
     $(".sidebard-panel").css("min-height", heightWithoutNavbar + "px");
+    console.log(heightWithoutNavbar);
 
     // Set deta and options ofr main chart
     var lineData = {
