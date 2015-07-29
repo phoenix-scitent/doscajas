@@ -46,7 +46,9 @@ Template.bok_tree.rendered = function(){
       for(i = 0, j = data.selected.length; i < j; i++) {
         r.push(data.instance.get_node(data.selected[i]).id);
       }
-      $('#edit_bok_modal').modal('show');
+      // alert('Selected: ' + r.join(', '));
+      console.log("selected bok: "+r[0]);
+      Session.set('activeModal', r[0]);
     }).jstree({
       'core' : {
         'check_callback' : true,
@@ -63,7 +65,7 @@ Template.bok_tree.rendered = function(){
           "icon" : "fa fa-lock"
         }
       },
-      'plugins' : ["dnd", "types", "wholerow"]
+      'plugins' : ["dnd", "types"]
     });
 
     $( document).off('addNode');
