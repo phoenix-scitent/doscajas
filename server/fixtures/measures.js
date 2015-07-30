@@ -22,10 +22,7 @@ if (Measures.find().count() === 0) {
   };
 
   var create_tag = function(){
-    return Boks.insert({
-      '__testdata': true,
-      name: 'kjdkfjs'
-    });
+    return Boks.find().fetch()[0];
   };
 
   var create_measure = function(){
@@ -59,7 +56,7 @@ if (Measures.find().count() === 0) {
       moderator: 'moderator@test.com',
       status: 'published',
       owner: null/*create_user()*/,
-      tags: [ create_tag(), create_tag() ],
+      tags: [ create_tag() ],
       additions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()
@@ -113,7 +110,7 @@ if (Measures.find().count() === 0) {
           points: 0
         }
       ],
-      tags: [ create_tag(), create_tag() ],
+      tags: [ create_tag() ],
       additions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()

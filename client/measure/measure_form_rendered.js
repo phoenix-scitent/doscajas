@@ -239,7 +239,7 @@ Template.measure_form.rendered = function(){
     });
 
     //TODO: scope these to this user, pull data source out of here and into router?
-    var tags = Boks.find({ $or: [{ _id: BOK.current()._id }, { $and: [{ancestors: BOK.current()._id}, {public: true}] }] }).fetch();
+    var tags = Boks.find({ $or: [{ _id: BOK.current()._id }, { $and: [{ancestors: BOK.current()._id}] }] }).fetch();
     var formattedTags = _.map(tags, function(tag){
       var getTagName = function(tagId){
         return _.filter(tags, function(tag){ return tag._id === tagId })[0].name

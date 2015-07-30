@@ -8,6 +8,13 @@ Template.bok.helpers({
 
     return root;
   },
+  selected_leaf_node: function() {
+    console.log("selected_leaf_node--HELPER: " + Session.get('selected_leaf_node'));
+    var leaf = false;
+    if (Session.get('selected_leaf_node'))
+      leaf = Boks.findOne(Session.get('selected_leaf_node'));
+    return leaf;
+  },
   bokNodes: function() {
     var bokData = this.fetch(); /* return of the data function from the router: [ { ... bokNode ... }, { ... bokNode ...}, ...  ] */
     var _childrenFormat = function(bok){
@@ -145,4 +152,31 @@ Template.bok.destroyed = function(){
     $('#page-wrapper').removeClass('sidebar-content');
 };
 
-Template.bok.events({});
+Template.bok.events({
+  'click #save-bok': function(e){
+    e.preventDefault();
+    // Save the Name Change
+    Boks.update(Session.get("selected_leaf_node"), {
+      $set: {
+        name: $("#bok-leaf-name").val(),
+        updated_at: Date.now()
+      }
+    });
+    // Unset the Change Panel
+    Session.set("selected_leaf_node", undefined);
+  },
+  'click #make-public': function(e){
+    Boks.update(Session.get("selected_leaf_node"), {
+      $set: {
+        public: true
+      }
+    });
+  },
+  'click #make-private': function(e){
+    Boks.update(Session.get("selected_leaf_node"), {
+      $set: {
+        public: false
+      }
+    });
+  }
+});

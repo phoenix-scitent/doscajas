@@ -46,9 +46,7 @@ Template.bok_tree.rendered = function(){
       for(i = 0, j = data.selected.length; i < j; i++) {
         r.push(data.instance.get_node(data.selected[i]).id);
       }
-      // alert('Selected: ' + r.join(', '));
-      console.log("selected bok: "+r[0]);
-      Session.set('activeModal', r[0]);
+      Session.set('selected_leaf_node', r[0]);
     }).jstree({
       'core' : {
         'check_callback' : true,
