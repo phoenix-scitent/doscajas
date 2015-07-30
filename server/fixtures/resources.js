@@ -5,8 +5,8 @@ if (Resources.find().count() === 0) {
   var create_user = function(){
     return Accounts.createUser({
       '__testdata': true,
-      username: 'darryo',
-      email: 'do@cci.com',
+      username: _.sample(['klingon', 'romulan', 'human', 'bajoran', 'vulcan', 'cardassian']),
+      email: _.sample(['frawe@cci.com', 'clemen@cci.com', 'smark@cci.com', 'kale@cci.com', 'solar@cci.com']),
       password: 'notsafe',
       profile: {
         name: 'Daryl Oates'
@@ -54,7 +54,7 @@ if (Resources.find().count() === 0) {
       link: 'http://www.google.com',
       moderator: 'moderator@test.com',
       status: 'published',
-      owner: create_user(),
+      owner: null /*create_user()*/,
       tags: [ create_tag(), create_tag() ],
       additions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],

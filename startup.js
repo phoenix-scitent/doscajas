@@ -15,6 +15,12 @@ Meteor.startup(function () {
     { name: 'Multiple Choice', slug: 'multiplechoice' },
     { name: 'Text Input', slug: 'textinput' },
     { name: 'Upload', slug: 'upload' }
-  ]
+  ];
+
+  RESOURCE_TYPES = [
+    { name: 'Video', slug: 'video' },
+    { name: 'PDF', slug: 'pdf' },
+    { name: 'Audio', slug: 'audio' }
+  ];
 
 });
