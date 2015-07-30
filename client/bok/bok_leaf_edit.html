@@ -1,0 +1,26 @@
+<template name="bok_leaf_edit">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title yellow-bg">
+      <h5>Editing: <em>{{ leaf.name }}</em></h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-12 b-r">
+                <p>Edit this taxonomy in your Body of Knowledge</p>
+                <form role="form">
+                    <div class="form-group"><label>Name</label> <input type="text" placeholder="name this tag" class="form-control" id="bok-leaf-name" value="{{ leaf.name }}"></div>
+                    <div>
+                        <button class="btn btn-primary pull-right" type="submit" id="save-bok"><strong>Save this Tag</strong></button>
+                        
+                        {{#if leaf.public}}
+                        <button class="btn btn-primary btn-xs " id="make-private" type="button"><i class="fa fa-globe"></i>&nbsp;Public</button>
+                        {{ else }}
+                        <button class="btn btn-default btn-xs" id="make-public" type="button"><i class="fa fa-lock"></i>&nbsp;Private</button>
+                        {{/if}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</template>

@@ -27,11 +27,6 @@ Template.resource_form.rendered = function(){
         bodyTag: "fieldset",
         onStepChanging: function (event, currentIndex, newIndex)
         {
-            if (newIndex === 3) {
-              $(".wizard-big.wizard > .content").addClass("deep");
-            } else {
-              $(".wizard-big.wizard > .content").removeClass("deep");              
-            } 
             // Always allow going backward even if the current step contains invalid fields!
             if (currentIndex > newIndex)
             {
@@ -71,12 +66,10 @@ Template.resource_form.rendered = function(){
           var resourceType = resourceTypeSelectize.getValue();
           var description = $('#description').val();
           var tagsSelectize = $('#tags')[0].selectize;
-          var tags = tagsSelectize.getValue();
+          var tags = _.union(tagsSelectize.getValue(), [BOK.current()._id]);
 
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
           var currentOwner = currentOwnerSelectize.getItem(currentOwnerSelectize.getValue());
-
-          var moderatorEmail = $('#moderator-email').val();
 
           if(templateData && templateData._id){
             Resources.update(templateData._id, {
@@ -85,7 +78,6 @@ Template.resource_form.rendered = function(){
                 description: description,
                 type: resourceType,
                 link: link,
-                moderator: moderatorEmail,
                 status: 'published', //TODO: implement this
                 owner: currentOwner,
                 tags: tags,
@@ -102,7 +94,6 @@ Template.resource_form.rendered = function(){
               description: description,
               type: resourceType,
               link: link,
-              moderator: moderatorEmail,
               status: 'published', //TODO: implement this
               owner: currentOwner,
               tags: tags,
@@ -149,7 +140,7 @@ Template.resource_form.rendered = function(){
     });
 
     //TODO: scope these to this user, pull data source out of here and into router?
-    var tags = Boks.find({ $or: [{ _id: BOK.current()._id }, { $and: [{ancestors: BOK.current()._id}, {public: true}] }] }).fetch();
+    var tags = Boks.find({ $or: [{ _id: BOK.current()._id }, { $and: [{ancestors: BOK.current()._id}] }] }).fetch();
     var formattedTags = _.map(tags, function(tag){
       var getTagName = function(tagId){
         return _.filter(tags, function(tag){ return tag._id === tagId })[0].name
@@ -223,5 +214,4 @@ Template.resource_form.rendered = function(){
       items: []
     });
 
-    $('#moderator-email-wrapper').prepend('<input id="moderator-email" name="moderator_email" type="text" class="form-control" value="'+ ((this.data && this.data.moderator) || '') +'" placeholder="moderator@school.edu">');
 };

@@ -16,14 +16,20 @@
                         <p class="m-b-lg">
                             {{> bok_add_node }}
                         </p>
-
+                      <a class="btn btn-default"><strong>{{ bokRoot.name }}</strong></a>
                       {{> bok_tree nodes=bokNodes }}
 
                     </div>
 
                 </div>
             </div>
-            {{> bok_activity }}
+            <div class="col-lg-6">
+              {{# if selected_leaf_node }}
+                {{> bok_leaf_edit leaf=selected_leaf_node }}
+              {{/if}}
+
+              {{> bok_activity }}
+            </div>
         </div>
 
 

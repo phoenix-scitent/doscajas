@@ -53,7 +53,4 @@ var createBok = function(json, rootName, ownerId){
   };
 
 createBok(json, 'Mathematics', ownerId);
-createBok(json, 'Mathematic for the Ignorant', ownerId);
-createBok(json, 'Math for the Naughty', ownerId);
-
 }
