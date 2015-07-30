@@ -346,6 +346,16 @@
                 <p class="small">
                     {{ description }}
                 </p>
+                <h4>Answer Choices</h4>
+                <ul>
+                  {{#each answers}}
+                  <li>{{text}} 
+                    {{#if correct}}
+                    <span class="label label-primary"><i class="fa fa-check"></i></span>
+                    {{/if}}
+                  </li>
+                  {{/each}}
+                </ul>
                 <h4>Linked Resources</h4>
                 <ul>
                   <li><a href=""></a></li>
