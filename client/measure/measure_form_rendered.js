@@ -1,7 +1,5 @@
 Template.measure_form.rendered = function(){
 
-    console.log(BOK.current()._id)
-
     var templateData = this.data;
 
     var config = {

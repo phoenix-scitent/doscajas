@@ -2,10 +2,18 @@ Meteor.subscribe('measures');
 Meteor.subscribe('users');
 
 Template.measures.helpers({
+
+  selected_leaf: function() {
+    var leaf = BOK.current()._id;
+    if (Session.get("selected_leaf"))
+      leaf = Session.get("selected_leaf");
+    console.log("selected Leaf: "+ Boks.findOne(leaf));
+    return Boks.findOne(leaf);
+  },
   measure_sections: function() {
     //TODO: scope this to only those owned by current user
 
-    var measures = _.map(Measures.find().fetch(), function(measure){
+    var measures = _.map(Measures.find({ tags: this.selected_leaf }).fetch(), function(measure){
       measure.creator_data = Meteor.users.findOne({ _id: measure.owner });
       measure.tag_data = _.map(measure.tags, function(tag){ return Boks.findOne({ _id: tag }) });
       measure.correct_answer = _.find(measure.answers, function(answer){ return answer.correct === true });
