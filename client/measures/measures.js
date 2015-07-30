@@ -2,12 +2,10 @@ Meteor.subscribe('measures');
 Meteor.subscribe('users');
 
 Template.measures.helpers({
-  measures: function() {
+  measure_sections: function() {
     //TODO: scope this to only those owned by current user
 
-    var measures = Measures.find().fetch();
-
-    return _.map(measures, function(measure){
+    var measures = _.map(Measures.find().fetch(), function(measure){
       measure.creator_data = Meteor.users.findOne({ _id: measure.owner });
       measure.tag_data = _.map(measure.tags, function(tag){ return Boks.findOne({ _id: tag }) });
       measure.correct_answer = _.find(measure.answers, function(answer){ return answer.correct === true });
@@ -23,5 +21,7 @@ Template.measures.helpers({
 
       return measure
     });
+
+    return _.chunk(measures, Math.ceil(measures.length / 3));
   }
 });

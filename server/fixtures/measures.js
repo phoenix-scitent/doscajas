@@ -9,21 +9,14 @@
 if (Measures.find().count() === 0) {
 
   ///* CREATE DEPENDENCIES */
-  var create_resource = function(){
-    return Resources.insert({
-      '__testdata': true,
-      name: 'sdfasdf'
-    });
-  };
-
   var create_user = function(){
     return Accounts.createUser({
       '__testdata': true,
-      username: 'rickyj',
-      email: 'rj@cci.com',
+      username: _.sample(['salmon', 'trout', 'mackerel', 'smelt', 'bass', 'tuna', 'mahimahi']),
+      email: _.sample(['rja@cci.com', 'sil@cci.com', 'nas@cci.com', 'ffe@cci.com', 'feksl@cci.com', 'djks@cci.com']),
       password: 'notsafe',
       profile: {
-        name: 'Rick James'
+        name: 'Ricky James'
       }
     });
   };
@@ -56,6 +49,23 @@ if (Measures.find().count() === 0) {
     });
   };
 
+  var create_resource = function(){
+    return Resources.insert({
+      __testdata: true,
+      title: _.sample(['Seasonal Depression', 'Clambake', 'Satori', 'Crimea', 'Salty']),
+      description: _.sample(['A video displaying the results of seasonal depression.', 'Yummy clams.', 'Sturgeons in the bay.', 'French cuisine.']),
+      type: _.sample(['video', 'pdf', 'audio']),
+      link: 'http://www.google.com',
+      moderator: 'moderator@test.com',
+      status: 'published',
+      owner: null/*create_user()*/,
+      tags: [ create_tag(), create_tag() ],
+      additions: [ ],
+      comments: [ create_comment(), create_comment(), create_comment() ],
+      date_created: Date.now()
+    });
+  };
+
   //type: [multiplechoice]
   //status: [published, draft, submitted, redacted]
 
@@ -71,7 +81,7 @@ if (Measures.find().count() === 0) {
       difficulty: 5,
       moderator: 'moderator@test.com',
       status: 'published',
-      owner: create_user(),
+      owner: null/*create_user()*/,
       send_upload_to: null,
       answers: [
         {

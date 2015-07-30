@@ -2,12 +2,10 @@ Meteor.subscribe('resources');
 Meteor.subscribe('users');
 
 Template.resources.helpers({
-  resources: function() {
+  resource_sections: function() {
     //TODO: scope this to only those owned by current user
 
-    var resources = Resources.find().fetch();
-
-    return _.map(resources, function(resource){
+    var resources = _.map(Resources.find().fetch(), function(resource){
       resource.creator_data = Meteor.users.findOne({ _id: resource.owner });
       resource.tag_data = _.map(resource.tags, function(tag){ return Boks.findOne({ _id: tag }) });
       resource.formatted_date_created = moment(resource.date_created).format('MMMM Do YYYY, h:mm:ss a');
@@ -22,5 +20,7 @@ Template.resources.helpers({
 
       return resource
     });
+
+    return _.chunk(resources, Math.ceil(resources.length / 3));
   }
 });
