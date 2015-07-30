@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="measures.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="measures.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/measures/measures.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.26364478" vertical-offset="0" max-vertical-offset="1081">
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -96,16 +96,6 @@
               <folding>
                 <element signature="e#227#590#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bower.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/bower-load/load-order-force-level-1/load-order-force-level-2/bower/bower.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12771997" vertical-offset="0" max-vertical-offset="1057">
-              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -175,9 +165,9 @@
         <option value="$PROJECT_DIR$/client/measures/measure_card.html" />
         <option value="$PROJECT_DIR$/client/startup/default.js" />
         <option value="$PROJECT_DIR$/client/measures/measures.html" />
-        <option value="$PROJECT_DIR$/client/measures/measures.js" />
         <option value="$PROJECT_DIR$/client/measures/measures_filter.js" />
         <option value="$PROJECT_DIR$/lib/bower-load/load-order-force-level-1/load-order-force-level-2/bower/bower.json" />
+        <option value="$PROJECT_DIR$/client/measures/measures.js" />
       </list>
     </option>
   </component>
@@ -969,11 +959,6 @@
           <caret line="324" column="0" selection-start-line="324" selection-start-column="0" selection-end-line="332" selection-end-column="7" />
           <folding>
             <element signature="e#1164#3000#0" expanded="false" />
-            <element signature="e#5465#5993#0" expanded="false" />
-            <element signature="e#6060#6395#0" expanded="false" />
-            <element signature="e#9860#10245#0" expanded="false" />
-            <element signature="e#9900#9990#0" expanded="false" />
-            <element signature="e#12522#12774#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1028,14 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/measures/measures.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/measures/measures.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="360">
@@ -1044,10 +1021,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/resources/resources.js">
+    <entry file="file://$PROJECT_DIR$/lib/bower-load/load-order-force-level-1/load-order-force-level-2/bower/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.12771997" vertical-offset="0" max-vertical-offset="1057">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1074,10 +1051,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/bower-load/load-order-force-level-1/load-order-force-level-2/bower/bower.json">
+    <entry file="file://$PROJECT_DIR$/client/resources/resources.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12771997" vertical-offset="0" max-vertical-offset="1057">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/measures/measures.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26364478" vertical-offset="0" max-vertical-offset="1081">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
           <folding />
         </state>
       </provider>

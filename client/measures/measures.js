@@ -7,7 +7,7 @@ Template.measures.helpers({
     var leaf = BOK.current()._id;
     if (Session.get("selected_leaf"))
       leaf = Session.get("selected_leaf");
-    console.log("selected Leaf: "+ Boks.findOne(leaf));
+
     return Boks.findOne(leaf);
   },
   measure_sections: function() {
