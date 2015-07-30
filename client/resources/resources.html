@@ -4,105 +4,14 @@
     {{> pageHeading title='Resources' }}
 
     <div class="wrapper wrapper-content animated fadeInRight blog">
-        <div class="row">
-            <div class="col-lg-4">
-                {{#each resources}}
-                  {{> resource_card }}
-                {{/each}}
-              <div class="ibox">
-                <div class="ibox-content">
-                  <a href="{{pathFor route='article'}}" class="btn-link">
-                    <h2>
-                      What is a line on a map called that connects two points which have the same average summer temperature?
-                    </h2>
-                  </a>
-                  <div class="small m-b-xs">
-                    <strong>Anthony Pits</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 04 Jan 2015</span>
-                  </div>
-                  <p>
-                    Isothere
-                  </p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <h5>Tags:</h5>
-                      <button class="btn btn-primary btn-xs" type="button">Publishing</button>
-                      <button class="btn btn-white btn-xs" type="button">Model</button>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="small text-right">
-                        <h5>Social Activity:</h5>
-                        <div> <i class="fa fa-comments-o"> </i> 54 comments </div>
-                        <i class="fa fa-exchange"> </i> 52 improvements
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="ibox">
-                    <div class="ibox-content">
-                        <a href="{{pathFor route='article'}}" class="btn-link">
-                            <h2>
-                                On a standard dartboard, which number lies between 9 and 11?
-                            </h2>
-                        </a>
-                        <div class="small m-b-xs">
-                            <strong>Adam Novak</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 14th Oct 2015</span>
-                        </div>
-                        <p>
-                            14
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h5>Tags:</h5>
-                                <button class="btn btn-white btn-xs" type="button">Publishing</button>
-                                <button class="btn btn-white btn-xs" type="button">Model</button>
-                                <button class="btn btn-white btn-xs" type="button">Premium</button>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="small text-right">
-                                    <h5>Social Activity:</h5>
-                                    <div> <i class="fa fa-comments-o"> </i> 47 comments </div>
-                                    <i class="fa fa-exchange"> </i> 138 improvements
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ibox">
-                    <div class="ibox-content">
-                        <a href="{{pathFor route='article'}}" class="btn-link">
-                            <h2>
-                                What is the square root of 900?
-                            </h2>
-                        </a>
-                        <div class="small m-b-xs">
-                            <strong>Mike Johnson</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 11th Oct 2015</span>
-                        </div>
-                        <p>
-                            30
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h5>Tags:</h5>
-                                <button class="btn btn-primary btn-xs" type="button">Publishing</button>
-                                <button class="btn btn-white btn-xs" type="button">Model</button>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="small text-right">
-                                    <h5>Social Activity:</h5>
-                                    <div> <i class="fa fa-comments-o"> </i> 54 comments </div>
-                                    <i class="fa fa-exchange"> </i> 52 improvements
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
+      <div class="row">
+        {{#each resource_sections}}
+          <div class="col-lg-4">
+            {{#each this}}
+              {{> resource_card }}
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>
     </div>
 </template>

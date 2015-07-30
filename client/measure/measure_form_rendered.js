@@ -285,9 +285,9 @@ Template.measure_form.rendered = function(){
       placeholder: "Embed a Resource in the Measure...",
       create: false,
       maxItems: 1,
-      labelField: 'name',
+      labelField: 'title',
       valueField: '_id',
-      searchField: 'name',
+      searchField: 'title',
       options: resources,
       items: [ currentEmbeddedResource ]
     });
@@ -297,9 +297,9 @@ Template.measure_form.rendered = function(){
       placeholder: "Link to Resources...",
       create: false,
       maxItems: null,
-      labelField: 'name',
+      labelField: 'title',
       valueField: '_id',
-      searchField: 'name',
+      searchField: 'title',
       options: resources,
       items: currentLinkedResources
     });
