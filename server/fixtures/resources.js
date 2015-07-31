@@ -46,9 +46,9 @@ if (Resources.find().count() === 0) {
     {
       __testdata: true,
       title: 'Lessons In UX',
-      description: 'A paper written in 1993 about User Experience design.',
+      description: 'Integrating Meteor and Embedly',
       type: 'document',
-      link: 'http://www.google.com',
+      link: 'https://github.com/anrope/restaurantroulette/blob/master/server/restaurantroulette.js',
       moderator: 'moderator@test.com',
       status: 'published',
       owner: null /*create_user()*/,
