@@ -152,6 +152,9 @@ Template.measure_form.rendered = function(){
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
           var currentOwner = currentOwnerSelectize.getItem(currentOwnerSelectize.getValue());
 
+          var performanceTypeSelectize = $('#performance-type')[0].selectize;
+          var performanceType = performanceTypeSelectize.getItem(performanceTypeSelectize.getValue());
+
           var weighting = $('#weighting').val();
           var difficulty = $('#difficulty').val();
           var moderatorEmail = $('#moderator-email').val();
@@ -169,6 +172,7 @@ Template.measure_form.rendered = function(){
                 moderator: moderatorEmail,
                 status: 'published', //TODO: implement this
                 owner: currentOwner,
+                performance_type: performanceType,
                 send_upload_to: null, //TODO: implement this
                 answers: answers,
                 tags: tags,
@@ -191,6 +195,7 @@ Template.measure_form.rendered = function(){
               moderator: moderatorEmail,
               status: 'published', //TODO: implement this
               owner: currentOwner,
+              performance_type: performanceType,
               send_upload_to: null, //TODO: implement this
               answers: answers,
               tags: tags,
@@ -342,6 +347,18 @@ Template.measure_form.rendered = function(){
       searchField: 'name',
       options: [],
       items: []
+    });
+
+    $("#performance-type").selectize({
+      plugins: ['remove_button'],
+      placeholder: "Choose the performance type...",
+      create: false,
+      maxItems: 1,
+      labelField: 'name',
+      valueField: 'name',
+      searchField: 'name',
+      options: PERFORMANCE_TYPES,
+      items: [ (this.data && this.data.performance_type) ]
     });
 
     $('#weighting-wrapper').prepend('<input id="weighting" name="weighting" type="text" class="form-control" value="'+ ((this.data && this.data.weight) || '') +'">');

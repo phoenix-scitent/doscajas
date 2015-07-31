@@ -78,6 +78,7 @@ if (Measures.find().count() === 0) {
       difficulty: 5,
       moderator: 'moderator@test.com',
       status: 'published',
+      performance_type: 'analysis',
       owner: null/*create_user()*/,
       send_upload_to: null,
       answers: [
