@@ -150,10 +150,10 @@ Template.measure_form.rendered = function(){
           });
 
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
-          var currentOwner = currentOwnerSelectize.getItem(currentOwnerSelectize.getValue());
+          var currentOwner = currentOwnerSelectize.getValue();
 
           var performanceTypeSelectize = $('#performance-type')[0].selectize;
-          var performanceType = performanceTypeSelectize.getItem(performanceTypeSelectize.getValue());
+          var performanceType = performanceTypeSelectize.getValue();
 
           var weighting = $('#weighting').val();
           var difficulty = $('#difficulty').val();
@@ -261,14 +261,14 @@ Template.measure_form.rendered = function(){
 
       return tag;
     });
-    var resources = Resources.find().fetch();
+    var resources = Resources.find({ tags: BOK.current()._id }).fetch();
     var fetchEmbeddedResource = Resources.findOne({ _id: (this.data && this.data.embedded_resource) });
     var currentEmbeddedResource = fetchEmbeddedResource && fetchEmbeddedResource._id;
     var currentLinkedResources = _.map(Resources.find({ _id: { $in: ((this.data && this.data.linked_resources) || []) } }).fetch(), function(resource){
-      return resource._id
+      return resource._id;
     });
     var currentTags = _.map(Boks.find({ _id: { $in: ((this.data && this.data.tags) || []) } }).fetch(), function(tag){
-      return tag._id
+      return tag._id;
     });
 
     $("#question-type").selectize({

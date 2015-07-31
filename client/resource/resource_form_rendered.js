@@ -69,10 +69,10 @@ Template.resource_form.rendered = function(){
           var tags = _.union(tagsSelectize.getValue(), [BOK.current()._id]);
 
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
-          var currentOwner = currentOwnerSelectize.getItem(currentOwnerSelectize.getValue());
+          var currentOwner = currentOwnerSelectize.getValue();
 
           var learningTypeSelectize = $('#learning-type')[0].selectize;
-          var learningType = learningTypeSelectize.getItem(learningTypeSelectize.getValue());
+          var learningType = learningTypeSelectize.getValue();
 
           if(templateData && templateData._id){
             Resources.update(templateData._id, {
