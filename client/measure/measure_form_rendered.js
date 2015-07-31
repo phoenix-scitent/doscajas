@@ -355,7 +355,7 @@ Template.measure_form.rendered = function(){
       create: false,
       maxItems: 1,
       labelField: 'name',
-      valueField: 'name',
+      valueField: 'slug',
       searchField: 'name',
       options: PERFORMANCE_TYPES,
       items: [ (this.data && this.data.performance_type) ]

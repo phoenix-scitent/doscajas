@@ -225,7 +225,7 @@ Template.resource_form.rendered = function(){
       create: false,
       maxItems: 1,
       labelField: 'name',
-      valueField: 'name',
+      valueField: 'slug',
       searchField: 'name',
       options: LEARNING_TYPES,
       items: [ (this.data && this.data.learning_type) ]

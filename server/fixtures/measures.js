@@ -55,6 +55,7 @@ if (Measures.find().count() === 0) {
       link: 'http://www.google.com',
       moderator: 'moderator@test.com',
       status: 'published',
+      learning_type: _.sample(['problembasedlearning', 'casestudy']),
       owner: null/*create_user()*/,
       tags: [ create_tag() ],
       additions: [ ],
