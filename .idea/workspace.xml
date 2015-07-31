@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="measure_form_rendered.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="measure_form_rendered.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/measure/measure_form_rendered.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="5115">
-              <caret line="118" column="10" selection-start-line="118" selection-start-column="10" selection-end-line="118" selection-end-column="134" />
+            <state vertical-scroll-proportion="0.8005618" vertical-offset="795" max-vertical-offset="5115">
+              <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
               <folding>
                 <element signature="e#1164#3000#0" expanded="false" />
               </folding>
@@ -93,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resource_form_rendered.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="resource_form_rendered.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/resource/resource_form_rendered.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6741573" vertical-offset="675" max-vertical-offset="3600">
-              <caret line="93" column="67" selection-start-line="93" selection-start-column="67" selection-end-line="93" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="3600">
+              <caret line="69" column="88" selection-start-line="69" selection-start-column="69" selection-end-line="69" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -187,8 +187,8 @@
         <option value="$PROJECT_DIR$/client/measure/measure_inspect.html" />
         <option value="$PROJECT_DIR$/client/resource/resource_inspect.html" />
         <option value="$PROJECT_DIR$/server/fixtures/measures.js" />
-        <option value="$PROJECT_DIR$/client/measure/measure_form_rendered.js" />
         <option value="$PROJECT_DIR$/client/resource/resource_form_rendered.js" />
+        <option value="$PROJECT_DIR$/client/measure/measure_form_rendered.js" />
       </list>
     </option>
   </component>
@@ -1074,21 +1074,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/measure/measure_form_rendered.js">
+    <entry file="file://$PROJECT_DIR$/client/resource/resource_form_rendered.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="5115">
-          <caret line="118" column="10" selection-start-line="118" selection-start-column="10" selection-end-line="118" selection-end-column="134" />
-          <folding>
-            <element signature="e#1164#3000#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="3600">
+          <caret line="69" column="88" selection-start-line="69" selection-start-column="69" selection-end-line="69" selection-end-column="88" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/resource/resource_form_rendered.js">
+    <entry file="file://$PROJECT_DIR$/client/measure/measure_form_rendered.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6741573" vertical-offset="675" max-vertical-offset="3600">
-          <caret line="93" column="67" selection-start-line="93" selection-start-column="67" selection-end-line="93" selection-end-column="67" />
-          <folding />
+        <state vertical-scroll-proportion="0.8005618" vertical-offset="795" max-vertical-offset="5115">
+          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+          <folding>
+            <element signature="e#1164#3000#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

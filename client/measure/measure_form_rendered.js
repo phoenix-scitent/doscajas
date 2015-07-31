@@ -117,7 +117,7 @@ Template.measure_form.rendered = function(){
           var linkedResources = linkedResourcesSelectize.getValue();
           var tagsSelectize = $('#tags')[0].selectize;
           var tagAncestors = _.flatten(_.map(tagsSelectize.getValue(), function(tag){ return Boks.findOne({ _id: tag }).ancestors }));
-          var tags = _.union(tagsSelectize.getValue(), tagAncestors);
+          var tags = _.union(tagsSelectize.getValue(), tagAncestors, [BOK.current()._id]);
 
           var rawAnswers = [];
           var answers = [];
