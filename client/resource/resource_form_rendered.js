@@ -71,6 +71,9 @@ Template.resource_form.rendered = function(){
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
           var currentOwner = currentOwnerSelectize.getItem(currentOwnerSelectize.getValue());
 
+          var learningTypeSelectize = $('#learning-type')[0].selectize;
+          var learningType = learningTypeSelectize.getItem(learningTypeSelectize.getValue());
+
           if(templateData && templateData._id){
             Resources.update(templateData._id, {
               $set: {
@@ -79,6 +82,7 @@ Template.resource_form.rendered = function(){
                 type: resourceType,
                 link: link,
                 status: 'published', //TODO: implement this
+                learning_type: learningType,
                 owner: currentOwner,
                 tags: tags,
                 additions: [ ], //TODO: implement this
@@ -95,6 +99,7 @@ Template.resource_form.rendered = function(){
               type: resourceType,
               link: link,
               status: 'published', //TODO: implement this
+              learning_type: learningType,
               owner: currentOwner,
               tags: tags,
               additions: [ ], //TODO: implement this
@@ -212,6 +217,18 @@ Template.resource_form.rendered = function(){
       searchField: 'name',
       options: [],
       items: []
+    });
+
+    $("#learning-type").selectize({
+      plugins: ['remove_button'],
+      placeholder: "Choose the learning type...",
+      create: false,
+      maxItems: 1,
+      labelField: 'name',
+      valueField: 'name',
+      searchField: 'name',
+      options: LEARNING_TYPES,
+      items: [ (this.data && this.data.learning_type) ]
     });
 
 };

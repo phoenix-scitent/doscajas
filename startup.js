@@ -32,4 +32,9 @@ Meteor.startup(function () {
     { name: 'Audio', slug: 'audio' }
   ];
 
+  LEARNING_TYPES = [
+    { name: 'Case Study', slug: 'casestudy' },
+    { name: 'Problem Based Learning', slug: 'problembasedlearning' }
+  ];
+
 });
