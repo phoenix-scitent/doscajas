@@ -9,7 +9,6 @@ Template.bok.helpers({
     return root;
   },
   selected_leaf_node: function() {
-    console.log("selected_leaf_node--HELPER: " + Session.get('selected_leaf_node'));
     var leaf = false;
     if (Session.get('selected_leaf_node'))
       leaf = Boks.findOne(Session.get('selected_leaf_node'));
@@ -178,5 +177,13 @@ Template.bok.events({
         public: false
       }
     });
+  },
+  'click #leaf-view-measures': function(e){
+    Session.set('current_measure_filter', Session.get("selected_leaf_node"));
+    Router.go('measures');
+  },
+  'click #leaf-view-resources': function(e){
+    Session.set('current_resource_filter', Session.get("selected_leaf_node"));
+    Router.go('resources');
   }
 });

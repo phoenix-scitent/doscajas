@@ -4,19 +4,20 @@ Template.bok_leaf_edit.rendered = function(){
 };
 
 Template.bok_leaf_edit.events({
-  // 'click #save-bok': function(e){
-  //   console.log("unset selected_leaf_node")
-  //   delete Session.keys.selected_leaf_node;
-  //   console.log("selected bok: " + Session.get("selected_leaf_node"));
-  // }
+
 });
 
 Template.bok_leaf_edit.helpers({
-  // selected_leaf_node: function() {
-  //   console.log("selected_leaf_node_2--HELPER: " + Session.get('selected_leaf_node'));
-  //   var leaf = false;
-  //   if (Session.get('selected_leaf_node'))
-  //     leaf = Boks.findOne(Session.get('selected_leaf_node'));
-  //   return leaf;
-  // }
+  selected_leaf_measure_count: function() {
+    if (Session.get('selected_leaf_node')){
+      return Measures.find({tags: Session.get('selected_leaf_node')}).count();
+    }
+  },
+  selected_leaf_resource_count: function() {
+    console.log("selected_leaf_resource_count");
+    console.log(Session.get('selected_leaf_node'))
+    if (Session.get('selected_leaf_node')){
+      return Resources.find({tags: Session.get('selected_leaf_node')}).count();      
+    }
+  }
 })

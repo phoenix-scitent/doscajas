@@ -15,7 +15,7 @@ if (Resources.find().count() === 0) {
   };
 
   var create_tag = function(){
-    return Boks.find().fetch()[0];
+    return Boks.find().fetch()[0]._id;
   };
 
   var create_measure = function(){
