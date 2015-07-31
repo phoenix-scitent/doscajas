@@ -66,7 +66,8 @@ Template.resource_form.rendered = function(){
           var resourceType = resourceTypeSelectize.getValue();
           var description = $('#description').val();
           var tagsSelectize = $('#tags')[0].selectize;
-          var tags = _.union(tagsSelectize.getValue(), [BOK.current()._id]);
+          var tagAncestors = _.flatten(_.map(tagsSelectize.getValue(), function(tag){ return Boks.findOne({ _id: tag }).ancestors }));
+          var tags = _.union(tagsSelectize.getValue(), tagAncestors);
 
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
           var currentOwner = currentOwnerSelectize.getValue();
