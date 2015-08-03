@@ -1,0 +1,25 @@
+<template name="sequence_attempt">
+  <div class="wrapper wrapper-content">
+    {{#each measures}}
+    <div class="row animated fadeInTop">
+      <div class="col-lg-2">
+        <h2 class="label label-warning pull-right label-rounded">
+          {{ position }} of {{ measure_count }}
+        </h2>
+      </div>
+      <div class="col-lg-8">
+        <div class="ibox float-e-margins">
+          <div class="ibox-content" id="ibox-content">
+            <h2>{{ question_text }}</h2>
+            <p>{{description}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <a type="button" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i> Wat Resource</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+</template>

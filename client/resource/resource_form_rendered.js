@@ -17,9 +17,9 @@ Template.resource_form.rendered = function(){
     var elem = document.querySelector('.js-switch');
     var switchery = new Switchery(elem, { color: '#1AB394' });
 
-    $('#resource-wrapper').prepend('<label>Title *</label><textarea id="resource_text" name="resource_text" type="text" class="form-control required" rows="4">'+ ((this.data && this.data.title) || '') + '</textarea>');
+    $('#resource-wrapper').prepend('<label>Title *</label><input id="resource_text" name="resource_text" type="text" class="form-control required" value="'+ ((this.data && this.data.title) || '') + '"/>');
 
-    $('#description-wrapper').prepend('<label>Link *</label><input id="resource_link" name="resource_link" type="text" class="form-control required" rows="4" value="'+ ((this.data && this.data.link) || '') + '"/>');
+    $('#link-wrapper').prepend('<label>Link *</label><input id="resource_link" name="resource_link" type="text" class="form-control required" rows="4" value="'+ ((this.data && this.data.link) || '') + '"/>');
 
     $('#description-wrapper').prepend('<label>Description</label><textarea id="description" name="description" type="text" class="form-control" rows="4">'+ ((this.data && this.data.description) || '') +'</textarea>');
 
