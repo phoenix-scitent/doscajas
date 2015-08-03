@@ -144,6 +144,7 @@ Template.measure_form.rendered = function(){
             var singleAnswer = {};
 
             _.forEach(answerParts, function(p){
+              singleAnswer['id'] = p.index;
               singleAnswer[p.part] = p.value;
             });
 

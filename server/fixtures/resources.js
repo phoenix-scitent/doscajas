@@ -21,10 +21,12 @@ if (Resources.find().count() === 0) {
   var create_measure = function(){
     return Measures.insert({
       '__testdata': true,
-      name: 'asdfa',
+      name: 'Correct or not?',
       tags: [],
+      type: 'multiplechoice',
       answers: [
-        { correct: true, text: 'asdf' }
+        { id: 1, correct: true, text: 'yes' },
+        { id: 2, correct: false, text: 'no' }
       ],
       additions: [],
       comments: [],
