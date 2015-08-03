@@ -60,7 +60,7 @@
     };
   function animateScroll(index,instant) {
     
-    alert(index);
+    alert("animateScroll(" +index,","+instant+");");
     if(names[index]) {
       settings.before(index,elements);
       interstitialIndex = 1;

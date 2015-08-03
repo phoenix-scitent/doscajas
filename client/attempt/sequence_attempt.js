@@ -21,7 +21,12 @@ Template.sequence_attempt.rendered = function(){
   // }
   $(document).scrollsnap({
     snaps: '.snap',
-    proximity: 200
+    proximity: 200,
+    offset: -100,
+    onSnap: function(t) {
+      t.fadeTo(0, 1);
+      $('.snap').not(t).fadeTo( 200, 0.2 );
+    }
   });
 };
 
