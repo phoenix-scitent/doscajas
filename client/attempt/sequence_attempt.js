@@ -10,5 +10,17 @@ Template.sequence_attempt.helpers({
 });
 
 Template.sequence_attempt.rendered = function(){
-
+  $.scrollify({
+      section : "section",
+      sectionName: "question-order"
+  });
 };
+
+Template.sequence_attempt.events({
+  'click .scroll-prev': function() {
+    $.scrollify.previous();
+  },
+  'click .scroll-next': function(){
+    $.scrollify.next();
+  }
+});
