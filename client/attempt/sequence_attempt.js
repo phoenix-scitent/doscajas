@@ -10,9 +10,18 @@ Template.sequence_attempt.helpers({
 });
 
 Template.sequence_attempt.rendered = function(){
-  $.scrollify({
-      section : "section",
-      sectionName: "question-order"
+  // setupScrollify();
+  // // $('body').panelSnap();
+  // function setupScrollify(){
+  //   $.scrollify({
+  //       section : "section",
+  //       sectionName: "question-order",
+  //       afterResize: resetScrollify
+  //   });
+  // }
+  $(document).scrollsnap({
+    snaps: '.snap',
+    proximity: 200
   });
 };
 
@@ -24,3 +33,4 @@ Template.sequence_attempt.events({
     $.scrollify.next();
   }
 });
+
