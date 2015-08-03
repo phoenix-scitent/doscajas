@@ -59,8 +59,6 @@
       afterResize:function() {}
     };
   function animateScroll(index,instant) {
-    
-    alert(index);
     if(names[index]) {
       settings.before(index,elements);
       interstitialIndex = 1;

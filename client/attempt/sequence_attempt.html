@@ -1,37 +1,25 @@
 <template name="sequence_attempt">
   <div class="wrapper wrapper-content">
     {{#each measures}}
-    <section class="snap">
-      <div class="row animated fadeInTop">
-        <div class="col-sm-2">
-          <h2 class="label label-warning pull-right label-rounded">
-            {{ position }} of {{ measure_count }}
-          </h2>
+      <section class="snap" data-measure="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
+        <div class="row animated fadeInTop">
+          <div class="col-sm-2">
+            <h2 class="label label-warning pull-right label-rounded">
+              {{ position }} of {{ measure_count }}
+            </h2>
         </div>
-        <div class="col-sm-8">
-          <div class="ibox float-e-margins">
-            <div class="ibox-content">
-              <h2>{{ question_text }}</h2>
-              <p>{{description}}</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et aliquam metus. Vivamus velit nibh, maximus ac vestibulum a, ullamcorper sit amet velit. Duis viverra pretium venenatis. Nunc tempus, metus quis scelerisque interdum, est tortor gravida sapien, finibus vehicula ex dolor vel neque. Vestibulum pharetra tempor aliquam. Sed bibendum aliquam varius. Nullam sed turpis nisl. Duis pharetra lorem vitae lacus scelerisque, ut dignissim magna dictum. Vestibulum convallis leo ex, ac posuere lectus condimentum sed. Cras sapien arcu, eleifend et ultricies sit amet, volutpat eget diam. Sed condimentum finibus velit quis posuere. Quisque hendrerit magna eu vestibulum accumsan.</p>
-
-              <p>Proin commodo quam dolor, a tempor mi pretium ac. Donec vehicula vulputate dui dictum aliquet. Praesent egestas a nisi non dignissim. Vivamus id mi ac ante condimentum scelerisque tincidunt vel odio. Aliquam leo ligula, tincidunt ullamcorper nisi nec, feugiat finibus orci. Donec ornare lobortis elementum. Suspendisse potenti. In ultricies, ipsum finibus blandit pellentesque, neque dolor consectetur sapien, a maximus ligula dui eu leo. Aliquam erat volutpat. Aliquam erat volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed sed lacinia urna, quis posuere metus. In finibus tincidunt libero luctus suscipit. Maecenas porttitor erat non lacus venenatis malesuada. Nulla ut neque leo.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et aliquam metus. Vivamus velit nibh, maximus ac vestibulum a, ullamcorper sit amet velit. Duis viverra pretium venenatis. Nunc tempus, metus quis scelerisque interdum, est tortor gravida sapien, finibus vehicula ex dolor vel neque. Vestibulum pharetra tempor aliquam. Sed bibendum aliquam varius. Nullam sed turpis nisl. Duis pharetra lorem vitae lacus scelerisque, ut dignissim magna dictum. Vestibulum convallis leo ex, ac posuere lectus condimentum sed. Cras sapien arcu, eleifend et ultricies sit amet, volutpat eget diam. Sed condimentum finibus velit quis posuere. Quisque hendrerit magna eu vestibulum accumsan.</p>
-
-              <p>Proin commodo quam dolor, a tempor mi pretium ac. Donec vehicula vulputate dui dictum aliquet. Praesent egestas a nisi non dignissim. Vivamus id mi ac ante condimentum scelerisque tincidunt vel odio. Aliquam leo ligula, tincidunt ullamcorper nisi nec, feugiat finibus orci. Donec ornare lobortis elementum. Suspendisse potenti. In ultricies, ipsum finibus blandit pellentesque, neque dolor consectetur sapien, a maximus ligula dui eu leo. Aliquam erat volutpat. Aliquam erat volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed sed lacinia urna, quis posuere metus. In finibus tincidunt libero luctus suscipit. Maecenas porttitor erat non lacus venenatis malesuada. Nulla ut neque leo.</p>
-            </div>
-            <div class="ibox-footer">
-              <a class="btn btn-sm btn-default scroll-prev">prev</a>
-              <a class="btn btn-sm btn-default scroll-next">next</a>
-            </div>
-          </div>
-        </div>
+      <div class="col-sm-8">
+        {{#if isMultipleChoice}}
+          {{> multiple_choice }}
+        {{/if}}
+      </div>
         <div class="col-sm-2">
-          <a type="button" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i> Wat Resource</a>
+          {{#each measure_linked_resources}}
+            <a type="button" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i> {{title}}</a>
+          {{/each}}
         </div>
       </div>
-    </section>
+      </section>
     {{/each}}
   </div>
-
 </template>
