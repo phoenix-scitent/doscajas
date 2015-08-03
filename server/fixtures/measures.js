@@ -55,6 +55,7 @@ if (Measures.find().count() === 0) {
       link: 'http://www.google.com',
       moderator: 'moderator@test.com',
       status: 'published',
+      learning_type: _.sample(['problembasedlearning', 'casestudy']),
       owner: null/*create_user()*/,
       tags: [ create_tag() ],
       additions: [ ],
@@ -78,6 +79,7 @@ if (Measures.find().count() === 0) {
       difficulty: 5,
       moderator: 'moderator@test.com',
       status: 'published',
+      performance_type: 'recall',
       owner: null/*create_user()*/,
       send_upload_to: null,
       answers: [

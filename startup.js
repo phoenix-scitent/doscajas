@@ -17,10 +17,24 @@ Meteor.startup(function () {
     { name: 'Upload', slug: 'upload' }
   ];
 
+  PERFORMANCE_TYPES = [
+    { name: 'Recall', slug: 'recall' },
+    { name: 'Understanding', slug: 'understanding' },
+    { name: 'Application', slug: 'application' },
+    { name: 'Analysis', slug: 'analysis' },
+    { name: 'Evaluation', slug: 'evaluation' },
+    { name: 'Creativity', slug: 'creativity' }
+  ];
+
   RESOURCE_TYPES = [
     { name: 'Video', slug: 'video' },
     { name: 'PDF', slug: 'pdf' },
     { name: 'Audio', slug: 'audio' }
+  ];
+
+  LEARNING_TYPES = [
+    { name: 'Case Study', slug: 'casestudy' },
+    { name: 'Problem Based Learning', slug: 'problembasedlearning' }
   ];
 
 });

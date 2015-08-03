@@ -51,6 +51,7 @@ if (Resources.find().count() === 0) {
       link: 'https://github.com/anrope/restaurantroulette/blob/master/server/restaurantroulette.js',
       moderator: 'moderator@test.com',
       status: 'published',
+      learning_type: 'casestudy',
       owner: null /*create_user()*/,
       tags: [ create_tag() ],
       additions: [ ],

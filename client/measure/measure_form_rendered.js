@@ -116,7 +116,8 @@ Template.measure_form.rendered = function(){
           var linkedResourcesSelectize = $('#linked-resources')[0].selectize;
           var linkedResources = linkedResourcesSelectize.getValue();
           var tagsSelectize = $('#tags')[0].selectize;
-          var tags = _.union(tagsSelectize.getValue(), [BOK.current()._id]);
+          var tagAncestors = _.flatten(_.map(tagsSelectize.getValue(), function(tag){ return Boks.findOne({ _id: tag }).ancestors }));
+          var tags = _.union(tagsSelectize.getValue(), tagAncestors, [BOK.current()._id]);
 
           var rawAnswers = [];
           var answers = [];
@@ -150,7 +151,10 @@ Template.measure_form.rendered = function(){
           });
 
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
-          var currentOwner = currentOwnerSelectize.getItem(currentOwnerSelectize.getValue());
+          var currentOwner = currentOwnerSelectize.getValue();
+
+          var performanceTypeSelectize = $('#performance-type')[0].selectize;
+          var performanceType = performanceTypeSelectize.getValue();
 
           var weighting = $('#weighting').val();
           var difficulty = $('#difficulty').val();
@@ -169,6 +173,7 @@ Template.measure_form.rendered = function(){
                 moderator: moderatorEmail,
                 status: 'published', //TODO: implement this
                 owner: currentOwner,
+                performance_type: performanceType,
                 send_upload_to: null, //TODO: implement this
                 answers: answers,
                 tags: tags,
@@ -191,6 +196,7 @@ Template.measure_form.rendered = function(){
               moderator: moderatorEmail,
               status: 'published', //TODO: implement this
               owner: currentOwner,
+              performance_type: performanceType,
               send_upload_to: null, //TODO: implement this
               answers: answers,
               tags: tags,
@@ -256,14 +262,14 @@ Template.measure_form.rendered = function(){
 
       return tag;
     });
-    var resources = Resources.find().fetch();
+    var resources = Resources.find({ tags: BOK.current()._id }).fetch();
     var fetchEmbeddedResource = Resources.findOne({ _id: (this.data && this.data.embedded_resource) });
     var currentEmbeddedResource = fetchEmbeddedResource && fetchEmbeddedResource._id;
     var currentLinkedResources = _.map(Resources.find({ _id: { $in: ((this.data && this.data.linked_resources) || []) } }).fetch(), function(resource){
-      return resource._id
+      return resource._id;
     });
     var currentTags = _.map(Boks.find({ _id: { $in: ((this.data && this.data.tags) || []) } }).fetch(), function(tag){
-      return tag._id
+      return tag._id;
     });
 
     $("#question-type").selectize({
@@ -342,6 +348,18 @@ Template.measure_form.rendered = function(){
       searchField: 'name',
       options: [],
       items: []
+    });
+
+    $("#performance-type").selectize({
+      plugins: ['remove_button'],
+      placeholder: "Choose the performance type...",
+      create: false,
+      maxItems: 1,
+      labelField: 'name',
+      valueField: 'slug',
+      searchField: 'name',
+      options: PERFORMANCE_TYPES,
+      items: [ (this.data && this.data.performance_type) ]
     });
 
     $('#weighting-wrapper').prepend('<input id="weighting" name="weighting" type="text" class="form-control" value="'+ ((this.data && this.data.weight) || '') +'">');

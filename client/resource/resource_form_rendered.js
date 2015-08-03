@@ -66,10 +66,14 @@ Template.resource_form.rendered = function(){
           var resourceType = resourceTypeSelectize.getValue();
           var description = $('#description').val();
           var tagsSelectize = $('#tags')[0].selectize;
-          var tags = _.union(tagsSelectize.getValue(), [BOK.current()._id]);
+          var tagAncestors = _.flatten(_.map(tagsSelectize.getValue(), function(tag){ return Boks.findOne({ _id: tag }).ancestors }));
+          var tags = _.union(tagsSelectize.getValue(), tagAncestors, [BOK.current()._id]);
 
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
-          var currentOwner = currentOwnerSelectize.getItem(currentOwnerSelectize.getValue());
+          var currentOwner = currentOwnerSelectize.getValue();
+
+          var learningTypeSelectize = $('#learning-type')[0].selectize;
+          var learningType = learningTypeSelectize.getValue();
 
           if(templateData && templateData._id){
             Resources.update(templateData._id, {
@@ -79,6 +83,7 @@ Template.resource_form.rendered = function(){
                 type: resourceType,
                 link: link,
                 status: 'published', //TODO: implement this
+                learning_type: learningType,
                 owner: currentOwner,
                 tags: tags,
                 additions: [ ], //TODO: implement this
@@ -95,6 +100,7 @@ Template.resource_form.rendered = function(){
               type: resourceType,
               link: link,
               status: 'published', //TODO: implement this
+              learning_type: learningType,
               owner: currentOwner,
               tags: tags,
               additions: [ ], //TODO: implement this
@@ -212,6 +218,18 @@ Template.resource_form.rendered = function(){
       searchField: 'name',
       options: [],
       items: []
+    });
+
+    $("#learning-type").selectize({
+      plugins: ['remove_button'],
+      placeholder: "Choose the learning type...",
+      create: false,
+      maxItems: 1,
+      labelField: 'name',
+      valueField: 'slug',
+      searchField: 'name',
+      options: LEARNING_TYPES,
+      items: [ (this.data && this.data.learning_type) ]
     });
 
 };
