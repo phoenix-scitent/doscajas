@@ -1,0 +1,13 @@
+<template name="multiple_choice">
+  <div class="ibox float-e-margins">
+    <div class="ibox-content">
+      <h2>{{ question_text }}</h2>
+      <p>{{ description }}</p>
+        {{> multiple_choice_answers}}
+    </div>
+    <div class="ibox-footer">
+      <a class="btn btn-sm btn-default scroll-prev">prev</a>
+      <a class="btn btn-sm btn-default scroll-next">next</a>
+    </div>
+  </div>
+</template>

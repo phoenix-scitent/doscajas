@@ -84,6 +84,7 @@ if (Measures.find().count() === 0) {
       send_upload_to: null,
       answers: [
         {
+          id: 1,
           text: 'Brian',
           feedback: 'He is the Visual Designer',
           correct: false,
@@ -91,6 +92,7 @@ if (Measures.find().count() === 0) {
           points: 0
         },
         {
+          id: 2,
           text: 'Will',
           feedback: 'He is the Instructional Designer',
           correct: true,
@@ -98,6 +100,7 @@ if (Measures.find().count() === 0) {
           points: 0
         },
         {
+          id: 3,
           text: 'Tim',
           feedback: 'He is the Architect',
           correct: false,
@@ -105,6 +108,7 @@ if (Measures.find().count() === 0) {
           points: 0
         },
         {
+          id: 4,
           text: 'Eric',
           feedback: 'He is the Developer',
           correct: false,

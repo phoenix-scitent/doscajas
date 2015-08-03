@@ -1,0 +1,14 @@
+<template name="multiple_choice_answers">
+  {{#each answers}}
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+              <span class="input-group-addon">
+                <input class="answer-option" type="radio" name="{{measure_id}}" value="{{id}}" aria-label="...">
+              </span>
+          <input type="text" class="form-control" aria-label="..." value="{{text}}" style="cursor:auto;" disabled>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+  {{/each}}
+</template>
