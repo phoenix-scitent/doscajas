@@ -59,6 +59,11 @@
       afterResize:function() {}
     };
   function animateScroll(index,instant) {
+<<<<<<< HEAD
+=======
+    
+    alert("animateScroll(" +index+","+instant+");");
+>>>>>>> 5f7887cf82c8a80fe6af671b0bfb152fab43b128
     if(names[index]) {
       settings.before(index,elements);
       interstitialIndex = 1;
