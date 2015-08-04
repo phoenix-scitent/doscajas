@@ -54,7 +54,7 @@ if (Resources.find().count() === 0) {
       moderator: 'moderator@test.com',
       status: 'published',
       learning_type: 'casestudy',
-      owner: null /*create_user()*/,
+      owner: 'asdjflkjslkdjf' /*Meteor.users.find().fetch()[0]._id*/,
       tags: [ create_tag() ],
       additions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],

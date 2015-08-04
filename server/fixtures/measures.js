@@ -56,7 +56,7 @@ if (Measures.find().count() === 0) {
       moderator: 'moderator@test.com',
       status: 'published',
       learning_type: _.sample(['problembasedlearning', 'casestudy']),
-      owner: null/*create_user()*/,
+      owner: 'sdfasdkljskdjflksjdf' /*Meteor.users.find().fetch()[0]._id*/,
       tags: [ create_tag() ],
       additions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
@@ -80,7 +80,7 @@ if (Measures.find().count() === 0) {
       moderator: 'moderator@test.com',
       status: 'published',
       performance_type: 'recall',
-      owner: null/*create_user()*/,
+      owner: 'afjsdlfkjlkjsdf'/*Meteor.users.find().fetch()[0]._id*/,
       send_upload_to: null,
       answers: [
         {

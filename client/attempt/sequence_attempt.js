@@ -1,3 +1,11 @@
+/*
+
+
+Meteor.call("createAttempt", ); // parent sequence ID
+
+*/
+
+
 Meteor.subscribe('measures');
 Meteor.subscribe('resources');
 
