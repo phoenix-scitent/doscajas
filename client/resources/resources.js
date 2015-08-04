@@ -21,6 +21,6 @@ Template.resources.helpers({
       return resource
     });
 
-    return _.chunk(resources, Math.ceil(resources.length / 3));
+    return _.chunk(resources, Math.ceil(Resources.find({ tags: Session.get("current_resource_filter") }).count() / 3));
   }
 });

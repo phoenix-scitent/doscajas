@@ -1,6 +1,7 @@
 Template.resource_form.rendered = function(){
 
     var templateData = this.data;
+    var resource_id = templateData ? templateData._id : null;
 
     var config = {
         '.chosen-select'           : {},
@@ -25,6 +26,7 @@ Template.resource_form.rendered = function(){
 
     $("#form").steps({
         bodyTag: "fieldset",
+        enableAllSteps: resource_id,
         onStepChanging: function (event, currentIndex, newIndex)
         {
             // Always allow going backward even if the current step contains invalid fields!
@@ -56,61 +58,6 @@ Template.resource_form.rendered = function(){
         onFinishing: function (event, currentIndex)
         {
 
-          //////////////////
-          // persist data //
-          //////////////////
-
-          var title = $('#resource_text').val();
-          var link = $('#resource_link').val();
-          var resourceTypeSelectize = $('#resource-type')[0].selectize;
-          var resourceType = resourceTypeSelectize.getValue();
-          var description = $('#description').val();
-          var tagsSelectize = $('#tags')[0].selectize;
-          var tagAncestors = _.flatten(_.map(tagsSelectize.getValue(), function(tag){ return Boks.findOne({ _id: tag }).ancestors }));
-          var tags = _.union(tagsSelectize.getValue(), tagAncestors, [BOK.current()._id]);
-
-          var currentOwnerSelectize = $('#current-owner')[0].selectize;
-          var currentOwner = currentOwnerSelectize.getValue();
-
-          var learningTypeSelectize = $('#learning-type')[0].selectize;
-          var learningType = learningTypeSelectize.getValue();
-
-          if(templateData && templateData._id){
-            Resources.update(templateData._id, {
-              $set: {
-                title: title,
-                description: description,
-                type: resourceType,
-                link: link,
-                status: 'published', //TODO: implement this
-                learning_type: learningType,
-                owner: currentOwner,
-                tags: tags,
-                additions: [ ], //TODO: implement this
-                comments: [ ]  //TODO: implement this
-                //date_created: Date.now()
-              }
-            }, function(error, docId){
-              Router.go('/resource/'+ templateData._id +'/inspect')
-            });
-          } else {
-            Resources.insert({
-              title: title,
-              description: description,
-              type: resourceType,
-              link: link,
-              status: 'published', //TODO: implement this
-              learning_type: learningType,
-              owner: currentOwner,
-              tags: tags,
-              additions: [ ], //TODO: implement this
-              comments: [ ], //TODO: implement this
-              date_created: Date.now()
-            }, function(error, docId){
-              Router.go('/resource/'+ docId +'/inspect')
-            })
-          }
-
           ////////////////////
           // deal with form //
           ////////////////////
@@ -127,11 +74,27 @@ Template.resource_form.rendered = function(){
         },
         onFinished: function (event, currentIndex)
         {
-            var form = $(this);
+          var form = $(this);
+          //////////////////
+          // persist data //
+          //////////////////
+          tagsSelectize = $('#tags')[0].selectize;
 
-            // Submit form input
-            // form.submit();
-
+          Meteor.call("submitResource", resource_id, {
+            title: $('#resource_text').val(),
+            link: $('#resource_link').val(),
+            type: $('#resource-type')[0].selectize.getValue(),
+            description: $('#description').val(),
+            tags: _.union(tagsSelectize.getValue(), _.flatten(_.map(tagsSelectize.getValue(), function(tag){ return Boks.findOne({ _id: tag }).ancestors })), [BOK.current()._id]),
+            owner: $('#current-owner')[0].selectize.getValue() || Meteor.user()._id,
+            learning_type: $('#learning-type')[0].selectize.getValue(),
+          }, function(err, response) {
+            if (err){
+              alert(err);
+            } else {
+              Router.go("/resource/"+response+"/inspect");
+            }
+          });
         }
     }).validate({
         errorPlacement: function (error, element)

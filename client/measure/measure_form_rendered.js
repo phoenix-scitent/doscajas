@@ -153,6 +153,10 @@ Template.measure_form.rendered = function(){
 
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
           var currentOwner = currentOwnerSelectize.getValue();
+          console.log(["current owner", currentOwner]);
+          if (currentOwner === "") {
+            currentOwner = Meteor.user()._id;
+          }
 
           var performanceTypeSelectize = $('#performance-type')[0].selectize;
           var performanceType = performanceTypeSelectize.getValue();
@@ -183,7 +187,12 @@ Template.measure_form.rendered = function(){
                 //date_created: Date.now()
               }
             }, function(error, docId){
-              Router.go('/measure/'+ templateData._id +'/inspect')
+              if (error) {
+                alert("FAILED Insert");
+                console.log(error);
+              } else {
+                Router.go('/measure/'+ templateData._id +'/inspect');
+              }
             });
           } else {
             Measures.insert({
@@ -205,7 +214,12 @@ Template.measure_form.rendered = function(){
               comments: [ ], //TODO: implement this
               date_created: Date.now()
             }, function(error, docId){
-              Router.go('/measure/'+ docId +'/inspect')
+              if (error) {
+                alert("FAILED Insert");
+                console.log(error);
+              } else {
+                Router.go('/measure/'+ docId +'/inspect');                
+              }
             })
           }
 
