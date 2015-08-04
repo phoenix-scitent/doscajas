@@ -64,9 +64,6 @@
 //     });
 //   };
 
-//   //type: [multiplechoice]
-//   //status: [published, draft, submitted, redacted]
-
 //   var json = [
 //     {
 //       __testdata: true,
@@ -122,6 +119,7 @@
 //       date_created: Date.now()
 //     }
 //   ];
+
 
 //   _.forEach(json, function(measureJson){
 //     Measures.insert(measureJson);

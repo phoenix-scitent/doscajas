@@ -43,7 +43,6 @@
 
 //   //type: [video, audio, document, ...]
 //   //status: [published, draft, submitted, redacted]
-
 //   var json = [
 //     {
 //       __testdata: true,
@@ -61,6 +60,7 @@
 //       date_created: Date.now()
 //     }
 //   ];
+
 
 //   _.forEach(json, function(resourceJson){
 //     Resources.insert(resourceJson);

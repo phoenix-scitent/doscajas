@@ -108,6 +108,8 @@
                 var lastOffset = null;
                 var handler = function(e) {
 
+                    console.log('run')
+
                     var matchingEl = null, matchingDy = settings.proximity + 1;
 
                     $(scrollingEl).find(settings.snaps).each(function() {
@@ -125,6 +127,7 @@
                         var $matchingEl = $(matchingEl),
                             endScroll = $matchingEl.offset()[leftOrTop.toLowerCase()] + settings.offset,
                             animateProp = {};
+
                         animateProp[scrollLT] = endScroll;
                         if (Math.abs($scrollingEl[scrollLT]() - endScroll)>2) {
                             $('html, body').animate(animateProp, settings.duration, settings.easing, debounce(function () {
@@ -143,6 +146,9 @@
                     }
                 };
 
+
+
+                //$scrollingEl.on('scrollNext', {latency: settings.latency}, handler);
                 $scrollingEl.bind('scrollstop', {latency: settings.latency}, handler);
                 $(win).bind('resize', handler);
             }
