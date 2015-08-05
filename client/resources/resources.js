@@ -10,17 +10,17 @@ Template.resources.helpers({
       resource.tag_data = _.map(resource.tags, function(tag){ return Boks.findOne({ _id: tag }) });
       resource.formatted_date_created = moment(resource.date_created).format('MMMM Do YYYY, h:mm:ss a');
 
-      var comments_count = resource.comments.length;
-      var suggestions_count = resource.suggestions.length;
+      // var comments_count = resource.comments.length;
+      // var suggestions_count = resource.suggestions.length;
 
-      resource.comments_count = comments_count + ' ' + (comments_count === 1 ? 'comment' : 'comments');
-      resource.suggestions_count = suggestions_count + ' ' + (suggestions_count === 1 ? 'suggestion' : 'suggestions');
-      resource.hasComments = comments_count > 0;
-      resource.hasSuggestions = suggestions_count > 0;
+      // resource.comments_count = comments_count + ' ' + (comments_count === 1 ? 'comment' : 'comments');
+      // resource.suggestions_count = suggestions_count + ' ' + (suggestions_count === 1 ? 'suggestion' : 'suggestions');
+      // resource.hasComments = comments_count > 0;
+      // resource.hasSuggestions = suggestions_count > 0;
 
       return resource
     });
 
-    return _.chunk(resources, Math.ceil(resources.count() / 3));
+    return _.chunk(resources, Math.ceil(Resources.find({ tags: Session.get("current_resource_filter") }).count() / 3));
   }
 });
