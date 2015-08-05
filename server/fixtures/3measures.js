@@ -117,6 +117,90 @@ if (Measures.find().count() === 0) {
       suggestions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()
+    },
+    {
+      __testdata: true,
+      question_text: 'What color is the sun?',
+      description: 'Using nature to learn about colors.',
+      type: 'multiplechoice',
+      embedded_resource: create_resource(),
+      linked_resources: [ create_resource(), create_resource(), create_resource() ],
+      weight: 2,
+      difficulty: 1,
+      moderator: 'moderator@test.com',
+      status: 'published',
+      performance_type: 'analysis',
+      owner: 'afjsdlfkjlkjsdf'/*Meteor.users.find().fetch()[0]._id*/,
+      send_upload_to: null,
+      answers: [
+        {
+          id: 1,
+          text: 'Blue',
+          feedback: 'The sky is blue, not the sun.',
+          correct: false,
+          points: 0
+        },
+        {
+          id: 2,
+          text: 'Green',
+          feedback: 'The grass is green, not the sun.',
+          correct: false,
+          points: 0
+        },
+        {
+          id: 3,
+          text: 'Yellow',
+          feedback: 'Correct! The sun appears yellow to most.',
+          correct: true,
+          points: 0
+        }
+      ],
+      tags: [ create_tag() ],
+      suggestions: [ ],
+      comments: [ create_comment(), create_comment(), create_comment() ],
+      date_created: Date.now()
+    },
+    {
+      __testdata: true,
+      question_text: 'What does the word Thorasic mean',
+      description: 'Medical terminology.',
+      type: 'multiplechoice',
+      embedded_resource: create_resource(),
+      linked_resources: [ create_resource(), create_resource(), create_resource() ],
+      weight: 2,
+      difficulty: 1,
+      moderator: 'moderator@test.com',
+      status: 'published',
+      performance_type: 'analysis',
+      owner: 'afjsdlfkjlkjsdf'/*Meteor.users.find().fetch()[0]._id*/,
+      send_upload_to: null,
+      answers: [
+        {
+          id: 1,
+          text: 'of or relating to the thorax',
+          feedback: 'This is the correct definition.',
+          correct: true,
+          points: 0
+        },
+        {
+          id: 2,
+          text: 'a nonsurgical procedure used to examine a digestive tract',
+          feedback: 'This is an endoscopy.',
+          correct: false,
+          points: 0
+        },
+        {
+          id: 3,
+          text: 'the kneecap',
+          feedback: 'This is the patella.',
+          correct: false,
+          points: 0
+        }
+      ],
+      tags: [ create_tag() ],
+      suggestions: [ ],
+      comments: [ create_comment(), create_comment(), create_comment() ],
+      date_created: Date.now()
     }
   ];
 
