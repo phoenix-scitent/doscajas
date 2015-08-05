@@ -24,26 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="measures.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/fixtures/measures.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1515">
-              <caret line="52" column="147" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="147" />
-              <folding>
-                <element signature="e#242#608#0" expanded="false" />
-                <element signature="e#640#684#0" expanded="false" />
-                <element signature="e#720#963#0" expanded="false" />
-                <element signature="e#999#1089#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resources.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/fixtures/resources.js">
+      <file leaf-file-name="2resources.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/fixtures/2resources.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-              <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+              <caret line="67" column="1" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
               <folding>
                 <element signature="e#100#456#0" expanded="false" />
                 <element signature="e#488#532#0" expanded="false" />
@@ -54,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sequences.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/fixtures/sequences.js">
+      <file leaf-file-name="4sequences.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/fixtures/4sequences.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-              <caret line="90" column="1" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="1" />
+              <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
               <folding>
                 <element signature="e#99#465#0" expanded="false" />
                 <element signature="e#501#1236#0" expanded="false" />
@@ -69,11 +54,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="3measures.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/fixtures/3measures.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="434" max-vertical-offset="1515">
+              <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+              <folding>
+                <element signature="e#242#608#0" expanded="false" />
+                <element signature="e#640#684#0" expanded="false" />
+                <element signature="e#720#963#0" expanded="false" />
+                <element signature="e#999#1089#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="measures.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/models/measures.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1995">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2430">
+              <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -82,28 +82,40 @@
       <file leaf-file-name="resources.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/models/resources.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1695">
-              <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+              <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sequences.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sequences.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/models/sequences.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2564" max-vertical-offset="3645">
-              <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.27844587" vertical-offset="2534" max-vertical-offset="3645">
+              <caret line="189" column="53" selection-start-line="189" selection-start-column="53" selection-end-line="189" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sequence_attempt.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sequence_attempt.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/attempt/sequence_attempt.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.042134833" vertical-offset="0" max-vertical-offset="1305">
-              <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="1425">
+              <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sequence_attempt.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/attempt/sequence_attempt.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="690">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -114,9 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/resources/measures.html" />
-        <option value="$PROJECT_DIR$/client/resources/measure_help.html" />
-        <option value="$PROJECT_DIR$/client/resource/measure_form.html" />
         <option value="$PROJECT_DIR$/client/resource/measure_inspect.js" />
         <option value="$PROJECT_DIR$/client/resource/resource_form.js" />
         <option value="$PROJECT_DIR$/server/startup/default.js" />
@@ -126,11 +135,9 @@
         <option value="$PROJECT_DIR$/client/startup/default.js" />
         <option value="$PROJECT_DIR$/client/measures/measures.html" />
         <option value="$PROJECT_DIR$/client/measures/measures_filter.js" />
-        <option value="$PROJECT_DIR$/client/measures/measures.js" />
         <option value="$PROJECT_DIR$/client/resources/resources_filter.html" />
         <option value="$PROJECT_DIR$/client/resources/resources_filter.js" />
         <option value="$PROJECT_DIR$/client/resources/resources.html" />
-        <option value="$PROJECT_DIR$/client/resources/resources.js" />
         <option value="$PROJECT_DIR$/client/measure/measure_form.html" />
         <option value="$PROJECT_DIR$/startup.js" />
         <option value="$PROJECT_DIR$/client/resource/resource_form.html" />
@@ -151,19 +158,24 @@
         <option value="$PROJECT_DIR$/client/attempt/sequence_attempt_alt.html" />
         <option value="$PROJECT_DIR$/client/experimental/sequence_attempt_alternate.html" />
         <option value="$PROJECT_DIR$/client/experimental/sequence_attempt_alternate.js" />
-        <option value="$PROJECT_DIR$/client/attempt/sequence_attempt.html" />
         <option value="$PROJECT_DIR$/client/plugins/jq-scrollify/jquery-scollify.js" />
         <option value="$PROJECT_DIR$/client/plugins/jq-scrollsnap/jquery.scrollsnap.js" />
         <option value="$PROJECT_DIR$/client/resource/resource_form_rendered.js" />
         <option value="$PROJECT_DIR$/server/collections/attempts.js" />
         <option value="$PROJECT_DIR$/lib/models/attempts.js" />
         <option value="$PROJECT_DIR$/server/collections/sequences.js" />
-        <option value="$PROJECT_DIR$/client/attempt/sequence_attempt.js" />
         <option value="$PROJECT_DIR$/server/fixtures/resources.js" />
         <option value="$PROJECT_DIR$/server/fixtures/measures.js" />
         <option value="$PROJECT_DIR$/server/fixtures/sequences.js" />
+        <option value="$PROJECT_DIR$/server/fixtures/2resources.js" />
+        <option value="$PROJECT_DIR$/server/fixtures/3measures.js" />
+        <option value="$PROJECT_DIR$/client/resources/resources.js" />
+        <option value="$PROJECT_DIR$/client/measures/measures.js" />
         <option value="$PROJECT_DIR$/lib/models/resources.js" />
+        <option value="$PROJECT_DIR$/server/fixtures/4sequences.js" />
         <option value="$PROJECT_DIR$/lib/models/measures.js" />
+        <option value="$PROJECT_DIR$/client/attempt/sequence_attempt.html" />
+        <option value="$PROJECT_DIR$/client/attempt/sequence_attempt.js" />
         <option value="$PROJECT_DIR$/lib/models/sequences.js" />
       </list>
     </option>
@@ -629,28 +641,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/resource/resource_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="548" max-vertical-offset="1485">
-          <caret line="84" column="39" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/measure/measure_inspect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="5670">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/resource/resource_inspect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="5460">
-          <caret line="42" column="51" selection-start-line="42" selection-start-column="51" selection-end-line="42" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/bower-load/load-order-force-level-1/load-order-force-level-2/bower/.bowerrc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1081">
@@ -740,6 +730,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="78" selection-end-column="3" />
+          <folding>
+            <element signature="e#494#2330#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -785,6 +778,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.791666" vertical-offset="119" max-vertical-offset="1260">
           <caret line="46" column="105" selection-start-line="46" selection-start-column="105" selection-end-line="46" selection-end-column="126" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -799,6 +793,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.056764428" vertical-offset="0" max-vertical-offset="1057">
           <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -806,13 +801,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22201665" vertical-offset="0" max-vertical-offset="1081">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/attempt/multiple_choice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1081">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -848,6 +837,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1081">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -855,14 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1081">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/attempt/multiple_choice_answers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -879,14 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="781">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/attempt/sequence_attempt.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="675">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -931,14 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/collections/sequences.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/measure/measure_form_rendered.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6320225" vertical-offset="1785" max-vertical-offset="5340">
@@ -977,39 +943,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/resources.js">
+    <entry file="file://$PROJECT_DIR$/server/collections/sequences.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1695">
-          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.15263645" vertical-offset="0" max-vertical-offset="1081">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/measures.js">
+    <entry file="file://$PROJECT_DIR$/client/attempt/multiple_choice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1995">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1081">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/fixtures/sequences.js">
+    <entry file="file://$PROJECT_DIR$/client/attempt/multiple_choice_answers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <caret line="90" column="1" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="1" />
-          <folding>
-            <element signature="e#99#465#0" expanded="false" />
-            <element signature="e#501#1236#0" expanded="false" />
-            <element signature="e#536#1137#0" expanded="false" />
-            <element signature="e#1273#1993#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.16651249" vertical-offset="0" max-vertical-offset="1081">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/fixtures/resources.js">
+    <entry file="file://$PROJECT_DIR$/server/fixtures/1bok.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1081">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/resources/resources.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34690103" vertical-offset="0" max-vertical-offset="1081">
+          <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/measures/measures.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3746531" vertical-offset="0" max-vertical-offset="1081">
+          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/fixtures/2resources.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+          <caret line="67" column="1" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
           <folding>
             <element signature="e#100#456#0" expanded="false" />
             <element signature="e#488#532#0" expanded="false" />
@@ -1019,10 +1004,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/fixtures/measures.js">
+    <entry file="file://$PROJECT_DIR$/server/fixtures/4sequences.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1515">
-          <caret line="52" column="147" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="147" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+          <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+          <folding>
+            <element signature="e#99#465#0" expanded="false" />
+            <element signature="e#501#1236#0" expanded="false" />
+            <element signature="e#536#1137#0" expanded="false" />
+            <element signature="e#1273#1993#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/measures.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2430">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/fixtures/3measures.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="434" max-vertical-offset="1515">
+          <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
           <folding>
             <element signature="e#242#608#0" expanded="false" />
             <element signature="e#640#684#0" expanded="false" />
@@ -1032,18 +1038,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/sequences.js">
+    <entry file="file://$PROJECT_DIR$/lib/models/resources.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="3645">
-          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+          <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/attempt/sequence_attempt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="690">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/attempt/sequence_attempt.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.042134833" vertical-offset="0" max-vertical-offset="1305">
-          <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="1425">
+          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/sequences.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27844587" vertical-offset="2534" max-vertical-offset="3645">
+          <caret line="189" column="53" selection-start-line="189" selection-start-column="53" selection-end-line="189" selection-end-column="53" />
           <folding />
         </state>
       </provider>

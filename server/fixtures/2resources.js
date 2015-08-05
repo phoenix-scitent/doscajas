@@ -56,7 +56,7 @@ if (Resources.find().count() === 0) {
       learning_type: 'casestudy',
       owner: 'asdjflkjslkdjf' /*Meteor.users.find().fetch()[0]._id*/,
       tags: [ create_tag() ],
-      additions: [ ],
+      suggestions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()
     }

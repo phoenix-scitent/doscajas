@@ -58,7 +58,7 @@ if (Measures.find().count() === 0) {
       learning_type: _.sample(['problembasedlearning', 'casestudy']),
       owner: 'sdfasdkljskdjflksjdf' /*Meteor.users.find().fetch()[0]._id*/,
       tags: [ create_tag() ],
-      additions: [ ],
+      suggestions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()
     });
@@ -117,7 +117,7 @@ if (Measures.find().count() === 0) {
         }
       ],
       tags: [ create_tag() ],
-      additions: [ ],
+      suggestions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()
     }

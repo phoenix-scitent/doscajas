@@ -13,12 +13,12 @@ Template.measures.helpers({
       measure.formatted_date_created = moment(measure.date_created).format('MMMM Do YYYY, h:mm:ss a');
 
       var comments_count = measure.comments.length;
-      var improvements_count = measure.additions.length;
+      var suggestions_count = measure.suggestions.length;
 
       measure.comments_count = comments_count + ' ' + (comments_count === 1 ? 'comment' : 'comments');
-      measure.improvements_count = improvements_count + ' ' + (improvements_count === 1 ? 'improvement' : 'improvements');
+      measure.suggestions_count = suggestions_count + ' ' + (suggestions_count === 1 ? 'suggestion' : 'suggestions');
       measure.hasComments = comments_count > 0;
-      measure.hasImprovements = improvements_count > 0;
+      measure.hasSuggestions = suggestions_count > 0;
 
       return measure
     });

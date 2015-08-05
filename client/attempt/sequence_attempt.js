@@ -8,6 +8,7 @@ Meteor.call("createAttempt", ); // parent sequence ID
 
 Meteor.subscribe('measures');
 Meteor.subscribe('resources');
+Meteor.subscribe('sequences');
 
 Template.sequence_attempt.helpers({
   measures: function() {
@@ -57,6 +58,13 @@ Template.sequence_attempt.rendered = function(){
 };
 
 Template.sequence_attempt.events({
+  'click #attempt': function() {
+    var sequence = Sequences.find().fetch()[0];
+
+    var attempt = Meteor.call('createAttempt', sequence._id);
+
+    console.log(attempt);
+  },
   'click .scroll-prev': function() {
     var $el = $(event.target);
         $parentSection = $el.closest('.snap');
