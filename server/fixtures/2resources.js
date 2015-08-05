@@ -62,24 +62,6 @@ if (Resources.find().count() === 0) {
      }
    ];
 
-  var json = [
-    {
-      __testdata: true,
-      title: 'Lessons In UX',
-      description: 'Integrating Meteor and Embedly',
-      type: 'document',
-      link: 'https://github.com/anrope/restaurantroulette/blob/master/server/restaurantroulette.js',
-      moderator: 'moderator@test.com',
-      status: 'published',
-      learning_type: 'casestudy',
-      owner: 'asdjflkjslkdjf' /*Meteor.users.find().fetch()[0]._id*/,
-      tags: [ create_tag() ],
-      suggestions: [ ],
-      comments: [ create_comment(), create_comment(), create_comment() ],
-      date_created: Date.now()
-    }
-  ];
-
    _.forEach(json, function(resourceJson){
      Resources.insert(resourceJson);
    });
