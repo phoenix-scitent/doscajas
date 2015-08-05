@@ -13,6 +13,9 @@ Template.resource_inspect.helpers({
   },
   tag_list: function() {
     return _.map(this.tags, function(tag){ return Boks.findOne({ _id: tag }) });
+  },
+  embedly_json: function(){
+    return JSON.stringify(this.embedly);
   }
 });
 
