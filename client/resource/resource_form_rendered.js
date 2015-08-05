@@ -18,7 +18,7 @@ Template.resource_form.rendered = function(){
     var elem = document.querySelector('.js-switch');
     var switchery = new Switchery(elem, { color: '#1AB394' });
 
-    $('#resource-wrapper').prepend('<label>Title *</label><input id="resource_text" name="resource_text" type="text" class="form-control required" value="'+ ((this.data && this.data.title) || '') + '"/>');
+    $('#resource-wrapper').prepend('<label>Title</label><input id="resource_text" name="resource_text" type="text" class="form-control" value="'+ ((this.data && this.data.title) || '') + '"/>');
 
     $('#link-wrapper').prepend('<label>Link *</label><input id="resource_link" name="resource_link" type="text" class="form-control required" rows="4" value="'+ ((this.data && this.data.link) || '') + '"/>');
 
@@ -86,7 +86,7 @@ Template.resource_form.rendered = function(){
             type: $('#resource-type')[0].selectize.getValue(),
             description: $('#description').val(),
             tags: _.union(tagsSelectize.getValue(), _.flatten(_.map(tagsSelectize.getValue(), function(tag){ return Boks.findOne({ _id: tag }).ancestors })), [BOK.current()._id]),
-            owner: $('#current-owner')[0].selectize.getValue(),
+            owner: $('#current-owner')[0].selectize.getValue() || Meteor.user()._id,
             learning_type: $('#learning-type')[0].selectize.getValue(),
           }, function(err, response) {
             if (err){
