@@ -1,7 +1,9 @@
 Meteor.subscribe('measures');
 
 Template.sequence_test.helpers({
-  measures: Measures.find()
+  measures: function() {
+    return Measures.find();
+  }
 });
 
 Template.sequence_test.rendered = function(){

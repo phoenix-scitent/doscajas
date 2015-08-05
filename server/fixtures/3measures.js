@@ -1,50 +1,50 @@
-//// Load Chance
-//var Chance = require('chance');
-//
-//// Instantiate Chance so it can be used
-//var chance = new Chance();
+// //// Load Chance
+// //var Chance = require('chance');
+// //
+// //// Instantiate Chance so it can be used
+// //var chance = new Chance();
 
-// chance.name()
+// // chance.name()
 
 if (Measures.find().count() === 0) {
 
-  ///* CREATE DEPENDENCIES */
-  var create_user = function(){
-    return Accounts.createUser({
-      '__testdata': true,
-      username: _.sample(['salmon', 'trout', 'mackerel', 'smelt', 'bass', 'tuna', 'mahimahi']),
-      email: _.sample(['rja@cci.com', 'sil@cci.com', 'nas@cci.com', 'ffe@cci.com', 'feksl@cci.com', 'djks@cci.com']),
-      password: 'notsafe',
-      profile: {
-        name: 'Ricky James'
-      }
-    });
-  };
+   ///* CREATE DEPENDENCIES */
+   var create_user = function(){
+     return Accounts.createUser({
+       '__testdata': true,
+       username: _.sample(['salmon', 'trout', 'mackerel', 'smelt', 'bass', 'tuna', 'mahimahi']),
+       email: _.sample(['rja@cci.com', 'sil@cci.com', 'nas@cci.com', 'ffe@cci.com', 'feksl@cci.com', 'djks@cci.com']),
+       password: 'notsafe',
+       profile: {
+         name: 'Ricky James'
+       }
+     });
+   };
 
-  var create_tag = function(){
-    return Boks.find().fetch()[0]._id;
-  };
+   var create_tag = function(){
+     return Boks.find().fetch()[0]._id;
+   };
 
-  var create_measure = function(){
-    return Measures.insert({
-      '__testdata': true,
-      name: 'asdfa',
-      tags: [],
-      answers: [
-        { correct: true, text: 'asdf' }
-      ],
-      additions: [],
-      comments: [],
-      date_created: Date.now()
-    });
-  };
+   var create_measure = function(){
+     return Measures.insert({
+       '__testdata': true,
+       name: 'asdfa',
+       tags: [],
+       answers: [
+         { correct: true, text: 'asdf' }
+       ],
+       additions: [],
+       comments: [],
+       date_created: Date.now()
+     });
+   };
 
-  var create_comment = function(){
-    return Comments.insert({
-      '__testdata': true,
-      name: 'sdwesdf'
-    });
-  };
+   var create_comment = function(){
+     return Comments.insert({
+       '__testdata': true,
+       name: 'sdwesdf'
+     });
+   };
 
   var create_resource = function(){
     return Resources.insert({
@@ -63,9 +63,6 @@ if (Measures.find().count() === 0) {
       date_created: Date.now()
     });
   };
-
-  //type: [multiplechoice]
-  //status: [published, draft, submitted, redacted]
 
   var json = [
     {
@@ -123,7 +120,7 @@ if (Measures.find().count() === 0) {
     }
   ];
 
-  _.forEach(json, function(measureJson){
-    Measures.insert(measureJson);
-  });
+   _.forEach(json, function(measureJson){
+     Measures.insert(measureJson);
+   });
 }
