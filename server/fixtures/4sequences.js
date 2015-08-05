@@ -64,7 +64,7 @@ if (Sequences.find().count() === 0) {
 
   Meteor.call("submitSequence", null, {
     type: 'linear',
-    items: _.map(Measures.find().fetch(), function(measure){ return measure._id }),
+    items: _.map(Measures.find().fetch(), function(measure){ return { _id: measure._id, type: 'measure' } }),
     owner: 'sdfsdfsdfsdfd' /*Meteor.users.find().fetch()[0]._id*/,
     attempts_allowed: 3,
     total_possible_score: 100,

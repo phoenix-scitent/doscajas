@@ -18,6 +18,7 @@ check@1.0.5
 coffeescript@1.0.6
 dbarrett:dropzonejs@3.10.3
 ddp@1.1.0
+deanius:promise@2.3.0
 deps@1.0.7
 ejson@1.0.6
 email@1.0.6

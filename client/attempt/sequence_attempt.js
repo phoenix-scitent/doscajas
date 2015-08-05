@@ -5,7 +5,6 @@ Meteor.call("createAttempt", ); // parent sequence ID
 
 */
 
-
 Meteor.subscribe('measures');
 Meteor.subscribe('resources');
 Meteor.subscribe('sequences');
@@ -35,6 +34,13 @@ Template.sequence_attempt.helpers({
 });
 
 Template.sequence_attempt.rendered = function(){
+
+  Session.set('currentSequence', Sequences.find().fetch()[0] /*TODO: get from router*/ );
+
+  Meteor.promise('createAttempt', Session.get('currentSequence')._id).then(function(attemptId){
+    Session.set('currentAttempt', Sequences.findOne({ _id: attemptId }));
+  });
+
   $(document).scrollsnap({
     snaps: '.snap',
     proximity: 200,
@@ -49,7 +55,7 @@ Template.sequence_attempt.rendered = function(){
         $snappedElement.data('state-updated', Date.now());
       }
 
-      console.log('onSnap', measureId, state, stateUpdated)
+      console.log('onSnap', measureId, state, stateUpdated);
 
       $snappedElement.fadeTo(0,1);
       $('.snap').not($snappedElement).fadeTo(200,0.2);
@@ -58,13 +64,6 @@ Template.sequence_attempt.rendered = function(){
 };
 
 Template.sequence_attempt.events({
-  'click #attempt': function() {
-    var sequence = Sequences.find().fetch()[0];
-
-    var attempt = Meteor.call('createAttempt', sequence._id);
-
-    console.log(attempt);
-  },
   'click .scroll-prev': function() {
     var $el = $(event.target);
         $parentSection = $el.closest('.snap');
