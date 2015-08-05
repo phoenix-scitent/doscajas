@@ -72,6 +72,7 @@ if (Sequences.find().count() === 0) {
     passing_rate_type: 'score',
     randomize_items: false,
     randomize_answers: false,
+    tags: [Boks.find().fetch()[0]._id],
     allow_incorrect_answers: true,
     show_linked_resources_during: false,
     show_linked_resources_after: true,
