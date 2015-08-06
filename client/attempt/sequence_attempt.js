@@ -37,7 +37,7 @@ Template.sequence_attempt.rendered = function(){
 
   Session.set('currentSequence', Sequences.find().fetch()[0] /*TODO: get from router*/ );
 
-  Meteor.promise('createAttempt', Session.get('currentSequence')._id).then(function(attemptId){
+  Meteor.promise('createAttempt', Session.get('currentSequence')._id, Meteor.user()).then(function(attemptId){
     Session.set('currentAttempt', Sequences.findOne({ _id: attemptId }));
   });
 
