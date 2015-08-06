@@ -20,13 +20,7 @@ Template.multiple_choice_answers.events({
         //TODO: session did not update itself with the data update... find way to do this without manual set?
         Session.set('currentAttempt', Sequences.findOne({ _id: currentAttemptId }));
 
-        console.log(Session.get('currentAttempt').attempt.items);
-
-        if(Measures.findOne({ _id: measure_id }).answers[answer_id].correct){
-          console.log('Correct!')
-        } else {
-          console.log('You are wrong')
-        }
+        console.log(Session.get('currentAttempt').attempt.score, ' out of possible ', Session.get('currentAttempt').total_possible_score);
       }
     });
   }
