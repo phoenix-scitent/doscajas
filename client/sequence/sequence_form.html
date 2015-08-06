@@ -12,11 +12,19 @@
         <div class="ibox">
           <div class="ibox-content">
             <h3>Measures</h3>
+
+            <div class="form-group">
+              <label>Filter</label>
+              <div class="input-group" style="width:100%">
+                <select id="measures-list-filter" style="width:95%" tabindex="2"></select>
+              </div>
+            </div>
+
             <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
 
             <ul id="measures-list" class="sortable-list connectList agile-list">
               {{#each measures}}
-                <li class="warning-element" data-content="measure|{{_id}}">
+                <li id="measure-item" class="warning-element" data-content="measure|{{_id}}">
                   {{question_text}}
                   <div class="agile-detail">
                     <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
@@ -33,11 +41,19 @@
         <div class="ibox">
           <div class="ibox-content">
             <h3>Resources</h3>
+
+            <div class="form-group">
+              <label>Filter</label>
+              <div class="input-group" style="width:100%">
+                <select id="resources-list-filter" style="width:95%" tabindex="2"></select>
+              </div>
+            </div>
+            
             <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
 
             <ul id="resources-list" class="sortable-list connectList agile-list">
               {{#each resources}}
-                <li class="success-element" data-content="resource|{{_id}}">
+                <li id="resource-item" class="success-element" data-content="resource|{{_id}}">
                   {{title}}
                   <div class="agile-detail">
                     <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
