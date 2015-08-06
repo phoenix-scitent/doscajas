@@ -1,0 +1,72 @@
+<template name="sequence_form">
+
+  <!-- Page heading -->
+  {{> pageHeading title='Build a Sequence' }}
+
+  <div class="wrapper wrapper-content  animated fadeInRight">
+
+    {{> sequence_options_form }}
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="ibox">
+          <div class="ibox-content">
+            <h3>Measures</h3>
+            <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+
+            <ul id="measures-list" class="sortable-list connectList agile-list">
+              {{#each measures}}
+                <li class="warning-element" data-content="measure|{{_id}}">
+                  {{question_text}}
+                  <div class="agile-detail">
+                    <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
+                    <i class="fa fa-clock-o"></i> 12.10.2015
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="ibox">
+          <div class="ibox-content">
+            <h3>Resources</h3>
+            <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+
+            <ul id="resources-list" class="sortable-list connectList agile-list">
+              {{#each resources}}
+                <li class="success-element" data-content="resource|{{_id}}">
+                  {{title}}
+                  <div class="agile-detail">
+                    <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
+                    <i class="fa fa-clock-o"></i> 12.10.2015
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="ibox">
+          <div class="ibox-content">
+            <h3>Sequence</h3>
+            <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+            <ul id="sequence-list" class="sortable-list connectList agile-list">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{> sequence_submit }}
+
+  </div>
+
+
+
+</template>
