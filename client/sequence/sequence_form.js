@@ -4,31 +4,44 @@ Meteor.subscribe('resources');
 Meteor.subscribe('sequences');
 
 Template.sequence_form.helpers({
-  measures: function(){
+  itemClass: function(item){
 
-    if(Session.get('current_measure_list_filter') === undefined){
-      Session.set('current_measure_list_filter', BOK.current()._id);
+    var tags = item.hash.item.tags.join(' ');
+
+    if(item.hash.item.answers){
+      return "warning-element " + tags;
+    } else {
+      return "success-element " + tags;
     }
-
-    return Measures.find({ tags: Session.get('current_measure_list_filter') });
+  },
+  itemType: function(item){
+    if(item.hash.item.answers){
+      return "measure";
+    } else {
+      return "resource";
+    }
+  },
+  measures: function(){
+    return Measures.find().fetch();
   },
   resources: function(){
-
-    if(Session.get('current_resource_list_filter') === undefined){
-      Session.set('current_resource_list_filter', BOK.current()._id);
-    }
-
-    return Resources.find({ tags: Session.get('current_resource_list_filter') });
+    return Resources.find().fetch()
   }
 });
 
 Template.sequence_form.rendered = function(){
+
+  if(Session.get('current_list_filter') === undefined){
+    Session.set('current_list_filter', BOK.current()._id);
+  }
 
   // Initialize sortable
   $(".sortable-list").sortable({
     connectWith: ".connectList",
     beforeStop: function( event, ui ) {
 
+      var item = $(ui.item).data('content').split('|')[1];
+      var itemType = $(ui.item).data('content').split('|')[0];
       var itemId = $(ui.item).attr('id');
       var sourceId = $(this).attr('id');
       var destinationId = $($(ui.placeholder).parent()[0]).attr('id');
@@ -36,8 +49,31 @@ Template.sequence_form.rendered = function(){
       var movingMeasureResource = itemId === 'measure-item' && destinationId === 'resources-list';
       var movingResourceMeasure = itemId === 'resource-item' && destinationId === 'measures-list';
 
-      if (movingMeasureResource || movingResourceMeasure) {
+      if(movingMeasureResource || movingResourceMeasure) {
         $(this).sortable('cancel');
+      } else {
+        if(sourceId === 'sequence-list'){
+          //remove
+          if(itemType === 'measure'){
+
+          }
+
+          if(itemType === 'resource'){
+
+          }
+
+        }
+
+        if(destinationId === 'sequence-list'){
+          //add
+          if(itemType === 'measure'){
+
+          }
+
+          if(itemType === 'resource'){
+
+          }
+        }
       }
     },
     receive: function( event, ui ) {
@@ -84,7 +120,7 @@ Template.sequence_form.rendered = function(){
     return tag;
   });
 
-  $("#measures-list-filter").selectize({
+  $("#list-filter").selectize({
     plugins: ['remove_button'],
     placeholder: "Filter by tag...",
     create: false,
@@ -101,44 +137,30 @@ Template.sequence_form.rendered = function(){
       }
     },
     options: formattedTags,
-    items: [ Session.get('current_measure_filter') ]
+    items: [ Session.get('current_list_filter') ]
   });
 
-  var measureFilterSelectizeAPI = $('#measures-list-filter')[0].selectize;
+  var listFilterSelectizeAPI = $('#list-filter')[0].selectize;
 
-  measureFilterSelectizeAPI.on("item_add", function(value, $item){
+  listFilterSelectizeAPI.on("item_add", function(value, $item){
     var _id = value;
+    
 
-    Session.set("current_measure_list_filter", _id);
+    $('#measures-list').children('.' + _id).each(function(){
+      $(this).show()
+    });
 
-  });
+    $('#measures-list').children().not('.' + _id).each(function(){
+      $(this).hide()
+    });
 
-  $("#resources-list-filter").selectize({
-    plugins: ['remove_button'],
-    placeholder: "Filter by tag...",
-    create: false,
-    maxItems: 1,
-    labelField: 'name',
-    valueField: '_id',
-    searchField: 'name',
-    render: {
-      option: function(data, escape) {
-        return '<div class="option"><span class="type">' + escape(data.path) + '<strong>' + escape(data.name) + '</strong></span></div>';
-      },
-      item: function(data, escape) {
-        return '<div class="item">' + escape(data.path) + '<strong>' + escape(data.name) + '</strong></div>';
-      }
-    },
-    options: formattedTags,
-    items: [ Session.get('current_measure_filter') ]
-  });
+    $('#resources-list').children('.' + _id).each(function(){
+      $(this).show()
+    });
 
-  var resourcesFilterSelectizeAPI = $('#resources-list-filter')[0].selectize;
-
-  resourcesFilterSelectizeAPI.on("item_add", function(value, $item){
-    var _id = value;
-
-    Session.set("current_resource_list_filter", _id);
+    $('#resources-list').children().not('.' + _id).each(function(){
+      $(this).hide()
+    });
 
   });
 };
