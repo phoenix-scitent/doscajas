@@ -1,0 +1,101 @@
+<template name="sequence_form">
+
+  <!-- Page heading -->
+  {{> pageHeading title=page_title category=category category_url="/sequences" }}
+
+  <div class="wrapper wrapper-content  animated fadeInRight">
+
+    <div class="row">
+
+      <label>Sequence Options</label>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-info-custom">
+          <div class="panel-heading-custom" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+            <h4 class="panel-title accordion-toggle">
+                Click to expand
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+              <img src="http://i.ytimg.com/vi/FbccrO8qKog/maxresdefault.jpg" height="350" width="600">
+              {{> sequence_options_form }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Filter</label>
+        <div class="input-group" style="width:100%">
+          <select id="list-filter" style="width:95%" tabindex="2"></select>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="ibox">
+          <div class="ibox-content">
+            <h3>Measures</h3>
+
+            <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+
+            <ul id="measures-list" class="sortable-list connectList agile-list">
+              {{#each measures}}
+                <li id="measure-item" class="{{itemClass item=this}}" data-content="{{itemType item=this}}|{{_id}}">
+                  {{question_text}}
+                  <div class="agile-detail">
+                    <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
+                    <i class="fa fa-clock-o"></i> 12.10.2015
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="ibox">
+          <div class="ibox-content">
+            <h3>Resources</h3>
+            
+            <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+
+            <ul id="resources-list" class="sortable-list connectList agile-list">
+              {{#each resources}}
+                <li id="resource-item" class="{{itemClass item=this}}" data-content="{{itemType item=this}}|{{_id}}">
+                  {{title}}
+                  <div class="agile-detail">
+                    <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
+                    <i class="fa fa-clock-o"></i> 12.10.2015
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="ibox">
+          <div class="ibox-content">
+            <h3>Sequence</h3>
+            <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+            <ul id="sequence-list" class="sortable-list connectList agile-list">
+              {{#each sequences}}
+                <li id="{{itemType item=this}}-item" class="{{itemClass item=this}}" data-content="{{itemType item=this}}|{{_id}}">
+                  {{title}}
+                  <div class="agile-detail">
+                    <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
+                    <i class="fa fa-clock-o"></i> 12.10.2015
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{>sequence_submit}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+

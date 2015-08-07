@@ -1,6 +1,23 @@
+/*-- Home Page --*/
+
 .videowrap {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
 	padding-top: 25px;
 	height: 0;
+}
+
+/*-- Sequence Create --*/
+.create-sequence-button {
+	margin: 10px;
+	padding: 15px 20px 20px 20px;
+	width: 350;
+}
+
+.panel-info-custom > .panel-heading-custom {
+  background-color: #fff;
+  border-color: black;
+  border-width:1px;
+  color: black;
+  margin: 6px;
 }
