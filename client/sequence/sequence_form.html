@@ -18,7 +18,7 @@
           <div id="collapseOne" class="panel-collapse collapse">
             <div class="panel-body">
               <img src="http://i.ytimg.com/vi/FbccrO8qKog/maxresdefault.jpg" height="350" width="600">
-              {{> sequence_options_form }}
+              {{> sequence_options_form sequence=this }}
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
 
             <ul id="measures-list" class="sortable-list connectList agile-list">
               {{#each measures}}
-                <li id="measure-item" class="{{itemClass item=this}}" data-content="{{itemType item=this}}|{{_id}}">
+                <li id="measure-item" class="{{itemClass item=this}}" data-id="{{_id}}" data-content="{{itemType item=this}}|{{_id}}">
                   {{question_text}}
                   <div class="agile-detail">
                     <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
@@ -62,7 +62,7 @@
 
             <ul id="resources-list" class="sortable-list connectList agile-list">
               {{#each resources}}
-                <li id="resource-item" class="{{itemClass item=this}}" data-content="{{itemType item=this}}|{{_id}}">
+                <li id="resource-item" class="{{itemClass item=this}}" data-id="{{_id}}" data-content="{{itemType item=this}}|{{_id}}">
                   {{title}}
                   <div class="agile-detail">
                     <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>

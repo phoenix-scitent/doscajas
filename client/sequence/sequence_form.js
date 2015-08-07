@@ -49,7 +49,7 @@ Template.sequence_form.rendered = function(){
   var sequence_id = templateData ? templateData._id : null;
 
   if(sequence_id){
-    Session.set('currentSequence', Sequences.findOne({ _id: sequence_id }));
+    Session.set('currentSequence', sequence_id);
   } else {
     Meteor.call("submitSequence", null, {
       tags: [BOK.current()._id]
@@ -57,7 +57,7 @@ Template.sequence_form.rendered = function(){
       if (err){
         console.log(err);
       } else {
-        Session.set('currentSequence', Sequences.findOne({ _id: response }));
+        Session.set('currentSequence', response);
       }
     });
   }
@@ -69,6 +69,14 @@ Template.sequence_form.rendered = function(){
   // Initialize sortable
   $(".sortable-list").sortable({
     connectWith: ".connectList",
+    create: function( event, ui ) {
+      var items = Sequences.findOne({ _id: Session.get('currentSequence') }).items;
+
+      _.forEach(items, function(item){
+        $(document).find("[data-id='" + item._id + "']").appendTo('#sequence-list');
+      });
+
+    },
     beforeStop: function( event, ui ) {
 
       var item = $(ui.item).data('content').split('|')[1];
@@ -116,7 +124,15 @@ Template.sequence_form.rendered = function(){
           return { type: data[0], _id: data[1] };
         });
 
-        Session.set('currentSequenceList', elements);
+        Meteor.call("submitSequence", Session.get('currentSequence'), {
+          items: elements
+        }, function(err, response) {
+          if (err){
+            console.log(err);
+          } else {
+            // success
+          }
+        });
       }
     },
     remove: function( event, ui ) {
@@ -128,7 +144,15 @@ Template.sequence_form.rendered = function(){
           return { type: data[0], _id: data[1] };
         });
 
-        Session.set('currentSequenceList', elements);
+        Meteor.call("submitSequence", Session.get('currentSequence'), {
+          items: elements
+        }, function(err, response) {
+          if (err){
+            console.log(err);
+          } else {
+            // success
+          }
+        });
       }
     }
   }).disableSelection();
