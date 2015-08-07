@@ -8,4 +8,8 @@
 }
 
 /*-- Sequence Create --*/
-
+.create-sequence-button {
+	margin: 10px;
+	padding: 15px 20px 20px 20px;
+	width: 350;
+}

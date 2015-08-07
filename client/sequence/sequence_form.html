@@ -72,17 +72,17 @@
             <h3>Sequence</h3>
             <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
             <ul id="sequence-list" class="sortable-list connectList agile-list">
-
             </ul>
           </div>
         </div>
       </div>
     </div>
-
-    {{> sequence_submit }}
-
   </div>
 
-
+  <template name="sequence_submit">
+    <span class="input-group-btn">
+      <button id='sequence-submit-button' type="button" class="btn btn-primary create-sequence-button btn-lg pull-right"><i class="fa fa-plus"></i> Create Sequence</button>
+    </span>
+  </template>
 
 </template>
