@@ -13,3 +13,11 @@
 	padding: 15px 20px 20px 20px;
 	width: 350;
 }
+
+.panel-info-custom > .panel-heading-custom {
+  background-color: #fff;
+  border-color: black;
+  border-width:1px;
+  color: black;
+  margin: 6px;
+}
