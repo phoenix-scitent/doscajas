@@ -105,11 +105,11 @@
       <file leaf-file-name="sequence_form.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/sequence/sequence_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17029329" vertical-offset="0" max-vertical-offset="1380">
-              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.07095554" vertical-offset="0" max-vertical-offset="1605">
+              <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -209,9 +209,9 @@
         <option value="$PROJECT_DIR$/lib/models/sequences.js" />
         <option value="$PROJECT_DIR$/startup.js" />
         <option value="$PROJECT_DIR$/client/sequence/sequence_options_form.html" />
-        <option value="$PROJECT_DIR$/client/sequence/sequence_form.html" />
         <option value="$PROJECT_DIR$/client/sequence/sequence_form.js" />
         <option value="$PROJECT_DIR$/client/sequence/sequence_options_form.js" />
+        <option value="$PROJECT_DIR$/client/sequence/sequence_form.html" />
       </list>
     </option>
   </component>
@@ -1035,11 +1035,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/sequence/sequence_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17029329" vertical-offset="0" max-vertical-offset="1380">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.07095554" vertical-offset="0" max-vertical-offset="1605">
+          <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
