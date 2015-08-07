@@ -24,7 +24,7 @@
 
             <ul id="measures-list" class="sortable-list connectList agile-list">
               {{#each measures}}
-                <li id="measure-item" class="warning-element" data-content="measure|{{_id}}">
+                <li id="measure-item" class="{{itemClass item=this}}" data-content="{{itemType item=this}}|{{_id}}">
                   {{question_text}}
                   <div class="agile-detail">
                     <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
@@ -53,7 +53,7 @@
 
             <ul id="resources-list" class="sortable-list connectList agile-list">
               {{#each resources}}
-                <li id="resource-item" class="success-element" data-content="resource|{{_id}}">
+                <li id="resource-item" class="{{itemClass item=this}}" data-content="{{itemType item=this}}|{{_id}}">
                   {{title}}
                   <div class="agile-detail">
                     <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
@@ -72,7 +72,15 @@
             <h3>Sequence</h3>
             <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
             <ul id="sequence-list" class="sortable-list connectList agile-list">
-
+              {{#each sequences}}
+                <li id="{{itemType item=this}}-item" class="{{itemClass item=this}}" data-content="{{itemType item=this}}|{{_id}}">
+                  {{title}}
+                  <div class="agile-detail">
+                    <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
+                    <i class="fa fa-clock-o"></i> 12.10.2015
+                  </div>
+                </li>
+              {{/each}}
             </ul>
           </div>
         </div>

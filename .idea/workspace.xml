@@ -37,16 +37,18 @@
       <file leaf-file-name="sequence_form.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/sequence/sequence_form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46901017" vertical-offset="3" max-vertical-offset="1470">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4717854" vertical-offset="0" max-vertical-offset="2595">
+              <caret line="46" column="3" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
               <folding>
-                <element signature="e#1344#1702#0" expanded="false" />
-                <element signature="e#1738#2096#0" expanded="false" />
-                <element signature="e#2301#2664#0" expanded="false" />
-                <element signature="e#2898#3246#0" expanded="false" />
-                <element signature="e#3793#4141#0" expanded="false" />
-                <element signature="e#3832#3979#0" expanded="false" />
-                <element signature="e#4016#4135#0" expanded="false" />
+                <element signature="e#179#299#0" expanded="false" />
+                <element signature="e#327#432#0" expanded="false" />
+                <element signature="e#4200#4558#0" expanded="false" />
+                <element signature="e#4594#4952#0" expanded="false" />
+                <element signature="e#5157#5520#0" expanded="false" />
+                <element signature="e#5754#6102#0" expanded="false" />
+                <element signature="e#6654#7002#0" expanded="false" />
+                <element signature="e#6693#6840#0" expanded="false" />
+                <element signature="e#6877#6996#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -55,8 +57,8 @@
       <file leaf-file-name="sequence_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/sequence/sequence_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-38.125" vertical-offset="0" max-vertical-offset="1395">
-              <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+            <state vertical-scroll-proportion="2.8333333" vertical-offset="458" max-vertical-offset="1515">
+              <caret line="26" column="69" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -138,9 +140,9 @@
         <option value="$PROJECT_DIR$/client/common/navigation.html" />
         <option value="$PROJECT_DIR$/client/sequence/sequence_options_form.html" />
         <option value="$PROJECT_DIR$/client/sequence/sequence_submit.html" />
-        <option value="$PROJECT_DIR$/client/sequence/sequence_submit.js" />
         <option value="$PROJECT_DIR$/client/measures/measures_filter.js" />
         <option value="$PROJECT_DIR$/lib/router/router.js" />
+        <option value="$PROJECT_DIR$/client/sequence/sequence_submit.js" />
         <option value="$PROJECT_DIR$/client/sequence/sequence_form.html" />
         <option value="$PROJECT_DIR$/client/sequence/sequence_form.js" />
       </list>
@@ -476,7 +478,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -913,8 +915,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/sequence/sequence_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-38.125" vertical-offset="0" max-vertical-offset="1395">
-          <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+        <state vertical-scroll-proportion="2.8333333" vertical-offset="458" max-vertical-offset="1515">
+          <caret line="26" column="69" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -926,16 +928,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/sequence/sequence_form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46901017" vertical-offset="3" max-vertical-offset="1470">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4717854" vertical-offset="0" max-vertical-offset="2595">
+          <caret line="46" column="3" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
           <folding>
-            <element signature="e#1344#1702#0" expanded="false" />
-            <element signature="e#1738#2096#0" expanded="false" />
-            <element signature="e#2301#2664#0" expanded="false" />
-            <element signature="e#2898#3246#0" expanded="false" />
-            <element signature="e#3793#4141#0" expanded="false" />
-            <element signature="e#3832#3979#0" expanded="false" />
-            <element signature="e#4016#4135#0" expanded="false" />
+            <element signature="e#179#299#0" expanded="false" />
+            <element signature="e#327#432#0" expanded="false" />
+            <element signature="e#4200#4558#0" expanded="false" />
+            <element signature="e#4594#4952#0" expanded="false" />
+            <element signature="e#5157#5520#0" expanded="false" />
+            <element signature="e#5754#6102#0" expanded="false" />
+            <element signature="e#6654#7002#0" expanded="false" />
+            <element signature="e#6693#6840#0" expanded="false" />
+            <element signature="e#6877#6996#0" expanded="false" />
           </folding>
         </state>
       </provider>

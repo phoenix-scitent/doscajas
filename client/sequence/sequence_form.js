@@ -4,21 +4,46 @@ Meteor.subscribe('resources');
 Meteor.subscribe('sequences');
 
 Template.sequence_form.helpers({
+  itemClass: function(item){
+    if(item.hash.item.answers){
+      return "warning-element";
+    } else {
+      return "success-element";
+    }
+  },
+  itemType: function(item){
+    if(item.hash.item.answers){
+      return "measure";
+    } else {
+      return "resource";
+    }
+  },
   measures: function(){
-
     if(Session.get('current_measure_list_filter') === undefined){
       Session.set('current_measure_list_filter', BOK.current()._id);
     }
 
-    return Measures.find({ tags: Session.get('current_measure_list_filter') });
+    var sequenceMeasures = new ReactiveArray(Measures.find().fetch());
+
+    return _.filter(sequenceMeasures, function(measure){
+      return _.includes(measure.tags, Session.get('current_measure_list_filter'))
+    });
   },
   resources: function(){
-
     if(Session.get('current_resource_list_filter') === undefined){
       Session.set('current_resource_list_filter', BOK.current()._id);
     }
 
-    return Resources.find({ tags: Session.get('current_resource_list_filter') });
+    var sequenceResources = new ReactiveArray(Resources.find().fetch());
+
+    return _.filter(sequenceResources, function(resource){
+      return _.includes(resource.tags, Session.get('current_resource_list_filter'))
+    });
+  },
+  sequences: function(){
+    var sequenceItems = new ReactiveArray();
+
+    return sequenceItems;
   }
 });
 
@@ -29,6 +54,8 @@ Template.sequence_form.rendered = function(){
     connectWith: ".connectList",
     beforeStop: function( event, ui ) {
 
+      var item = $(ui.item).data('content').split('|')[1];
+      var itemType = $(ui.item).data('content').split('|')[0];
       var itemId = $(ui.item).attr('id');
       var sourceId = $(this).attr('id');
       var destinationId = $($(ui.placeholder).parent()[0]).attr('id');
@@ -36,8 +63,68 @@ Template.sequence_form.rendered = function(){
       var movingMeasureResource = itemId === 'measure-item' && destinationId === 'resources-list';
       var movingResourceMeasure = itemId === 'resource-item' && destinationId === 'measures-list';
 
-      if (movingMeasureResource || movingResourceMeasure) {
+      if(movingMeasureResource || movingResourceMeasure) {
         $(this).sortable('cancel');
+      } else {
+        if(sourceId === 'sequence-list'){
+          //remove
+          if(itemType === 'measure'){
+            (function(){
+
+              jQuery.trigger('removeSequenceMeasures', [ item ]);
+
+
+              sequenceMeasures.push(_.filter(sequenceItems, function(measure){ return measure._id === item; }));
+              sequenceItems.remove(_.find(sequenceItems, function(measure){ return measure._id === item; }));
+
+
+              console.log('MEASURES: ', sequenceMeasures, "ITEMS: ", sequenceItems);
+            }());
+          }
+
+          if(itemType === 'resource'){
+            (function(){
+
+              jQuery.trigger('removeSequenceResources', [ item ]);
+
+              sequenceResources.push(_.filter(sequenceItems, function(resource){ return resource._id === item; }));
+              sequenceItems.remove(_.find(sequenceItems, function(resource){ return resource._id === item; }));
+
+
+              console.log('RESOURCES: ', sequenceResources, "ITEMS: ", sequenceItems);
+            }())
+          }
+
+        }
+
+        if(destinationId === 'sequence-list'){
+          //add
+          if(itemType === 'measure'){
+            (function(){
+
+              jQuery.trigger('addSequenceMeasures', [ item ]);
+
+              sequenceItems.push(_.filter(sequenceMeasures, function(measure){ return measure._id === item; }));
+              sequenceMeasures.remove(_.find(sequenceMeasures, function(measure){ return measure._id === item; }));
+
+
+              console.log('MEASURES: ', sequenceMeasures, "ITEMS: ", sequenceItems);
+            }())
+          }
+
+          if(itemType === 'resource'){
+            (function(){
+
+              jQuery.trigger('addSequenceResources', [ item ]);
+
+              sequenceItems.push(_.filter(sequenceResources, function(resource){ return resource._id === item; }));
+              sequenceResources.remove(_.find(sequenceResources, function(resource){ return resource._id === item; }));
+
+
+              console.log('RESOURCES: ', sequenceResources, "ITEMS: ", sequenceItems);
+            }())
+          }
+        }
       }
     },
     receive: function( event, ui ) {
@@ -101,7 +188,7 @@ Template.sequence_form.rendered = function(){
       }
     },
     options: formattedTags,
-    items: [ Session.get('current_measure_filter') ]
+    items: [ Session.get('current_measure_list_filter') ]
   });
 
   var measureFilterSelectizeAPI = $('#measures-list-filter')[0].selectize;
@@ -130,7 +217,7 @@ Template.sequence_form.rendered = function(){
       }
     },
     options: formattedTags,
-    items: [ Session.get('current_measure_filter') ]
+    items: [ Session.get('current_resource_list_filter') ]
   });
 
   var resourcesFilterSelectizeAPI = $('#resources-list-filter')[0].selectize;
