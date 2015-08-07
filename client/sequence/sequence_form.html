@@ -9,15 +9,16 @@
 
       <label>Sequence Options</label>
       <div class="panel-group" id="accordion">
-        <div class="panel panel-info-custom">
-          <div class="panel-heading-custom" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
-            <h4 class="panel-title accordion-toggle">
+        <div class="panel panel-default panel-custom">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="display:block">
                 Click to expand
+              <i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i></a>
             </h4>
           </div>
           <div id="collapseOne" class="panel-collapse collapse">
             <div class="panel-body">
-              <img src="http://i.ytimg.com/vi/FbccrO8qKog/maxresdefault.jpg" height="350" width="600">
               {{> sequence_options_form sequence=this }}
             </div>
           </div>
@@ -91,8 +92,8 @@
                 </li>
               {{/each}}
             </ul>
+            {{>sequence_submit}}
           </div>
-          {{>sequence_submit}}
         </div>
       </div>
     </div>

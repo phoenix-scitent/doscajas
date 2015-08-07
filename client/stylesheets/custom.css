@@ -11,13 +11,12 @@
 .create-sequence-button {
 	margin: 10px;
 	padding: 15px 20px 20px 20px;
-	width: 350;
+	width: 100%;
 }
 
-.panel-info-custom > .panel-heading-custom {
-  background-color: #fff;
-  border-color: black;
-  border-width:1px;
-  color: black;
-  margin: 6px;
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #fff;
+    color: black;
+
 }
