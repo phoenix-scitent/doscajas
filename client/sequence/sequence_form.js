@@ -4,6 +4,20 @@ Meteor.subscribe('resources');
 Meteor.subscribe('sequences');
 
 Template.sequence_form.helpers({
+  page_title: function(){
+    if (this._id){
+      return "Editing: "+ this.name;
+    } else {
+      return "Create a new Sequence";
+    }
+  },
+  category: function(){
+    if (this._id) {
+      return "Sequences";
+    } else {
+      return null;
+    }
+  },
   itemClass: function(item){
 
     var tags = item.hash.item.tags.join(' ');
@@ -30,6 +44,23 @@ Template.sequence_form.helpers({
 });
 
 Template.sequence_form.rendered = function(){
+
+  var templateData = this.data;
+  var sequence_id = templateData ? templateData._id : null;
+
+  if(sequence_id){
+    Session.set('currentSequence', Sequences.findOne({ _id: sequence_id }));
+  } else {
+    Meteor.call("submitSequence", null, {
+      tags: [BOK.current()._id]
+    }, function(err, response) {
+      if (err){
+        console.log(err);
+      } else {
+        Session.set('currentSequence', Sequences.findOne({ _id: response }));
+      }
+    });
+  }
 
   if(Session.get('current_list_filter') === undefined){
     Session.set('current_list_filter', BOK.current()._id);
@@ -144,7 +175,6 @@ Template.sequence_form.rendered = function(){
 
   listFilterSelectizeAPI.on("item_add", function(value, $item){
     var _id = value;
-    
 
     $('#measures-list').children('.' + _id).each(function(){
       $(this).show()

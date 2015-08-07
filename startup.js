@@ -37,4 +37,8 @@ Meteor.startup(function () {
     { name: 'Problem Based Learning', slug: 'problembasedlearning' }
   ];
 
+  SEQUENCE_TYPES = [
+    { name: 'Linear', slug: 'linear' }
+  ];
+
 });

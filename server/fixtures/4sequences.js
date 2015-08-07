@@ -63,6 +63,7 @@ if (Sequences.find().count() === 0) {
   // passing_rate_type [ 'score', 'percent' ]
 
   Meteor.call("submitSequence", null, {
+    name: 'All Measures Quiz',
     type: 'linear',
     items: _.map(Measures.find().fetch(), function(measure){ return { _id: measure._id, type: 'measure' } }),
     owner: 'sdfsdfsdfsdfd' /*Meteor.users.find().fetch()[0]._id*/,
