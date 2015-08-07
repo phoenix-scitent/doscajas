@@ -5,10 +5,13 @@ Meteor.subscribe('sequences');
 
 Template.sequence_form.helpers({
   itemClass: function(item){
+
+    var tags = item.hash.item.tags.join(' ');
+
     if(item.hash.item.answers){
-      return "warning-element";
+      return "warning-element " + tags;
     } else {
-      return "success-element";
+      return "success-element " + tags;
     }
   },
   itemType: function(item){
@@ -19,35 +22,18 @@ Template.sequence_form.helpers({
     }
   },
   measures: function(){
-    if(Session.get('current_measure_list_filter') === undefined){
-      Session.set('current_measure_list_filter', BOK.current()._id);
-    }
-
-    var sequenceMeasures = new ReactiveArray(Measures.find().fetch());
-
-    return _.filter(sequenceMeasures, function(measure){
-      return _.includes(measure.tags, Session.get('current_measure_list_filter'))
-    });
+    return Measures.find().fetch();
   },
   resources: function(){
-    if(Session.get('current_resource_list_filter') === undefined){
-      Session.set('current_resource_list_filter', BOK.current()._id);
-    }
-
-    var sequenceResources = new ReactiveArray(Resources.find().fetch());
-
-    return _.filter(sequenceResources, function(resource){
-      return _.includes(resource.tags, Session.get('current_resource_list_filter'))
-    });
-  },
-  sequences: function(){
-    var sequenceItems = new ReactiveArray();
-
-    return sequenceItems;
+    return Resources.find().fetch()
   }
 });
 
 Template.sequence_form.rendered = function(){
+
+  if(Session.get('current_list_filter') === undefined){
+    Session.set('current_list_filter', BOK.current()._id);
+  }
 
   // Initialize sortable
   $(".sortable-list").sortable({
@@ -69,30 +55,11 @@ Template.sequence_form.rendered = function(){
         if(sourceId === 'sequence-list'){
           //remove
           if(itemType === 'measure'){
-            (function(){
 
-              jQuery.trigger('removeSequenceMeasures', [ item ]);
-
-
-              sequenceMeasures.push(_.filter(sequenceItems, function(measure){ return measure._id === item; }));
-              sequenceItems.remove(_.find(sequenceItems, function(measure){ return measure._id === item; }));
-
-
-              console.log('MEASURES: ', sequenceMeasures, "ITEMS: ", sequenceItems);
-            }());
           }
 
           if(itemType === 'resource'){
-            (function(){
 
-              jQuery.trigger('removeSequenceResources', [ item ]);
-
-              sequenceResources.push(_.filter(sequenceItems, function(resource){ return resource._id === item; }));
-              sequenceItems.remove(_.find(sequenceItems, function(resource){ return resource._id === item; }));
-
-
-              console.log('RESOURCES: ', sequenceResources, "ITEMS: ", sequenceItems);
-            }())
           }
 
         }
@@ -100,29 +67,11 @@ Template.sequence_form.rendered = function(){
         if(destinationId === 'sequence-list'){
           //add
           if(itemType === 'measure'){
-            (function(){
 
-              jQuery.trigger('addSequenceMeasures', [ item ]);
-
-              sequenceItems.push(_.filter(sequenceMeasures, function(measure){ return measure._id === item; }));
-              sequenceMeasures.remove(_.find(sequenceMeasures, function(measure){ return measure._id === item; }));
-
-
-              console.log('MEASURES: ', sequenceMeasures, "ITEMS: ", sequenceItems);
-            }())
           }
 
           if(itemType === 'resource'){
-            (function(){
 
-              jQuery.trigger('addSequenceResources', [ item ]);
-
-              sequenceItems.push(_.filter(sequenceResources, function(resource){ return resource._id === item; }));
-              sequenceResources.remove(_.find(sequenceResources, function(resource){ return resource._id === item; }));
-
-
-              console.log('RESOURCES: ', sequenceResources, "ITEMS: ", sequenceItems);
-            }())
           }
         }
       }
@@ -171,7 +120,7 @@ Template.sequence_form.rendered = function(){
     return tag;
   });
 
-  $("#measures-list-filter").selectize({
+  $("#list-filter").selectize({
     plugins: ['remove_button'],
     placeholder: "Filter by tag...",
     create: false,
@@ -188,44 +137,30 @@ Template.sequence_form.rendered = function(){
       }
     },
     options: formattedTags,
-    items: [ Session.get('current_measure_list_filter') ]
+    items: [ Session.get('current_list_filter') ]
   });
 
-  var measureFilterSelectizeAPI = $('#measures-list-filter')[0].selectize;
+  var listFilterSelectizeAPI = $('#list-filter')[0].selectize;
 
-  measureFilterSelectizeAPI.on("item_add", function(value, $item){
+  listFilterSelectizeAPI.on("item_add", function(value, $item){
     var _id = value;
+    
 
-    Session.set("current_measure_list_filter", _id);
+    $('#measures-list').children('.' + _id).each(function(){
+      $(this).show()
+    });
 
-  });
+    $('#measures-list').children().not('.' + _id).each(function(){
+      $(this).hide()
+    });
 
-  $("#resources-list-filter").selectize({
-    plugins: ['remove_button'],
-    placeholder: "Filter by tag...",
-    create: false,
-    maxItems: 1,
-    labelField: 'name',
-    valueField: '_id',
-    searchField: 'name',
-    render: {
-      option: function(data, escape) {
-        return '<div class="option"><span class="type">' + escape(data.path) + '<strong>' + escape(data.name) + '</strong></span></div>';
-      },
-      item: function(data, escape) {
-        return '<div class="item">' + escape(data.path) + '<strong>' + escape(data.name) + '</strong></div>';
-      }
-    },
-    options: formattedTags,
-    items: [ Session.get('current_resource_list_filter') ]
-  });
+    $('#resources-list').children('.' + _id).each(function(){
+      $(this).show()
+    });
 
-  var resourcesFilterSelectizeAPI = $('#resources-list-filter')[0].selectize;
-
-  resourcesFilterSelectizeAPI.on("item_add", function(value, $item){
-    var _id = value;
-
-    Session.set("current_resource_list_filter", _id);
+    $('#resources-list').children().not('.' + _id).each(function(){
+      $(this).hide()
+    });
 
   });
 };
