@@ -1,4 +1,4 @@
-Template.resources_filter.rendered = function(){
+Template.cajas_filter.rendered = function(){
 
   var tags = Boks.find({ $or: [{ _id: BOK.current()._id }, { $and: [{ancestors: BOK.current()._id}, {public: true}] }] }).fetch();
   var formattedTags = _.map(tags, function(tag){
@@ -18,11 +18,11 @@ Template.resources_filter.rendered = function(){
     return tag;
   });
 
-  if(Session.get('current_resource_filter') === undefined){
-    Session.set('current_resource_filter', BOK.current()._id);
+  if(Session.get('current_cajas_filter') === undefined){
+    Session.set('current_cajas_filter', BOK.current()._id);
   }
 
-  $("#resources-filter").selectize({
+  $("#cajas-filter").selectize({
     plugins: ['remove_button'],
     placeholder: "Filter by tag...",
     create: false,
@@ -39,15 +39,15 @@ Template.resources_filter.rendered = function(){
       }
     },
     options: formattedTags,
-    items: [ Session.get('current_resource_filter') ]
+    items: [ Session.get('current_cajas_filter') ]
   });
 
-  var filterSelectizeAPI = $('#resources-filter')[0].selectize;
+  var filterSelectizeAPI = $('#cajas-filter')[0].selectize;
 
   filterSelectizeAPI.on("item_add", function(value, $item){
     var _id = value;
 
-    Session.set("current_resource_filter", _id);
+    Session.set("current_cajas_filter", _id);
 
   });
 

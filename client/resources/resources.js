@@ -5,7 +5,7 @@ Template.resources.helpers({
   resource_sections: function() {
     //TODO: scope this to only those owned by current user
 
-    var resources = _.map(Resources.find({ tags: Session.get("current_resource_filter") }).fetch(), function(resource){
+    var resources = _.map(Resources.find({ tags: Session.get("current_cajas_filter") }).fetch(), function(resource){
       resource.creator_data = Meteor.users.findOne({ _id: resource.owner });
       resource.tag_data = _.map(resource.tags, function(tag){ return Boks.findOne({ _id: tag }) });
       resource.formatted_date_created = moment(resource.date_created).format('MMMM Do YYYY, h:mm:ss a');
