@@ -192,7 +192,7 @@ Template.sequence_form.rendered = function(){
       }
     },
     options: formattedTags,
-    items: [ Session.get('current_list_filter') ]
+    items: [ Session.get('current_list_filter') || BOK.current()._id ]
   });
 
   var listFilterSelectizeAPI = $('#list-filter')[0].selectize;
