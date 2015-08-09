@@ -60,6 +60,7 @@ mobile-status-bar@1.0.3
 momentjs:moment@2.10.6
 mongo@1.1.0
 mquandalle:bower@1.4.1
+msavin:jetsetter@1.0.20
 msavin:mongol@1.1.5
 npm-bcrypt@0.7.8_2
 oauth@1.1.4
