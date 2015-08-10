@@ -93,7 +93,6 @@ if (Measures.find().count() === 0) {
           text: 'Will',
           feedback: 'He is the Instructional Designer',
           correct: true,
-          linked_resource: create_resource(),
           points: 0
         },
         {
