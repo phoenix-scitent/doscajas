@@ -70,12 +70,14 @@ Template.sequence_form.rendered = function(){
   $(".sortable-list").sortable({
     connectWith: ".connectList",
     create: function( event, ui ) {
-      var items = Sequences.findOne({ _id: Session.get('currentSequenceId') }).items;
+      var sequence = Sequences.findOne({ _id: Session.get('currentSequenceId') });
+      var items = sequence && sequence.items;
 
-      _.forEach(items, function(item){
-        $(document).find("[data-id='" + item._id + "']").appendTo('#sequence-list');
-      });
-
+      if(items){
+        _.forEach(items, function(item){
+          $(document).find("[data-id='" + item._id + "']").appendTo('#sequence-list');
+        });
+      }
     },
     beforeStop: function( event, ui ) {
 

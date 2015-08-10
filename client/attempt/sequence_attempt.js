@@ -91,7 +91,7 @@ Template.sequence_attempt.events({
     var unansweredMeasures = _.filter( _.map(currentAttempt.attempt.items, function(item, index){ return { data: item.data, answer_id: item.answer_id, index: index + 1 } }), function(item){ return item.answer_id === null } );
 
     if(allMeasuresAnswered){
-      // router route
+      // REMOVE RADIOBUTTONS, READ ONLY, SHOW ALL FEEDBACK
       //alert('SCORE: ' + currentAttempt.attempt.score + ' out of possible ' + currentAttempt.total_possible_score);
     } else {
       alert('Make sure to answer all questions before submitting. You have not answered ' + _.map(unansweredMeasures, function(measure){ return measure.index }).join(','))

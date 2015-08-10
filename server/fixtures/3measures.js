@@ -149,7 +149,7 @@ if (Measures.find().count() === 0) {
         {
           id: 3,
           text: 'Yellow',
-          feedback: 'Correct! The sun appears yellow to most.',
+          feedback: 'The sun appears yellow to most.',
           correct: true,
           points: 0
         }
