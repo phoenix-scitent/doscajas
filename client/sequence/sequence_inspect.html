@@ -340,17 +340,20 @@
     </div>
     <div class="col-lg-3">
       <div class="wrapper wrapper-content project-manager">
-        <h4>Description</h4>
-        <p class="small">
-          {{ description }}
-        </p>
-        <h5>Contents</h5>
-        <ul class="tag-list" style="padding: 0">
-          {{#each items}}
-            <li><a href="/{{type}}/{{ _id }}/inspect"><i class="fa fa-tag"></i>{{ itemName item=this }}</a></li>
-          {{/each}}
-        </ul>
-        <br><br>
+        <div id="sequence-description">
+          <h4>Description</h4>
+          <p class="small">
+            {{ description }}
+          </p>
+        </div>
+        <div id="sequence-contents">
+          <h5>Contents</h5>
+          <ul class="tag-list" style="padding: 0">
+            {{#each items}}
+              <li><a href="/{{type}}/{{ _id }}/inspect"><i class="fa fa-tag"></i>{{ itemName item=this }}</a></li>
+            {{/each}}
+          </ul>
+        </div>
         <h5>Body of Knowledge tags</h5>
         <ul class="tag-list" style="padding: 0">
           {{#each tag_list}}

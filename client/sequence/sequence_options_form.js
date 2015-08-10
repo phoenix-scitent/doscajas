@@ -14,7 +14,7 @@ Template.sequence_options_form.rendered = function(){
   var typeSelectizeAPI = $('#sequence-type')[0].selectize;
 
   typeSelectizeAPI.on("item_add", function(value, $item){
-    var sequenceId = Session.get('currentSequence'),
+    var sequenceId = Session.get('currentSequenceId'),
         type = value;
 
     Meteor.call("submitSequence", sequenceId, {
@@ -43,7 +43,7 @@ Template.sequence_options_form.rendered = function(){
   var ownerSelectizeAPI = $('#current-owner')[0].selectize;
 
   ownerSelectizeAPI.on("item_add", function(value, $item){
-    var sequenceId = Session.get('currentSequence'),
+    var sequenceId = Session.get('currentSequenceId'),
         owner = value;
 
     Meteor.call("submitSequence", sequenceId, {
@@ -72,7 +72,7 @@ Template.sequence_options_form.rendered = function(){
   var passingratetypeSelectizeAPI = $('#passing-rate-type')[0].selectize;
 
   passingratetypeSelectizeAPI.on("item_add", function(value, $item){
-    var sequenceId = Session.get('currentSequence'),
+    var sequenceId = Session.get('currentSequenceId'),
         passing_rate_type = value;
 
     Meteor.call("submitSequence", sequenceId, {
@@ -111,7 +111,7 @@ Template.sequence_options_form.rendered = function(){
   });
 
   sequenceNameInput.onValue(function(value){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
 
     if(!(value === '')){
       Meteor.call("submitSequence", sequenceId, {
@@ -126,7 +126,7 @@ Template.sequence_options_form.rendered = function(){
     }
   });
   totalPossibleScoreInput.onValue(function(value){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
 
     if(!(value === '')){
       Meteor.call("submitSequence", sequenceId, {
@@ -141,7 +141,7 @@ Template.sequence_options_form.rendered = function(){
     }
   });
   attemptsAllowedInput.onValue(function(value){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
 
     if(!(value === '')){
       Meteor.call("submitSequence", sequenceId, {
@@ -156,7 +156,7 @@ Template.sequence_options_form.rendered = function(){
     }
   });
   passingRateInput.onValue(function(value){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
 
     if(!(value === '')){
       Meteor.call("submitSequence", sequenceId, {
@@ -193,7 +193,7 @@ Template.sequence_options_form.rendered = function(){
 
 Template.sequence_options_form.events({
   'click #randomize-items': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -207,7 +207,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #randomize-answers': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -221,7 +221,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #allow-incorrect-answers': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -235,7 +235,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #show-linked-resources-during': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -249,7 +249,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #show-linked-resources-after': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -263,7 +263,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #show-feedback-during': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -277,7 +277,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #show-feedback-after': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -291,7 +291,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #show-score-after': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -305,7 +305,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #allow-skip-ahead': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -319,7 +319,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #use-measure-weighting': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {
@@ -333,7 +333,7 @@ Template.sequence_options_form.events({
     });
   },
   'click #allow-score-scaling-on-incorrect-attempts': function(e){
-    var sequenceId = Session.get('currentSequence');
+    var sequenceId = Session.get('currentSequenceId');
     var value = $(e.target).is(':checked');
 
     Meteor.call("submitSequence", sequenceId, {

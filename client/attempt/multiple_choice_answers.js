@@ -4,7 +4,9 @@ Template.multiple_choice_answers.events({
         measure_id = $el.attr('name');
         answer_id = $el.val() - 1;
 
-    var items = Session.get('currentAttempt').attempt.items;
+    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
+
+    var items = currentAttempt.attempt.items;
 
     _.forEach(items, function(item){
       if(item.data._id === measure_id){
@@ -12,15 +14,11 @@ Template.multiple_choice_answers.events({
       }
     });
 
-    Meteor.call('updateAttempt', Session.get('currentAttempt')._id, { 'attempt.items': items }, function(err, currentAttemptId) {
+    Meteor.call('updateAttempt', Session.get('currentAttemptId'), { 'attempt.items': items }, function(err, currentAttemptId) {
       if (err){
         alert(err);
       } else {
 
-        //TODO: session did not update itself with the data update... find way to do this without manual set?
-        Session.set('currentAttempt', Sequences.findOne({ _id: currentAttemptId }));
-
-        console.log(Session.get('currentAttempt').attempt.score, ' out of possible ', Session.get('currentAttempt').total_possible_score);
       }
     });
   }

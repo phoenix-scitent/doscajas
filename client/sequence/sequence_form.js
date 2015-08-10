@@ -49,7 +49,7 @@ Template.sequence_form.rendered = function(){
   var sequence_id = templateData ? templateData._id : null;
 
   if(sequence_id){
-    Session.set('currentSequence', sequence_id);
+    Session.set('currentSequenceId', sequence_id);
   } else {
     Meteor.call("submitSequence", null, {
       tags: [BOK.current()._id]
@@ -57,7 +57,7 @@ Template.sequence_form.rendered = function(){
       if (err){
         console.log(err);
       } else {
-        Session.set('currentSequence', response);
+        Session.set('currentSequenceId', response);
       }
     });
   }
@@ -70,7 +70,7 @@ Template.sequence_form.rendered = function(){
   $(".sortable-list").sortable({
     connectWith: ".connectList",
     create: function( event, ui ) {
-      var items = Sequences.findOne({ _id: Session.get('currentSequence') }).items;
+      var items = Sequences.findOne({ _id: Session.get('currentSequenceId') }).items;
 
       _.forEach(items, function(item){
         $(document).find("[data-id='" + item._id + "']").appendTo('#sequence-list');
@@ -124,7 +124,7 @@ Template.sequence_form.rendered = function(){
           return { type: data[0], _id: data[1] };
         });
 
-        Meteor.call("submitSequence", Session.get('currentSequence'), {
+        Meteor.call("submitSequence", Session.get('currentSequenceId'), {
           items: elements
         }, function(err, response) {
           if (err){
@@ -144,7 +144,7 @@ Template.sequence_form.rendered = function(){
           return { type: data[0], _id: data[1] };
         });
 
-        Meteor.call("submitSequence", Session.get('currentSequence'), {
+        Meteor.call("submitSequence", Session.get('currentSequenceId'), {
           items: elements
         }, function(err, response) {
           if (err){
