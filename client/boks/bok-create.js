@@ -13,9 +13,9 @@ Template.bokCreate.events({
           return {
             "name" : name,
             "ancestors" : [],
-            "roles" : {
+            "permissions" : {
               "admins" : [
-                Session.get('userId')
+                Meteor.user()._id
               ],
               "publishers" : [],
               "editors" : [],
