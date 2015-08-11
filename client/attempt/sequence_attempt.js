@@ -13,6 +13,7 @@ Template.sequence_attempt.helpers({
       measure.answers = _.map(measure.answers, function(answer){
         return _.assign(answer, { measure_id: measure._id });
       });
+      measure.embedded = Resources.findOne(measure.embedded_resource);
 
       return measure;
     });
