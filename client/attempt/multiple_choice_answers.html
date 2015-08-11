@@ -1,14 +1,14 @@
 <template name="multiple_choice_answers">
   {{#each answers}}
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group">
-              <span class="input-group-addon">
-                <input class="answer-option" type="radio" name="{{measure_id}}" value="{{id}}" aria-label="...">
-              </span>
-          <input type="text" class="form-control" aria-label="..." value="{{text}}" style="cursor:auto;" disabled>
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
-    </div><!-- /.row -->
+    <div id="check-awesome" class="form-group">    
+      <input class="answer-option" type="checkbox" id="check-me{{measure_id}}{{id}}" name="{{measure_id}}" value="{{id}}" aria-label="...">  
+        
+      <label for="check-me{{measure_id}}{{id}}">
+          <span class="circle"></span>
+          <span class="check"></span>
+          <span class="box"></span>
+          {{ text }}
+      </label>  
+    </div>
   {{/each}}
 </template>
