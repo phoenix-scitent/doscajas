@@ -1,4 +1,25 @@
 <template name="sequence_attempt">
+  {{#if inReview}}
+    <div class="snap" style="padding-bottom:250px">
+      <div class="wrapper wrapper-content">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+        {{> review_display}}
+      </div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+  {{else}}
+    <div class="snap" style="padding-bottom:200px">
+      <div class="wrapper wrapper-content">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          {{> introduction_display}}
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+  {{/if}}
   <div class="wrapper wrapper-content">
     {{#each measures}}
       <section class="snap" data-measure="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
@@ -21,20 +42,96 @@
       </div>
       </section>
     {{/each}}
-    <section style="margin-bottom:500px;">
-      <div class="row animated fadeInTop">
-        <div class="col-sm-2">
-          <h2 class="label label-warning pull-right label-rounded">
-            Complete
-          </h2>
+    {{#if inReview}}
+      <section class="snap" style="margin-bottom:750px;">
+        <div class="row animated fadeInTop">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-8">
+            <a type="button" id='return-to-results' class="btn btn-block btn-outline btn-info btn-small">Return to results</a>
+          </div>
+          <div class="col-sm-2">
+          </div>
         </div>
-        <div class="col-sm-8">
-          Please re-check your answers and click to submit when ready.
-          <a type="button" id='attempt-submit' class="btn btn-block btn-outline btn-info btn-small">Submit</a>
+      </section>
+    {{else}}
+      <section class="snap" style="margin-bottom:750px;">
+        <div class="row animated fadeInTop">
+          <div class="col-sm-2">
+            <h2 class="label label-warning pull-right label-rounded">
+              Complete
+            </h2>
+          </div>
+          <div class="col-sm-8">
+            Please re-check your answers and click to submit when ready.
+            <br><br>
+            <a type="button" id='attempt-submit' class="btn btn-block btn-outline btn-info btn-small">Submit</a>
+          </div>
+          <div class="col-sm-2">
+          </div>
         </div>
-        <div class="col-sm-2">
+      </section>
+    {{/if}}
+  </div>
+</template>
+
+<template name="review_display">
+  <div class="ibox float-e-margins">
+    <div class="ibox-content">
+      <div id="review-display" style="padding: 3px; float:left">
+        <h2>Your Attempt Results</h2>
+      </div>
+      <div style="padding:10px; float:right">
+        <div>
+          <strong>Purpose</strong>: Please answer all measures.
+        </div>
+        <br>
+        <div>
+          This was attempt {{currentAttemptsCount}} out of {{possibleAttemptsCount}} possible attempts.
+        </div>
+        <div>
+          You answered (x) measures out of a total of (x).
+        </div>
+        <div>
+          Your score is {{currentScore}} out of a possible {{totalScore}}.
+        </div>
+        <br>
+        <div>
+          <strong>Topic based results</strong>: How well you did in different tagged topic areas
+        </div>
+        <div>
+          <strong>Peer based results</strong>: How well you did in relation to peers
+        </div>
+        <div>
+          <strong>Sequence difficulty</strong>: How this sequence sits based on difficulty of itself via measures or between other sequences
+        </div>
+        <div>
+          <strong>Measure type based results</strong>: How well you did by type
+        </div>
+        <div style="padding-top:10px;">
+          <a type="button" id='begin-button' class="btn btn-block btn-outline btn-info btn-small">Review</a>
         </div>
       </div>
-    </section>
+      <br clear="both"/>
+    </div>
+  </div>
+</template>
+
+<template name="introduction_display">
+  <div id='introduction-display' class="ibox float-e-margins">
+    <div class="ibox-content">
+      <div style="padding: 3px; float:left">
+        <h2>{{sequence.name}}</h2>
+      </div>
+      <div style="padding:10px; float:right">
+        <div>
+          <strong>Purpose</strong>: Please answer all measures.
+          <div style="padding-top:10px;">
+            <a type="button" id='begin-button' class="btn btn-block btn-outline btn-info btn-small">Begin</a>
+          </div>
+        </div>
+      </div>
+      <br clear="both"/>
+    </div>
   </div>
 </template>

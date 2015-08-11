@@ -3,6 +3,7 @@ Meteor.subscribe('resources');
 Meteor.subscribe('sequences');
 
 Session.set('currentAttemptMeasures', Measures.find().fetch());
+Session.set('attemptMode', 'progress');
 
 Template.sequence_attempt.helpers({
   measures: function() {
@@ -25,6 +26,9 @@ Template.sequence_attempt.helpers({
   },
   isMultipleChoice: function(){
     return this.type === 'multiplechoice';
+  },
+  inReview: function(){
+    return Session.get('attemptMode') === 'review';
   }
 });
 
@@ -57,6 +61,9 @@ Template.sequence_attempt.rendered = function(){
       $('.snap').not($snappedElement).fadeTo(200,0.2);
     }
   });
+
+  $('.snap').fadeTo(200,0.2);
+  $('.snap').first().fadeTo(0,1);
 };
 
 Template.sequence_attempt.events({
@@ -67,7 +74,7 @@ Template.sequence_attempt.events({
 
     if($prevSection.offset()){
       $('html, body').animate({
-        scrollTop: $prevSection.offset().top
+        scrollTop: $prevSection.offset().top - 100
       }, 500);
     }
   },
@@ -77,10 +84,13 @@ Template.sequence_attempt.events({
         $nextSection = $parentSection.next('.snap');
 
     if($nextSection.offset()){
-      $('html, body').animate({
-        scrollTop: $nextSection.offset().top
+      $('html, body').animate({ scrollTop: $nextSection.offset().top - 100
       }, 500);
     }
+  },
+  'click #begin-button': function(event){
+    $('html, body').animate({ scrollTop: $( ".snap:eq(1)" ).offset().top - 100 }, 500);
+
   },
   'click #attempt-submit': function(event){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
@@ -91,10 +101,44 @@ Template.sequence_attempt.events({
     var unansweredMeasures = _.filter( _.map(currentAttempt.attempt.items, function(item, index){ return { data: item.data, answer_id: item.answer_id, index: index + 1 } }), function(item){ return item.answer_id === null } );
 
     if(allMeasuresAnswered){
-      // REMOVE RADIOBUTTONS, READ ONLY, SHOW ALL FEEDBACK
-      //alert('SCORE: ' + currentAttempt.attempt.score + ' out of possible ' + currentAttempt.total_possible_score);
+      Session.set('attemptMode', 'review');
+      window.scrollTo(0 /* x-coord */, 0 /* y-coord */);
     } else {
       alert('Make sure to answer all questions before submitting. You have not answered ' + _.map(unansweredMeasures, function(measure){ return measure.index }).join(','))
     }
+  },
+  'click #return-to-results': function(event){
+    window.scrollTo(0 /* x-coord */, 0 /* y-coord */);
+  }
+});
+
+Template.review_display.helpers({
+  currentAttemptsCount: function(){
+    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
+
+    return currentAttempt.attempt.count;
+  },
+  possibleAttemptsCount: function(){
+    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
+
+    return currentAttempt.attempts_allowed;
+  },
+  currentScore: function(){
+    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
+
+    return currentAttempt.attempt.score;
+  },
+  totalScore: function(){
+    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
+
+    return currentAttempt.total_possible_score;
+  }
+});
+
+Template.introduction_display.helpers({
+  sequence: function(){
+    var currentSequence = Sequences.findOne({ _id: Session.get('currentSequenceId') });
+
+    return currentSequence;
   }
 });
