@@ -22,7 +22,7 @@ Template.navigation.events({
     },
     'click #navigation-logout-button': function(){
       Meteor.logout();
-      Router.go('login');
+      Router.go('/');
     }
 
 });
