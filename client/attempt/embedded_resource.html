@@ -1,17 +1,10 @@
 <template name="embedded_resource">
   <div class="panel panel-default">
-    <div class="panel-heading">
-      {{ embedded.title }}
-    </div>
     <div class="panel-body">
-      {{#if embedded.embedly }}
-        {{ embedded.embedly.description }}
-      {{else}}
-        {{ embedded.description }}
-      {{/if}}
+      <a href="{{ embedded.link }}" class="embedly-oembed">{{ embedded.embedly.title }}</a>
     </div>
     <div class="panel-footer">
-      Read more at: <a href="{{ embedded.link }}">{{ embedded.embedly.title }}</a>
+      {{ embedded.title }}  <a href="/r/{{ embedded._id }}" target="_blank" class="pull-right btn btn-primary btn-xs btn-outline"><i class="fa fa-link"></i> Open in new Window</a>
     </div>
   </div>
 </template>
