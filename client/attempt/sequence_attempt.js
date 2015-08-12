@@ -112,7 +112,7 @@ Template.sequence_attempt.events({
   'click #attempt-submit': function(event){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
 
-    var measureAnswersMap = _.map(currentAttempt.attempt.items, function(item){ return item.answer_id; });
+    var measureAnswersMap = _.map(_.filter(currentAttempt.attempt.items, function(item){ return item.type === 'measure' }), function(item){ return item.answer_id; });
     var allMeasuresAnswered = !_.some(measureAnswersMap, function(answer){ return answer === null });
 
     var unansweredMeasures = _.filter( _.map(currentAttempt.attempt.items, function(item, index){ return { data: item.data, answer_id: item.answer_id, index: index + 1 } }), function(item){ return item.answer_id === null } );
@@ -124,7 +124,6 @@ Template.sequence_attempt.events({
         } else {
           Session.set('currentSequenceComplete', Sequences.findOne({ _id: currentAttemptId }).attempt.completed_at);
           Router.go("/sequence/" + Session.get('currentSequenceId') + "/attempt/" + Session.get('currentAttemptId'));
-          window.scrollTo(0 /* x-coord */, 0 /* y-coord */);
         }
       });
     } else {
