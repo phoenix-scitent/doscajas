@@ -2,6 +2,9 @@ Template.learner_sequences.helpers({
 	sequences: function() {
 		return Sequences.find({attempt:{"$exists":false}});
 	},
+  attemptsLeft: function(){
+    return '(Attempt: ' + Sequences.find({ 'attempt.parent': this._id }).count() + ' of ' + this.attempts_allowed + ')';
+  },
   hasAttemptsLeft: function(){
     return Sequences.find({ 'attempt.parent': this._id }).count() < this.attempts_allowed;
   }

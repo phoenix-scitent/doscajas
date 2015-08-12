@@ -40,13 +40,13 @@
             {{#if isCorrect measureId=measure_id answerChoiceId=id}}
               <div class="feedback" style="width:100%;padding:3px;border:1px dotted darkgrey;background-color:#eee;float:right;color:green;"><strong>(You chose this answer) </strong><br>{{feedback}}
                 {{#if linked_resource}}
-                  <div style="padding-top:3px;"><a type="button" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i>{{displayResource resourceId=linked_resource}}</a></div>
+                  <div style="padding-top:3px;"><a type="button" href="/resource/{{linked_resource}}" target="_" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i>{{displayResource resourceId=linked_resource}}</a></div>
                 {{/if}}
               </div>
             {{else}}
               <div class="feedback" style="width:100%;padding:3px;border:1px dotted darkgrey;background-color:#eee;float:right;color:red;"><strong>(You chose this answer) </strong><br>{{feedback}}
                 {{#if linked_resource}}
-                  <div style="padding-top:3px;"><a type="button" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i>{{displayResource resourceId=linked_resource}}</a></div>
+                  <div style="padding-top:3px;"><a type="button" href="/resource/{{linked_resource}}" target="_" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i>{{displayResource resourceId=linked_resource}}</a></div>
                 {{/if}}
               </div>
             {{/if}}
@@ -54,7 +54,7 @@
             {{#if isCorrect measureId=measure_id answerChoiceId=id}}
               <div class="feedback" style="width:100%;padding:3px;border:1px dotted darkgrey;background-color:#eee;float:right;color:green;">{{feedback}}
                 {{#if linked_resource}}
-                  <div style="padding-top:3px;"><a type="button" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i>{{displayResource resourceId=linked_resource}}</a></div>
+                  <div style="padding-top:3px;"><a type="button" href="/resource/{{linked_resource}}" target="_" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i>{{displayResource resourceId=linked_resource}}</a></div>
                 {{/if}}
               </div>
             {{/if}}
