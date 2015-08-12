@@ -2,12 +2,14 @@ Meteor.subscribe('measures');
 Meteor.subscribe('resources');
 Meteor.subscribe('sequences');
 
-Session.set('currentAttemptMeasures', Measures.find().fetch());
-Session.set('attemptMode', 'progress');
-
 Template.sequence_attempt.helpers({
   measures: function() {
-    return _.map(Session.get('currentAttemptMeasures'), function(m,i){
+
+    var measures = _.map(_.filter(this.currentSequence.items, function(item){ return item.type === 'measure' }), function(item){
+      return Measures.findOne({ _id: item._id });
+    });
+
+    return _.map(measures, function(m,i){
       var measure = m;
 
       measure.position = i+1;
@@ -29,18 +31,29 @@ Template.sequence_attempt.helpers({
     return this.type === 'multiplechoice';
   },
   inReview: function(){
-    return Session.get('attemptMode') === 'review';
+    var currentAttempt = this.currentAttempt;
+    var isComplete = currentAttempt && currentAttempt.attempt.completed_at;
+
+    Session.set('currentSequenceComplete', isComplete);
+
+    return Session.get('currentSequenceComplete');
   }
 });
 
 Template.sequence_attempt.rendered = function(){
+  var currentSequence = this.data && this.data.currentSequence;
+  var currentAttempt = this.data && this.data.currentAttempt;
 
-  Session.set('currentSequenceId', Sequences.find().fetch()[0]._id /*TODO: get from router*/ );
+  Session.set('currentSequenceId', currentSequence._id);
 
-  //TODO: improve createAttempt placement, dont create a new attempt on each entry, only when the last attempt is 'complete'
-  Meteor.promise('createAttempt', Session.get('currentSequenceId'), Meteor.user()).then(function(attemptId){
-    Session.set('currentAttemptId', attemptId);
-  });
+  if(currentAttempt){
+    Session.set('currentAttemptId', currentAttempt._id);
+  } else {
+    Meteor.promise('createAttempt', Session.get('currentSequenceId'), Meteor.user()).then(function(attemptId){
+      Session.set('currentAttemptId', attemptId);
+    });
+  }
+
 
   $(document).scrollsnap({
     snaps: '.snap',
@@ -93,17 +106,26 @@ Template.sequence_attempt.events({
     $('html, body').animate({ scrollTop: $( ".snap:eq(1)" ).offset().top - 100 }, 500);
 
   },
+  'click #dashboard-button': function(event){
+    Router.go('/all_sequences')
+  },
   'click #attempt-submit': function(event){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
 
-    var measureAnswersMap = _.map(currentAttempt.attempt.items, function(item){ return item.answer_id; });
+    var measureAnswersMap = _.map(_.filter(currentAttempt.attempt.items, function(item){ return item.type === 'measure' }), function(item){ return item.answer_id; });
     var allMeasuresAnswered = !_.some(measureAnswersMap, function(answer){ return answer === null });
 
     var unansweredMeasures = _.filter( _.map(currentAttempt.attempt.items, function(item, index){ return { data: item.data, answer_id: item.answer_id, index: index + 1 } }), function(item){ return item.answer_id === null } );
 
     if(allMeasuresAnswered){
-      Session.set('attemptMode', 'review');
-      window.scrollTo(0 /* x-coord */, 0 /* y-coord */);
+      Meteor.call('updateAttempt', Session.get('currentAttemptId'), { isComplete: true }, function(err, currentAttemptId) {
+        if (err){
+          alert(err);
+        } else {
+          Session.set('currentSequenceComplete', Sequences.findOne({ _id: currentAttemptId }).attempt.completed_at);
+          Router.go("/sequence/" + Session.get('currentSequenceId') + "/attempt/" + Session.get('currentAttemptId'));
+        }
+      });
     } else {
       alert('Make sure to answer all questions before submitting. You have not answered ' + _.map(unansweredMeasures, function(measure){ return measure.index }).join(','))
     }

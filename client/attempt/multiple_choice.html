@@ -3,8 +3,20 @@
     <div class="ibox-content">
       <h2>{{ question_text }}</h2>
       {{> embedded_resource }}
-      <p>{{ description }}</p>
-        {{> multiple_choice_answers}}
+      <div>
+        <div>
+          <p>{{ description }}</p>
+            {{> multiple_choice_answers}}
+        </div>
+        {{#if inReview}}
+          <div style="float:right">
+          <div>Difficulty: {{difficulty}}</div>
+          <div>Weight: {{weight}}</div>
+          <div>Performance Type: {{performance_type}}</div>
+        </div>
+        {{/if}}
+        <br clear="both"/>
+      </div>
     </div>
     <div class="ibox-footer">
       <a class="btn btn-sm btn-default scroll-prev">prev</a>

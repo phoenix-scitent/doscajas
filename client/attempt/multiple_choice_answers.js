@@ -1,9 +1,9 @@
 Template.multiple_choice_answers.helpers({
   inProgress: function(){
-    return Session.get('attemptMode') === 'progress';
+    return !Session.get('currentSequenceComplete');
   },
   inReview: function(){
-    return Session.get('attemptMode') === 'review';
+    return Session.get('currentSequenceComplete');
   }
 });
 
@@ -29,7 +29,7 @@ Template.multiple_choice_answers.events({
 
         var linkedResource = Resources.findOne({ _id: answer.linked_resource });
 
-        var resource = '<div style="padding-top:3px;"><a type="button" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i>'+(linkedResource && linkedResource.title)+'</a></div>';
+        var resource = '<div style="padding-top:3px;"><a type="button" href="/resource/'+ (linkedResource && linkedResource._id) +'" target="_" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i>'+(linkedResource && linkedResource.title)+'</a></div>';
 
         $option.append('<div class="feedback" style="width:100%;padding:3px;border:1px dotted darkgrey;background-color:#eee;float:right;color:'+ (answer.correct ? 'green' : 'red') +';">'+
         (answer.correct ? 'Correct: ' : 'Incorrect: ') + answer.feedback +
