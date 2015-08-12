@@ -2,11 +2,11 @@
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             {{> home_page_onboarding count=bok_count }}
-            <div class="col-lg-6">
+            <div class="col-sm-6">
                 <div class="row">
                   {{> bokCreate }}
                   {{#each boks}}
-                    <div class="col-lg-6">
+                    <div class="col-sm-6">
                         <div class="widget lazur-bg no-padding">
                             <div class="p-m">
                                 <h1 class="m-xs">{{name}}</h1>
@@ -16,12 +16,7 @@
                                 </h3>
                                 <small>You are an Admin</small>
                             </div>
-                            <div class="flot-chart">
-<!-- 
-                                <div class="flot-chart-content" id="flot-chart2" style="padding: 0px; position: relative;"><canvas class="flot-base" width="327" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 327px; height: 100px;"></canvas><canvas class="flot-overlay" width="327" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 327px; height: 100px;"></canvas></div>
- -->
 
-                            </div>
                             <a class="btn btn-default btn-block" href="{{pathFor 'bok' _id=this._id }}"><i class="fa fa-arrow-right"></i> Edit {{name}}</a>
                         </div>
                     </div>
@@ -32,7 +27,7 @@
 
         <div class="row">
 
-            <div class="col-lg-3">
+            <div class="col-sm-3">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <span class="label label-primary pull-right">This Week</span>
@@ -46,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-sm-3">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <span class="label label-info pull-right">This Week</span>
@@ -60,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-sm-3">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <span class="label label-warning pull-right">This Week</span>
@@ -74,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-sm-3">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <span class="label label-danger pull-right">This Week</span>

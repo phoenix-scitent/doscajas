@@ -46,6 +46,6 @@ Template.topNavbar.events({
     // Logout
     'click #logout-button': function(){
       Meteor.logout();
-      Router.go('login');
+      Router.go('/');
     }
 });
