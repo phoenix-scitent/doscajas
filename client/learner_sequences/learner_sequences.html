@@ -1,12 +1,21 @@
 <template name="learner_sequences">
   <div class="wrapper wrapper-content">
     <div class="row animated fadeInTop">
-	    {{#each sequences}}
+      {{#each sequences}}
         <div class="col-sm-2">
-          <h2 class="">
-            {{ name }}
-          </h2>
+          {{#if hasAttemptsLeft}}
+            <div class="ibox float-e-margins">
+              <div class="ibox-content">
+                <h2 class=""><span class="{{isActiveRoute regex='sequence_attempt'}}"><a href="/sequence/{{_id}}/attempt"><i class="fa fa-leftarrow"></i> {{name}}</a></span></h2>
+              </div>
+            </div>
+          {{else}}
+            <h2>{{name}}</h2><a type="button" id="reset-attempts" data-sequence="{{_id}}" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-refresh"></i> RESET ATTEMPTS</a>
+          {{/if}}
         </div>
+      {{/each}}
+      {{#each attempts}}
+        <li class="{{isActiveRoute regex='sequence_attempt'}}"><a href="/sequence/{{attempt.parent}}/attempt/{{_id}}"><i class="fa fa-leftarrow"></i> {{attempt.parent}} ({{attempt.count}})</a></li>
       {{/each}}
     </div>
   </div>

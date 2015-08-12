@@ -4,8 +4,12 @@ Meteor.subscribe('sequences');
 
 Template.sequence_attempt.helpers({
   measures: function() {
-    //TODO: scope measures to current attempt/sequence
-    return _.map(Measures.find().fetch(), function(m,i){
+
+    var measures = _.map(_.filter(this.currentSequence.items, function(item){ return item.type === 'measure' }), function(item){
+      return Measures.findOne({ _id: item._id });
+    });
+
+    return _.map(measures, function(m,i){
       var measure = m;
 
       measure.position = i+1;
@@ -27,7 +31,8 @@ Template.sequence_attempt.helpers({
     return this.type === 'multiplechoice';
   },
   inReview: function(){
-    var isComplete = this.currentAttempt && this.currentAttempt.attempt.completed_at;
+    var currentAttempt = this.currentAttempt;
+    var isComplete = currentAttempt && currentAttempt.attempt.completed_at;
 
     Session.set('currentSequenceComplete', isComplete);
 
@@ -36,12 +41,13 @@ Template.sequence_attempt.helpers({
 });
 
 Template.sequence_attempt.rendered = function(){
-  var params = Router.current().params;
+  var currentSequence = this.data && this.data.currentSequence;
+  var currentAttempt = this.data && this.data.currentAttempt;
 
-  Session.set('currentSequenceId', params.sequence_id);
+  Session.set('currentSequenceId', currentSequence._id);
 
-  if(params.attempt_id){
-    Session.set('currentAttemptId', params.attempt_id);
+  if(currentAttempt){
+    Session.set('currentAttemptId', currentAttempt._id);
   } else {
     Meteor.promise('createAttempt', Session.get('currentSequenceId'), Meteor.user()).then(function(attemptId){
       Session.set('currentAttemptId', attemptId);
@@ -99,6 +105,9 @@ Template.sequence_attempt.events({
   'click #begin-button': function(event){
     $('html, body').animate({ scrollTop: $( ".snap:eq(1)" ).offset().top - 100 }, 500);
 
+  },
+  'click #dashboard-button': function(event){
+    Router.go('/all_sequences')
   },
   'click #attempt-submit': function(event){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
