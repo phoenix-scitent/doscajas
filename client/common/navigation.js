@@ -4,6 +4,12 @@ Template.navigation.helpers({
   boks: function() {
     //TODO: scope this to only those owned by current user...
     return Boks.find({ancestors: []});
+  },
+  sequences: function(){
+    return Sequences.find({ attempt: {$exists: false} });
+  },
+  attempts: function() {
+    return Sequences.find({ attempt: {$exists: true} });
   }
 });
 

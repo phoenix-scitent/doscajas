@@ -50,7 +50,7 @@ if (Resources.find().count() === 0) {
        title: 'Lessons In UX',
        description: 'Integrating Meteor and Embedly',
        type: 'document',
-       link: 'https://github.com/anrope/restaurantroulette/blob/master/server/restaurantroulette.js',
+       link: 'http://strokeandturn.com',
        moderator: 'moderator@test.com',
        status: 'published',
        learning_type: 'casestudy',

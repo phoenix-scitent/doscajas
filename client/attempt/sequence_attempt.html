@@ -36,7 +36,7 @@
       </div>
         <div class="col-sm-2">
           {{#each measure_linked_resources}}
-            <a type="button" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i> {{title}}</a>
+            <a type="button" href="/resource/{{_id}}" target="_" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i> {{title}}</a>
           {{/each}}
         </div>
       </div>
@@ -87,7 +87,7 @@
         </div>
         <br>
         <div>
-          This was attempt {{currentAttemptsCount}} out of {{possibleAttemptsCount}} possible attempts.
+          This is attempt {{currentAttemptsCount}} out of {{possibleAttemptsCount}} possible attempts.
         </div>
         <div>
           You answered (x) measures out of a total of (x).
@@ -97,16 +97,19 @@
         </div>
         <br>
         <div>
+          <strong>Historical/Progress based results</strong>: How you are doing from attempt to attempt
+        </div>
+        <div>
           <strong>Topic based results</strong>: How well you did in different tagged topic areas
+        </div>
+        <div>
+          <strong>Measure type based results</strong>: How well you did by type
         </div>
         <div>
           <strong>Peer based results</strong>: How well you did in relation to peers
         </div>
         <div>
           <strong>Sequence difficulty</strong>: How this sequence sits based on difficulty of itself via measures or between other sequences
-        </div>
-        <div>
-          <strong>Measure type based results</strong>: How well you did by type
         </div>
         <div style="padding-top:10px;">
           <a type="button" id='begin-button' class="btn btn-block btn-outline btn-info btn-small">Review</a>
@@ -122,10 +125,12 @@
     <div class="ibox-content">
       <div style="padding: 3px; float:left">
         <h2>{{sequence.name}}</h2>
+        <div style="padding-top: 3px;">
+          <strong>Purpose</strong>: Please answer all measures.
+        </div>
       </div>
       <div style="padding:10px; float:right">
         <div>
-          <strong>Purpose</strong>: Please answer all measures.
           <div style="padding-top:10px;">
             <a type="button" id='begin-button' class="btn btn-block btn-outline btn-info btn-small">Begin</a>
           </div>

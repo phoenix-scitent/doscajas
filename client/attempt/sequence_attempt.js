@@ -2,12 +2,10 @@ Meteor.subscribe('measures');
 Meteor.subscribe('resources');
 Meteor.subscribe('sequences');
 
-Session.set('currentAttemptMeasures', Measures.find().fetch());
-Session.set('attemptMode', 'progress');
-
 Template.sequence_attempt.helpers({
   measures: function() {
-    return _.map(Session.get('currentAttemptMeasures'), function(m,i){
+    //TODO: scope measures to current attempt/sequence
+    return _.map(Measures.find().fetch(), function(m,i){
       var measure = m;
 
       measure.position = i+1;
@@ -29,18 +27,27 @@ Template.sequence_attempt.helpers({
     return this.type === 'multiplechoice';
   },
   inReview: function(){
-    return Session.get('attemptMode') === 'review';
+    var isComplete = this.currentAttempt && this.currentAttempt.attempt.completed_at;
+
+    Session.set('currentSequenceComplete', isComplete);
+
+    return Session.get('currentSequenceComplete');
   }
 });
 
 Template.sequence_attempt.rendered = function(){
+  var params = Router.current().params;
 
-  Session.set('currentSequenceId', Sequences.find().fetch()[0]._id /*TODO: get from router*/ );
+  Session.set('currentSequenceId', params.sequence_id);
 
-  //TODO: improve createAttempt placement, dont create a new attempt on each entry, only when the last attempt is 'complete'
-  Meteor.promise('createAttempt', Session.get('currentSequenceId'), Meteor.user()).then(function(attemptId){
-    Session.set('currentAttemptId', attemptId);
-  });
+  if(params.attempt_id){
+    Session.set('currentAttemptId', params.attempt_id);
+  } else {
+    Meteor.promise('createAttempt', Session.get('currentSequenceId'), Meteor.user()).then(function(attemptId){
+      Session.set('currentAttemptId', attemptId);
+    });
+  }
+
 
   $(document).scrollsnap({
     snaps: '.snap',
@@ -102,8 +109,15 @@ Template.sequence_attempt.events({
     var unansweredMeasures = _.filter( _.map(currentAttempt.attempt.items, function(item, index){ return { data: item.data, answer_id: item.answer_id, index: index + 1 } }), function(item){ return item.answer_id === null } );
 
     if(allMeasuresAnswered){
-      Session.set('attemptMode', 'review');
-      window.scrollTo(0 /* x-coord */, 0 /* y-coord */);
+      Meteor.call('updateAttempt', Session.get('currentAttemptId'), { isComplete: true }, function(err, currentAttemptId) {
+        if (err){
+          alert(err);
+        } else {
+          Session.set('currentSequenceComplete', Sequences.findOne({ _id: currentAttemptId }).attempt.completed_at);
+          Router.go("/sequence/" + Session.get('currentSequenceId') + "/attempt/" + Session.get('currentAttemptId'));
+          window.scrollTo(0 /* x-coord */, 0 /* y-coord */);
+        }
+      });
     } else {
       alert('Make sure to answer all questions before submitting. You have not answered ' + _.map(unansweredMeasures, function(measure){ return measure.index }).join(','))
     }
