@@ -1,14 +1,15 @@
 <template name="multiple_choice">
-  <div class="float-e-margins">
-    <div class="">
-      <h2>{{ question_text }}</h2>
-      
-      {{> embedded_resource }}
-      
-      <div>
+
+  <div class="bg-attempt">
+    <div class="float-e-margins">
+      <div class="">
+        <h2>{{ question_text }}</h2>
+        {{> embedded_resource }}
         <div>
-          <p>{{ description }}</p>
-            {{> multiple_choice_answers}}
+          <div>
+            <p>{{ description }}</p>
+              {{> multiple_choice_answers}}
+          </div>
         </div>
         {{#if inReview}}
           {{>measure_meta}}
