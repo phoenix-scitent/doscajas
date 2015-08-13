@@ -3,3 +3,7 @@ div.embed img {
 	height: auto;
 	display: block;
 }
+div.embed iframe{
+	max-width: 100%;
+	display: block;
+}

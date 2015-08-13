@@ -3,5 +3,8 @@ Template.resource_show.helpers({
     Session.set('shownResourceTitle', this.title);
 
     return this.link;
+  },
+  is_embeddable: function(){
+  	return this.frame_embeddable;
   }
 });
