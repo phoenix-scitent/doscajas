@@ -7,31 +7,40 @@
 
     <div class="row">
 
-      <label>Sequence Options</label>
-      <div class="panel-group" id="accordion">
-        <div class="panel panel-default panel-custom">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="display:block">
-                Click to expand
-              <i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i></a>
-            </h4>
-          </div>
-          <div id="collapseOne" class="panel-collapse collapse">
-            <div class="panel-body">
-              {{> sequence_options_form sequence=this }}
+      <div class="col-lg-12">
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default panel-custom">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="display:block">
+                  Sequence Options (click to expand)
+                <i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i></a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+              <div class="panel-body">
+                {{> sequence_options_form sequence=this }}
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <label>Filter</label>
-        <div class="input-group" style="width:100%">
-          <select id="list-filter" style="width:95%" tabindex="2"></select>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox">
+            <div class="form-group">
+              <label>Filter</label>
+              <div class="input-group" style="width:100%">
+                <select id="list-filter" style="width:95%" tabindex="2"></select>
+              </div>
+            </div>
         </div>
       </div>
+    </div>
 
+    <div class="row">
       <div class="col-lg-4">
         <div class="ibox">
           <div class="ibox-content">

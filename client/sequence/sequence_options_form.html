@@ -2,13 +2,10 @@
 
   <div class="row">
     <div class="col-lg-4">
-      <div class="ibox">
-        <div class="ibox-content">
           <div class="form-group">
-            <div id='link-wrapper' class="form-group"></div>
             <label>Sequence Name</label>
             <div class="input-group" style="width:100%">
-              <input id="sequence-name" type="text" />
+              <input id="sequence-name" type="text" class="form-control input-lg" />
             </div>
           </div>
           
@@ -21,130 +18,114 @@
           </div>
 
           <div class="form-group">
-            <label>Current Owner</label>
-            <div class="input-group" style="width:100%">
-              <select id="current-owner" style="width:95%" tabindex="2"></select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Total Possible Score</label>
-            <div class="input-group" style="width:100%">
-              <input id="total-possible-score" type="number" name="quantity" />
-            </div>
-          </div>
-
-          <div class="form-group">
             <label>Attempts Allowed</label>
-            <div class="input-group" style="width:100%">
-              <input id="attempts-allowed" type="number" name="quantity" />
+            <div class="input-group m-b">
+              <input id="attempts-allowed" type="number" name="quantity" class="form-control" />
+              <div class="input-group-btn">
+                  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">Unlimited <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                      <li><a href="#" class="aa_limited">Limited</a></li>
+                      <li><a href="#" class="aa_unlimited">Unlimited</a></li>
+                  </ul>
+              </div>
             </div>
           </div>
 
           <div class="form-group">
             <label>Passing Rate</label>
-            <div class="input-group" style="width:100%">
-              <input id="passing-rate" type="number" name="quantity" />
+            <div class="input-group m-b">
+              <input id="passing-rate" type="number" name="quantity" class="form-control">
+              <div class="input-group-btn">
+                  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">% <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                      <li><a href="#" class="pr_percentge">Percentage</a></li>
+                      <li><a href="#" class="pr_raw_score">out of X</a></li>
+                  </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
     </div>
 
     <div class="col-lg-4">
-      <div class="ibox">
-        <div class="ibox-content">
-          <div class="form-group">
-            <label>Passing Rate Type</label>
-            <div class="input-group" style="width:100%">
-              <select id="passing-rate-type" style="width:95%" tabindex="2"></select>
-            </div>
-          </div>
 
           <div class="form-group">
-            <label>Randomize Items</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-primary">
               <input id="randomize-items" type="checkbox" name="randomize-items" value="randomize-items" />
+              <label for="randomize-items">Randomize Items</label>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Randomize Answers</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-danger">
               <input id="randomize-answers" type="checkbox" name="randomize-answers" value="randomize-answers" />
+              <label for="randomize-answers">Randomize Answers</label>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Allow Incorrect Answers</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-primary">
               <input id="allow-incorrect-answers" type="checkbox" name="allow-incorrect-answers" value="allow-incorrect-answers" />
+              <label for="allow-incorrect-answers">Allow Incorrect Answers</label>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Show Linked Resources During Sequence</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-primary" >
               <input id="show-linked-resources-during" type="checkbox" name="show-linked-resources-during" value="show-linked-resources-during" />
+              <label for="show-linked-resources-during">Show Linked Resources During Sequence</label>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Show Linked Resources After Sequence</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-primary">
               <input id="show-linked-resources-after" type="checkbox" name="show-linked-resources-after" value="show-linked-resources-after" />
-            </div>
+              <label for="show-linked-resources-after">Show Linked Resources After Sequence</label>
+             </div>
           </div>
-        </div>
-      </div>
     </div>
 
     <div class="col-lg-4">
-      <div class="ibox">
-        <div class="ibox-content">
           <div class="form-group">
-            <label>Show Feedback During Sequence</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-success">
               <input id="show-feedback-during" type="checkbox" name="show-feedback-during" value="show-feedback-during" />
+              <label for="show-feedback-during">Show Feedback During Sequence</label>
             </div>
           </div>
           
           <div class="form-group">
-            <label>Show Feedback After Sequence</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-success">
               <input id="show-feedback-after" type="checkbox" name="show-feedback-after" value="show-feedback-after" />
+              <label for="show-feedback-after">Show Feedback After Sequence</label>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Show Score After Sequence</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-primary">
               <input id="show-score-after" type="checkbox" name="show-score-after" value="show-score-after" />
+              <label for="show-score-after">Show Score After Sequence</label>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Allow Skip Ahead</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-danger">
               <input id="allow-skip-ahead" type="checkbox" name="allow-skip-ahead" value="allow-skip-ahead" />
+              <label for="allow-skip-ahead">Allow Skip Ahead</label>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Use Measure Weighting</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-danger">
               <input id="use-measure-weighting" type="checkbox" name="use-measure-weighting" value="use-measure-weighting" />
+              <label for="use-measure-weighting">Use Measure Weighting</label>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Allow Score Scaling of Incorrect Attempts</label>
-            <div class="input-group" style="width:100%">
+            <div class="checkbox checkbox-danger">
               <input id="allow-score-scaling-of-incorrect-attempts" type="checkbox" name="allow-score-scaling-of-incorrect-attempts" value="allow-score-scaling-of-incorrect-attempts" />
+              <label for="allow-score-scaling-of-incorrect-attempts">Allow Score Scaling of Incorrect Attempts</label>
             </div>
           </div>
-        </div>
-      </div>
     </div>
   </div>
 
