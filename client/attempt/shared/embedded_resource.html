@@ -1,12 +1,12 @@
 <template name="embedded_resource">
-  <div class="panel panel-default">
-    <div class="panel-body">
+  <div class="embedded_resource">
+    <div class="">
       <a href="{{ embedded.link }}" class="embedly-oembed">{{ embedded.embedly.title }}</a>
     </div>
-    <div class="panel-footer">
+    <div class="">
       {{ embedded.title }}  
       {{#if embedded.frame_embeddable}}
-        <a href="/r/{{ embedded._id }}" target="_blank" class="pull-right btn btn-primary btn-xs btn-outline"><i class="fa fa-link"></i> Open in new Window</a>
+        <a href="/r/{{ embedded._id }}" target="_blank" class="pull-right"><i class="fa fa-link"></i> Open in new Window</a>
       {{/if}}
     </div>
   </div>

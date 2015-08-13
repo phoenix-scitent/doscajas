@@ -1,79 +1,31 @@
 <template name="sequence_attempt">
   <div class="wrapper wrapper-content">
     {{#if inReview}}
-      <section class="snap" style="padding-bottom:2ch00px">
-        <div class="row animated fadeInLeft">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-8">
-            {{> review_display}}
-          </div>
-          <div class="col-sm-2"></div>
-        </div>
-      </section>
+      {{>review_first_section}}
     {{else}}
-      <section class="snap" style="padding-bottom:200px">
-        <div class="row animated fadeInLeft">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-8">
-            {{> introduction_display}}
-          </div>
-          <div class="col-sm-2"></div>
-        </div>
-      </section>
+      {{>attempt_first_section}}
     {{/if}}
     {{#each measures}}
       <section class="snap" data-measure="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
         <div class="row animated fadeInTop">
           <div class="col-sm-2">
-            <span class="pull-right">
-              <button class="btn btn-outline btn-info dim" type="button">
-              <strong>{{ position }}</strong> 
-              <span style="opacity: 0.4;">of {{ measure_count }}</span>
-              </button>
-            </span>
+            {{> attempt_item_count position=position count=measure_count}}
           </div>
-          <div class="col-sm-8">
+          <div class="col-sm-8 sequence-item">
             {{#if isMultipleChoice}}
               {{> multiple_choice }}
             {{/if}}
           </div>
           <div class="col-sm-2">
-            {{#each measure_linked_resources}}
-              <a type="button" href="/r/{{_id}}" target="_" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i> {{title}}</a>
-            {{/each}}
+          {{> measure_linked_resources }}
           </div>
         </div>
       </section>
     {{/each}}
     {{#if inReview}}
-      <section class="snap" style="margin-bottom:750px;">
-        <div class="row animated fadeInTop">
-          <div class="col-sm-2">
-          </div>
-          <div class="col-sm-8">
-            <a type="button" id='return-to-results' class="btn btn-block btn-outline btn-info btn-small">Return to results</a>
-          </div>
-          <div class="col-sm-2">
-          </div>
-        </div>
-      </section>
+      {{> review_last_section }}
     {{else}}
-      <section class="snap" style="margin-bottom:750px;">
-        <div class="row animated fadeInTop">
-          <div class="col-sm-2">
-            <h2 class="label label-warning pull-right label-rounded">
-              Complete
-            </h2>
-          </div>
-          <div class="col-sm-8">
-            Please re-check your answers and click to submit when ready.
-            <br><br>
-            <a type="button" id='attempt-submit' class="btn btn-block btn-outline btn-info btn-small">Submit</a>
-          </div>
-          <div class="col-sm-2">
-          </div>
-        </div>
-      </section>
+      {{> attempt_last_section }}
     {{/if}}
   </div>
 </template>

@@ -21,9 +21,6 @@ Template.sequence_attempt.helpers({
       return measure;
     });
   },
-  measure_linked_resources: function(){
-    return _.map(this.linked_resources, function(id){ return Resources.findOne({_id: id}) });
-  },
   measure_count: function(){
     return Measures.find().count();
   },

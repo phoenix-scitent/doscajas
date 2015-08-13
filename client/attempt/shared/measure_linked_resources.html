@@ -1,0 +1,12 @@
+<template name="measure_linked_resources">
+	{{#if linked_resources}}
+	<h4>Helpful Resources</h4>
+  <ul class="row">
+	  {{#each linked_resources}}
+	  <li>{{title}}
+	    <a href="/r/{{_id}}" target="_blank" class=""><i class="fa fa-external-link"></i> {{link}}</a>
+    </li>
+	  {{/each}}
+  </ul>
+	{{/if}}
+</template>
