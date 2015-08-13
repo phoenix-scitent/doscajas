@@ -1,26 +1,28 @@
 <template name="multiple_choice">
-  <div class="ibox float-e-margins">
-    <div class="ibox-content">
-      <h2>{{ question_text }}</h2>
-      {{> embedded_resource }}
-      <div>
+  <div class="bg-attempt">
+    <div class="ibox float-e-margins">
+      <div class="ibox-content">
+        <h2>{{ question_text }}</h2>
+        {{> embedded_resource }}
         <div>
-          <p>{{ description }}</p>
-            {{> multiple_choice_answers}}
+          <div>
+            <p>{{ description }}</p>
+              {{> multiple_choice_answers}}
+          </div>
+          {{#if inReview}}
+            <div style="float:right">
+            <div>Difficulty: {{difficulty}}</div>
+            <div>Weight: {{weight}}</div>
+            <div>Performance Type: {{performance_type}}</div>
+          </div>
+          {{/if}}
+          <br clear="both"/>
         </div>
-        {{#if inReview}}
-          <div style="float:right">
-          <div>Difficulty: {{difficulty}}</div>
-          <div>Weight: {{weight}}</div>
-          <div>Performance Type: {{performance_type}}</div>
-        </div>
-        {{/if}}
-        <br clear="both"/>
       </div>
-    </div>
-    <div class="ibox-footer">
-      <a class="btn btn-sm btn-default scroll-prev">prev</a>
-      <a class="btn btn-sm btn-default scroll-next">next</a>
+      <div class="ibox-footer">
+        <a class="btn btn-sm btn-default scroll-prev">prev</a>
+        <a class="btn btn-sm btn-default scroll-next">next</a>
+      </div>
     </div>
   </div>
 </template>
