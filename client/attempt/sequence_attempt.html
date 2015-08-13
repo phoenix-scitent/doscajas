@@ -25,21 +25,24 @@
       <section class="snap" data-measure="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
         <div class="row animated fadeInTop">
           <div class="col-sm-2">
-            <h2 class="label label-warning pull-right label-rounded">
-              {{ position }} of {{ measure_count }}
-            </h2>
+            <span class="pull-right">
+              <button class="btn btn-outline btn-info dim" type="button">
+              <strong>{{ position }}</strong> 
+              <span style="opacity: 0.4;">of {{ measure_count }}</span>
+              </button>
+            </span>
+          </div>
+          <div class="col-sm-8">
+            {{#if isMultipleChoice}}
+              {{> multiple_choice }}
+            {{/if}}
+          </div>
+          <div class="col-sm-2">
+            {{#each measure_linked_resources}}
+              <a type="button" href="/r/{{_id}}" target="_" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i> {{title}}</a>
+            {{/each}}
+          </div>
         </div>
-      <div class="col-sm-8">
-        {{#if isMultipleChoice}}
-          {{> multiple_choice }}
-        {{/if}}
-      </div>
-        <div class="col-sm-2">
-          {{#each measure_linked_resources}}
-            <a type="button" href="/resource/{{_id}}" target="_" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-external-link"></i> {{title}}</a>
-          {{/each}}
-        </div>
-      </div>
       </section>
     {{/each}}
     {{#if inReview}}

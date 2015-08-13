@@ -27,8 +27,8 @@ Meteor.methods({
   },
   embedlyIntoResource: function(embed, resource_id, embeddable) {
     var resource = Resources.findOne(resource_id);
-    var title = resource.title || embed.title;
-    var image = resource.image_url || embed.images[0].url;
+    var title = resource.title || embed.title || resource.link.split("/").pop();
+    var image = resource.image_url || (embed.images[0] && embed.images[0].url);
     var desc = resource.description || embed.description;
     return Resources.update(resource_id, {$set: {embedly: embed, title: title, description: desc, image_url: image, frame_embeddable: embeddable}});
   },

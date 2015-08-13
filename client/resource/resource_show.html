@@ -1,9 +1,3 @@
 <template name="resource_show">
-  {{#if is_embeddable}}
   <iframe id="resource-frame" name="resourceFrame" height='100' width='100' src="{{resource_link}}" style="height:100%;width:100%;"></iframe>
-  {{else}}
-  <script>
-    window.location.href = "{{resource_link}}";
-  </script>
-  {{/if}}
 </template>

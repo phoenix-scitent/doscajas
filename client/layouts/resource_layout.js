@@ -6,10 +6,7 @@ Template.resource_layout.rendered = function(){
 
 Template.resource_layout.events({
   'click #back-to-source': function(event){
-    history.back();
-  },
-  'click #back-to-resource': function(event){
-
+    window.close();
   }
 });
 

@@ -57,7 +57,7 @@ Template.sequence_attempt.rendered = function(){
 
   $(document).scrollsnap({
     snaps: '.snap',
-    proximity: 200,
+    proximity: 300,
     offset: -100,
     onSnap: function($snappedElement, silent) {
       var measureId = $snappedElement.data('measure');
