@@ -1,26 +1,26 @@
 <template name="sequence_attempt">
-  {{#if inReview}}
-    <div class="snap" style="padding-bottom:300px">
-      <div class="wrapper wrapper-content">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-        {{> review_display}}
-      </div>
-        <div class="col-sm-2"></div>
-      </div>
-    </div>
-  {{else}}
-    <div class="snap" style="padding-bottom:200px">
-      <div class="wrapper wrapper-content">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-          {{> introduction_display}}
-        </div>
-        <div class="col-sm-2"></div>
-      </div>
-    </div>
-  {{/if}}
   <div class="wrapper wrapper-content">
+    {{#if inReview}}
+      <section class="snap" style="padding-bottom:200px">
+        <div class="row animated fadeInLeft">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+            {{> review_display}}
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </section>
+    {{else}}
+      <section class="snap" style="padding-bottom:200px">
+        <div class="row animated fadeInLeft">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+            {{> introduction_display}}
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </section>
+    {{/if}}
     {{#each measures}}
       <section class="snap" data-measure="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
         <div class="row animated fadeInTop">
