@@ -22,10 +22,16 @@ Template.multiple_choice_answers_progress.helpers({
     return this.correct ? "alert-success" : "alert-danger";
   },
   correct_checkbox_class: function() {
-    return this.correct ? "btn-primary" : "btn-danger btn-outline";
+    if (Template.parentData(2).show_feedback_during) {
+      return this.correct ? "btn-primary" : "btn-danger btn-outline";  
+    }
+    return "btn-info";
   },
   correct_checkbox_icon: function() {
-    return this.correct ? "fa-check" : "fa-times";
+    if (Template.parentData(2).show_feedback_during) {
+      return this.correct ? "fa-check" : "fa-times";
+    }
+    return "fa-check";
   }
 });
 
