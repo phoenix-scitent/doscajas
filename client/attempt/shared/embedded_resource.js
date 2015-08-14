@@ -1,6 +1,6 @@
 Template.embedded_resource.helpers({
-  data: function() {
-    return {embedly: {title: "Timothy Johnson"}};
+  embedded: function() {
+    return Resources.findOne({_id: this.embedded_resource});
   }
 });
 
