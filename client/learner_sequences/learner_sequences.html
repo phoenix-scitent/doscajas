@@ -6,7 +6,12 @@
           {{#if hasAttemptsLeft}}
             <div class="ibox float-e-margins">
               <div class="ibox-content">
-                <h2 class=""><span class="{{isActiveRoute regex='sequence_attempt'}}"><a href="/sequence/{{_id}}/attempt"><i class="fa fa-leftarrow"></i> {{name}}</a></span></h2>
+                <h2 class="">
+                <span class="{{isActiveRoute regex='sequence_attempt'}}">
+                {{# linkTo route='begin_sequence' }}
+                <i class="fa fa-leftarrow"></i> {{name}}
+                {{/linkTo}}
+                </span></h2>
                 <span>{{attemptsLeft}}</span>
               </div>
             </div>

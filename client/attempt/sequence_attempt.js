@@ -4,8 +4,9 @@ Meteor.subscribe('sequences');
 
 Template.sequence_attempt.helpers({
   measures: function() {
+    var sequence = Sequences.find({_id: this.data._id});
 
-    var measures = _.map(_.filter(this.currentSequence.items, function(item){ return item.type === 'measure' }), function(item){
+    var measures = _.map(_.filter(sequence.items, function(item){ return item.type === 'measure' }), function(item){
       return Measures.findOne({ _id: item._id });
     });
 
@@ -41,15 +42,16 @@ Template.sequence_attempt.helpers({
 });
 
 Template.sequence_attempt.rendered = function(){
-  var currentSequence = this.data && this.data.currentSequence;
+  console.log(this);
+  var currentSequence = Sequences.find({_id: this.data._id});
   var currentAttempt = this.data && this.data.currentAttempt;
 
-  Session.set('currentSequenceId', currentSequence._id);
+  Session.set('currentSequenceId', this.data._id);
 
   if(currentAttempt){
     Session.set('currentAttemptId', currentAttempt._id);
   } else {
-    Meteor.promise('createAttempt', Session.get('currentSequenceId'), Meteor.user()).then(function(attemptId){
+    Meteor.promise('createAttempt', this.data._id, Meteor.user()).then(function(attemptId){
       Session.set('currentAttemptId', attemptId);
     });
   }
