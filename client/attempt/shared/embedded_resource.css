@@ -2,8 +2,15 @@ div.embed img {
 	width: 100%;
 	height: auto;
 	display: block;
+	background: #fff;
+	margin-bottom: 1em;
 }
 div.embed iframe{
 	max-width: 100%;
 	display: block;
+	margin-bottom: 1em;
+}
+
+div.embedded_resource {
+	margin: 4em 0;
 }
