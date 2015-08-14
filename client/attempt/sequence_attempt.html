@@ -1,9 +1,7 @@
 <template name="sequence_attempt">
-  <div class="wrapper wrapper-content">
+  <div class="wrapper wrapper-content" id="sequence-wrapper">
     {{#if inReview}}
       {{>review_first_section}}
-    {{else}}
-      {{>attempt_first_section}}
     {{/if}}
     {{#each measures}}
       <section class="snap" data-measure="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">

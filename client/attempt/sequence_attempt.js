@@ -4,37 +4,30 @@ Meteor.subscribe('sequences');
 
 Template.sequence_attempt.helpers({
   measures: function() {
-    var sequence = Sequences.find({_id: this.data._id});
+    var attempt = this;
 
-    var measures = _.map(_.filter(sequence.items, function(item){ return item.type === 'measure' }), function(item){
-      return Measures.findOne({ _id: item._id });
-    });
+    return this.attempt.items;
+    // var measures = _.map(_.filter(attempt.items, function(item){ return item.type === 'measure' }), function(item){
+    //   return Measures.findOne({ _id: item._id });
+    // });
 
-    return _.map(measures, function(m,i){
-      var measure = m;
-
-      measure.position = i+1;
-      measure.answers = _.map(measure.answers, function(answer){
-        return _.assign(answer, { measure_id: measure._id });
-      });
-      measure.embedded = Resources.findOne(measure.embedded_resource);
-
-      return measure;
-    });
+    // return _.map(measures, function(measure,i){
+    //   measure.position = i+1;
+    //   measure.answers = _.map(measure.answers, function(answer){
+    //     return _.assign(answer, { measure_id: measure._id });
+    //   });
+    //   measure.embedded = Resources.findOne(measure.embedded_resource);
+    //   return measure;
+    // });
   },
   measure_count: function(){
     return Measures.find().count();
   },
   isMultipleChoice: function(){
-    return this.type === 'multiplechoice';
+    return this.response_type === 'multiplechoice';
   },
   inReview: function(){
-    var currentAttempt = this.currentAttempt;
-    var isComplete = currentAttempt && currentAttempt.attempt.completed_at;
-
-    Session.set('currentSequenceComplete', isComplete);
-
-    return Session.get('currentSequenceComplete');
+    return this.attempt && this.attempt.completed_at;
   }
 });
 

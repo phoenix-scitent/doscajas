@@ -1,3 +1,6 @@
+div.wrapper#sequence-wrapper {
+  padding-top: 150px;
+}
 div.sequence-item h1{
   margin-top: -0.2em;
 }
