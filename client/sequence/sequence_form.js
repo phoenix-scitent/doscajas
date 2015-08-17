@@ -50,16 +50,6 @@ Template.sequence_form.rendered = function(){
 
   if(sequence_id){
     Session.set('currentSequenceId', sequence_id);
-  } else {
-    Meteor.call("submitSequence", null, {
-      tags: [BOK.current()._id]
-    }, function(err, response) {
-      if (err){
-        console.log(err);
-      } else {
-        Session.set('currentSequenceId', response);
-      }
-    });
   }
 
   if(Session.get('current_list_filter') === undefined){
@@ -126,7 +116,7 @@ Template.sequence_form.rendered = function(){
           return { type: data[0], _id: data[1] };
         });
 
-        Meteor.call("submitSequence", Session.get('currentSequenceId'), {
+        Meteor.call("submitSequence", this._id, {
           items: elements
         }, function(err, response) {
           if (err){
@@ -146,7 +136,7 @@ Template.sequence_form.rendered = function(){
           return { type: data[0], _id: data[1] };
         });
 
-        Meteor.call("submitSequence", Session.get('currentSequenceId'), {
+        Meteor.call("submitSequence", this._id, {
           items: elements
         }, function(err, response) {
           if (err){

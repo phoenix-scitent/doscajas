@@ -5,7 +5,7 @@
           <div class="form-group">
             <label>Sequence Name</label>
             <div class="input-group" style="width:100%">
-              <input id="sequence-name" type="text" class="form-control input-lg" />
+              <input id="sequence-name" type="text" class="form-control input-lg" value="{{seq.name}}" placeholder="Name the Sequence" data-attribute-name="name" />
             </div>
           </div>
           
@@ -13,14 +13,14 @@
             <div id='link-wrapper' class="form-group"></div>
             <label>Sequence Type</label>
             <div class="input-group" style="width:100%">
-              <select id="sequence-type" style="width:95%" tabindex="4"></select>
+              <select id="sequence-type" style="width:95%" tabindex="4"  data-attribute-name="type"></select>
             </div>
           </div>
 
           <div class="form-group">
             <label>Attempts Allowed</label>
             <div class="input-group m-b">
-              <input id="attempts-allowed" type="number" name="quantity" class="form-control" />
+              <input id="attempts-allowed" type="number" name="quantity" class="form-control" data-attribute-name="attempts_allowed" value="{{seq.attempts_allowed}}" />
               <div class="input-group-btn">
                   <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">Unlimited <span class="caret"></span></button>
                   <ul class="dropdown-menu">
@@ -34,7 +34,7 @@
           <div class="form-group">
             <label>Passing Rate</label>
             <div class="input-group m-b">
-              <input id="passing-rate" type="number" name="quantity" class="form-control">
+              <input id="passing-rate" type="number" name="quantity" class="form-control" data-attribute-name="passing_rate" value="{{seq.passing_rate}}">
               <div class="input-group-btn">
                   <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">% <span class="caret"></span></button>
                   <ul class="dropdown-menu">
@@ -50,36 +50,31 @@
 
           <div class="form-group">
             <div class="checkbox checkbox-primary">
-              <input id="randomize-items" type="checkbox" name="randomize-items" value="randomize-items" />
-              <label for="randomize-items">Randomize Items</label>
+              {{{checkbox_for 'randomize_items' 'Randomize Items'}}}
             </div>
           </div>
 
           <div class="form-group">
             <div class="checkbox checkbox-danger">
-              <input id="randomize-answers" type="checkbox" name="randomize-answers" value="randomize-answers" />
-              <label for="randomize-answers">Randomize Answers</label>
+              {{{checkbox_for 'randomize_answers' 'Randomize Answers within each Measure'}}}
             </div>
           </div>
 
           <div class="form-group">
             <div class="checkbox checkbox-primary">
-              <input id="allow-incorrect-answers" type="checkbox" name="allow-incorrect-answers" value="allow-incorrect-answers" />
-              <label for="allow-incorrect-answers">Allow Incorrect Answers</label>
+            {{{checkbox_for 'allow_incorrect_answers' 'Allow Incorrect Answers'}}}
             </div>
           </div>
 
           <div class="form-group">
             <div class="checkbox checkbox-primary" >
-              <input id="show-linked-resources-during" type="checkbox" name="show-linked-resources-during" value="show-linked-resources-during" />
-              <label for="show-linked-resources-during">Show Linked Resources During Sequence</label>
+            {{{checkbox_for 'show_linked_resources_during' 'Show Linked Resources During Sequence'}}}
             </div>
           </div>
 
           <div class="form-group">
             <div class="checkbox checkbox-primary">
-              <input id="show-linked-resources-after" type="checkbox" name="show-linked-resources-after" value="show-linked-resources-after" />
-              <label for="show-linked-resources-after">Show Linked Resources After Sequence</label>
+            {{{checkbox_for 'show_linked_resources_after' 'Show Linked Resources After Sequence'}}}
              </div>
           </div>
     </div>
@@ -87,43 +82,39 @@
     <div class="col-lg-4">
           <div class="form-group">
             <div class="checkbox checkbox-success">
-              <input id="show-feedback-during" type="checkbox" name="show-feedback-during" value="show-feedback-during" />
-              <label for="show-feedback-during">Show Feedback During Sequence</label>
+            {{{checkbox_for 'show_feedback_during' 'Show Feedback During Sequence'}}}
             </div>
           </div>
           
           <div class="form-group">
             <div class="checkbox checkbox-success">
-              <input id="show-feedback-after" type="checkbox" name="show-feedback-after" value="show-feedback-after" />
-              <label for="show-feedback-after">Show Feedback After Sequence</label>
+            {{{checkbox_for 'show_feedback_after' 'Show Feedback After Sequence'}}}
             </div>
           </div>
 
           <div class="form-group">
             <div class="checkbox checkbox-primary">
-              <input id="show-score-after" type="checkbox" name="show-score-after" value="show-score-after" />
-              <label for="show-score-after">Show Score After Sequence</label>
+            {{{checkbox_for 'show_score_after' 'Show Learner Scores and Charts After Sequence is Complete'}}}
             </div>
           </div>
 
           <div class="form-group">
             <div class="checkbox checkbox-danger">
-              <input id="allow-skip-ahead" type="checkbox" name="allow-skip-ahead" value="allow-skip-ahead" />
-              <label for="allow-skip-ahead">Allow Skip Ahead</label>
+            {{{checkbox_for 'allow_skip_ahead' 'Allow Skip Ahead (user may skip measures without selecting an answer)'}}}
             </div>
           </div>
 
           <div class="form-group">
             <div class="checkbox checkbox-danger">
-              <input id="use-measure-weighting" type="checkbox" name="use-measure-weighting" value="use-measure-weighting" />
+            {{{checkbox_for 'use_measure_weighting' 'Use Weighting set on Measures (if unchecked, every measure is worth 1 point)'}}}
+              <input data-attribute-name="use_measure_weighting" id="use-measure-weighting" type="checkbox" name="use-measure-weighting" value="use-measure-weighting" {{checked 'use_measure_weighting'}} />
               <label for="use-measure-weighting">Use Measure Weighting</label>
             </div>
           </div>
 
           <div class="form-group">
             <div class="checkbox checkbox-danger">
-              <input id="allow-score-scaling-of-incorrect-attempts" type="checkbox" name="allow-score-scaling-of-incorrect-attempts" value="allow-score-scaling-of-incorrect-attempts" />
-              <label for="allow-score-scaling-of-incorrect-attempts">Allow Score Scaling of Incorrect Attempts</label>
+            {{{checkbox_for 'allow_score_scaling_on_incorrect_attempts' 'Allow Score Scaling of Incorrect Attempts to Answer'}}}
             </div>
           </div>
     </div>
