@@ -37,9 +37,12 @@ Template.multiple_choice_answers_progress.helpers({
 
 Template.multiple_choice_answers_progress.events({
   'click .mc_answer': function(e, tmpl) {
-    Meteor.call("selectAnswer", parseInt($(e.target).data("choice")), $(e.target).data("measure"), Template.parentData(1)._id, function(err, resp){
+
+    var $answer = $(e.target).closest('.mc_answer');
+
+    Meteor.call("selectAnswer", parseInt($answer.data("choice")), $answer.data("measure"), Template.parentData(1)._id, function(err, resp){
       if(err) {
-        console.log(["Thou art a stupid head",err])
+        console.log(["selectAnswer call failed",err])
       }
     });
   }

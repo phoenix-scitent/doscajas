@@ -17,7 +17,7 @@ if (Sequences.find().count() === 0) {
     Meteor.call("submitMeasure", {
       question_text: question,
       description: description,
-      type: questionType,
+      response_type: questionType,
       embedded_resource: supportingResource,
       linked_resources: linkedResources,
       weight: weighting,

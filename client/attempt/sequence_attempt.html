@@ -1,13 +1,13 @@
 <template name="sequence_attempt">
   <div class="wrapper wrapper-content" id="sequence-wrapper">
     {{#if inReview}}
-      {{>review_first_section}}
+      {{> review_first_section}}
     {{/if}}
     {{#each measures}}
       <section class="snap" data-measure="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
         <div class="row animated fadeInTop">
           <div class="col-sm-2">
-            {{> attempt_item_count position=position count=measure_count}}
+            {{> attempt_item_count position=position }}
           </div>
           <div class="col-sm-8 sequence-item">
             {{#if isMultipleChoice}}

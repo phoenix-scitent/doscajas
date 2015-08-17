@@ -29,6 +29,7 @@ if (Measures.find().count() === 0) {
      return Measures.insert({
        '__testdata': true,
        name: 'asdfa',
+       response_type: 'multiplechoice',
        tags: [],
        answers: [
          { correct: true, text: 'asdf' }
@@ -69,7 +70,7 @@ if (Measures.find().count() === 0) {
       __testdata: true,
       question_text: 'Which one is the Instructional Designer?',
       description: 'In order to know what to call you, we need a name.',
-      type: 'multiplechoice',
+      response_type: 'multiplechoice',
       embedded_resource: create_resource(),
       linked_resources: [ create_resource(), create_resource(), create_resource() ],
       weight: 2,
@@ -121,7 +122,7 @@ if (Measures.find().count() === 0) {
       __testdata: true,
       question_text: 'What color is the sun?',
       description: 'Using nature to learn about colors.',
-      type: 'multiplechoice',
+      response_type: 'multiplechoice',
       embedded_resource: create_resource(),
       linked_resources: [ create_resource(), create_resource(), create_resource() ],
       weight: 2,
@@ -163,7 +164,7 @@ if (Measures.find().count() === 0) {
       __testdata: true,
       question_text: 'What does the word Thorasic mean',
       description: 'Medical terminology.',
-      type: 'multiplechoice',
+      response_type: 'multiplechoice',
       embedded_resource: create_resource(),
       linked_resources: [ create_resource(), create_resource(), create_resource() ],
       weight: 2,

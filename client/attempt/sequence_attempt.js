@@ -1,27 +1,10 @@
-Meteor.subscribe('measures');
-Meteor.subscribe('resources');
-Meteor.subscribe('sequences');
+//Meteor.subscribe('measures');
+//Meteor.subscribe('resources');
+//Meteor.subscribe('sequences');
 
 Template.sequence_attempt.helpers({
   measures: function() {
-    var attempt = this;
-
-    return this.attempt.items;
-    // var measures = _.map(_.filter(attempt.items, function(item){ return item.type === 'measure' }), function(item){
-    //   return Measures.findOne({ _id: item._id });
-    // });
-
-    // return _.map(measures, function(measure,i){
-    //   measure.position = i+1;
-    //   measure.answers = _.map(measure.answers, function(answer){
-    //     return _.assign(answer, { measure_id: measure._id });
-    //   });
-    //   measure.embedded = Resources.findOne(measure.embedded_resource);
-    //   return measure;
-    // });
-  },
-  measure_count: function(){
-    return Measures.find().count();
+    return this.attempt.items; //TODO: differentiate resources?
   },
   isMultipleChoice: function(){
     return this.response_type === 'multiplechoice';
@@ -32,20 +15,6 @@ Template.sequence_attempt.helpers({
 });
 
 Template.sequence_attempt.rendered = function(){
-  console.log(this);
-  var currentSequence = Sequences.find({_id: this.data._id});
-  var currentAttempt = this.data && this.data.currentAttempt;
-
-  Session.set('currentSequenceId', this.data._id);
-
-  if(currentAttempt){
-    Session.set('currentAttemptId', currentAttempt._id);
-  } else {
-    Meteor.promise('createAttempt', this.data._id, Meteor.user()).then(function(attemptId){
-      Session.set('currentAttemptId', attemptId);
-    });
-  }
-
 
   $(document).scrollsnap({
     snaps: '.snap',
