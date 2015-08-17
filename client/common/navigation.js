@@ -23,6 +23,13 @@ Template.navigation.events({
     'click #navigation-logout-button': function(){
       Meteor.logout();
       Router.go('/');
+    },
+    'click #build-a-sequence-nav': function() {
+      sequence_id = Meteor.call("buildBlankSequence", function(err, _id){
+        if (!err) {
+          Router.go("sequenceEdit", {_id:_id});
+        }
+      });
     }
 
 });
