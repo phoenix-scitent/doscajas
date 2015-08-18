@@ -23,7 +23,7 @@ if (Resources.find().count() === 0) {
        '__testdata': true,
        name: 'Correct or not?',
        tags: [],
-       type: 'multiplechoice',
+       response_type: 'multiplechoice',
        answers: [
          { id: 1, correct: true, text: 'yes' },
          { id: 2, correct: false, text: 'no' }
@@ -49,7 +49,7 @@ if (Resources.find().count() === 0) {
        __testdata: true,
        title: 'Lessons In UX',
        description: 'Integrating Meteor and Embedly',
-       type: 'document',
+       media_type: 'document',
        link: 'http://strokeandturn.com',
        moderator: 'moderator@test.com',
        status: 'published',

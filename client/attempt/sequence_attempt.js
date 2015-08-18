@@ -6,11 +6,10 @@ Template.sequence_attempt.helpers({
   measures: function() {
     if (this.attempt === undefined)
       return [];
-    console.log("sequence_attempt.helpers.measures",this);
-    return _.map(this.attempt.items, function(item,index) {
+    return _.map( _.filter(this.attempt.items, function(item){ return item.type === 'measure' }) , function(item,index) {
       item.position = index + 1;
       return item;
-    }); //TODO: differentiate resources?
+    });
   },
   isMultipleChoice: function(){
     return this.response_type === 'multiplechoice';
@@ -78,12 +77,16 @@ Template.sequence_attempt.events({
   },
   'click #attempt-submit': function(event, templ){
 
-    var measureAnswersMap = _.map(_.filter(this.attempt.items, function(item){ return item.type === 'measure' }), function(item){ return item.answer_id; });
-    var allMeasuresAnswered = !_.some(measureAnswersMap, function(answer){ return answer === null });
+    var measures = _.filter(this.attempt.items, function(item){ return item.type === 'measure' });
 
-    var unansweredMeasures = _.filter( _.map(this.attempt.items, function(item, index){ return { data: item.data, answer_id: item.answer_id, index: index + 1 } }), function(item){ return item.answer_id === null } );
+    var answered = _.partition(measures, function(measure){
+      return measure.is_answered;
+    });
 
-    if(allMeasuresAnswered){
+    var answeredMeasures = answered[0];
+    var unansweredMeasures = answered[1];
+
+    if(unansweredMeasures.length === 0){
       Meteor.call('completeAttempt', this._id, function(err, currentAttemptId) {
         if (err){
           alert(err);
@@ -92,7 +95,7 @@ Template.sequence_attempt.events({
         }
       });
     } else {
-      alert('Make sure to answer all questions before submitting. You have not answered ' + _.map(unansweredMeasures, function(measure){ return measure.index }).join(','))
+      alert('Make sure to answer all questions before submitting. You have not answered ' + _.map(unansweredMeasures, function(measure){ return measure.position }).join(','))
     }
   },
   'click #return-to-results': function(event){

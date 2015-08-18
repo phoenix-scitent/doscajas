@@ -1,7 +1,7 @@
 if (Sequences.find().count() === 0) {
 
   ///* CREATE DEPENDENCIES */
-  var create_user = function(){
+  var create_user = function () {
     return Accounts.createUser({
       '__testdata': true,
       username: _.sample(['salmon', 'trout', 'mackerel', 'smelt', 'bass', 'tuna', 'mahimahi']),
@@ -13,7 +13,7 @@ if (Sequences.find().count() === 0) {
     });
   };
 
-  var create_measure = function(){
+  var create_measure = function () {
     Meteor.call("submitMeasure", {
       question_text: question,
       description: description,
@@ -29,11 +29,11 @@ if (Sequences.find().count() === 0) {
       send_upload_to: null, //TODO: implement this
       answers: answers,
       tags: tags,
-      additions: [ ], //TODO: implement this
-      comments: [ ], //TODO: implement this
+      additions: [], //TODO: implement this
+      comments: [], //TODO: implement this
       date_created: Date.now()
-    }, function(err, response) {
-      if (err){
+    }, function (err, response) {
+      if (err) {
         alert(err);
       } else {
 
@@ -41,7 +41,7 @@ if (Sequences.find().count() === 0) {
     });
   };
 
-  var create_resource = function(){
+  var create_resource = function () {
     return Resources.insert({
       __testdata: true,
       title: _.sample(['Seasonal Depression', 'Clambake', 'Satori', 'Crimea', 'Salty']),
@@ -52,9 +52,9 @@ if (Sequences.find().count() === 0) {
       status: 'published',
       learning_type: _.sample(['problembasedlearning', 'casestudy']),
       owner: null/*create_user()*/,
-      tags: [ create_tag() ],
-      additions: [ ],
-      comments: [ create_comment(), create_comment(), create_comment() ],
+      tags: [create_tag()],
+      additions: [],
+      comments: [create_comment(), create_comment(), create_comment()],
       date_created: Date.now()
     });
   };
@@ -62,18 +62,18 @@ if (Sequences.find().count() === 0) {
   // type [ 'linear', 'adaptive' ]
   // passing_rate_type [ 'score', 'percent' ]
 
-  Meteor.call("submitSequence", null, {
-    name: 'All Measures Quiz',
-    type: 'linear',
-    items: _.map(Measures.find().fetch(), function(measure){ return { _id: measure._id, type: 'measure' } }),
+  Sequences.insert({
     owner: 'sdfsdfsdfsdfd' /*Meteor.users.find().fetch()[0]._id*/,
+    tags:  [Boks.find().fetch()[0]._id],
+    type:  "linear",
+    name: 'All Measures Quiz',
+    items: _.map(Measures.find().fetch(), function(measure){ return { _id: measure._id, type: 'measure' } }),
     attempts_allowed: 3,
     total_possible_score: 100,
     passing_rate: 80,
     passing_rate_type: 'score',
     randomize_items: false,
     randomize_answers: false,
-    tags: [Boks.find().fetch()[0]._id],
     allow_incorrect_answers: true,
     show_linked_resources_during: true,
     show_linked_resources_after: true,
@@ -83,11 +83,6 @@ if (Sequences.find().count() === 0) {
     allow_skip_ahead: true,
     use_measure_weighting: false,
     allow_score_scaling_on_incorrect_attempts: false
-  }, function(err, response) {
-    if (err){
-      console.log(err);
-    } else {
-      console.log('SEQUENCE FIXTURE CREATED: ', JSON.stringify(response))
-    }
   });
+
 }

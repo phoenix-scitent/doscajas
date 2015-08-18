@@ -41,6 +41,34 @@ Template.bok_tree.rendered = function(){
         updateNode( nodeId, formatAncestors(nodeParents) )
       }
 
+      //TODO: (in progress below) handle moving nodes, reordering and saving child order to db
+      //TODO: make sure to also account for new nodes added via data and nodes removed via data, reshuffle order
+
+      _.forEach(_.uniq([nodeParent, nodeOldParent]), function(parent){
+        var node = function(id){
+          if(id === '#'){
+            return bokRootId;
+          } else {
+            return id;
+          }
+        };
+        var childrenLength = $('#container').jstree(true).get_children_dom(parent).length;
+
+        if((childrenLength === 0) && (nodeParent === parent)){
+          // get_children_dom method will not recognize the case when the first child is added to an empty parent,
+          // need to manually handle this case
+          console.log('child ' + 0 + ' of ' + node(parent), nodeId)
+
+          //TODO: update each child in database with new order value (parent was already updated above)
+        }
+
+        _.forEach($('#container').jstree(true).get_children_dom(parent), function(child, index){
+          console.log('child ' + index + ' of ' + node(parent), $(child).attr('id'))
+
+          //TODO: update each child in database with new order value (parent was already updated above)
+        })
+      });
+
     }).on('changed.jstree', function (e, data) {
       var i, j, r = [];
       for(i = 0, j = data.selected.length; i < j; i++) {

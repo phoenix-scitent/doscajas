@@ -52,7 +52,7 @@ if (Measures.find().count() === 0) {
       __testdata: true,
       title: _.sample(['Seasonal Depression', 'Clambake', 'Satori', 'Crimea', 'Salty']),
       description: _.sample(['A video displaying the results of seasonal depression.', 'Yummy clams.', 'Sturgeons in the bay.', 'French cuisine.']),
-      type: _.sample(['video', 'pdf', 'audio']),
+      media_type: _.sample(['video', 'pdf', 'audio']),
       link: 'http://strokeandturn.com',
       moderator: 'moderator@test.com',
       status: 'published',

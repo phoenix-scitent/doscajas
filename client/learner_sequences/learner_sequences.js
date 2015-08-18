@@ -3,7 +3,7 @@ Template.learner_sequences.helpers({
 		return Sequences.find({attempt:{"$exists":false}});
 	},
   attemptsLeft: function(){
-    return '(Attempt: ' + Sequences.find({ 'attempt.parent': this._id, 'attempt.user': Meteor.userId() }).count() + ' of ' + this.attempts_allowed + ')';
+    return '(Attempts used: ' + Sequences.find({ 'attempt.parent': this._id, 'attempt.user': Meteor.userId() }).count() + ' of ' + this.attempts_allowed + ')';
   },
   hasAttemptsLeft: function(){
     return Sequences.find({ 'attempt.parent': this._id, 'attempt.user': Meteor.userId() }).count() < this.attempts_allowed;

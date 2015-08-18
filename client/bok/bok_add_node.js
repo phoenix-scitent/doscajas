@@ -14,6 +14,7 @@ Template.bok_add_node.events({
       data: {
         "name" : newTag,
         "ancestors" : [ bokRoot._id ],
+        "position": Boks.find({ $and: [{ancestors: bokRoot._id}, {ancestors: { $size: 1 }}] }).count(),
         "public": true,
         "date_created": Date.now()
       },
