@@ -4,7 +4,13 @@
 
 Template.sequence_attempt.helpers({
   measures: function() {
-    return this.attempt.items; //TODO: differentiate resources?
+    if (this.attempt === undefined)
+      return [];
+    console.log("sequence_attempt.helpers.measures",this);
+    return _.map(this.attempt.items, function(item,index) {
+      item.position = index + 1;
+      return item;
+    }); //TODO: differentiate resources?
   },
   isMultipleChoice: function(){
     return this.response_type === 'multiplechoice';
@@ -71,20 +77,18 @@ Template.sequence_attempt.events({
     Router.go('/all_sequences')
   },
   'click #attempt-submit': function(event, templ){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
 
-    var measureAnswersMap = _.map(_.filter(currentAttempt.attempt.items, function(item){ return item.type === 'measure' }), function(item){ return item.answer_id; });
+    var measureAnswersMap = _.map(_.filter(this.attempt.items, function(item){ return item.type === 'measure' }), function(item){ return item.answer_id; });
     var allMeasuresAnswered = !_.some(measureAnswersMap, function(answer){ return answer === null });
 
-    var unansweredMeasures = _.filter( _.map(currentAttempt.attempt.items, function(item, index){ return { data: item.data, answer_id: item.answer_id, index: index + 1 } }), function(item){ return item.answer_id === null } );
+    var unansweredMeasures = _.filter( _.map(this.attempt.items, function(item, index){ return { data: item.data, answer_id: item.answer_id, index: index + 1 } }), function(item){ return item.answer_id === null } );
 
     if(allMeasuresAnswered){
-      Meteor.call('completeAttempt', attempt_id, function(err, currentAttemptId) {
+      Meteor.call('completeAttempt', this._id, function(err, currentAttemptId) {
         if (err){
           alert(err);
         } else {
           window.scrollTo(0 /* x-coord */, 0 /* y-coord */);
-          // Router.go("/sequence/" + Session.get('currentSequenceId') + "/attempt/" + Session.get('currentAttemptId'));
         }
       });
     } else {
