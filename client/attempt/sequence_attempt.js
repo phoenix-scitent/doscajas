@@ -70,7 +70,7 @@ Template.sequence_attempt.events({
   'click #dashboard-button': function(event){
     Router.go('/all_sequences')
   },
-  'click #attempt-submit': function(event){
+  'click #attempt-submit': function(event, templ){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
 
     var measureAnswersMap = _.map(_.filter(currentAttempt.attempt.items, function(item){ return item.type === 'measure' }), function(item){ return item.answer_id; });
@@ -79,12 +79,12 @@ Template.sequence_attempt.events({
     var unansweredMeasures = _.filter( _.map(currentAttempt.attempt.items, function(item, index){ return { data: item.data, answer_id: item.answer_id, index: index + 1 } }), function(item){ return item.answer_id === null } );
 
     if(allMeasuresAnswered){
-      Meteor.call('updateAttempt', Session.get('currentAttemptId'), { isComplete: true }, function(err, currentAttemptId) {
+      Meteor.call('completeAttempt', attempt_id, function(err, currentAttemptId) {
         if (err){
           alert(err);
         } else {
-          Session.set('currentSequenceComplete', Sequences.findOne({ _id: currentAttemptId }).attempt.completed_at);
-          Router.go("/sequence/" + Session.get('currentSequenceId') + "/attempt/" + Session.get('currentAttemptId'));
+          window.scrollTo(0 /* x-coord */, 0 /* y-coord */);
+          // Router.go("/sequence/" + Session.get('currentSequenceId') + "/attempt/" + Session.get('currentAttemptId'));
         }
       });
     } else {
