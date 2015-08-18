@@ -1,10 +1,7 @@
 Template.bok_leaf_edit.rendered = function(){
-
-
 };
 
 Template.bok_leaf_edit.events({
-
 });
 
 Template.bok_leaf_edit.helpers({

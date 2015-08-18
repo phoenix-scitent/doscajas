@@ -185,5 +185,10 @@ Template.bok.events({
   'click #leaf-view-resources': function(e){
     Session.set('current_resource_filter', Session.get("selected_leaf_node"));
     Router.go('resources');
+  },
+  'click .root_bok_tag': function(e,tmpl) {
+    console.log(this.bokRoot);
+    console.log(tmpl);
+    Session.set("selected_leaf_node", Session.get("bokRoot")._id);
   }
 });
