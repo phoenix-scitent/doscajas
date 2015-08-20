@@ -29,22 +29,28 @@ Template.bok.helpers({
           target.push({children: item});
         });
 
+        _.forEach(hashed_children, function(children, parent){
+          hashed_children[parent] = _.sortBy(children, function(child){ return child.children.position });
+        });
+
         // function to recursively build the tree
         var findChildren = function (parent) {
           if (hashed_children[parent.children._id]) {
+
             parent.id = parent.children._id;
             parent.text = parent.children.name;
+            parent.position = parent.children.position;
             parent.type = parent.children.public ? 'public' : 'private';
             parent.children = hashed_children[parent.children._id];
+
             _.forEach(parent.children, function(node){
               findChildren(node)
             });
-            //_.times(parent.children.length, function (n) {
-            //  findChildren(parent.children[n]);
-            //});
+
           } else {
             parent.id = parent.children._id;
             parent.text = parent.children.name;
+            parent.position = parent.children.position;
             parent.type = parent.children.public ? 'public' : 'private';
             parent.children = [];
           }
@@ -59,7 +65,7 @@ Template.bok.helpers({
       return roots[0].children;
     };
 
-    Session.set('bokNodes', _childrenFormat(bokData).reverse());
+    Session.set('bokNodes', _childrenFormat(bokData) /*.reverse()*/);
 
     return Session.get('bokNodes');
   }
