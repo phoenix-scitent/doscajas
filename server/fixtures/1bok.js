@@ -24,11 +24,12 @@ var createBok = function(json, rootName, ownerId){
       "date_created": Date.now()
     });
 
-    var createNode = function(node, parent){
+    var createNode = function(node, parent, index){
 
       var childId = Boks.insert({
         '__testdata': true,
         "name" : node.name,
+        "position": index,
         "ancestors" : parent.ancestors.concat([parent._id]),
         "public": true,
         "date_created": Date.now()
@@ -40,8 +41,8 @@ var createBok = function(json, rootName, ownerId){
     var createNodes = function(json, parentId){
       var parent = Boks.findOne({_id: parentId});
 
-      _.forEach(json, function(child){
-        var createdChildId = createNode(child, parent);
+      _.forEach(json, function(child, index){
+        var createdChildId = createNode(child, parent, index);
         createNodes(child['children'], createdChildId);
       })
 
