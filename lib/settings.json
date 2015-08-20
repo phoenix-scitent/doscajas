@@ -1,5 +1,8 @@
 {
     "public": {
-        "embedlyApiKey": "5436329807a44d1c89b35fb2681da483"
+        "embedlyApiKey": "5436329807a44d1c89b35fb2681da483",
+        "astronomer": {
+          "appId": "wnSKHZmb5d5ksCYQ3"
+        }
     }
 }

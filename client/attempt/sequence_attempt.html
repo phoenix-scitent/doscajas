@@ -3,6 +3,7 @@
     {{#if inReview}}
       {{> review_first_section}}
     {{/if}}
+    {{ log measures }}
     {{#each measures}}
       <section class="snap" data-measure="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
         <div class="row animated fadeInTop">
