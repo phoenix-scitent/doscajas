@@ -4,9 +4,12 @@
 
 Template.sequence_attempt.helpers({
   measures: function() {
-    if (this.attempt === undefined)
-      return [];
-    return _.map( _.filter(this.attempt.items, function(item){ return item.type === 'measure' }) , function(item,index) {
+    console.log("helpers.measure");
+    if (this.attempt === undefined) {
+      console.log("no sequence.attempt when looking for measures");
+      return [];      
+    }
+    return _.map( _.filter(this.attempt.items, function(item){ return item.caja_type === 'measure' }) , function(item,index) {
       item.position = index + 1;
       return item;
     });
@@ -16,6 +19,9 @@ Template.sequence_attempt.helpers({
   },
   inReview: function(){
     return this.attempt && this.attempt.completed_at;
+  },
+  log: function(something) {
+    console.log(something);
   }
 });
 

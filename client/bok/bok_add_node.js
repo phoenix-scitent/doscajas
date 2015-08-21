@@ -31,5 +31,4 @@ Template.bok_add_node.events({
     $newTagInput.val('');
 
   }
-
 });

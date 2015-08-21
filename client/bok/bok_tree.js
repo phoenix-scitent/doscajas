@@ -29,20 +29,20 @@ Template.bok_tree.rendered = function(){
               }
             });
           },
-          updateNode = function(currentNodeId, newAncestors){
+          updateNodeAncestors = function(currentNodeId, newAncestors){
             Boks.update(currentNodeId, {
               $set: {
                 ancestors: newAncestors
               }
             });
+          },
+          updateNodePosition = function(currentNodeId, newPosition){
+            Boks.update(currentNodeId, { $set: { position: newPosition } });
           };
 
       if(!(nodeParent === nodeOldParent)){
-        updateNode( nodeId, formatAncestors(nodeParents) )
+        updateNodeAncestors( nodeId, formatAncestors(nodeParents) )
       }
-
-      //TODO: (in progress below) handle moving nodes, reordering and saving child order to db
-      //TODO: make sure to also account for new nodes added via data and nodes removed via data, reshuffle order
 
       _.forEach(_.uniq([nodeParent, nodeOldParent]), function(parent){
         var node = function(id){
@@ -57,15 +57,13 @@ Template.bok_tree.rendered = function(){
         if((childrenLength === 0) && (nodeParent === parent)){
           // get_children_dom method will not recognize the case when the first child is added to an empty parent,
           // need to manually handle this case
-          console.log('child ' + 0 + ' of ' + node(parent), nodeId)
-
-          //TODO: update each child in database with new order value (parent was already updated above)
+          console.log('child ' + 0 + ' of ' + node(parent), nodeId);
+          updateNodePosition( nodeId, 0 );
         }
 
         _.forEach($('#container').jstree(true).get_children_dom(parent), function(child, index){
-          console.log('child ' + index + ' of ' + node(parent), $(child).attr('id'))
-
-          //TODO: update each child in database with new order value (parent was already updated above)
+          console.log('child ' + index + ' of ' + node(parent), $(child).attr('id'), $(child).text());
+          updateNodePosition( $(child).attr('id'), index );
         })
       });
 
