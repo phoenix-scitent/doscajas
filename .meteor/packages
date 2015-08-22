@@ -28,3 +28,6 @@ msavin:jetsetter
 matb33:collection-hooks
 dburles:collection-helpers
 astronomerio:core
+kadira:debug
+reywood:publish-composite
+mrt:accounts-auth0
