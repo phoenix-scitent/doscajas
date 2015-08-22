@@ -1,6 +1,7 @@
-Template.sequence_options_form.rendered = function(){
+Session.set('attempts_allowed_type', 'Unlimited');
+Session.set('passing_rate_type', '%');
 
-  console.log(["Session.get('currentSequenceId')",Session.get('currentSequenceId')]);
+Template.sequence_options_form.rendered = function(){
 
   $("#sequence-type").selectize({
     placeholder: "choose the type...",
@@ -45,6 +46,15 @@ Template.sequence_options_form.helpers({
   },
   checked: function(attr) {
     return '';
+  },
+  attempts_allowed_type: function(){
+    return Session.get('attempts_allowed_type');
+  },
+  passing_rate_percentage: function(){
+    return Session.get('passing_rate_type') === 'percentage';
+  },
+  hasUnlimitedAttempts: function(){
+    return Session.get('attempts_allowed_type') === 'Unlimited';
   }
 });
 
@@ -75,5 +85,46 @@ Template.sequence_options_form.events({
           console.log(resp)
         }
       });
-    }, 300)
+    }, 300),
+    'click .pr': function(e){
+      var seq = this.sequence;
+      var attr = 'passing_rate_type';
+      var mini_doc = {};
+      var value = $(e.target).data('value');
+
+      mini_doc[attr] = value;
+
+      Meteor.call("submitSequence", seq._id, mini_doc, function(err, resp){
+        if (err){
+          console.log(err);
+        } else {
+          console.log(resp)
+        }
+      });
+
+      Session.set('passing_rate_type', value)
+    },
+    'click .aa': function(e){
+      var seq = this.sequence;
+      var attr = 'attempts_allowed';
+      var mini_doc = {};
+      var value = $(e.target).data('value');
+      var formattedValue = value === 'limited' ? 'Limited' : 'Unlimited';
+
+      if(value === 'limited'){
+        mini_doc[attr] = parseInt($('#attempts-allowed').val()) || 1;
+      } else {
+        mini_doc[attr] = Infinity;
+      }
+
+      Meteor.call("submitSequence", seq._id, mini_doc, function(err, resp){
+        if (err){
+          console.log(err);
+        } else {
+          console.log(resp)
+        }
+      });
+
+      Session.set('attempts_allowed_type', formattedValue);
+    }
 });

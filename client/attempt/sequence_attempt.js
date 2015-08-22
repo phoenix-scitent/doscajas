@@ -1,18 +1,15 @@
-//Meteor.subscribe('measures');
-//Meteor.subscribe('resources');
-//Meteor.subscribe('sequences');
-
 Template.sequence_attempt.helpers({
-  measures: function() {
-    console.log("helpers.measure");
+  cajas: function() {
     if (this.attempt === undefined) {
-      console.log("no sequence.attempt when looking for measures");
       return [];      
     }
-    return _.map( _.filter(this.attempt.items, function(item){ return item.caja_type === 'measure' }) , function(item,index) {
+    return _.map(this.attempt.items, function(item,index) {
       item.position = index + 1;
       return item;
     });
+  },
+  isMeasure: function(){
+    return this.caja_type === 'measure';
   },
   isMultipleChoice: function(){
     return this.response_type === 'multiplechoice';
@@ -32,7 +29,7 @@ Template.sequence_attempt.rendered = function(){
     proximity: 300,
     offset: -100,
     onSnap: function($snappedElement, silent) {
-      var measureId = $snappedElement.data('measure');
+      var measureId = $snappedElement.data('id');
       var state = $snappedElement.data('state');
       var stateUpdated = $snappedElement.data('state-updated');
 

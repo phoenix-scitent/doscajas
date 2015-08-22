@@ -3,20 +3,25 @@
     {{#if inReview}}
       {{> review_first_section}}
     {{/if}}
-    {{ log measures }}
-    {{#each measures}}
-      <section class="snap" data-measure="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
+    {{#each cajas}}
+      <section class="snap" data-type="{{caja_type}}" data-id="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
         <div class="row animated fadeInTop">
           <div class="col-sm-2">
             {{> attempt_item_count position=position }}
           </div>
           <div class="col-sm-8 sequence-item">
-            {{#if isMultipleChoice}}
-              {{> multiple_choice }}
+            {{#if isMeasure}}
+              {{#if isMultipleChoice}}
+                {{> multiple_choice }}
+              {{/if}}
+            {{else}}
+              {{> resource }}
             {{/if}}
           </div>
           <div class="col-sm-2">
-          {{> measure_linked_resources }}
+          {{#if isMeasure}}
+            {{> measure_linked_resources }}
+          {{/if}}
           </div>
         </div>
       </section>

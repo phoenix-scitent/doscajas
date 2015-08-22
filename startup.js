@@ -34,7 +34,10 @@ Meteor.startup(function () {
 
   LEARNING_TYPES = [
     { name: 'Case Study', slug: 'casestudy' },
-    { name: 'Problem Based Learning', slug: 'problembasedlearning' }
+    { name: 'Social', slug: 'social' },
+    { name: 'Problem Based', slug: 'problembased' },
+    { name: 'Project Based', slug: 'projectbased' },
+    { name: 'Knowledge Based', slug: 'knowledgebased' }
   ];
 
   SEQUENCE_TYPES = [

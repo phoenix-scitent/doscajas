@@ -10,13 +10,17 @@
         </div>
         <br>
         <div>
-          This is attempt {{currentAttemptsCount}} out of {{possibleAttemptsCount}} possible attempts.
+          {{#if hasUnlimitedAttempts}}
+            This is attempt {{currentAttemptsCount}}. You may attempt this section as many times as necessary.
+          {{else}}
+            This is attempt {{currentAttemptsCount}} out of {{possibleAttemptsCount}} possible attempts.
+          {{/if}}
         </div>
         <div>
           You answered (x) measures out of a total of (x).
         </div>
         <div>
-          Your score is {{currentScore}} out of a possible {{totalScore}}.
+          Your score is {{currentScore}} out of a possible {{totalScore}}. You {{#if hasPassed}} passed! {{else}} failed. {{/if}}
         </div>
         <br>
         <div>
