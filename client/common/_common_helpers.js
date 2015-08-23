@@ -17,5 +17,5 @@ UI.registerHelper('dat_bok_name', function(){
 });
 
 UI.registerHelper('dat_bok_url', function(){
-  return "/bok/" + BOK.current();
+  return "/bok/" + BOK.current()._id;
 });

@@ -1,0 +1,13 @@
+<template name="resource">
+  <div class="resource">
+    <div class="">
+      <a href="{{ link }}" class="embedly-oembed">{{ embedly.title }}</a>
+    </div>
+    <div class="">
+      {{ title }}
+      {{#if frame_embeddable}}
+        <!--         <a href="/r/{{ _id }}" target="_blank" class="pull-right"><i class="fa fa-link"></i> Open in new Window</a> -->
+      {{/if}}
+    </div>
+  </div>
+</template>

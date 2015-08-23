@@ -20,12 +20,16 @@
           <div class="form-group">
             <label>Attempts Allowed</label>
             <div class="input-group m-b">
-              <input id="attempts-allowed" type="number" name="quantity" class="form-control" data-attribute-name="attempts_allowed" value="{{seq.attempts_allowed}}" />
+              {{#if hasUnlimitedAttempts}}
+                <input id="attempts-allowed" type="number" name="quantity" class="form-control" data-attribute-name="attempts_allowed" value="&infin;" readonly />
+              {{else}}
+                <input id="attempts-allowed" type="number" name="quantity" class="form-control" data-attribute-name="attempts_allowed" value="{{seq.attempts_allowed}}" />
+              {{/if}}
               <div class="input-group-btn">
-                  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">Unlimited <span class="caret"></span></button>
+                  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">{{{attempts_allowed_type}}} <span class="caret"></span></button>
                   <ul class="dropdown-menu">
-                      <li><a href="#" class="aa_limited">Limited</a></li>
-                      <li><a href="#" class="aa_unlimited">Unlimited</a></li>
+                      <li><a href="#" class="aa" data-value="limited">Limited</a></li>
+                      <li><a href="#" class="aa" data-value="unlimited">Unlimited</a></li>
                   </ul>
               </div>
             </div>
@@ -36,10 +40,10 @@
             <div class="input-group m-b">
               <input id="passing-rate" type="number" name="quantity" class="form-control" data-attribute-name="passing_rate" value="{{seq.passing_rate}}">
               <div class="input-group-btn">
-                  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">% <span class="caret"></span></button>
+                  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">{{#if passing_rate_percentage}} % {{else}} out of {{seq.total_possible_score}}{{/if}} <span class="caret"></span></button>
                   <ul class="dropdown-menu">
-                      <li><a href="#" class="pr_percentge">Percentage</a></li>
-                      <li><a href="#" class="pr_raw_score">out of X</a></li>
+                      <li><a href="#" class="pr" data-value="percentage">Percentage</a></li>
+                      <li><a href="#" class="pr" data-value="score">out of {{seq.total_possible_score}}</a></li>
                   </ul>
               </div>
             </div>
