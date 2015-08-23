@@ -1,0 +1,10 @@
+{
+  "name": "dos-cajas",
+  "version": "0.0.2",
+  "description": "Course Builder for Adaptive Learning",
+  "scripts": {
+    "start": "meteor --settings settings-development.json",
+    "staging": "modulus env set METEOR_SETTINGS \"$(cat settings-development.json)\" -p 'Staging' && modulus deploy -f -p 'Staging'",
+    "production": "modulus env set METEOR_SETTINGS \"$(cat settings-production.json)\" -p 'Production' && modulus deploy -f -p 'Production'"
+  }
+}
