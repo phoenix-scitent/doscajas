@@ -19,15 +19,15 @@
   cursor: pointer;
 }
 
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-webkit-keyframes fadeInFeedback { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeInFeedback { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeInFeedback { from { opacity:0; } to { opacity:1; } }
 
 .fade-in {
   opacity: 0;
-  -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animation ease-in and repeat it only 1 time */
-  -moz-animation:fadeIn ease-in 1;
-  animation:fadeIn ease-in 1;
+  -webkit-animation:fadeInFeedback ease-in 1;  /* call our keyframe named fadeInFeedback, use animation ease-in and repeat it only 1 time */
+  -moz-animation:fadeInFeedback ease-in 1;
+  animation:fadeInFeedback ease-in 1;
 
   -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
   -moz-animation-fill-mode:forwards;
