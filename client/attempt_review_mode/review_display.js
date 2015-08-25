@@ -1,27 +1,22 @@
 Template.review_display.helpers({
   hasUnlimitedAttempts: function(){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-
     return currentAttempt.attempts_allowed === Infinity;
   },
   currentAttemptsCount: function(){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-
     return currentAttempt.attempt.count;
   },
   possibleAttemptsCount: function(){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-
     return currentAttempt.attempts_allowed;
   },
   currentScore: function(){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-
     return currentAttempt.attempt.score;
   },
   totalScore: function(){
     var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-
     return currentAttempt.total_possible_score;
   },
   hasPassed: function(){
@@ -32,6 +27,9 @@ Template.review_display.helpers({
     } else /* percentage */ {
       return true;
     }
-    //currentAttempt.total_possible_score
+  },
+  shouldShowResults: function(){
+    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
+    return currentAttempt.show_score_after;
   }
 });

@@ -59,6 +59,36 @@ if (Resources.find().count() === 0) {
        additions: [ ],
        comments: [ create_comment(), create_comment(), create_comment() ],
        date_created: Date.now()
+     },
+     {
+       __testdata: true,
+       title: 'Snakebite',
+       description: 'How to handle a snakebite.',
+       media_type: 'document',
+       link: 'http://wat.scitent.us/snake-bite/',
+       moderator: 'moderator@test.com',
+       status: 'published',
+       learning_type: 'casestudy',
+       owner: 'skdfjlskjdflksjd' /*create_user()*/,
+       tags: [ create_tag() ],
+       additions: [ ],
+       comments: [ create_comment() ],
+       date_created: Date.now()
+     },
+     {
+       __testdata: true,
+       title: 'Landscape Training Manual',
+       description: 'Introduction to Landscape Training',
+       media_type: 'document',
+       link: 'http://wat.scitent.us/introduction/',
+       moderator: 'moderator@test.com',
+       status: 'published',
+       learning_type: 'casestudy',
+       owner: 'skdfjlskjdflksjd' /*create_user()*/,
+       tags: [ create_tag() ],
+       additions: [ ],
+       comments: [ create_comment(), create_comment() ],
+       date_created: Date.now()
      }
    ];
 

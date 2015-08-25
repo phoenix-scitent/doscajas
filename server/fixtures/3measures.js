@@ -21,8 +21,8 @@ if (Measures.find().count() === 0) {
      });
    };
 
-   var create_tag = function(){
-     return Boks.find().fetch()[0]._id;
+   var create_tag = function(_id){
+     return _id;
    };
 
    var create_measure = function(){
@@ -47,18 +47,18 @@ if (Measures.find().count() === 0) {
      });
    };
 
-  var create_resource = function(){
+  var create_resource = function(title, description, media, link){
     return Resources.insert({
       __testdata: true,
-      title: _.sample(['Seasonal Depression', 'Clambake', 'Satori', 'Crimea', 'Salty']),
-      description: _.sample(['A video displaying the results of seasonal depression.', 'Yummy clams.', 'Sturgeons in the bay.', 'French cuisine.']),
-      media_type: _.sample(['video', 'pdf', 'audio']),
-      link: 'http://strokeandturn.com',
+      title: title ? title : _.sample(['Seasonal Depression', 'Clambake', 'Satori', 'Crimea', 'Salty']),
+      description: description ? description : _.sample(['A video displaying the results of seasonal depression.', 'Yummy clams.', 'Sturgeons in the bay.', 'French cuisine.']),
+      media_type: media ? media : _.sample(['video', 'pdf', 'audio']),
+      link: link ? link : 'http://strokeandturn.com',
       moderator: 'moderator@test.com',
       status: 'published',
       learning_type: _.sample(['problembasedlearning', 'casestudy']),
       owner: 'sdfasdkljskdjflksjdf' /*Meteor.users.find().fetch()[0]._id*/,
-      tags: [ create_tag() ],
+      tags: [ create_tag(Boks.find().fetch()[0]._id) ],
       suggestions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()
@@ -71,7 +71,6 @@ if (Measures.find().count() === 0) {
       question_text: 'Which one is the Instructional Designer?',
       description: 'In order to know what to call you, we need a name.',
       response_type: 'multiplechoice',
-      embedded_resource: create_resource(),
       linked_resources: [ create_resource(), create_resource(), create_resource() ],
       weight: 2,
       difficulty: 5,
@@ -113,7 +112,7 @@ if (Measures.find().count() === 0) {
           points: 0
         }
       ],
-      tags: [ create_tag() ],
+      tags: [ create_tag(Boks.find().fetch()[0]._id) ],
       suggestions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()
@@ -123,7 +122,7 @@ if (Measures.find().count() === 0) {
       question_text: 'What color is the sun?',
       description: 'Using nature to learn about colors.',
       response_type: 'multiplechoice',
-      embedded_resource: create_resource(),
+      embedded_resource: create_resource('The Sun', 'Image of the sun.', 'image', 'http://drawception.com/pub/panels/2012/4-8/7njyw5NhtD-4.png'),
       linked_resources: [ create_resource(), create_resource(), create_resource() ],
       weight: 2,
       difficulty: 1,
@@ -155,7 +154,7 @@ if (Measures.find().count() === 0) {
           points: 0
         }
       ],
-      tags: [ create_tag() ],
+      tags: [ create_tag(Boks.find().fetch()[0]._id), create_tag(Boks.find().fetch()[1]._id) ],
       suggestions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()
@@ -165,8 +164,8 @@ if (Measures.find().count() === 0) {
       question_text: 'What does the word Thorasic mean',
       description: 'Medical terminology.',
       response_type: 'multiplechoice',
-      embedded_resource: create_resource(),
-      linked_resources: [ create_resource(), create_resource(), create_resource() ],
+      embedded_resource: create_resource('Thorasic Surgery', 'Example of surgery.', 'video', 'https://www.youtube.com/watch?v=GE9OV5rNiSU'),
+      linked_resources: [create_resource(), create_resource() ],
       weight: 2,
       difficulty: 1,
       moderator: 'moderator@test.com',
@@ -197,7 +196,49 @@ if (Measures.find().count() === 0) {
           points: 0
         }
       ],
-      tags: [ create_tag() ],
+      tags: [ create_tag(Boks.find().fetch()[0]._id), create_tag(Boks.find().fetch()[2]._id) ],
+      suggestions: [ ],
+      comments: [ create_comment(), create_comment(), create_comment() ],
+      date_created: Date.now()
+    },
+    {
+      __testdata: true,
+      question_text: 'What is the best example of a heterotopia?',
+      description: 'Please choose the best option.',
+      response_type: 'multiplechoice',
+      embedded_resource: create_resource('Of Other Spaces: Utopias and Heterotopias', 'Paper to explain heterotopias.', 'pdf', 'http://web.mit.edu/allanmc/www/foucault1.pdf'),
+      linked_resources: [create_resource(), create_resource() ],
+      weight: 2,
+      difficulty: 3,
+      moderator: 'moderator@test.com',
+      status: 'published',
+      performance_type: 'analysis',
+      owner: 'afjsdlfkjlkjsdf'/*Meteor.users.find().fetch()[0]._id*/,
+      send_upload_to: null,
+      answers: [
+        {
+          id: 1,
+          text: 'Cabinet',
+          feedback: 'This is not a good representation.',
+          correct: false,
+          points: 0
+        },
+        {
+          id: 2,
+          text: 'Fork',
+          feedback: 'This is not a good representation.',
+          correct: false,
+          points: 0
+        },
+        {
+          id: 3,
+          text: 'Mirror',
+          feedback: 'This is the best representation.',
+          correct: true,
+          points: 0
+        }
+      ],
+      tags: [ create_tag(Boks.find().fetch()[0]._id), create_tag(Boks.find().fetch()[1]._id) ],
       suggestions: [ ],
       comments: [ create_comment(), create_comment(), create_comment() ],
       date_created: Date.now()

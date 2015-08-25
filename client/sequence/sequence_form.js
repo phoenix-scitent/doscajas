@@ -69,42 +69,38 @@ Template.sequence_form.rendered = function(){
         });
       }
     },
-    beforeStop: function( event, ui ) {
-
-      var item = $(ui.item).data('content').split('|')[1];
-      var itemType = $(ui.item).data('content').split('|')[0];
-      var itemId = $(ui.item).attr('id');
+    stop: function( event, ui ) {
+      var $element = $(event.target);
+      var content = $(this).sortable("toArray", {attribute: "data-content"});
       var sourceId = $(this).attr('id');
-      var destinationId = $($(ui.placeholder).parent()[0]).attr('id');
+      var destinationId = $(ui.item).parent().attr('id');
 
-      var movingMeasureResource = itemId === 'measure-item' && destinationId === 'resources-list';
-      var movingResourceMeasure = itemId === 'resource-item' && destinationId === 'measures-list';
+      if(sourceId === 'sequence-list' && destinationId === 'sequence-list'){
+        var elements = _.map(content, function (c) {
+          var data = c.split('|');
+          return {type: data[0], _id: data[1]};
+        });
 
-      if(movingMeasureResource || movingResourceMeasure) {
-        $(this).sortable('cancel');
-      } else {
-        if(sourceId === 'sequence-list'){
-          //remove
-          if(itemType === 'measure'){
+        var measures = _.filter(elements, function(element){ return element.type === 'measure' });
+        var useMeasureWeighting = Sequences.findOne({ _id: sequence_id }).use_measure_weighting;
+        var possibleScore;
 
-          }
-
-          if(itemType === 'resource'){
-
-          }
-
+        if(useMeasureWeighting){
+          possibleScore = _.reduce(_.map(measures, function(measure){ return Measures.findOne({ _id: measure._id }).weight }), function(total, n) { return total + n; });
+        } else {
+          possibleScore = measures.length;
         }
 
-        if(destinationId === 'sequence-list'){
-          //add
-          if(itemType === 'measure'){
-
+        Meteor.call("submitSequence", sequence_id, {
+          total_possible_score: possibleScore,
+          items: elements
+        }, function(err, response) {
+          if (err){
+            console.log(err);
+          } else {
+            // success
           }
-
-          if(itemType === 'resource'){
-
-          }
-        }
+        });
       }
     },
     receive: function( event, ui ) {

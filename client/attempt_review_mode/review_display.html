@@ -16,18 +16,18 @@
             This is attempt {{currentAttemptsCount}} out of {{possibleAttemptsCount}} possible attempts.
           {{/if}}
         </div>
+        {{#if shouldShowResults}}
+        <!-- <div> You answered (x) measures out of a total of (x). </div> -->
         <div>
-          You answered (x) measures out of a total of (x).
-        </div>
-        <div>
-          Your score is {{currentScore}} out of a possible {{totalScore}}. You {{#if hasPassed}} passed! {{else}} failed. {{/if}}
+          Your overall score is {{currentScore}} out of a possible {{totalScore}}. You {{#if hasPassed}} passed! {{else}} failed. {{/if}}
         </div>
         <br>
         <div>
-          <strong>Historical/Progress based results</strong>: How you are doing from attempt to attempt
+          <strong>Topic based results</strong>
+          {{> topic_stats }}
         </div>
         <div>
-          <strong>Topic based results</strong>: How well you did in different tagged topic areas
+          <strong>Historical/Progress based results</strong>: How you are doing from attempt to attempt
         </div>
         <div>
           <strong>Measure type based results</strong>: How well you did by type
@@ -38,6 +38,7 @@
         <div>
           <strong>Sequence difficulty</strong>: How this sequence sits based on difficulty of itself via measures or between other sequences
         </div>
+        {{/if}}
         <div style="padding-top:10px;">
           <a type="button" id='begin-button' class="btn btn-block btn-outline btn-info btn-small">Review</a>
           <a type="button" id='dashboard-button' class="btn btn-block btn-outline btn-info btn-small">Return to Dashboard</a>

@@ -170,7 +170,8 @@ Template.measure_form.rendered = function(){
               $set: {
                 question_text: question,
                 description: description,
-                type: questionType,
+                type: 'measure',
+                response_type: questionType,
                 embedded_resource: supportingResource,
                 linked_resources: linkedResources,
                 weight: weighting,
@@ -198,7 +199,8 @@ Template.measure_form.rendered = function(){
             Measures.insert({
               question_text: question,
               description: description,
-              type: questionType,
+              type: 'measure',
+              response_type: questionType,
               embedded_resource: supportingResource,
               linked_resources: linkedResources,
               weight: weighting,

@@ -3,6 +3,7 @@ Template.sequence_attempt.helpers({
     if (this.attempt === undefined) {
       return [];      
     }
+
     return _.map(this.attempt.items, function(item,index) {
       item.position = index + 1;
       return item;
@@ -15,7 +16,16 @@ Template.sequence_attempt.helpers({
     return this.response_type === 'multiplechoice';
   },
   inReview: function(){
-    return this.attempt && this.attempt.completed_at;
+    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
+    return currentAttempt.attempt && currentAttempt.attempt.completed_at;
+  },
+  showResourcesDuring: function(){
+    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
+    return currentAttempt.show_linked_resources_during;
+  },
+  showResourcesAfter: function(){
+    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
+    return currentAttempt.show_linked_resources_after;
   },
   log: function(something) {
     console.log(something);

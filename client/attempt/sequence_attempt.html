@@ -20,7 +20,15 @@
           </div>
           <div class="col-sm-2">
           {{#if isMeasure}}
-            {{> measure_linked_resources }}
+            {{#if inReview}}
+              {{#if showResourcesAfter}}
+                {{> measure_linked_resources }}
+              {{/if}}
+            {{else}}
+              {{#if showResourcesDuring}}
+                {{> measure_linked_resources }}
+              {{/if}}
+            {{/if}}
           {{/if}}
           </div>
         </div>

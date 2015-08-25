@@ -29,7 +29,8 @@ Meteor.startup(function () {
   RESOURCE_TYPES = [
     { name: 'Video', slug: 'video' },
     { name: 'PDF', slug: 'pdf' },
-    { name: 'Audio', slug: 'audio' }
+    { name: 'Audio', slug: 'audio' },
+    { name: 'Image', slug: 'image'}
   ];
 
   LEARNING_TYPES = [
