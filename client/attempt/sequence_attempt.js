@@ -12,6 +12,15 @@ Template.sequence_attempt.helpers({
   isMeasure: function(){
     return this.caja_type === 'measure';
   },
+  shouldDisplay: function(){
+    var attempt = Sequences.findOne({_id: Session.get('currentAttemptId')}).attempt;
+    var wasAnsweredCorrectly = this.adaptive_completion;
+    var thisAttempt = attempt && attempt.count;
+    var wasAnsweredPreviously = (this.adaptive_completion != thisAttempt);
+    var shouldDisplay = !(wasAnsweredCorrectly && wasAnsweredPreviously);
+
+    return shouldDisplay;
+  },
   isMultipleChoice: function(){
     return this.response_type === 'multiplechoice';
   },
@@ -57,6 +66,7 @@ Template.sequence_attempt.rendered = function(){
 
   $('.snap').fadeTo(200,0.2);
   $('.snap').first().fadeTo(0,1);
+
 };
 
 Template.sequence_attempt.events({

@@ -4,6 +4,7 @@
       {{> review_first_section}}
     {{/if}}
     {{#each cajas}}
+      {{#if shouldDisplay}}
       <section class="snap" data-type="{{caja_type}}" data-id="{{_id}}" data-state="unseen" data-state-updated="" style="margin-bottom:200px;">
         <div class="row animated fadeInTop">
           <div class="col-sm-2">
@@ -33,6 +34,7 @@
           </div>
         </div>
       </section>
+      {{/if}}
     {{/each}}
     {{#if inReview}}
       {{> review_last_section }}

@@ -1,16 +1,10 @@
 Template.begin_sequence.rendered = function(){
 
-  //var currentAttempt = this.data && this.data.currentAttempt;
-
   Session.set('currentSequenceId', this.data._id);
 
-  //if(currentAttempt){
-    //Session.set('currentAttemptId', currentAttempt._id);
-  //} else {
-    Meteor.promise('createAttempt', this.data._id, Meteor.user()).then(function(attemptId){
-      Session.set('currentAttemptId', attemptId);
-    });
-  //}
+  Meteor.promise('createAttempt', this.data._id, Meteor.user()).then(function(attemptId){
+    Session.set('currentAttemptId', attemptId);
+  });
 
 };
 

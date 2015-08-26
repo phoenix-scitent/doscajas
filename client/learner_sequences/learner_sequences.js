@@ -6,17 +6,17 @@ Template.learner_sequences.helpers({
     if(this.attempts_allowed === Infinity){
       return '(Unlimited attempts)';
     } else {
-      return '(Attempts used: ' + Sequences.find({ 'attempt.parent': this._id, 'attempt.user': Meteor.userId() }).count() + ' of ' + this.attempts_allowed + ')';
+      return '(Attempts used: ' + Sequences.find({ 'attempt.original': this._id, 'attempt.user': Meteor.userId() }).count() + ' of ' + this.attempts_allowed + ')';
     }
   },
   hasAttemptsLeft: function(){
-    return Sequences.find({ 'attempt.parent': this._id, 'attempt.user': Meteor.userId() }).count() < this.attempts_allowed;
+    return Sequences.find({ 'attempt.original': this._id, 'attempt.user': Meteor.userId() }).count() < this.attempts_allowed;
   }
 });
 
 Template.learner_sequences.events({
   'click #reset-attempts': function(event){
-    _.forEach(Sequences.find({ 'attempt.parent': $(event.target).data('sequence') }).fetch(), function(attempt){
+    _.forEach(Sequences.find({ 'attempt.original': $(event.target).data('sequence') }).fetch(), function(attempt){
       console.log('deleted: ', attempt)
       Sequences.remove(attempt._id);
     })
