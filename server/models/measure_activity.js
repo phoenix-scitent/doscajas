@@ -1,5 +1,5 @@
-Meteor.publish('measure_activity', function(measure_id) {
-  return MeasureActivity.find({measure_id: measure_id});
+Meteor.publish('measure_activity', function() {
+  return MeasureActivity.find();
 });
 
 MeasureActivity.allow({
