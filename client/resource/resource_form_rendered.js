@@ -87,7 +87,11 @@ Template.resource_form.rendered = function(){
             description: $('#description').val(),
             tags: _.union(tagsSelectize.getValue(), _.flatten(_.map(tagsSelectize.getValue(), function(tag){ return Boks.findOne({ _id: tag }).ancestors })), [BOK.current()._id]),
             owner: $('#current-owner')[0].selectize.getValue() || Meteor.user()._id,
-            learning_type: $('#learning-type')[0].selectize.getValue()
+            learning_type: $('#learning-type')[0].selectize.getValue(),
+            instructor_notes: {
+              title: $('#instructor-notes-title').val(),
+              body: $('#instructor-notes-body').val()
+            }
           }, function(err, response) {
             if (err){
               alert(err);
