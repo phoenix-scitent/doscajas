@@ -1,4 +1,7 @@
-var uv = (function (){
+;(function(window, document, undefined)
+{
+
+  window.uv = (function (){
   /**
   * uv is the local namespace within the anonymous function, which holds everything else related to the library
   * @type {Object}
@@ -2915,3 +2918,4 @@ uv.WaterfallGraph.prototype.drawVerticalBars = function (idx) {
     chart: uv.chart
   };
 })();
+})(window, document);
