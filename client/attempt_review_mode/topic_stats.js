@@ -71,6 +71,28 @@ Template.topic_stats.rendered = function(){
 
   var attempts = Sequences.find({ 'attempt.original': Session.get('currentSequenceId') }).fetch();
 
+  var graphdef = {
+    categories : _.map(attempts, function(currentAttempt){ return moment(currentAttempt.attempt.completed_at).format("MMM Do YY hh mm ss"); }),
+    dataset : _.reduce(attempts, function(bars, currentAttempt){
+      bars[moment(currentAttempt.attempt.completed_at).format("MMM Do YY hh mm ss")] = _.map(currentAttempt.attempt.topic_stats, function(stats, key){
+
+        var all = _.map(attempts, function(currentAttempt){ return { key: currentAttempt.attempt.completed_at, scores: _.map(currentAttempt.attempt.topic_stats, function(stats, key){ return { key: key, value: _.ceil(((stats.total_actual_score / stats.total_possible_score) * 100)) } }) } });
+        var currentKey = _.findKey(all, function(attempt){ return attempt.key === currentAttempt.attempt.completed_at });
+        var lastKey = currentKey - 1;
+
+        var lastScore = lastKey>=0 ? _.find(all[lastKey]['scores'], function(scores){ return scores.key === key })['value'] : 0;
+
+        return {
+          name: key,
+          value: _.ceil(((stats.total_actual_score / stats.total_possible_score) * 100)) - lastScore
+        }
+      });
+      return bars;
+    }, {})
+  };
+
+  var chart = uv.chart('StackedBar', graphdef, { axis: { showtext: false }, graph: { orientation: 'Vertical' } });
+
   var data = {
     labels: _.map(this.data.attempt.topic_stats, function(stats, key){ return key; }),
     datasets: _.map(attempts, function(currentAttempt){
@@ -131,22 +153,4 @@ Template.topic_stats.rendered = function(){
   var ctx = $("#myChart").get(0).getContext("2d");
 // This will get the first returned node in the jQuery collection.
   var myNewChart = new Chart(ctx).Bar(data, options); //new Chart(ctx).PolarArea(data, options);
-
-
-  var graphdef = {
-    categories : ['uvCharts'],
-    dataset : {
-      'uvCharts' : [
-        { name : '2009', value : 32 },
-        { name : '2010', value : 60 },
-        { name : '2011', value : 97 },
-        { name : '2012', value : 560 },
-        { name : '2013', value : 999 }
-      ]
-    }
-  }
-
-  var chart = uv.chart('Bar', graphdef);
-
-
 };
