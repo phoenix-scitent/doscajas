@@ -1,20 +1,7 @@
 <template name="resource_show">
   <iframe id="resource-frame" name="resourceFrame" height='100' width='100' src="{{resource_link}}" style="height:100%;width:100%;"></iframe>
-  <div class="modal inmodal fade" id="instructor_notes" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-      <div class="modal-dialog modal-sm">
-          <div class="modal-content animated pulse">
-              <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                  <h4 class="modal-title">Notes from your Instructor</h4>
-              </div>
-              <div class="modal-body">
-                  <p><strong>There is something special on this site</strong> that I need you to understand as you are reading it. Maybe you won't get it the first time, but after absorbing it and reading other resources within the Algebra topic, you will want to come back to this and try to reason with the instructions again. You will get more out of it the 2nd and 3rd time you go through it, I promise.</p>
-                  <p class="pull-right">&mdash; Will Davis, Esq.</p>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-              </div>
-          </div>
-      </div>
-  </div>
+
+  {{# if instructor_notes }}
+    {{> resource_instructor_notes}}
+  {{/if}}
 </template>

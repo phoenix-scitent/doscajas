@@ -44,14 +44,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topic_stats.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="topic_stats.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/attempt_review_mode/topic_stats.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23876405" vertical-offset="60" max-vertical-offset="1515">
+            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1515">
               <caret line="82" column="128" selection-start-line="82" selection-start-column="128" selection-end-line="82" selection-end-column="128" />
               <folding>
                 <element signature="e#142#158#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uvcharts.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/plugins/uvcharts/uvcharts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.26364478" vertical-offset="0" max-vertical-offset="43875">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,8 +120,8 @@
         <option value="$PROJECT_DIR$/lib/models/sequences/sequences_methods.js" />
         <option value="$PROJECT_DIR$/client/resource/resource_show.html" />
         <option value="$PROJECT_DIR$/client/attempt_review_mode/topic_stats.html" />
-        <option value="$PROJECT_DIR$/client/plugins/uvcharts/uvcharts.js" />
         <option value="$PROJECT_DIR$/client/attempt_review_mode/topic_stats.js" />
+        <option value="$PROJECT_DIR$/client/plugins/uvcharts/uvcharts.js" />
       </list>
     </option>
   </component>
@@ -851,21 +861,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/plugins/uvcharts/uvcharts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.041628122" vertical-offset="0" max-vertical-offset="43890">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/attempt_review_mode/topic_stats.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23876405" vertical-offset="60" max-vertical-offset="1515">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1515">
           <caret line="82" column="128" selection-start-line="82" selection-start-column="128" selection-end-line="82" selection-end-column="128" />
           <folding>
             <element signature="e#142#158#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/plugins/uvcharts/uvcharts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26364478" vertical-offset="0" max-vertical-offset="43875">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

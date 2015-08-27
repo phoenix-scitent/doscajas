@@ -22,11 +22,14 @@
         <li>
           <span class="m-r-sm text-muted welcome-message"> {{resource_title}} </span>
         </li>
+        {{#if resource_has_instructor_notes}}
         <li style="margin: 0px 50px;">
           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#instructor_notes">
             Notes from your Instructor
           </button>
-        </li>        <li>
+        </li>
+        {{/if}}
+        <li>
           <a id="back-to-source" class="right-sidebar-toggle">
             <i class="fa fa-times"></i> Exit &amp; Return to Course
           </a>
