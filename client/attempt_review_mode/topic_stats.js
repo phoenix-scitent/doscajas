@@ -6,14 +6,14 @@ Template.topic_stats.helpers({
 
 Template.topic_stats.rendered = function(){
 
-  var colors = [
-    {color:"#F7464A", highlight: "#FF5A5E"},
-    {color: "#46BFBD", highlight: "#5AD3D1"},
-    {color: "#FDB45C", highlight: "#FFC870"},
-    {color: "#949FB1", highlight: "#A8B3C5"},
-    {color: "#4D5360", highlight: "#616774"}
-  ];
-
+  //var colors = [
+  //  {color:"#F7464A", highlight: "#FF5A5E"},
+  //  {color: "#46BFBD", highlight: "#5AD3D1"},
+  //  {color: "#FDB45C", highlight: "#FFC870"},
+  //  {color: "#949FB1", highlight: "#A8B3C5"},
+  //  {color: "#4D5360", highlight: "#616774"}
+  //];
+  //
   //var data = _.map(this.data.attempt.topic_stats, function(stats, key){
   //  return _.assign({ label: {key: key, possible: stats.total_possible_score, actual: stats.total_actual_score}, value: _.ceil(((stats.total_actual_score / stats.total_possible_score) * 100)) }, colors[_.random(0, 4)])
   //});
@@ -69,24 +69,20 @@ Template.topic_stats.rendered = function(){
   //
   //};
 
-
-  var rawData = _.map(this.data.attempt.topic_stats, function(stats, key){
-    return _.assign({ label: {key: key, possible: stats.total_possible_score, actual: stats.total_actual_score}, value: _.ceil(((stats.total_actual_score / stats.total_possible_score) * 100)) }, colors[_.random(0, 4)])
-  });
-
+  var attempts = Sequences.find({ 'attempt.original': Session.get('currentSequenceId') }).fetch();
 
   var data = {
-    labels: _.map(rawData, function(topic){ return topic.label.key }),
-    datasets: [
-      {
-        label: 'Topic Results',
+    labels: _.map(this.data.attempt.topic_stats, function(stats, key){ return key; }),
+    datasets: _.map(attempts, function(currentAttempt){
+      return {
+        label: currentAttempt.created_at,
         fillColor: "rgba(220,220,220,0.5)",
         strokeColor: "rgba(220,220,220,0.8)",
         highlightFill: "rgba(220,220,220,0.75)",
         highlightStroke: "rgba(220,220,220,1)",
-        data: _.map(rawData, function(topic){ return topic.value })
-      }
-    ]
+        data: _.map(currentAttempt.attempt.topic_stats, function(stats){ return _.ceil(((stats.total_actual_score / stats.total_possible_score) * 100)) })
+      };
+    })
   };
 
   var options = {
@@ -135,4 +131,22 @@ Template.topic_stats.rendered = function(){
   var ctx = $("#myChart").get(0).getContext("2d");
 // This will get the first returned node in the jQuery collection.
   var myNewChart = new Chart(ctx).Bar(data, options); //new Chart(ctx).PolarArea(data, options);
+
+
+  var graphdef = {
+    categories : ['uvCharts'],
+    dataset : {
+      'uvCharts' : [
+        { name : '2009', value : 32 },
+        { name : '2010', value : 60 },
+        { name : '2011', value : 97 },
+        { name : '2012', value : 560 },
+        { name : '2013', value : 999 }
+      ]
+    }
+  }
+
+  var chart = uv.chart('Bar', graphdef);
+
+
 };
