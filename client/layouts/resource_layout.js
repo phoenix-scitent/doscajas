@@ -15,7 +15,6 @@ Template.resource_top_navbar.helpers({
     return Session.get('shownResourceTitle');
   },
   resource_has_instructor_notes: function() {
-    console.log(this);
-    return true;
+    return this.instructor_notes;
   }
 });
