@@ -297,7 +297,7 @@ Template.measure_form.rendered = function(){
       valueField: 'slug',
       searchField: 'name',
       options: MEASURE_TYPES,
-      items: [ (this.data && this.data.type) ]
+      items: [ (this.data && this.data.response_type) ]
     });
 
     $("#supporting-resource").selectize({
