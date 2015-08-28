@@ -50,6 +50,9 @@ Template.sequence_results.events({
       $content.slideUp()
     }
 
+  },
+  'click .ibox': function(e){
+
   }
 });
 
