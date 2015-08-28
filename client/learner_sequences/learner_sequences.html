@@ -1,10 +1,14 @@
 <template name="learner_sequences">
-  <div class="wrapper wrapper-content" style="padding:60px;">
+  <div class="wrapper wrapper-content" style="padding:0 60px 60px 60px;">
     <div class="row animated fadeInTop">
       {{#each sequences}}
-        <div class="row">
-          {{> sequence_interact}}
-          {{> sequence_results}}
+        <div class="row" style="padding-top:60px;">
+          <div class="col-md-3">
+            {{> sequence_interact}}
+          </div>
+          <div class="col-md-9">
+            {{> sequence_results}}
+          </div>
         </div>
       {{/each}}
     </div>

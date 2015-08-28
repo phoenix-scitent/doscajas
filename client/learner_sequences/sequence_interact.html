@@ -1,5 +1,5 @@
 <template name="sequence_interact">
-  <div class="col-sm-2">
+  <div class="">
     {{#if hasAttemptsLeft}}
       <div class="ibox float-e-margins">
         <div class="ibox-content">
@@ -9,7 +9,7 @@
               <i class="fa fa-leftarrow"></i> {{name}}
             {{/linkTo}}
           </span></h2>
-          <span>{{attemptsLeft}}</span>
+          <span>{{attemptsLeft}}</span><span> {{adaptiveInfo}}</span>
         </div>
       </div>
     {{else}}

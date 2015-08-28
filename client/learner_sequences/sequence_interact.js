@@ -2,6 +2,13 @@ Template.sequence_interact.helpers({
   sequences: function() {
     return Sequences.find({attempt:{"$exists":false}});
   },
+  adaptiveInfo: function(){
+    if(this.adaptive_retries){
+      return '[adaptive]';
+    } else {
+      return '';
+    }
+  },
   attemptsLeft: function(){
     if(this.attempts_allowed === Infinity){
       return '(Unlimited attempts)';

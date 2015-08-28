@@ -1,10 +1,16 @@
+Template.graph_uvchart.helpers({
+  element_id: function(){
+    return this.anchor_element;
+  }
+});
+
 Template.graph_uvchart.rendered = function() {
   var attempts;
 
-  var currentAttempt = Sequences.find({ _id: Session.get('currentAttemptId') }).fetch();
+  var currentAttempt = Sequences.find({ _id: this.data.attemptId }).fetch();
 
   if(currentAttempt[0].adaptive_retries){
-    attempts = Sequences.find({ 'attempt.original': Session.get('currentSequenceId') }).fetch();
+    attempts = Sequences.find({ 'attempt.original': this.data.sequenceId }).fetch();
   } else {
     attempts = currentAttempt;
   }
@@ -29,5 +35,5 @@ Template.graph_uvchart.rendered = function() {
     }, {})
   };
 
-  var chart = uv.chart('StackedBar', graphdef, { graph: { orientation: 'Vertical' } });
+  var chart = uv.chart('StackedBar', graphdef, { meta: { position: ('#attempt-' + this.data.anchor_element) }, graph: { orientation: 'Vertical' } });
 };
