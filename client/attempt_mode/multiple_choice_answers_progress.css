@@ -9,7 +9,7 @@
   border-top: 2px solid rgba(255,255,255, 0.3);
   border-left: 2px solid rgba(255,255,255, 0.1);
   border-right: 2px solid rgba(255,255,255, 0.1);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   margin: 0.3em 0;
 }
 .mc_answer:hover {
