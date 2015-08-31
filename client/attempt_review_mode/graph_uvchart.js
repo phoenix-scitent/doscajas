@@ -10,10 +10,10 @@ Template.graph_uvchart.rendered = function() {
 
   var attempts;
 
-  var currentAttempt = [Template.parentData(1)];
-
+  var currentAttempt = Sequences.find({ _id: this.data.attemptId }).fetch();
+  
   if(currentAttempt[0].adaptive_retries){
-    attempts = Sequences.find({ 'attempt.original': currentAttempt[0].attempt.original }).fetch();
+    attempts = Sequences.find({ 'attempt.original': this.data.sequenceId }).fetch();
   } else {
     attempts = currentAttempt;
   }
