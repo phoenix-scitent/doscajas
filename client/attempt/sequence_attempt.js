@@ -12,6 +12,12 @@ Template.sequence_attempt.helpers({
   isMeasure: function(){
     return this.caja_type === 'measure';
   },
+  progress_percentage: function(){
+    var times = this.attempt.items.length;
+    return Math.round(_.sum(this.attempt.items, function(i){
+      return (i.is_answered) ? (100 / times) : 0;
+    }, 0));
+  },
   shouldDisplay: function(){
     var attempt = Sequences.findOne({_id: Session.get('currentAttemptId')}).attempt;
     var wasAnsweredCorrectly = this.adaptive_completion;
@@ -45,7 +51,7 @@ Template.sequence_attempt.rendered = function(){
 
   $(document).scrollsnap({
     snaps: '.snap',
-    proximity: 300,
+    proximity: 100,
     offset: -100,
     onSnap: function($snappedElement, silent) {
       var measureId = $snappedElement.data('id');
@@ -59,13 +65,21 @@ Template.sequence_attempt.rendered = function(){
 
       console.log('onSnap', measureId, state, stateUpdated);
 
-      $snappedElement.fadeTo(0,1);
-      $('.snap').not($snappedElement).fadeTo(200,0.2);
+      // $snappedElement.fadeTo(0,1);
+      // $('.snap').not($snappedElement).fadeTo(200,0.2);
+    }
+
+
+  });
+
+  $(document).on('keyup', function (e) {
+    if (e.which === 13) {
+      alert("you pressed enter");
     }
   });
 
-  $('.snap').fadeTo(200,0.2);
-  $('.snap').first().fadeTo(0,1);
+  // $('.snap').fadeTo(200,0.2);
+  // $('.snap').first().fadeTo(0,1);
 
 };
 
