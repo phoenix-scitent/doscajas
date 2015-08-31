@@ -19,7 +19,7 @@ Template.sequence_attempt.helpers({
     }, 0));
   },
   shouldDisplay: function(){
-    var attempt = Sequences.findOne({_id: Session.get('currentAttemptId')}).attempt;
+    var attempt = Template.parentData(1).attempt;
     var wasAnsweredCorrectly = this.adaptive_completion;
     var thisAttempt = attempt && attempt.count;
     var wasAnsweredPreviously = (this.adaptive_completion != thisAttempt);
@@ -31,16 +31,13 @@ Template.sequence_attempt.helpers({
     return this.response_type === 'multiplechoice';
   },
   inReview: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-    return currentAttempt.attempt && currentAttempt.attempt.completed_at;
+    return Template.parentData(1).attempt && Template.parentData(1).attempt.completed_at;
   },
   showResourcesDuring: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-    return currentAttempt.show_linked_resources_during;
+    return Template.parentData(1).show_linked_resources_during;
   },
   showResourcesAfter: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-    return currentAttempt.show_linked_resources_after;
+    return Template.parentData(1).show_linked_resources_after;
   },
   log: function(something) {
     console.log(something);
@@ -51,8 +48,9 @@ Template.sequence_attempt.rendered = function(){
 
   $(document).scrollsnap({
     snaps: '.snap',
-    proximity: 100,
+    proximity: 300,
     offset: -100,
+    easing: 'easeInOutQuint',
     onSnap: function($snappedElement, silent) {
       var measureId = $snappedElement.data('id');
       var state = $snappedElement.data('state');
@@ -63,12 +61,17 @@ Template.sequence_attempt.rendered = function(){
         $snappedElement.data('state-updated', Date.now());
       }
 
+      window.focused_caja = $snappedElement;
+
+      $('button.scroll-prev').prop("disabled", ($('.snap').first()[0] == $snappedElement[0]));
+      $('button.scroll-next').prop("disabled", ($('.snap').last()[0] == $snappedElement[0]));
+
       console.log('onSnap', measureId, state, stateUpdated);
 
-      // $snappedElement.fadeTo(0,1);
-      // $('.snap').not($snappedElement).fadeTo(200,0.2);
-    }
 
+      $snappedElement.fadeTo(0,1);
+      $('.snap').not($snappedElement).fadeTo(200,0.2);
+    }
 
   });
 
@@ -78,16 +81,25 @@ Template.sequence_attempt.rendered = function(){
     }
   });
 
-  // $('.snap').fadeTo(200,0.2);
+  $('.snap').fadeTo(0,0.2);
   // $('.snap').first().fadeTo(0,1);
+  // window.focused_caja = $('.snap').first();
+  // $('button.scroll-prev').prop("disabled", true);
+
+  $('html, body').animate({
+    scrollTop: 1
+  }, 400);
 
 };
 
 Template.sequence_attempt.events({
   'click .scroll-prev': function(event) {
-    var $el = $(event.target);
+    var $el = window.focused_caja;
         $parentSection = $el.closest('.snap');
         $prevSection = $parentSection.prev('.snap');
+
+    $('.snap').fadeTo(200,0.2);
+    $prevSection.fadeTo(200,1);
 
     if($prevSection.offset()){
       $('html, body').animate({
@@ -96,9 +108,12 @@ Template.sequence_attempt.events({
     }
   },
   'click .scroll-next': function(event){
-    var $el = $(event.target);
+    var $el = window.focused_caja;
         $parentSection = $el.closest('.snap');
         $nextSection = $parentSection.next('.snap');
+
+    $('.snap').fadeTo(200,0.2);
+    $nextSection.fadeTo(200,1);
 
     if($nextSection.offset()){
       $('html, body').animate({ scrollTop: $nextSection.offset().top - 100
