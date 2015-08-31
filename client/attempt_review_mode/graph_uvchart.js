@@ -5,6 +5,9 @@ Template.graph_uvchart.helpers({
 });
 
 Template.graph_uvchart.rendered = function() {
+
+  // http://imaginea.github.io/uvCharts/documentation.html
+
   var attempts;
 
   var currentAttempt = Sequences.find({ _id: this.data.attemptId }).fetch();

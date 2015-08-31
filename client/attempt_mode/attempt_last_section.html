@@ -7,7 +7,34 @@
         </h2>
       </div>
       <div class="col-sm-8">
-        Please re-check your answers and click to submit when ready.
+        <!-- Please re-check your answers and click to submit when ready. -->
+        {{#if measuresUnanswered}}
+        <div id='measures-unanswered' class="ibox float-e-margins">
+          <div class="ibox-content">
+            <div style="padding: 3px; float:left">
+              <h2>{{sequence.name}}</h2>
+              <div style="padding-top: 3px;">
+                Make sure to answer <strong>all</strong> questions before submitting. You have not answered:
+                <br/>
+                <br/>
+                <ul>
+                {{#each unansweredMeasures}}
+                  <li><a class="measure-link" data-measure-position="{{this.position}}">({{this.position}}) {{this.name}}</a></li>
+                {{/each}}
+                </ul>
+              </div>
+            </div>
+            <div style="padding:10px; float:right">
+              <div>
+                <div style="padding-top:10px;">
+                  <!-- right content -->
+                </div>
+              </div>
+            </div>
+            <br clear="both"/>
+          </div>
+        </div>
+        {{/if}}
         <br><br>
         <a type="button" id='attempt-submit' class="btn btn-block btn-outline btn-info btn-small">Submit</a>
       </div>

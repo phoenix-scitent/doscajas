@@ -139,6 +139,7 @@ Template.sequence_attempt.events({
     var unansweredMeasures = answered[1];
 
     if(unansweredMeasures.length === 0){
+
       Meteor.call('completeAttempt', this._id, function(err, currentAttemptId) {
         if (err){
           alert(err);
@@ -147,7 +148,7 @@ Template.sequence_attempt.events({
         }
       });
     } else {
-      alert('Make sure to answer all questions before submitting. You have not answered ' + _.map(unansweredMeasures, function(measure){ return measure.position }).join(','))
+      $('#measures-unanswered').fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
     }
   },
   'click #return-to-results': function(event){

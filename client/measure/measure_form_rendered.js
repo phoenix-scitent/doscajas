@@ -148,7 +148,7 @@ Template.measure_form.rendered = function(){
               singleAnswer[p.part] = p.value;
             });
 
-            answers.push(singleAnswer)
+            answers.push(singleAnswer);
           });
 
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
@@ -181,7 +181,7 @@ Template.measure_form.rendered = function(){
                 owner: currentOwner,
                 performance_type: performanceType,
                 send_upload_to: null, //TODO: implement this
-                answers: answers,
+                answers: _.reject(answers, function(answer){ return answer.text === "" }),
                 tags: tags,
                 additions: [ ], //TODO: implement this
                 comments: [ ]  //TODO: implement this
@@ -210,7 +210,7 @@ Template.measure_form.rendered = function(){
               owner: currentOwner,
               performance_type: performanceType,
               send_upload_to: null, //TODO: implement this
-              answers: answers,
+              answers: _.reject(answers, function(answer){ return answer.text === "" }),
               tags: tags,
               additions: [ ], //TODO: implement this
               comments: [ ], //TODO: implement this
