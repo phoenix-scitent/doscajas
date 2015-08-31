@@ -1,38 +1,51 @@
 <template name="review_display">
-  <div class="ibox float-e-margins">
-    <div class="ibox-content">
-      <div id="review-display" style="padding: 3px; float:left">
-        <h2>Your Attempt Results</h2>
-      </div>
-      <div style="padding:10px; float:right">
-        <div>
-          <strong>Purpose</strong>: Please answer all measures.
-        </div>
-        <br>
-        <div>
-          {{#if hasUnlimitedAttempts}}
-            This is attempt {{currentAttemptsCount}}. You may attempt this section as many times as necessary.
-          {{else}}
-            This is attempt {{currentAttemptsCount}} out of {{possibleAttemptsCount}} possible attempts.
-          {{/if}}
-        </div>
-        {{#if shouldShowResults}}
-        <!-- <div> You answered (x) measures out of a total of (x). </div> -->
-        <div>
-          Your overall score is {{currentScore}} out of a possible {{totalScore}}. You {{#if hasPassed}} passed! {{else}} failed. {{/if}}
-        </div>
-        <br>
-        <div>
-          <strong>Topic based results</strong>
-          {{> topic_stats }}
-        </div>
-        {{/if}}
-        <div style="padding-top:10px;">
-          <a type="button" id='begin-button' class="btn btn-block btn-outline btn-info btn-small">Review</a>
-          <a type="button" id='dashboard-button' class="btn btn-block btn-outline btn-info btn-small">Return to Dashboard</a>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="widget style1">
+        <div class="row">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-trophy fa-5x"></i>
+            </div>
+            <div class="col-xs-8 text-right">
+                <span> 
+                  {{#if hasUnlimitedAttempts}}
+                    Attempt #{{currentAttemptsCount}}
+                  {{else}}
+                    Attempt #{{currentAttemptsCount}} out of {{possibleAttemptsCount}} allowed attempts.
+                  {{/if}}
+                </span>
+                <h2 class="font-bold">
+                  {{name}}
+                </h2>
+            </div>
         </div>
       </div>
-      <br clear="both"/>
+    </div>
+    <div class="col-sm-4">
+      <div class="widget {{#if hasPassed}}navy{{else}}red{{/if}}-bg p-lg text-center">
+          <div class="m-b-md">
+              <i class="fa fa-thumbs-{{#if hasPassed}}up{{else}}down{{/if}} fa-4x"></i>
+              <h1 class="m-xs">{{currentScore}} of {{totalScore}}</h1>
+              <h3 class="font-bold no-margins">
+                  {{#if hasPassed}}PASSED{{else}}FAILED{{/if}}
+              </h3>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 50px;">
+    <div class="col-sm-12">
+      {{#if shouldShowResults}}
+        {{> topic_stats }}
+      {{/if}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+      <a type="button" id='begin-button' class="btn btn-block btn-default btn-small">Review</a>
+      <a type="button" id='dashboard-button' class="btn btn-block btn-outline btn-success btn-small">Return to Dashboard</a>
     </div>
   </div>
 </template>

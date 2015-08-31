@@ -10,10 +10,10 @@ Template.graph_uvchart.rendered = function() {
 
   var attempts;
 
-  var currentAttempt = Sequences.find({ _id: this.data.attemptId }).fetch();
+  var currentAttempt = [Template.parentData(1)];
 
   if(currentAttempt[0].adaptive_retries){
-    attempts = Sequences.find({ 'attempt.original': this.data.sequenceId }).fetch();
+    attempts = Sequences.find({ 'attempt.original': currentAttempt[0].attempt.original }).fetch();
   } else {
     attempts = currentAttempt;
   }
@@ -37,6 +37,47 @@ Template.graph_uvchart.rendered = function() {
       return bars;
     }, {})
   };
+  var config = {
+    meta: {
+      position: ('#attempt-' + this.data.anchor_element)
+    },
+    graph: {
+      orientation: "Vertical",
+      bgcolor: 'none'
+    },
+    frame: {
+      bgcolor: 'none',
+      width: '800'
+    },
+    dimension: {
+      width: 800,
+      height: 300
+    },
+    axis: {
+      strokecolor: '#999',
+      fontfamily: 'open sans',
+      fontsize: 13,
+      padding: 15
+    },
+    label: {
+      fontfamily: 'open sans',
+      fontsize: 11,
+      fontweight: 300
+    },
+    legend: {
+      fontfamily: "open sans",
+      fontsize: 16
+    },
+    caption: {
+      fontfamily: "open sans"
+    },
+    tooltip: {
+      fontfamily: "open sans"
+    },
+    bar: {
+      fontfamily: "open sans"
+    }
+  }
 
-  var chart = uv.chart('StackedBar', graphdef, { meta: { position: ('#attempt-' + this.data.anchor_element) }, graph: { orientation: 'Vertical' } });
+  var chart = uv.chart('StackedBar', graphdef, config);
 };

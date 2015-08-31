@@ -1,35 +1,29 @@
 Template.review_display.helpers({
   hasUnlimitedAttempts: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-    return currentAttempt.attempts_allowed === Infinity;
+    console.log(["hasUnlimitedAttempts", this]);
+    return this.attempts_allowed === Infinity;
   },
   currentAttemptsCount: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-    return currentAttempt.attempt.count;
+    return this.attempt.count;
   },
   possibleAttemptsCount: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-    return currentAttempt.attempts_allowed;
+    return this.attempts_allowed;
   },
   currentScore: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-    return currentAttempt.attempt.score;
+    return this.attempt.score;
   },
   totalScore: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-    return currentAttempt.total_possible_score;
+    return this.total_possible_score;
   },
   hasPassed: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
 
-    if(currentAttempt.passing_rate_type === 'score'){
-      return currentAttempt.attempt.score >= currentAttempt.passing_rate;
+    if(this.passing_rate_type === 'score'){
+      return this.attempt.score >= this.passing_rate;
     } else /* percentage */ {
       return true;
     }
   },
   shouldShowResults: function(){
-    var currentAttempt = Sequences.findOne({ _id: Session.get('currentAttemptId') });
-    return currentAttempt.show_score_after;
+    return this.show_score_after;
   }
 });

@@ -13,6 +13,8 @@ Template.sequence_attempt.helpers({
     return this.caja_type === 'measure';
   },
   progress_percentage: function(){
+    if (!this.attempt)
+      return 100;
     var times = this.attempt.items.length;
     return Math.round(_.sum(this.attempt.items, function(i){
       return (i.is_answered) ? (100 / times) : 0;
