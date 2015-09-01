@@ -9,7 +9,3 @@ Template.topic_stats.helpers({
     console.log(something)
   }
 });
-
-Template.topic_stats.rendered = function(){
-
-};

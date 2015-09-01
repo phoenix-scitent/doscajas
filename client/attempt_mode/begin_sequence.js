@@ -8,10 +8,3 @@ Template.begin_sequence.rendered = function(){
 
 };
 
-Template.begin_sequence.events({
-  'click #begin-button': function(event){
-    //console.log(["#begin-button",Session.get('currentAttemptId')]);
-    Router.go("/a/"+Session.get('currentAttemptId'));
-  }
-});
-

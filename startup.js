@@ -11,6 +11,15 @@ Meteor.startup(function () {
     }
   }());
 
+  SEQUENCES = (function(){
+    return {
+      getAvailable: function(userId){
+        //TODO: scope to only those 'published' AND? only those the user has ACCESS/PERMISSIONS to
+        return Sequences.find({attempt:{"$exists":false}});
+      }
+    }
+  }());
+
   MEASURE_TYPES = [
     { name: 'Multiple Choice', slug: 'multiplechoice' },
     { name: 'Text Input', slug: 'textinput' },

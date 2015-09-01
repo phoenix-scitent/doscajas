@@ -1,3 +1,13 @@
+///////////
+// Usage //
+///////////
+
+// Params \\
+
+// anchor_element   (string to be used as graph element id: 'attempt-<anchor_element>')
+// sequenceId       (_id for the current sequence)
+// attemptId        (_id for the current attempt)
+
 Template.graph_uvchart.helpers({
   element_id: function(){
     return this.anchor_element;
@@ -77,7 +87,7 @@ Template.graph_uvchart.rendered = function() {
     bar: {
       fontfamily: "open sans"
     }
-  }
+  };
 
   var chart = uv.chart('StackedBar', graphdef, config);
 };

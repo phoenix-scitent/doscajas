@@ -1,7 +1,4 @@
 Template.sequence_interact.helpers({
-  sequences: function() {
-    return Sequences.find({attempt:{"$exists":false}});
-  },
   adaptiveInfo: function(){
     if(this.adaptive_retries){
       return '[adaptive]';
@@ -24,8 +21,8 @@ Template.sequence_interact.helpers({
 Template.sequence_interact.events({
   'click #reset-attempts': function(event){
     _.forEach(Sequences.find({ 'attempt.original': $(event.target).data('sequence') }).fetch(), function(attempt){
-      console.log('deleted: ', attempt)
-      Sequences.remove(attempt._id);
+      console.log('deleting: ', attempt);
+      Meteor.call('removeSequence', attempt._id);
     })
   }
 });
