@@ -36,10 +36,10 @@ Template.sequence_form.helpers({
     }
   },
   measures: function(){
-    return Measures.find().fetch();
+    return MEASURES.getAvailable({ userId: Meteor.userId() }).fetch();
   },
   resources: function(){
-    return Resources.find().fetch()
+    return RESOURCES.getAvailable({ userId: Meteor.userId() }).fetch()
   }
 });
 
@@ -175,7 +175,8 @@ Template.sequence_form.rendered = function(){
     }
   }).disableSelection();
 
-  var tags = Boks.find({ $or: [{ _id: BOK.current()._id }, { $and: [{ancestors: BOK.current()._id}, {public: true}] }] }).fetch();
+  var tags = BOK.getAllNodesByUser({ userId: Meteor.userId(), currentBokId: BOK.current()._id, publicOnly: true }).fetch();
+
   var formattedTags = _.map(tags, function(tag){
     var getTagName = function(tagId){
       return _.filter(tags, function(tag){ return tag._id === tagId })[0].name

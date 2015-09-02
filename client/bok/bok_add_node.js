@@ -10,23 +10,16 @@ Template.bok_add_node.events({
         $newTagInput = $( '#add-tag-input'),
         newTag = $newTagInput.val();
 
-    boks.addNode({
-      data: {
-        "name" : newTag,
-        "ancestors" : [ bokRoot._id ],
-        "position": Boks.find({ $and: [{ancestors: bokRoot._id}, {ancestors: { $size: 1 }}] }).count(),
-        "public": true,
-        "date_created": Date.now()
-      },
-      onSuccess: function(){
-        $(document).trigger('addNode');
-      },
-      onError: function(errors){
-        _.forEach(errors, function(error){
-          alert(error.message);
-        })
-      }
-    });
+    var node = {
+      "name" : newTag,
+      "ancestors" : [ bokRoot._id ],
+      "position": Boks.find({ $and: [{ancestors: bokRoot._id}, {ancestors: { $size: 1 }}] }).count(),
+      "public": true
+    };
+
+    if(newTag !== ""){
+      Meteor.call('addNode', node, function(err, doc){ if(err){ console.log('addNode ERROR: ', err) } else { $(document).trigger('addNode'); } });
+    }
 
     $newTagInput.val('');
 

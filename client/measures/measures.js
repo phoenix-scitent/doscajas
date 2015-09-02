@@ -4,9 +4,8 @@ Meteor.subscribe('users');
 Template.measures.helpers({
 
   measure_sections: function() {
-    //TODO: scope this to only those owned by current user
 
-    var measures = _.map(Measures.find({ tags: Session.get("current_cajas_filter") }).fetch(), function(measure){
+    var measures = _.map(MEASURES.getAvailable({ userId: Meteor.userId(), tags: Session.get('current_cajas_filter') }).fetch(), function(measure){
       measure.creator_data = Meteor.users.findOne({ _id: measure.owner });
       measure.tag_data = _.map(measure.tags, function(tag){ return Boks.findOne({ _id: tag }) });
       measure.correct_answer = _.find(measure.answers, function(answer){ return answer.correct === true });

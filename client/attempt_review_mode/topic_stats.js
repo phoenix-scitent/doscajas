@@ -1,9 +1,9 @@
 Template.topic_stats.helpers({
   currentSequenceId: function(){
-    return Session.get('currentSequenceId');
+    return Template.parentData(1).attempt.original;
   },
   currentAttemptId: function(){
-    return Session.get('currentAttemptId');
+    return Template.parentData(1)._id;
   },
   log: function(something){
     console.log(something)

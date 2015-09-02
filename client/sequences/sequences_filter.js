@@ -1,6 +1,7 @@
 Template.sequences_filter.rendered = function(){
 
-  var tags = Boks.find({ $or: [{ _id: BOK.current()._id }, { $and: [{ancestors: BOK.current()._id}, {public: true}] }] }).fetch();
+  var tags = BOK.getAllNodesByUser({ userId: Meteor.userId(), currentBokId: BOK.current()._id, publicOnly: true }).fetch();
+
   var formattedTags = _.map(tags, function(tag){
     var getTagName = function(tagId){
       return _.filter(tags, function(tag){ return tag._id === tagId })[0].name
