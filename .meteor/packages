@@ -23,8 +23,6 @@ aldeed:simple-schema
 aldeed:collection2
 aldeed:autoform
 deanius:promise
-msavin:mongol
-msavin:jetsetter
 matb33:collection-hooks
 dburles:collection-helpers
 astronomerio:core
@@ -32,3 +30,4 @@ kadira:debug
 reywood:publish-composite
 mrt:accounts-auth0
 d3js:d3
+constellation:console
