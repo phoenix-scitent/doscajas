@@ -3,7 +3,7 @@ Meteor.publish('boks', function() {
 });
 Meteor.publish('my_boks', function() {
   var me = Meteor.user()._id;
-  return Boks.find({$or: [ { authors: me }, { editors: me }, { publishers: me }, { admins: me } ]});
+  return Boks.find({$or: [ { 'permissions.authors': me }, { 'permissions.editors': me }, { 'permissions.publishers': me }, { 'permissions.admins': me } ]});
 });
 
 Boks.allow({

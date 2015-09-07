@@ -1,4 +1,4 @@
-Meteor.subscribe('boks');
+Meteor.subscribe('my_boks');
 
 Template.bok.helpers({
   bokRoot: function(){

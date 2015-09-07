@@ -102,7 +102,3 @@ Template.bok_tree.rendered = function(){
 
   });
 };
-
-Template.bok_tree.events({
-
-});

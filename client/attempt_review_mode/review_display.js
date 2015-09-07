@@ -1,6 +1,5 @@
 Template.review_display.helpers({
   hasUnlimitedAttempts: function(){
-    console.log(["hasUnlimitedAttempts", this]);
     return this.attempts_allowed === Infinity;
   },
   currentAttemptsCount: function(){
@@ -16,8 +15,8 @@ Template.review_display.helpers({
     return this.total_possible_score;
   },
   hasPassed: function(){
-
     if(this.passing_rate_type === 'score'){
+      console.log(this.attempt.score, this.passing_rate)
       return this.attempt.score >= this.passing_rate;
     } else /* percentage */ {
       return true;

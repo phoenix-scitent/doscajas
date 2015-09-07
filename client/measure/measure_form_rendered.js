@@ -27,29 +27,32 @@ Template.measure_form.rendered = function(){
       var index = index + 1,
           isCorrect = function(correct){
             if(correct){
-              return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' checked />'
+              return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="answer-correct-input checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' checked />'
             } else {
-              return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' />'
+              return '<input id="answer_'+ index +'_correct" name="answer_'+ index +'_correct" type="checkbox" class="answer-correct-input checkbox checkbox-success" data-answer-part="correct" data-answer-index='+ index +' />'
             }
           };
 
-      return '<div class="row">' +
-          '<div class="col-lg-3">' +
+      return '<div class="answer-row row">' +
+          '<div class="col-lg-1" style="padding-top:30px;">' +
+          '<button class="remove-answer btn btn-danger btn-circle" type="button"><i class="fa fa-times"></i></button>' +
+          '</div>' +
+          '<div class="answer-text col-lg-3">' +
           '<div class="form-group">' +
-          '<label>Answer #'+ index +'</label>' +
-          '<textarea id="answer_'+ index +'" name="answer_'+ index +'" type="text" class="form-control" rows="2" data-answer-part="text" data-answer-index='+ index +'>'+ answer.text +'</textarea>' +
+          '<label class="answer-text-label">Answer #'+ index +'</label>' +
+          '<textarea id="answer_'+ index +'" name="answer_'+ index +'" type="text" class="answer-text-textarea form-control" rows="2" data-answer-part="text" data-answer-index='+ index +'>'+ answer.text +'</textarea>' +
           '</div>' +
           '</div>' +
-          '<div class="col-lg-6">' +
+          '<div class="answer-feedback col-lg-6">' +
           '<div class="form-group">' +
-          '<label>Answer #'+ index +' Feedback</label>' +
-          '<textarea id="answer_'+ index +'_feedback" name="answer_'+ index +'_feedback" type="text" class="form-control" rows="2" data-answer-part="feedback" data-answer-index='+ index +'>'+ answer.feedback +'</textarea>' +
+          '<label class="answer-feedback-label">Answer #'+ index +' Feedback</label>' +
+          '<textarea id="answer_'+ index +'_feedback" name="answer_'+ index +'_feedback" type="text" class="answer-feedback-textarea form-control" rows="2" data-answer-part="feedback" data-answer-index='+ index +'>'+ (answer.feedback || '') +'</textarea>' +
           '</div>' +
           '</div>' +
-          '<div class="col-lg-3">' +
+          '<div class="answer-points col-lg-2">' +
           '<div class="form-group">' +
           '<label>Answer Points</label>' +
-          '<input type="text" class="form-control" data-answer-part="points" data-answer-index='+ index +' value="'+ (answer.points || '') +'" />' +
+          '<input type="text" class="answer-points-input form-control" data-answer-part="points" data-answer-index='+ index +' value="'+ (answer.points || '') +'" />' +
           '</div>' +
           '<div class="form-group">' +
           isCorrect(answer.correct) +
@@ -72,8 +75,8 @@ Template.measure_form.rendered = function(){
             if (newIndex === 3) {
               $(".wizard-big.wizard > .content").addClass("deep");
             } else {
-              $(".wizard-big.wizard > .content").removeClass("deep");              
-            } 
+              $(".wizard-big.wizard > .content").removeClass("deep");
+            }
             // Always allow going backward even if the current step contains invalid fields!
             if (currentIndex > newIndex)
             {
@@ -126,11 +129,13 @@ Template.measure_form.rendered = function(){
             $(this).children().each(function(){
               $(this).children().each(function(){
                 $(this).children().not('label').each(function(){
+                  if($(this).data('answer-index')){
                     rawAnswers.push({
                       index: $(this).data('answer-index'),
                       value: ($(this).data('answer-part') === 'correct' ? $(this).prop('checked') : $(this).val()),
                       part: $(this).data('answer-part')
                     });
+                  }
                   })
                 })
               })
@@ -153,7 +158,6 @@ Template.measure_form.rendered = function(){
 
           var currentOwnerSelectize = $('#current-owner')[0].selectize;
           var currentOwner = currentOwnerSelectize.getValue();
-          console.log(["current owner", currentOwner]);
           if (currentOwner === "") {
             currentOwner = Meteor.user()._id;
           }
@@ -220,7 +224,7 @@ Template.measure_form.rendered = function(){
                 alert("FAILED Insert");
                 console.log(error);
               } else {
-                Router.go('/measure/'+ docId +'/inspect');                
+                Router.go('/measure/'+ docId +'/inspect');
               }
             })
           }
@@ -262,7 +266,7 @@ Template.measure_form.rendered = function(){
     });
 
     //TODO: scope these to this user, pull data source out of here and into router?
-    var tags = Boks.find({ $or: [{ _id: BOK.current()._id }, { $and: [{ancestors: BOK.current()._id}] }] }).fetch();
+    var tags = BOK.getAllNodesByUser({ userId: Meteor.userId(), currentBokId: BOK.current()._id, publicOnly: true }).fetch();
     var formattedTags = _.map(tags, function(tag){
       var getTagName = function(tagId){
         return _.filter(tags, function(tag){ return tag._id === tagId })[0].name
@@ -279,7 +283,7 @@ Template.measure_form.rendered = function(){
 
       return tag;
     });
-    var resources = Resources.find({ tags: BOK.current()._id }).fetch();
+    var resources = RESOURCES.getAvailable({ userId: Meteor.userId(), tags: BOK.current()._id }).fetch();
     var fetchEmbeddedResource = Resources.findOne({ _id: (this.data && this.data.embedded_resource) });
     var currentEmbeddedResource = fetchEmbeddedResource && fetchEmbeddedResource._id;
     var currentLinkedResources = _.map(Resources.find({ _id: { $in: ((this.data && this.data.linked_resources) || []) } }).fetch(), function(resource){

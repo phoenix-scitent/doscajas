@@ -157,4 +157,3 @@ Template.sequence_attempt.events({
     window.scrollTo(0 /* x-coord */, 0 /* y-coord */);
   }
 });
-

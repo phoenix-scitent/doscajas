@@ -1,9 +1,9 @@
-Meteor.subscribe('boks');
+Meteor.subscribe('my_boks');
 
 Template.navigation.helpers({
   boks: function() {
-    //TODO: scope this to only those owned by current user...
-    return Boks.find({ancestors: []});
+    var me = Meteor.user()._id;
+    return BOK.getAllRootsByUser({ userId: me });
   }
 });
 
