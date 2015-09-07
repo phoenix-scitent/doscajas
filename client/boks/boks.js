@@ -1,4 +1,9 @@
-Meteor.subscribe('boks');
+Template.boks.onCreated(function() {
+  var self = this;
+  self.autorun(function() {
+    self.subscribe('my_boks');
+  });
+});
 
 Template.boks.helpers({
   boks: function() {
