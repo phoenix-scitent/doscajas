@@ -4,9 +4,9 @@ Meteor.publish('comments', function() {
 
 Comments.allow({
   insert: function(userId, doc) {
-    return true;
+    return false;
   },
   update: function(userId, doc) {
-    return true;
+    return false;
   }
 });

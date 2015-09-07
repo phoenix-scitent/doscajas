@@ -9,12 +9,12 @@ Meteor.publish('sequences_and_attempts_for_user', function(userId) {
 
 Sequences.allow({
   insert: function(userId, doc) {
-    return true;
+    return false;
   },
   update: function(userId, doc) {
-    return true;
+    return false;
   },
   remove: function(userId, doc) {
-    return true;
+    return false;
   }
 });

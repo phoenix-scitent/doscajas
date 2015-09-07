@@ -8,9 +8,9 @@ Meteor.publish('my_boks', function() {
 
 Boks.allow({
   insert: function(userId, doc) {
-    return true;
+    return false;
   },
   update: function(userId, doc) {
-    return true;
+    return false;
   }
 });
