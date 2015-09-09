@@ -82,6 +82,13 @@ Meteor.startup(function () {
     }
   }());
 
+  BOK_PERMISSIONS = [
+    { name: 'Administrator', slug: 'admin' },
+    { name: 'Publisher', slug: 'publisher' },
+    { name: 'Editor', slug: 'editor' },
+    { name: 'Author', slug: 'author' }
+  ];
+
   MEASURE_TYPES = [
     { name: 'Multiple Choice', slug: 'multiplechoice' },
     { name: 'Text Input', slug: 'textinput' },

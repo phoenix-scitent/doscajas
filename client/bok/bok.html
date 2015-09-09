@@ -7,28 +7,45 @@
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-6">
-                <div class="ibox ">
+              <div class="ibox ">
                     <div class="ibox-title">
                         <h5>Body of Knowledge Graph for: <strong>{{ bokRoot.name }}</strong></h5>
                     </div>
                     <div class="ibox-content">
 
                         <p class="m-b-lg">
-                            {{> bok_add_node }}
+                          {{#if canCreateNodes}}{{> bok_add_node }}{{/if}}
                         </p>
                       <a class="btn btn-default root_bok_tag">
                         <strong>{{ bokRoot.name }}</strong>
                       </a>
-                      
+
                       {{> bok_tree nodes=bokNodes }}
 
                     </div>
 
                 </div>
+              {{#if canAddUsers}}
+              <div class="ibox ">
+                <div class="ibox-title">
+                  <h5>Add users for: <strong>{{ bokRoot.name }}</strong></h5>
+                </div>
+                <div class="ibox-content">
+
+                  <p class="m-b-lg">
+                    {{> bok_create_invitation }}
+                  </p>
+
+                  {{> bok_invitations }}
+
+                </div>
+
+              </div>
+              {{/if}}
             </div>
             <div class="col-lg-6">
               {{# if selected_leaf_node }}
-                {{> bok_leaf_edit leaf=selected_leaf_node }}
+                {{> bok_leaf_edit leaf=selected_leaf_node canCreate=canCreateNodes }}
               {{/if}}
 
               {{> bok_activity }}

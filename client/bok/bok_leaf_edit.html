@@ -1,4 +1,5 @@
 <template name="bok_leaf_edit">
+  {{#if canCreate}}
   <div class="ibox float-e-margins animate-bok-edit">
     <div class="ibox-title yellow-bg ">
       <h5>Editing: <em>{{ leaf.name }}</em></h5>
@@ -11,7 +12,7 @@
                     <div class="form-group"><label>Name</label> <input type="text" placeholder="name this tag" class="form-control" id="bok-leaf-name" value="{{ leaf.name }}"></div>
                     <div>
                         <button class="btn btn-primary pull-right" type="submit" id="save-bok"><strong>Save this Tag</strong></button>
-                        
+
                         {{#if leaf.public}}
                         <button class="btn btn-primary btn-xs " id="make-private" type="button"><i class="fa fa-globe"></i>&nbsp;Public</button>
                         {{ else }}
@@ -23,6 +24,7 @@
         </div>
     </div>
   </div>
+  {{/if}}
   <div class="ibox float-e-margins animate-bok-edit">
     <div class="ibox-title">
       <h5>Cajas por <em>{{ leaf.name }}</em></h5>

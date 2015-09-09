@@ -1,6 +1,32 @@
 Meteor.subscribe('my_boks');
 
 Template.bok.helpers({
+  canAddUsers: function(){
+    var me = Meteor.user()._id,
+        bok = this.fetch()[0],
+        permission = null;
+
+    _.forEach(bok.permissions, function(value, key){
+      if(_.some(value, function(id){ return id === me })){
+        permission = key;
+      }
+    });
+
+    return (permission === 'admins');
+  },
+  canCreateNodes: function(){
+    var me = Meteor.user()._id,
+        bok = this.fetch()[0],
+        permission = null;
+
+    _.forEach(bok.permissions, function(value, key){
+      if(_.some(value, function(id){ return id === me })){
+        permission = key;
+      }
+    });
+
+    return (permission === 'admins' || permission === 'publishers');
+  },
   bokRoot: function(){
     var root = _.select(this.fetch(), function(node){ return node.ancestors.length === 0 })[0];
 

@@ -1,4 +1,4 @@
-Template.bokCreate.events({
+Template.bok_create.events({
   'click #bok-create-button': function(e){
     var $rootNameInput = $('#bok-create-input'),
         rootName = $rootNameInput.val(),
