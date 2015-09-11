@@ -37,14 +37,17 @@ Meteor.startup(function () {
   MEASURES = (function(){
     return {
       getAvailable: function(options){
-        var userId = options.userId || Meteor.user()._id,
+        var bokId = options.bokId || Meteor.user().profile.last_bok,
+            userId = options.userId || Meteor.user()._id,
             tags = options.tags || '';
 
-        //TODO: scope to only those 'published' AND? only those the user has ACCESS/PERMISSIONS to (if sequence owner, OR if has access rights through bok permissions object [which may be different in UI])
+        //TODO: scope to only those 'published'
+        var bokPermissions = _.map(Boks.find({$or: [ { 'permissions.authors': userId }, { 'permissions.editors': userId }, { 'permissions.publishers': userId }, { 'permissions.admins': userId } ]}).fetch(), function(bok){ return bok._id });
+
         if(tags !== ''){
-          return Measures.find({owner: userId, tags: tags});
+          return Measures.find({ $and: [{ $or: [{owner: userId}, {tags: {$in: bokPermissions}}] }, {tags: tags}] });
         } else {
-          return Measures.find({owner: userId});
+          return Measures.find({ $and: [{ $or: [{owner: userId}, {tags: {$in: bokPermissions}}] }, {tags: bokId} ]});
         }
       }
     }
@@ -53,14 +56,19 @@ Meteor.startup(function () {
   RESOURCES = (function(){
     return {
       getAvailable: function(options){
-        var userId = options.userId || Meteor.user()._id,
+        var bokId = options.bokId || Meteor.user().profile.last_bok,
+            userId = options.userId || Meteor.user()._id,
             tags = options.tags || '';
 
-        //TODO: scope to only those 'published' AND? only those the user has ACCESS/PERMISSIONS to (if sequence owner, OR if has access rights through bok permissions object [which may be different in UI])
+        //TODO: scope to only those 'published'
+        var bokPermissions = _.map(Boks.find({$or: [ { 'permissions.editors': userId }, { 'permissions.publishers': userId }, { 'permissions.admins': userId } ]}).fetch(), function(bok){ return bok._id });
+
         if(tags !== ''){
-          return Resources.find({owner: userId, tags: tags});
+          console.log(tags, 'there are tags', bokId)
+          return Resources.find({ $and: [{ $or: [{owner: userId}, {tags: {$in: bokPermissions}}] }, {tags: tags}] });
         } else {
-          return Resources.find({owner: userId});
+          console.log(tags, 'no tags', bokId)
+          return Resources.find({ $and: [{ $or: [{owner: userId}, {tags: {$in: bokPermissions}}] }, {tags: bokId} ]});
         }
       }
     }
@@ -69,14 +77,17 @@ Meteor.startup(function () {
   SEQUENCES = (function(){
     return {
       getAvailable: function(options){
-        var userId = options.userId || Meteor.user()._id,
+        var bokId = options.bokId || Meteor.user().profile.last_bok,
+            userId = options.userId || Meteor.user()._id,
             tags = options.tags || '';
 
-        //TODO: scope to only those 'published' AND? only those the user has ACCESS/PERMISSIONS to (if sequence owner, OR if has access rights through bok permissions object [which may be different in UI])
+        //TODO: scope to only those 'published'
+        var bokPermissions = _.map(Boks.find({$or: [ { 'permissions.publishers': userId }, { 'permissions.admins': userId } ]}).fetch(), function(bok){ return bok._id });
+
         if(tags !== ''){
-          return Sequences.find({attempt:{"$exists":false}, owner: userId, tags: tags});
+          return Sequences.find({ $and: [{ $or: [{owner: userId}, {tags: {$in: bokPermissions}}] }, {attempt:{"$exists":false}}, {tags: tags}] });
         } else {
-          return Sequences.find({attempt:{"$exists":false}, owner: userId});
+          return Sequences.find({$and: [{attempt:{"$exists":false}}, { $or: [{owner: userId}, {tags: {$in: bokPermissions}}] }, {tags: bokId}] });
         }
       }
     }

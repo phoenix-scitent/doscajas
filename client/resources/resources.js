@@ -4,7 +4,7 @@ Meteor.subscribe('users');
 Template.resources.helpers({
   resource_sections: function() {
 
-    var resources = _.map(RESOURCES.getAvailable({ userId: Meteor.userId(), tags: Session.get('current_cajas_filter') }).fetch(), function(resource){
+    var resources = _.map(RESOURCES.getAvailable({ bokId: BOK.current()._id, userId: Meteor.userId(), tags: Session.get('current_cajas_filter') }).fetch(), function(resource){
       resource.creator_data = Meteor.users.findOne({ _id: resource.owner });
       resource.tag_data = _.map(resource.tags, function(tag){ return Boks.findOne({ _id: tag }) });
       resource.formatted_date_created = moment(resource.date_created).format('MMMM Do YYYY, h:mm:ss a');

@@ -1,8 +1,8 @@
-Meteor.publish('measure_activity', function() {
-  return MeasureActivity.find();
+Meteor.publish('measure_events', function() {
+  return MeasureEvents.find();
 });
 
-MeasureActivity.allow({
+MeasureEvents.allow({
   insert: function(userId, doc) {
     return false;
   },

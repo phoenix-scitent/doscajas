@@ -18,9 +18,7 @@ Template.cajas_filter.rendered = function(){
     return tag;
   });
 
-  if(Session.get('current_cajas_filter') === undefined){
-    Session.set('current_cajas_filter', BOK.current()._id);
-  }
+  Session.set('current_cajas_filter', BOK.current()._id);
 
   $("#cajas-filter").selectize({
     plugins: ['remove_button'],

@@ -19,9 +19,7 @@ Template.sequences_filter.rendered = function(){
     return tag;
   });
 
-  if(Session.get('current_sequence_filter') === undefined){
-    Session.set('current_sequence_filter', BOK.current()._id);
-  }
+  Session.set('current_sequence_filter', BOK.current()._id);
 
   $("#sequences-filter").selectize({
     plugins: ['remove_button'],

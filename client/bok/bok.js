@@ -187,28 +187,15 @@ Template.bok.events({
   'click #save-bok': function(e){
     e.preventDefault();
     // Save the Name Change
-    Boks.update(Session.get("selected_leaf_node"), {
-      $set: {
-        name: $("#bok-leaf-name").val(),
-        updated_at: Date.now()
-      }
-    });
+    Meteor.call('submitBok', Session.get("selected_leaf_node"), { name: $("#bok-leaf-name").val(), updated_at: Date.now() }, function(err, doc) { if (err){ alert(err); } else { /* noop */ } });
     // Unset the Change Panel
     Session.set("selected_leaf_node", undefined);
   },
   'click #make-public': function(e){
-    Boks.update(Session.get("selected_leaf_node"), {
-      $set: {
-        public: true
-      }
-    });
+    Meteor.call('submitBok', Session.get("selected_leaf_node"), { public: true }, function(err, doc) { if (err){ alert(err); } else { /* noop */ } });
   },
   'click #make-private': function(e){
-    Boks.update(Session.get("selected_leaf_node"), {
-      $set: {
-        public: false
-      }
-    });
+    Meteor.call('submitBok', Session.get("selected_leaf_node"), { public: false }, function(err, doc) { if (err){ alert(err); } else { /* noop */ } });
   },
   'click #leaf-view-measures': function(e){
     Session.set('current_measure_filter', Session.get("selected_leaf_node"));

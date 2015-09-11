@@ -169,67 +169,43 @@ Template.measure_form.rendered = function(){
           var difficulty = $('#difficulty').val();
           var moderatorEmail = $('#moderator-email').val();
 
+          var measure = {
+            question_text: question,
+            description: description,
+            type: 'measure',
+            response_type: questionType,
+            embedded_resource: supportingResource,
+            linked_resources: linkedResources,
+            weight: weighting,
+            difficulty: difficulty,
+            moderator: moderatorEmail,
+            status: 'published', //TODO: implement this
+            owner: currentOwner,
+            performance_type: performanceType,
+            send_upload_to: null, //TODO: implement this
+            answers: _.reject(answers, function(answer){ return answer.text === "" }),
+            tags: tags,
+            additions: [ ], //TODO: implement this
+            comments: [ ] //TODO: implement this
+          };
+
           if(templateData && templateData._id){
-            Measures.update(templateData._id, {
-              $set: {
-                question_text: question,
-                description: description,
-                type: 'measure',
-                response_type: questionType,
-                embedded_resource: supportingResource,
-                linked_resources: linkedResources,
-                weight: weighting,
-                difficulty: difficulty,
-                moderator: moderatorEmail,
-                status: 'published', //TODO: implement this
-                owner: currentOwner,
-                performance_type: performanceType,
-                send_upload_to: null, //TODO: implement this
-                answers: _.reject(answers, function(answer){ return answer.text === "" }),
-                tags: tags,
-                additions: [ ], //TODO: implement this
-                comments: [ ]  //TODO: implement this
-                //date_created: Date.now()
-              }
-            }, function(error, docId){
-              if (error) {
-                alert("FAILED Insert");
-                console.log(error);
+            Meteor.call('submitMeasure', templateData._id, measure, function(err, docId) {
+              if (err){
+                console.log(err);
               } else {
                 Router.go('/measure/'+ templateData._id +'/inspect');
               }
             });
           } else {
-            Measures.insert({
-              question_text: question,
-              description: description,
-              type: 'measure',
-              response_type: questionType,
-              embedded_resource: supportingResource,
-              linked_resources: linkedResources,
-              weight: weighting,
-              difficulty: difficulty,
-              moderator: moderatorEmail,
-              status: 'published', //TODO: implement this
-              owner: currentOwner,
-              performance_type: performanceType,
-              send_upload_to: null, //TODO: implement this
-              answers: _.reject(answers, function(answer){ return answer.text === "" }),
-              tags: tags,
-              additions: [ ], //TODO: implement this
-              comments: [ ], //TODO: implement this
-              date_created: Date.now()
-            }, function(error, docId){
-              if (error) {
-                alert("FAILED Insert");
-                console.log(error);
+            Meteor.call('submitMeasure', null, _.extend(measure, { date_created: Date.now() }), function(err, docId) {
+              if (err){
+                console.log(err);
               } else {
                 Router.go('/measure/'+ docId +'/inspect');
               }
-            })
+            });
           }
-
-          //console.log(question, questionType, description, supportingResource, linkedResources, tags, answers, currentOwner, weighting, moderatorEmail);
 
           ////////////////////
           // deal with form //

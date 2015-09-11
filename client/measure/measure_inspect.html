@@ -57,19 +57,19 @@
                     <div class="tab-content">
                       <div class="tab-pane active" id="tab-1">
                         <div class="feed-activity-list">
-                          {{#each measure_activity}}
+                          {{#each measure_event}}
                           <div class="feed-element">
                             <a href="#" class="pull-left">
                               <img alt="image" class="img-circle" src="/img/a4.jpg">
                             </a>
                             <div class="media-body ">
                               <small class="pull-right text-muted">{{ created_at }}</small>
-                              <strong>{{ user.name }}</strong> 
+                              <strong>{{ user.name }}</strong>
                               {{#if correct}}
                               <small class="label label-primary">
                                 correctly
                               </small>&nbsp;
-                              {{/if}} 
+                              {{/if}}
                               answered this measure <br>
                               <div class="well">
                                 {{ text }}
@@ -298,7 +298,7 @@
         <h4>Answer Choices</h4>
         <ul>
           {{#each answers}}
-          <li>{{text}} 
+          <li>{{text}}
             {{#if correct}}
             <span class="label label-primary"><i class="fa fa-check"></i></span>
             {{/if}}

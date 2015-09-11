@@ -30,14 +30,10 @@ Template.bok_tree.rendered = function(){
             });
           },
           updateNodeAncestors = function(currentNodeId, newAncestors){
-            Boks.update(currentNodeId, {
-              $set: {
-                ancestors: newAncestors
-              }
-            });
+            Meteor.call('updateNodeAncestors', currentNodeId, newAncestors, function(err, doc) { if (err){ alert(err); } else { /* noop */ } });
           },
           updateNodePosition = function(currentNodeId, newPosition){
-            Boks.update(currentNodeId, { $set: { position: newPosition } });
+            Meteor.call('updateNodePosition', currentNodeId, newPosition, function(err, doc) { if (err){ alert(err); } else { /* noop */ } });
           };
 
       if(!(nodeParent === nodeOldParent)){

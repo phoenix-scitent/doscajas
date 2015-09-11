@@ -1,13 +1,13 @@
 Meteor.subscribe('measures');
-Meteor.subscribe('measure_activity');
+Meteor.subscribe('measure_events');
 Meteor.subscribe('users');
 
 Template.measure_inspect.helpers({
   measure: function() {
     return this;
   },
-  measure_activity: function() {
-    return _.sortByOrder(MeasureActivity.findOne({measure_id: this._id}).activities, ['created_at'], ['desc']);
+  measure_event: function() {
+    return _.sortByOrder(MeasureEvents.findOne({measure_id: this._id}).events, ['created_at'], ['desc']);
   },
   title: function() {
     return this.question_text.substring(0,30);

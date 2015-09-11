@@ -21,7 +21,7 @@ Meteor.methods({
         throw new Meteor.Error(result.statusCode, errorJson.error);
       }
     } else {
-      Resources.update(resource_id, {$set: {not_a_url: true}});
+      Resourcess.update(resource_id, {$set: {not_a_url: true}});
       throw new Meteor.Error(geturl.statusCode, "Is not a valid URL");
     }
   },
