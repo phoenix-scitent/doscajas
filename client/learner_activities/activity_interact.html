@@ -1,0 +1,19 @@
+<template name="activity_interact">
+  <div class="">
+    {{#if hasAttemptsLeft}}
+      <div class="ibox float-e-margins">
+        <div class="ibox-content">
+          <h2 class="">
+          <span class="{{isActiveRoute regex='activity_attempt'}}">
+            {{# linkTo route='begin_activity' }}
+              <i class="fa fa-leftarrow"></i> {{name}}
+            {{/linkTo}}
+          </span></h2>
+          <span>{{attemptsLeft}}</span><span> {{adaptiveInfo}}</span>
+        </div>
+      </div>
+    {{else}}
+      <h2>{{name}}</h2><a type="button" id="reset-attempts" data-activity="{{_id}}" class="btn btn-block btn-outline btn-primary btn-small"><i class="fa fa-refresh"></i> RESET ATTEMPTS</a>
+    {{/if}}
+  </div>
+</template>

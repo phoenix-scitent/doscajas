@@ -24,10 +24,17 @@ Template.navigation.events({
       Meteor.logout();
       Router.go('/');
     },
-    'click #build-a-sequence-nav': function() {
-      sequence_id = Meteor.call("buildBlankSequence", function(err, _id){
+    'click #build-a-course-nav': function() {
+      course_id = Meteor.call("buildBlankCourse", function(err, _id){
         if (!err) {
-          Router.go("sequenceEdit", {_id:_id});
+          Router.go("courseEdit", {_id:_id});
+        }
+      });
+    },
+    'click #build-an-activity-nav': function() {
+      activity_id = Meteor.call("buildBlankActivity", function(err, _id){
+        if (!err) {
+          Router.go("activityEdit", {_id:_id});
         }
       });
     }

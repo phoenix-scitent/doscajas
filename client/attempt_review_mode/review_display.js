@@ -15,14 +15,12 @@ Template.review_display.helpers({
     return this.total_possible_score;
   },
   hasPassed: function(){
-    if(this.passing_rate_type === 'score'){
-      console.log(this.attempt.score, this.passing_rate)
-      return this.attempt.score >= this.passing_rate;
-    } else /* percentage */ {
-      return true;
-    }
+    return ATTEMPTS.passed(this);
   },
   shouldShowResults: function(){
     return this.show_score_after;
+  },
+  originalActivityId: function(){
+    return Activities.findOne({ _id: this.attempt.original })._id;
   }
 });

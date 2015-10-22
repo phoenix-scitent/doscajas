@@ -1,0 +1,43 @@
+<template name="activity_results">
+  {{#if isAdaptive}}
+    {{> graph_uvchart anchor_element=this._id activityId=currentActivityId attemptId=latestAttempt}}
+  {{else}}
+    {{#each attemptIds activity=currentActivity}}
+     <div>
+       <div class="ibox">
+         <div class="ibox-title">
+           <h5>Attempt: {{attemptCompletion attemptId=this._id}}</h5>
+           <div class="ibox-tools">
+             <a class="collapse-link ui-sortable">
+               <i class="fa fa-chevron-up"></i>
+             </a>
+           </div>
+         </div>
+         <div class="ibox-content" style="display: none;">
+           <!-- <h2>This is simple box container nr. 3</h2> -->
+           <p>
+           <div>
+             <strong>Topic based results</strong>
+           {{> graph_uvchart anchor_element=this._id activityId=currentActivityId attemptId=this._id}}
+           </div>
+           <!--
+           <div>
+             <strong>Historical/Progress based results</strong>: How you are doing from attempt to attempt
+           </div>
+           <div>
+             <strong>Measure type based results</strong>: How well you did by type
+           </div>
+           <div>
+             <strong>Peer based results</strong>: How well you did in relation to peers
+           </div>
+           <div>
+             <strong>Activity difficulty</strong>: How this activity sits based on difficulty of itself via measures or between other activities
+           </div>
+           -->
+           </p>
+         </div>
+       </div>
+     </div>
+    {{/each}}
+  {{/if}}
+</template>

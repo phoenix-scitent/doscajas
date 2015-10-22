@@ -1,0 +1,6 @@
+div.wrapper#activity-wrapper {
+  padding-top: 150px;
+}
+div.activity-item h1{
+  margin-top: -0.2em;
+}

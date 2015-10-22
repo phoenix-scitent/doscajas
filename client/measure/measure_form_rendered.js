@@ -356,7 +356,7 @@ Template.measure_form.rendered = function(){
       valueField: 'slug',
       searchField: 'name',
       options: PERFORMANCE_TYPES,
-      items: [ (this.data && this.data.performance_type) ]
+      items: [ (this.data && this.data.performance_type) || 'undecided' ]
     });
 
     $('#weighting-wrapper').prepend('<input id="weighting" name="weighting" type="text" class="form-control" value="'+ ((this.data && this.data.weight) || '') +'">');

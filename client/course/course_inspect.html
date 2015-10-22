@@ -1,0 +1,121 @@
+<template name="course_inspect">
+
+
+  <!-- Page heading -->
+  {{> pageHeading title=title category="Courses" category_url="/courses" }}
+
+
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="wrapper wrapper-content animated fadeInUp">
+        <div class="ibox">
+          <div class="ibox-content">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="m-b-md">
+                  <a href="/course/{{ _id }}/edit" class="btn btn-white btn-xs pull-right">Edit Course</a>
+                  <h2>{{ name }}</h2>
+                </div>
+                <dl class="dl-horizontal">
+                  <dt>Status:</dt> <dd><span class="label label-primary">Published</span></dd>
+                </dl>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-5">
+                <dl class="dl-horizontal">
+
+                  <dt>Owner:</dt> <dd>{{ owner.profile.name }}</dd>
+                </dl>
+              </div>
+              <div class="col-lg-7" id="cluster_info">
+                <dl class="dl-horizontal" >
+                  <dt>Last Updated:</dt> <dd>16.08.2014 12:15:57</dd>
+                  <dt>Created:</dt> <dd> 	10.07.2014 23:36:57 </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="row m-t-sm">
+              <div class="col-lg-12">
+                <div class="panel blank-panel">
+                  <div class="panel-heading">
+                    <div class="panel-options">
+                      <ul class="nav nav-tabs">
+                        <li class=""><a href="#tab-2" data-toggle="tab">Learner events</a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="panel-body">
+
+                    <div class="tab-content">
+
+                      <div class="tab-pane" id="tab-2">
+
+                        <table class="table table-striped">
+                          <thead>
+                          <tr>
+                            <th>Status</th>
+                            <th>Learner</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Scoring</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td>
+                              <span class="label label-primary"><i class="fa fa-check"></i> Completed</span>
+                            </td>
+                            <td>
+                              Timothy Johnson
+                            </td>
+                            <td>
+                              12.07.2014 10:10:1
+                            </td>
+                            <td>
+                              14.07.2014 10:16:36
+                            </td>
+                            <td>
+                              <p class="small">
+                                Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable.
+                              </p>
+                            </td>
+
+                          </tr>
+
+                          </tbody>
+                        </table>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="wrapper wrapper-content project-manager">
+        <div id="course-description">
+          <h4>Description</h4>
+          <p class="small">
+            {{ description }}
+          </p>
+        </div>
+        <div id="course-contents">
+          <h5>Contents</h5>
+          <ul class="tag-list" style="padding: 0">
+            {{#each items}}
+              <li><a href="/activities/{{ _id }}/inspect"><i class="fa fa-check-square-o"></i> {{ itemName item=this }}</a></li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -2,7 +2,7 @@
   background-color: #eee !important;
 }
 
-.sequence-progress .navbar-default {
+.activity-progress .navbar-default {
   z-index: 9999;
   border-top: 2px solid rgba(0,0,0,0.1) !important;
   padding: 1em 0px;

@@ -7,7 +7,7 @@ Template.resources.helpers({
     var resources = _.map(RESOURCES.getAvailable({ bokId: BOK.current()._id, userId: Meteor.userId(), tags: Session.get('current_cajas_filter') }).fetch(), function(resource){
       resource.creator_data = Meteor.users.findOne({ _id: resource.owner });
       resource.tag_data = _.map(resource.tags, function(tag){ return Boks.findOne({ _id: tag }) });
-      resource.formatted_date_created = moment(resource.date_created).format('MMMM Do YYYY, h:mm:ss a');
+      resource.formatted_date_created = moment(resource.created_at).format('MMMM Do YYYY, h:mm:ss a');
 
       // var comments_count = resource.comments.length;
       // var suggestions_count = resource.suggestions.length;

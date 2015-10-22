@@ -1,0 +1,138 @@
+<template name="activity_options_form">
+
+  <div class="row">
+    <div class="col-lg-4">
+          <div class="form-group">
+            <label>Activty Name</label>
+            <div class="input-group" style="width:100%">
+              <input id="activity-name" type="text" class="form-control input-lg" value="{{act.name}}" placeholder="Name the Activity" data-attribute-name="name" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Activty Display Image</label>
+            <div class="input-group" style="width:100%">
+              <input id="activity-image" type="text" class="form-control input-lg" value="{{act.style.background_url}}" placeholder="Add link to image" data-attribute-name="style.background_url" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div id='link-wrapper' class="form-group"></div>
+            <label>Activity Type</label>
+            <div class="input-group" style="width:100%">
+              <select id="activity-type" style="width:95%" tabindex="4"  data-attribute-name="type"></select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Attempts Allowed</label>
+            <div class="input-group m-b">
+              {{#if hasUnlimitedAttempts}}
+                <input id="attempts-allowed" type="number" name="quantity" class="form-control" data-attribute-name="attempts_allowed" value="&infin;" readonly />
+              {{else}}
+                <input id="attempts-allowed" type="number" name="quantity" class="form-control" data-attribute-name="attempts_allowed" value="{{act.attempts_allowed}}" />
+              {{/if}}
+              <div class="input-group-btn">
+                  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">{{{attempts_allowed_type}}} <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                      <li><a href="#" class="aa" data-value="limited">Limited</a></li>
+                      <li><a href="#" class="aa" data-value="unlimited">Unlimited</a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Passing Rate</label>
+            <div class="input-group m-b">
+              <input id="passing-rate" type="number" name="quantity" class="form-control" data-attribute-name="passing_rate" value="{{act.passing_rate}}">
+              <div class="input-group-btn">
+                  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">{{#if passing_rate_percentage}} % {{else}} out of {{act.total_possible_score}}{{/if}} <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                      <li><a href="#" class="pr" data-value="percentage">Percentage</a></li>
+                      <li><a href="#" class="pr" data-value="score">out of {{act.total_possible_score}}</a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="col-lg-4">
+
+          <div class="form-group">
+            <div class="checkbox checkbox-primary">
+              {{{checkbox_for 'adaptive_retries' 'Adaptive Retries'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-primary">
+              {{{checkbox_for 'randomize_items' 'Randomize Items'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-danger">
+              {{{checkbox_for 'randomize_answers' 'Randomize Answers within each Measure'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-primary">
+            {{{checkbox_for 'allow_incorrect_answers' 'Allow Incorrect Answers'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-primary" >
+            {{{checkbox_for 'show_linked_resources_during' 'Show Linked Resources During Activity'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-primary">
+            {{{checkbox_for 'show_linked_resources_after' 'Show Linked Resources After Activity'}}}
+             </div>
+          </div>
+    </div>
+
+    <div class="col-lg-4">
+          <div class="form-group">
+            <div class="checkbox checkbox-success">
+            {{{checkbox_for 'show_feedback_during' 'Show Feedback During Activity'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-success">
+            {{{checkbox_for 'show_feedback_after' 'Show Feedback After Activity'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-primary">
+            {{{checkbox_for 'show_score_after' 'Show Learner Scores and Charts After Activity is Complete'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-danger">
+            {{{checkbox_for 'allow_skip_ahead' 'Allow Skip Ahead (user may skip measures without selecting an answer)'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-danger">
+            {{{checkbox_for 'use_measure_weighting' 'Use Weighting set on Measures (if unchecked, every measure is worth 1 point)'}}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox checkbox-danger">
+            {{{checkbox_for 'allow_score_scaling_on_incorrect_attempts' 'Allow Score Scaling of Incorrect Attempts to Answer'}}}
+            </div>
+          </div>
+    </div>
+  </div>
+
+</template>

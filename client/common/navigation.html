@@ -37,13 +37,24 @@
                       {{/each}}
                     </ul>
                 </li>
-                <li class="{{isActiveRoute regex='sequences|sequence|intro_lesson|adaptive_quiz|final_quiz'}}">
-                    <a href="#"><i class="fa fa-sort-numeric-asc"></i> <span class="nav-label">Sequences</span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level {{isActiveRoute regex='sequences|sequence|intro_lesson|adaptive_quiz|final_quiz' className='in'}}">
+              <li class="{{isActiveRoute regex='courses|course'}}">
+                <a href="#"><i class="fa fa-sort-numeric-asc"></i> <span class="nav-label">Courses</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level {{isActiveRoute regex='courses|course' className='in'}}">
+                  {{#if dat_bok }}
+                    <li class="{{isActiveRoute regex='courses'}}"><a href="{{pathFor route='courses'}}">All Courses</a></li>
+                    <li class="">
+                      <a href="" id="build-a-course-nav"><i class="fa fa-plus"></i> Build a Course</a>
+                    </li>
+                  {{/if}}
+                </ul>
+              </li>
+                <li class="{{isActiveRoute regex='activities|activity|intro_lesson|adaptive_quiz|final_quiz'}}">
+                    <a href="#"><i class="fa fa-sort-numeric-asc"></i> <span class="nav-label">Activities</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level {{isActiveRoute regex='activities|activity|intro_lesson|adaptive_quiz|final_quiz' className='in'}}">
                         {{#if dat_bok }}
-                        <li class="{{isActiveRoute regex='sequences'}}"><a href="{{pathFor route='sequences'}}">All Sequences</a></li>
+                        <li class="{{isActiveRoute regex='activities'}}"><a href="{{pathFor route='activities'}}">All Activities</a></li>
                         <li class="">
-                          <a href="" id="build-a-sequence-nav"><i class="fa fa-plus"></i> Build a Sequence</a>
+                          <a href="" id="build-an-activity-nav"><i class="fa fa-plus"></i> Build an Activity</a>
                         </li>
                         {{/if}}
                     </ul>

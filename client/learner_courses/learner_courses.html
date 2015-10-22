@@ -1,0 +1,16 @@
+<template name="learner_courses">
+  <div class="wrapper wrapper-content" style="padding:0 60px 60px 60px;">
+    <div class="row animated fadeInTop">
+      {{#each courses}}
+        <div class="row" style="padding-top:60px;">
+          <div class="col-md-3">
+            {{> course_interact}}
+          </div>
+          <div class="col-md-9">
+
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

@@ -7740,7 +7740,7 @@
         prev = type;
       }
 
-      // W5. A sequence of European terminators adjacent to European
+      // W5. A course of European terminators adjacent to European
       // numbers changes to all European numbers.
       // W6. Otherwise, separators and terminators change to Other
       // Neutral.
@@ -7764,7 +7764,7 @@
         else if (isStrong.test(type)) cur = type;
       }
 
-      // N1. A sequence of neutrals takes the direction of the
+      // N1. A course of neutrals takes the direction of the
       // surrounding strong text if the text on both sides has the same
       // direction. European and Arabic numbers act as if they were R in
       // terms of their influence on neutrals. Start-of-level-run (sor)

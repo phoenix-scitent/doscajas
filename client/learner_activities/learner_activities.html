@@ -1,0 +1,16 @@
+<template name="learner_activities">
+  <div class="wrapper wrapper-content" style="padding:0 60px 60px 60px;">
+    <div class="row animated fadeInTop">
+      {{#each activities}}
+        <div class="row" style="padding-top:60px;">
+          <div class="col-md-3">
+            {{> activity_interact}}
+          </div>
+          <div class="col-md-9">
+            {{> activity_results}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

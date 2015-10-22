@@ -7,7 +7,7 @@
                 <i class="fa fa-trophy fa-5x"></i>
             </div>
             <div class="col-xs-8 text-right">
-                <span> 
+                <span>
                   {{#if hasUnlimitedAttempts}}
                     Attempt #{{currentAttemptsCount}}
                   {{else}}
@@ -45,7 +45,7 @@
     </div>
     <div class="col-sm-4">
       <a type="button" id='begin-button' class="btn btn-block btn-default btn-small">Review</a>
-      <a type="button" id='dashboard-button' class="btn btn-block btn-outline btn-success btn-small">Return to Dashboard</a>
+      <a type="button" id='dashboard-button' data-id="{{originalActivityId}}" class="btn btn-block btn-outline btn-success btn-small">Return to Activity Dashboard</a>
     </div>
   </div>
 </template>

@@ -5,7 +5,7 @@
 // Params \\
 
 // anchor_element   (string to be used as graph element id: 'attempt-<anchor_element>')
-// sequenceId       (_id for the current sequence)
+// activityId       (_id for the current activity)
 // attemptId        (_id for the current attempt)
 
 Template.graph_uvchart.helpers({
@@ -20,10 +20,10 @@ Template.graph_uvchart.rendered = function() {
 
   var attempts;
 
-  var currentAttempt = Sequences.find({ _id: this.data.attemptId }).fetch();
-  
+  var currentAttempt = Activities.find({ _id: this.data.attemptId }).fetch();
+
   if(currentAttempt[0].adaptive_retries){
-    attempts = Sequences.find({ 'attempt.original': this.data.sequenceId }).fetch();
+    attempts = Activities.find({ 'attempt.original': this.data.activityId, 'attempt.completed_at': {"$ne":null} }).fetch();
   } else {
     attempts = currentAttempt;
   }

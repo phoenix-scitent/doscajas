@@ -1,0 +1,22 @@
+<template name="course_options_form">
+
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label>Course Name</label>
+        <div class="input-group" style="width:100%">
+          <input id="course-name" type="text" class="form-control input-lg input-option" value="{{cou.name}}" placeholder="Name the Course" data-attribute-name="name" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Course Description</label>
+        <div class="input-group" style="width:100%">
+          <textarea id="course-description" class="form-control input-lg input-option" value="{{cou.description}}" placeholder="Add description" data-attribute-name="description"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4"></div>
+  </div>
+
+</template>

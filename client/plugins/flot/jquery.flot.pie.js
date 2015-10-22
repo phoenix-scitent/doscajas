@@ -278,7 +278,7 @@ More detail and specific examples can be found in the included HTML file.
 			// call processDatapoints, the flag is true, and nothing happens.
 
 			// To fix this we'll set the flag back to false here in draw, when
-			// all series have been processed, so the next sequence of calls to
+			// all series have been processed, so the next course of calls to
 			// processDatapoints once again starts out with a slice-combine.
 			// This is really a hack; in 0.9 we need to give plugins a proper
 			// way to modify series before any processing begins.

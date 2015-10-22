@@ -1,0 +1,19 @@
+<template name="activities">
+
+  <!-- Page heading -->
+  {{> pageHeading title='Activities' }}
+
+  {{> activities_filter }}
+
+  <div class="wrapper wrapper-content animated fadeInRight blog">
+    <div class="row">
+      {{#each activity_sections}}
+        <div class="col-lg-4">
+          {{#each this}}
+            {{> activity_card }}
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

@@ -1,5 +1,5 @@
 Template.topic_stats.helpers({
-  currentSequenceId: function(){
+  currentActivityId: function(){
     return Template.parentData(1).attempt.original;
   },
   currentAttemptId: function(){
